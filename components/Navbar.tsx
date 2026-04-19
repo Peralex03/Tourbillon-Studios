@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { useRouter, usePathname } from "@/i18n/navigation";
+import { useRouter, usePathname, Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 
 export default function Navbar() {
@@ -42,6 +42,9 @@ export default function Navbar() {
           <a href="#testimonials" className="hover:text-gray-900 transition-colors">
             {t("testimonials")}
           </a>
+          <Link href="/blog" className="hover:text-gray-900 transition-colors">
+            {t("blog")}
+          </Link>
           <a href="#contact" className="hover:text-gray-900 transition-colors">
             {t("contact")}
           </a>

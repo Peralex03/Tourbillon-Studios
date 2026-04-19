@@ -26,6 +26,12 @@ export default function Contact() {
             {t("heading")}
           </h2>
           <p className="text-gray-500 mt-4 text-lg">{t("subtitle")}</p>
+          <a
+            href="mailto:contact@tourbillonstudios.ch"
+            className="inline-block mt-3 text-sm font-medium text-violet-600 hover:underline"
+          >
+            {t("email_display")}
+          </a>
         </FadeIn>
 
         <FadeIn delay={0.1}>

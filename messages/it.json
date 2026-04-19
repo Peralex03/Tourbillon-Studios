@@ -1,15 +1,16 @@
 {
   "nav": {
     "services": "Servizi",
-    "testimonials": "Testimonianze",
+    "testimonials": "Realizzazioni",
+    "blog": "Blog",
     "contact": "Contatto",
     "cta": "Avvia un progetto"
   },
   "hero": {
-    "badge": "Zurigo · Ginevra · Losanna",
+    "badge": "Ginevra · Losanna · Zurigo",
     "headline1": "La vostra presenza digitale,",
     "headline2": "senza compromessi.",
-    "subtitle": "Creiamo siti vetrina, web app ed e-commerce con la precisione svizzera che vi distingue — completato da shooting fotografici professionali.",
+    "subtitle": "Tourbillon Studios crea siti vetrina, web app, e-commerce e produzioni foto/video con la precisione svizzera che vi distingue.",
     "cta1": "Scopri i servizi",
     "cta2": "Prendere contatto →"
   },
@@ -18,45 +19,52 @@
     "heading": "I nostri servizi",
     "subtitle": "Dalla progettazione al lancio, curiamo ogni dettaglio per consegnarvi un prodotto impeccabile.",
     "vitrine": {
-      "title": "Sito Vetrina",
-      "description": "Una presenza web d'impatto che rispecchia la vostra identità e trasforma i visitatori in clienti."
+      "title": "Sito Vetrina & Corporate",
+      "description": "Siti veloci, eleganti e SEO-ready che rispecchiano la vostra identità e convertono i visitatori in clienti."
     },
     "webapp": {
-      "title": "Web App",
-      "description": "Applicazioni aziendali su misura, performanti e scalabili, adattate ai vostri processi."
+      "title": "Web App & Dashboard",
+      "description": "Applicazioni aziendali su misura con backoffice, gestione prenotazioni, workflow automatizzati e pannello di amministrazione."
     },
     "ecommerce": {
       "title": "E-Commerce",
-      "description": "Negozi online ottimizzati per la conversione, con gestione del magazzino e pagamenti integrati."
+      "description": "Negozi online ottimizzati per la conversione — gestione magazzino, pagamento integrato, esperienza d'acquisto fluida."
     },
     "photo": {
-      "title": "Fotografia",
-      "description": "Shooting di prodotto, corporate ed eventi per immagini che fanno la differenza."
+      "title": "Foto & Video",
+      "description": "Shooting corporate, immobiliare ed eventi. Scansioni 3D Matterport, droni certificati, contenuti social media."
     }
+  },
+  "projects": {
+    "label": "Le nostre realizzazioni",
+    "heading": "Progetti recenti",
+    "subtitle": "Progetti diversi, la stessa esigenza.",
+    "viewAll": "Tutti i progetti →"
   },
   "testimonials": {
     "label": "Cosa dicono di noi",
     "heading": "Testimonianze",
     "t1": {
-      "quote": "Tourbillon Studios ha trasformato la nostra presenza online. Il nostro sito genera ora richieste di preventivo ogni settimana. Lavoro curato, scadenze rispettate.",
-      "name": "Marc Lecomte",
-      "company": "Lecomte Architectes, Losanna"
+      "quote": "Tourbillon Studios ha consegnato la nostra piattaforma concierge nei tempi previsti, con un backoffice intuitivo e un'identità visiva curata.",
+      "name": "Your Swiss Concierge",
+      "company": "Mobilità & concierge di lusso, Ginevra"
     },
     "t2": {
-      "quote": "Il nostro e-commerce ha triplicato il tasso di conversione in tre mesi. Il team capisce davvero le esigenze di business, non solo il design.",
-      "name": "Sophie Charron",
-      "company": "Maison Charron · Boutique online"
+      "quote": "Hanno creato l'identità completa di Aspaklaria — fotografia, e-commerce, branding. Il risultato supera le nostre aspettative.",
+      "name": "Aspaklaria Collection",
+      "company": "E-commerce orologi di lusso"
     },
     "t3": {
-      "quote": "La web app consegnata supera tutte le nostre aspettative — interfaccia fluida, codice pulito e un accompagnamento fotografico che ha davvero professionalizzato la nostra immagine.",
-      "name": "Romain Auriol",
-      "company": "AurTech SaaS, Ginevra"
+      "quote": "Per Late Night hanno curato la direzione creativa e la produzione foto/video a Milano. Un livello di esigenza raro, deliverable impeccabili.",
+      "name": "Late Night",
+      "company": "Collezione moda di lusso, Milano"
     }
   },
   "contact": {
     "label": "Lavoriamo insieme",
     "heading": "Un progetto in mente?",
     "subtitle": "Descriveteci il vostro progetto e vi ricontatteremo entro 24 ore.",
+    "email_display": "contact@tourbillonstudios.ch",
     "name": "Nome",
     "email": "Email",
     "message": "Il vostro progetto",
@@ -66,7 +74,15 @@
     "successText": "Vi ricontatteremo entro 24 ore."
   },
   "footer": {
-    "tagline": "Swiss Made Digital · Zurigo · Ginevra · Losanna",
+    "tagline": "Swiss Made Digital · Ginevra · Losanna · Zurigo",
     "copyright": "Tourbillon Studios. Tutti i diritti riservati."
+  },
+  "blog": {
+    "label": "Insights",
+    "heading": "Blog",
+    "subtitle": "Consigli, guide e risorse per sviluppare la vostra presenza digitale in Svizzera.",
+    "readMore": "Leggi l'articolo →",
+    "backToBlog": "← Torna al blog",
+    "minRead": "min di lettura"
   }
 }

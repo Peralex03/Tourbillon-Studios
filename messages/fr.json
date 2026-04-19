@@ -1,15 +1,16 @@
 {
   "nav": {
     "services": "Services",
-    "testimonials": "Témoignages",
+    "testimonials": "Réalisations",
+    "blog": "Blog",
     "contact": "Contact",
     "cta": "Démarrer un projet"
   },
   "hero": {
-    "badge": "Zürich · Genève · Lausanne",
+    "badge": "Genève · Lausanne · Zürich",
     "headline1": "Votre présence digitale,",
     "headline2": "sans compromis.",
-    "subtitle": "Nous concevons des sites vitrines, web apps et e-commerces avec la précision suisse qui vous démarque — complété par des shootings photo professionnels.",
+    "subtitle": "Tourbillon Studios conçoit des sites vitrines, web apps, e-commerces et productions photo/vidéo avec la précision suisse qui vous démarque.",
     "cta1": "Voir nos services",
     "cta2": "Prendre contact →"
   },
@@ -18,55 +19,70 @@
     "heading": "Nos services",
     "subtitle": "De la conception à la mise en ligne, nous gérons chaque détail pour vous délivrer un produit irréprochable.",
     "vitrine": {
-      "title": "Site Vitrine",
-      "description": "Une présence web impactante qui reflète votre identité et transforme les visiteurs en clients."
+      "title": "Site Vitrine & Corporate",
+      "description": "Des sites rapides, élégants et SEO-ready qui reflètent votre identité et convertissent vos visiteurs en clients."
     },
     "webapp": {
-      "title": "Web App",
-      "description": "Des applications métier sur mesure, performantes et évolutives, adaptées à vos processus."
+      "title": "Web App & Dashboard",
+      "description": "Applications métier sur mesure avec backoffice, gestion de réservations, workflows automatisés et panneau d'administration."
     },
     "ecommerce": {
       "title": "E-Commerce",
-      "description": "Boutiques en ligne optimisées pour la conversion, avec gestion de stock et paiement intégrés."
+      "description": "Boutiques en ligne optimisées pour la conversion — gestion de stock, paiement intégré, expérience d'achat fluide."
     },
     "photo": {
-      "title": "Photographie",
-      "description": "Shootings produit, corporate et événementiel pour des visuels qui font la différence."
+      "title": "Photo & Vidéo",
+      "description": "Shootings corporate, immobiliers et événementiels. Scans 3D Matterport, drones certifiés, contenu social media."
     }
+  },
+  "projects": {
+    "label": "Nos réalisations",
+    "heading": "Projets récents",
+    "subtitle": "Des projets variés, une même exigence.",
+    "viewAll": "Voir tous les projets →"
   },
   "testimonials": {
     "label": "Ce qu'ils disent",
     "heading": "Témoignages",
     "t1": {
-      "quote": "Tourbillon Studios a transformé notre présence en ligne. Notre site vitrine génère maintenant des demandes de devis chaque semaine. Travail soigné, délais respectés.",
-      "name": "Marc Lecomte",
-      "company": "Lecomte Architectes, Lausanne"
+      "quote": "Tourbillon Studios a livré notre plateforme de conciergerie dans les délais, avec un backoffice intuitif et une identité visuelle soignée. Communication claire du début à la fin.",
+      "name": "Your Swiss Concierge",
+      "company": "Mobilité & conciergerie de luxe, Genève"
     },
     "t2": {
-      "quote": "Notre boutique e-commerce a vu son taux de conversion tripler en trois mois. L'équipe comprend vraiment les enjeux business, pas seulement le design.",
-      "name": "Sophie Charron",
-      "company": "Maison Charron · Boutique en ligne"
+      "quote": "Ils ont créé l'identité complète d'Aspaklaria — photographie, e-commerce, branding. Le résultat dépasse ce qu'on imaginait au départ.",
+      "name": "Aspaklaria Collection",
+      "company": "E-commerce de montres de luxe"
     },
     "t3": {
-      "quote": "La web app livrée dépasse toutes nos attentes — interface fluide, code propre, et un accompagnement photo qui a vraiment professionnalisé notre image.",
-      "name": "Romain Auriol",
-      "company": "AurTech SaaS, Genève"
+      "quote": "Pour Late Night, ils ont assuré la direction créative et la production photo/vidéo à Milan. Un niveau d'exigence rare, des livrables impeccables.",
+      "name": "Late Night",
+      "company": "Collection de mode de luxe, Milan"
     }
   },
   "contact": {
     "label": "Travaillons ensemble",
     "heading": "Un projet en tête ?",
     "subtitle": "Décrivez-nous votre projet et nous revenons vers vous sous 24h.",
+    "email_display": "contact@tourbillonstudios.ch",
     "name": "Nom",
     "email": "Email",
     "message": "Votre projet",
     "messagePlaceholder": "Décrivez votre projet, vos objectifs, votre budget approximatif...",
     "submit": "Envoyer le message",
     "successTitle": "Message envoyé !",
-    "successText": "On revient vers vous dans les 24 heures."
+    "successText": "On revient vers vous dans les 24 heures à contact@tourbillonstudios.ch"
   },
   "footer": {
-    "tagline": "Swiss Made Digital · Zürich · Genève · Lausanne",
+    "tagline": "Swiss Made Digital · Genève · Lausanne · Zürich",
     "copyright": "Tourbillon Studios. Tous droits réservés."
+  },
+  "blog": {
+    "label": "Insights",
+    "heading": "Blog",
+    "subtitle": "Conseils, guides et ressources pour développer votre présence digitale en Suisse.",
+    "readMore": "Lire l'article →",
+    "backToBlog": "← Retour au blog",
+    "minRead": "min de lecture"
   }
 }
