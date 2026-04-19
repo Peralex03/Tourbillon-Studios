@@ -1,15 +1,30 @@
-export default function Footer() {
+import { getTranslations } from "next-intl/server";
+
+function SwissCross() {
+  return (
+    <svg viewBox="0 0 16 16" className="w-3.5 h-3.5 shrink-0" aria-hidden="true">
+      <rect width="16" height="16" rx="2.5" fill="#FF0000" />
+      <rect x="6.5" y="2.5" width="3" height="11" fill="white" />
+      <rect x="2.5" y="6.5" width="11" height="3" fill="white" />
+    </svg>
+  );
+}
+
+export default async function Footer() {
+  const t = await getTranslations("footer");
+
   return (
     <footer className="border-t border-gray-100 bg-white py-10 px-6">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-        <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6">
-          <span className="text-base font-semibold text-gray-900">
-            Tourbillon<span className="text-violet-600">.</span>
-          </span>
-          <span className="text-sm text-gray-400 hidden md:block">·</span>
-          <span className="text-sm text-gray-400">
-            Créer. Convertir. Marquer les esprits.
-          </span>
+        <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
+          <div className="flex items-center gap-2">
+            <SwissCross />
+            <span className="text-base font-semibold text-gray-900">
+              Tourbillon<span className="text-violet-600">.</span>
+            </span>
+          </div>
+          <span className="text-sm text-gray-300 hidden md:block">|</span>
+          <span className="text-sm text-gray-400">{t("tagline")}</span>
         </div>
 
         <div className="flex items-center gap-5">
@@ -36,7 +51,7 @@ export default function Footer() {
         </div>
 
         <p className="text-sm text-gray-400">
-          © {new Date().getFullYear()} Tourbillon Studios. Tous droits réservés.
+          © {new Date().getFullYear()} {t("copyright")}
         </p>
       </div>
     </footer>

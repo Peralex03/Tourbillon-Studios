@@ -1,0 +1,72 @@
+{
+  "nav": {
+    "services": "Services",
+    "testimonials": "Témoignages",
+    "contact": "Contact",
+    "cta": "Démarrer un projet"
+  },
+  "hero": {
+    "badge": "Zürich · Genève · Lausanne",
+    "headline1": "Votre présence digitale,",
+    "headline2": "sans compromis.",
+    "subtitle": "Nous concevons des sites vitrines, web apps et e-commerces avec la précision suisse qui vous démarque — complété par des shootings photo professionnels.",
+    "cta1": "Voir nos services",
+    "cta2": "Prendre contact →"
+  },
+  "services": {
+    "label": "Ce que nous faisons",
+    "heading": "Nos services",
+    "subtitle": "De la conception à la mise en ligne, nous gérons chaque détail pour vous délivrer un produit irréprochable.",
+    "vitrine": {
+      "title": "Site Vitrine",
+      "description": "Une présence web impactante qui reflète votre identité et transforme les visiteurs en clients."
+    },
+    "webapp": {
+      "title": "Web App",
+      "description": "Des applications métier sur mesure, performantes et évolutives, adaptées à vos processus."
+    },
+    "ecommerce": {
+      "title": "E-Commerce",
+      "description": "Boutiques en ligne optimisées pour la conversion, avec gestion de stock et paiement intégrés."
+    },
+    "photo": {
+      "title": "Photographie",
+      "description": "Shootings produit, corporate et événementiel pour des visuels qui font la différence."
+    }
+  },
+  "testimonials": {
+    "label": "Ce qu'ils disent",
+    "heading": "Témoignages",
+    "t1": {
+      "quote": "Tourbillon Studios a transformé notre présence en ligne. Notre site vitrine génère maintenant des demandes de devis chaque semaine. Travail soigné, délais respectés.",
+      "name": "Marc Lecomte",
+      "company": "Lecomte Architectes, Lausanne"
+    },
+    "t2": {
+      "quote": "Notre boutique e-commerce a vu son taux de conversion tripler en trois mois. L'équipe comprend vraiment les enjeux business, pas seulement le design.",
+      "name": "Sophie Charron",
+      "company": "Maison Charron · Boutique en ligne"
+    },
+    "t3": {
+      "quote": "La web app livrée dépasse toutes nos attentes — interface fluide, code propre, et un accompagnement photo qui a vraiment professionnalisé notre image.",
+      "name": "Romain Auriol",
+      "company": "AurTech SaaS, Genève"
+    }
+  },
+  "contact": {
+    "label": "Travaillons ensemble",
+    "heading": "Un projet en tête ?",
+    "subtitle": "Décrivez-nous votre projet et nous revenons vers vous sous 24h.",
+    "name": "Nom",
+    "email": "Email",
+    "message": "Votre projet",
+    "messagePlaceholder": "Décrivez votre projet, vos objectifs, votre budget approximatif...",
+    "submit": "Envoyer le message",
+    "successTitle": "Message envoyé !",
+    "successText": "On revient vers vous dans les 24 heures."
+  },
+  "footer": {
+    "tagline": "Swiss Made Digital · Zürich · Genève · Lausanne",
+    "copyright": "Tourbillon Studios. Tous droits réservés."
+  }
+}

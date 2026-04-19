@@ -1,0 +1,72 @@
+{
+  "nav": {
+    "services": "Servizi",
+    "testimonials": "Testimonianze",
+    "contact": "Contatto",
+    "cta": "Avvia un progetto"
+  },
+  "hero": {
+    "badge": "Zurigo · Ginevra · Losanna",
+    "headline1": "La vostra presenza digitale,",
+    "headline2": "senza compromessi.",
+    "subtitle": "Creiamo siti vetrina, web app ed e-commerce con la precisione svizzera che vi distingue — completato da shooting fotografici professionali.",
+    "cta1": "Scopri i servizi",
+    "cta2": "Prendere contatto →"
+  },
+  "services": {
+    "label": "Cosa facciamo",
+    "heading": "I nostri servizi",
+    "subtitle": "Dalla progettazione al lancio, curiamo ogni dettaglio per consegnarvi un prodotto impeccabile.",
+    "vitrine": {
+      "title": "Sito Vetrina",
+      "description": "Una presenza web d'impatto che rispecchia la vostra identità e trasforma i visitatori in clienti."
+    },
+    "webapp": {
+      "title": "Web App",
+      "description": "Applicazioni aziendali su misura, performanti e scalabili, adattate ai vostri processi."
+    },
+    "ecommerce": {
+      "title": "E-Commerce",
+      "description": "Negozi online ottimizzati per la conversione, con gestione del magazzino e pagamenti integrati."
+    },
+    "photo": {
+      "title": "Fotografia",
+      "description": "Shooting di prodotto, corporate ed eventi per immagini che fanno la differenza."
+    }
+  },
+  "testimonials": {
+    "label": "Cosa dicono di noi",
+    "heading": "Testimonianze",
+    "t1": {
+      "quote": "Tourbillon Studios ha trasformato la nostra presenza online. Il nostro sito genera ora richieste di preventivo ogni settimana. Lavoro curato, scadenze rispettate.",
+      "name": "Marc Lecomte",
+      "company": "Lecomte Architectes, Losanna"
+    },
+    "t2": {
+      "quote": "Il nostro e-commerce ha triplicato il tasso di conversione in tre mesi. Il team capisce davvero le esigenze di business, non solo il design.",
+      "name": "Sophie Charron",
+      "company": "Maison Charron · Boutique online"
+    },
+    "t3": {
+      "quote": "La web app consegnata supera tutte le nostre aspettative — interfaccia fluida, codice pulito e un accompagnamento fotografico che ha davvero professionalizzato la nostra immagine.",
+      "name": "Romain Auriol",
+      "company": "AurTech SaaS, Ginevra"
+    }
+  },
+  "contact": {
+    "label": "Lavoriamo insieme",
+    "heading": "Un progetto in mente?",
+    "subtitle": "Descriveteci il vostro progetto e vi ricontatteremo entro 24 ore.",
+    "name": "Nome",
+    "email": "Email",
+    "message": "Il vostro progetto",
+    "messagePlaceholder": "Descrivete il vostro progetto, i vostri obiettivi, il budget approssimativo...",
+    "submit": "Invia il messaggio",
+    "successTitle": "Messaggio inviato!",
+    "successText": "Vi ricontatteremo entro 24 ore."
+  },
+  "footer": {
+    "tagline": "Swiss Made Digital · Zurigo · Ginevra · Losanna",
+    "copyright": "Tourbillon Studios. Tutti i diritti riservati."
+  }
+}

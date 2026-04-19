@@ -1,0 +1,72 @@
+{
+  "nav": {
+    "services": "Leistungen",
+    "testimonials": "Referenzen",
+    "contact": "Kontakt",
+    "cta": "Projekt starten"
+  },
+  "hero": {
+    "badge": "Zürich · Genf · Lausanne",
+    "headline1": "Ihre digitale Präsenz,",
+    "headline2": "kompromisslos.",
+    "subtitle": "Wir gestalten Webauftritte, Web-Apps und Online-Shops mit Schweizer Präzision — ergänzt durch professionelle Fotografie.",
+    "cta1": "Leistungen entdecken",
+    "cta2": "Kontakt aufnehmen →"
+  },
+  "services": {
+    "label": "Was wir tun",
+    "heading": "Unsere Leistungen",
+    "subtitle": "Von der Konzeption bis zum Launch — jedes Detail wird mit der Sorgfalt bearbeitet, die Sie verdienen.",
+    "vitrine": {
+      "title": "Webauftritt",
+      "description": "Ein wirkungsvoller Internetauftritt, der Ihre Identität widerspiegelt und Besucher zu Kunden macht."
+    },
+    "webapp": {
+      "title": "Web-Applikation",
+      "description": "Massgeschneiderte Business-Applikationen, leistungsstark und skalierbar, angepasst an Ihre Prozesse."
+    },
+    "ecommerce": {
+      "title": "E-Commerce",
+      "description": "Für Konversion optimierte Online-Shops mit integrierter Lagerverwaltung und Zahlungsabwicklung."
+    },
+    "photo": {
+      "title": "Fotografie",
+      "description": "Produkt-, Corporate- und Event-Fotografie für Bilder, die einen bleibenden Eindruck hinterlassen."
+    }
+  },
+  "testimonials": {
+    "label": "Was unsere Kunden sagen",
+    "heading": "Referenzen",
+    "t1": {
+      "quote": "Tourbillon Studios hat unseren Webauftritt vollständig transformiert. Unsere Website generiert nun wöchentlich Offertanfragen. Sorgfältige Arbeit, Termine eingehalten.",
+      "name": "Marc Lecomte",
+      "company": "Lecomte Architectes, Lausanne"
+    },
+    "t2": {
+      "quote": "Unser Online-Shop hat seine Konversionsrate in drei Monaten verdreifacht. Das Team versteht wirklich die geschäftlichen Anforderungen, nicht nur das Design.",
+      "name": "Sophie Charron",
+      "company": "Maison Charron · Online-Shop"
+    },
+    "t3": {
+      "quote": "Die gelieferte Web-App übertrifft alle unsere Erwartungen — flüssige Benutzeroberfläche, sauberer Code und eine Fotografie, die unser Image professionalisiert hat.",
+      "name": "Romain Auriol",
+      "company": "AurTech SaaS, Genf"
+    }
+  },
+  "contact": {
+    "label": "Zusammenarbeiten",
+    "heading": "Ein Projekt in Planung?",
+    "subtitle": "Beschreiben Sie uns Ihr Projekt und wir melden uns innerhalb von 24 Stunden.",
+    "name": "Name",
+    "email": "E-Mail",
+    "message": "Ihr Projekt",
+    "messagePlaceholder": "Beschreiben Sie Ihr Projekt, Ihre Ziele, Ihr ungefähres Budget...",
+    "submit": "Nachricht senden",
+    "successTitle": "Nachricht gesendet!",
+    "successText": "Wir melden uns innerhalb von 24 Stunden bei Ihnen."
+  },
+  "footer": {
+    "tagline": "Swiss Made Digital · Zürich · Genf · Lausanne",
+    "copyright": "Tourbillon Studios. Alle Rechte vorbehalten."
+  }
+}
