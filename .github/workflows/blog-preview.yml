@@ -1,9 +1,7 @@
-name: 📋 Blog — Preview hebdomadaire
+name: Blog - Preview hebdomadaire
 
 on:
   schedule:
-    # Lundi 07h00 UTC = 09h00 CEST (été) / 08h00 CET (hiver)
-    # S'envoie AVANT la génération quotidienne (08h00 UTC)
     - cron: "0 7 * * 1"
   workflow_dispatch:
 
@@ -26,33 +24,26 @@ jobs:
             const topics = require('./scripts/topics.json');
             const pending = topics.filter(t => t.status === 'pending').slice(0, 7);
             if (pending.length === 0) {
-              console.log('Aucun sujet en attente. Ajouter des sujets dans scripts/topics.json');
+              process.stdout.write('Aucun sujet en attente.');
             } else {
-              pending.forEach((t, i) => console.log((i + 1) + '. ' + t.topic));
+              pending.forEach((t, i) => process.stdout.write((i + 1) + '. ' + t.topic + '\n'));
             }
           ")
 
-          TOTAL_DONE=$(node -e "
-            const t = require('./scripts/topics.json');
-            console.log(t.filter(x => x.status === 'done').length);
-          ")
+          TOTAL_DONE=$(node -e "const t=require('./scripts/topics.json');console.log(t.filter(x=>x.status==='done').length);")
+          TOTAL_PENDING=$(node -e "const t=require('./scripts/topics.json');console.log(t.filter(x=>x.status==='pending').length);")
 
-          TOTAL_PENDING=$(node -e "
-            const t = require('./scripts/topics.json');
-            console.log(t.filter(x => x.status === 'pending').length);
-          ")
-
-          MESSAGE="📋 Articles prévus — semaine du ${WEEK}
+          TEXT="Articles prevus - semaine du ${WEEK}
 
 ${TOPICS}
 
-Articles publiés: ${TOTAL_DONE} | En attente: ${TOTAL_PENDING}
-Generation automatique chaque jour a 10h00."
+Publies: ${TOTAL_DONE} | En attente: ${TOTAL_PENDING}
+Generation automatique chaque jour a 08h00 UTC."
 
           curl -s -X POST \
             "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
-            -d chat_id="${TELEGRAM_CHAT_ID}" \
-            --data-urlencode "text=${MESSAGE}" \
+            --data-urlencode "text=${TEXT}" \
+            -d "chat_id=${TELEGRAM_CHAT_ID}" \
             > /dev/null
 
           echo "Preview sent to Telegram"
