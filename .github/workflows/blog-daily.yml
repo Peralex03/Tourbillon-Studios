@@ -1,0 +1,78 @@
+name: 📝 Blog — Génération quotidienne
+
+on:
+  schedule:
+    # 08h00 UTC = 10h00 CEST (été) / 09h00 CET (hiver)
+    - cron: "0 8 * * *"
+  workflow_dispatch:
+    inputs:
+      count:
+        description: "Nombre d'articles à générer"
+        required: false
+        default: "1"
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Configure git
+        run: |
+          git config user.name "Tourbillon Blog Bot"
+          git config user.email "bot@tourbillonstudios.ch"
+
+      - name: Generate article(s)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          COUNT="${{ github.event.inputs.count || '1' }}"
+          npx tsx scripts/blog-agent.ts --count "$COUNT"
+
+      - name: Notify Telegram on success
+        if: success()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          DONE=$(node -e "
+            const t = require('./scripts/topics.json');
+            const last = t.filter(x => x.status === 'done').pop();
+            console.log(last ? last.slug : 'inconnu');
+          ")
+          REMAINING=$(node -e "
+            const t = require('./scripts/topics.json');
+            console.log(t.filter(x => x.status === 'pending').length);
+          ")
+          curl -s -X POST \
+            "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            -d chat_id="${TELEGRAM_CHAT_ID}" \
+            -d text="✅ Nouvel article publié sur Tourbillon Studios%0ASlug: ${DONE}%0ASujets restants: ${REMAINING}" \
+            > /dev/null
+
+      - name: Notify Telegram on failure
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          curl -s -X POST \
+            "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            -d chat_id="${TELEGRAM_CHAT_ID}" \
+            -d text="❌ Erreur lors de la génération d'article Tourbillon Studios. Voir GitHub Actions pour les détails." \
+            > /dev/null
