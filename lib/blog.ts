@@ -17,6 +17,129 @@ export interface BlogPost {
 
 const posts: BlogPost[] = [
   {
+    slug: "site-web-48h-tourbillon-studios-avantage",
+    title: "Site web livré en 48h : pourquoi Tourbillon Studios change les règles du jeu",
+    excerpt: "Délai de 48h, aperçu en direct, retouche gratuite sous 7 jours : découvrez pourquoi ce modèle n'est pas juste plus rapide — il convertit davantage, et les chiffres le prouvent.",
+    category: "À propos",
+    date: "2025-04-10",
+    readTime: 7,
+    locale: "fr",
+    content: [
+      {
+        type: "p",
+        text: "La grande majorité des agences web annoncent des délais de 4 à 12 semaines. Entre les réunions de cadrage, les allers-retours de validation et les files d'attente internes, votre projet peut rester en standby pendant des mois. Chez Tourbillon Studios, nous avons choisi une approche radicalement différente : un site professionnel livré en 48 heures, avec un système d'aperçu en direct et une garantie de retouche de 7 jours."
+      },
+      {
+        type: "h2",
+        text: "Pourquoi 48h ? La réponse est dans les données"
+      },
+      {
+        type: "p",
+        text: "Chaque jour sans site web, c'est du chiffre d'affaires laissé sur la table. Une étude de Google a établi que 53 % des visiteurs mobiles abandonnent un site qui met plus de 3 secondes à charger. Mais avant même la performance, il y a l'existence : une entreprise sans présence en ligne perd en moyenne 30 % de crédibilité aux yeux de nouveaux prospects."
+      },
+      {
+        type: "blockquote",
+        text: "Selon HubSpot, 75 % des consommateurs jugent la crédibilité d'une entreprise à partir de son site web. Chaque semaine sans site est une semaine où vos concurrents captent vos clients."
+      },
+      {
+        type: "p",
+        text: "Notre modèle 48h n'est pas né d'une contrainte — il est né d'une conviction : un site fonctionnel et soigné livré rapidement vaut infiniment plus qu'un chef-d'œuvre livré en 3 mois. Le marché digital n'attend pas."
+      },
+      {
+        type: "h2",
+        text: "Le système d'aperçu en direct : vous validez avant de payer"
+      },
+      {
+        type: "p",
+        text: "La peur principale des entrepreneurs qui commandent un site web, c'est de recevoir quelque chose qui ne correspond pas à leur vision. Notre réponse : vous voyez le site en construction en temps réel, sur une URL privée, avant même la livraison finale."
+      },
+      {
+        type: "ul",
+        items: [
+          "Accès à une URL de prévisualisation dès le lancement du projet",
+          "Suivi en direct des modifications au fur et à mesure de leur développement",
+          "Aucune surprise à la livraison : vous voyez exactement ce que vous recevez",
+          "Retours en cours de route possibles pour affiner en amont"
+        ]
+      },
+      {
+        type: "p",
+        text: "Ce système élimine le risque le plus fréquent dans la relation client-agence : le décalage entre ce qui est imaginé et ce qui est livré. En voyant le site se construire sous vos yeux, vous gardez le contrôle total du résultat."
+      },
+      {
+        type: "h2",
+        text: "La garantie 7 jours : une retouche, sans discussion"
+      },
+      {
+        type: "p",
+        text: "Après la livraison, vous avez 7 jours pour demander des ajustements. Textes, couleurs, structure, formulations — tout ce qui ne vous convient pas parfaitement est retouché sans supplément. Nous ne nous cachons pas derrière des conditions générales complexes : notre engagement est clair, simple, et tenu."
+      },
+      {
+        type: "p",
+        text: "Pourquoi ce délai de 7 jours ? Parce que c'est le temps nécessaire pour utiliser le site dans des conditions réelles : le montrer à vos associés, recevoir des premiers retours de clients, tester tous les appareils. Une semaine d'usage réel révèle plus qu'une heure de validation à chaud."
+      },
+      {
+        type: "h2",
+        text: "Vitesse de livraison et taux de conversion : le lien prouvé"
+      },
+      {
+        type: "p",
+        text: "La rapidité de livraison n'est pas seulement un avantage opérationnel — elle a un impact direct sur la performance commerciale du site lui-même. Des recherches de Portent ont montré qu'un site qui charge en 1 seconde convertit 3 fois mieux qu'un site qui charge en 5 secondes. Notre stack technique (Next.js, Tailwind CSS, Vercel) est optimisée pour des scores Lighthouse proches de 100."
+      },
+      {
+        type: "ul",
+        items: [
+          "Sites développés avec Next.js : rendu hybride SSG/SSR pour des performances maximales",
+          "Score Lighthouse moyen de nos livrables : 95+ en performance",
+          "Temps de chargement moyen : < 1,5 secondes sur connexion standard",
+          "Compatible mobile-first : > 60 % du trafic web provient du mobile en Suisse"
+        ]
+      },
+      {
+        type: "blockquote",
+        text: "Selon Deloitte, améliorer la vitesse d'un site mobile de 0,1 seconde augmente les conversions de 8 % dans le retail et de 10 % dans le voyage. La performance n'est pas technique — elle est commerciale."
+      },
+      {
+        type: "h2",
+        text: "Ce que les agences classiques ne vous disent pas"
+      },
+      {
+        type: "p",
+        text: "Un projet à 8 semaines implique souvent des semaines creuses : attente d'un chef de projet disponible, réunions qui ne font pas avancer le code, sous-traitance à un prestataire offshore dont vous ignorez l'existence. Le délai affiché cache rarement un temps de travail équivalent."
+      },
+      {
+        type: "p",
+        text: "Notre modèle est différent parce que notre structure est différente : une équipe resserrée, des processus optimisés, aucune bureaucratie intermédiaire. Vous parlez directement aux développeurs qui font votre site. C'est pour cela que 48h n'est pas une promesse marketing — c'est notre standard opérationnel."
+      },
+      {
+        type: "h2",
+        text: "Pour qui est fait ce modèle ?"
+      },
+      {
+        type: "ul",
+        items: [
+          "Entrepreneurs qui lancent une activité et ont besoin d'une présence en ligne immédiate",
+          "PME qui refont leur site et ne peuvent pas se permettre des mois d'indisponibilité digitale",
+          "Indépendants qui perdent des contrats faute d'un site professionnel",
+          "Startups qui ont besoin d'une landing page avant une levée de fonds ou un lancement produit",
+          "Entreprises suisses qui veulent un site plurilingue (FR/DE/IT/EN) sans délai"
+        ]
+      },
+      {
+        type: "h2",
+        text: "Conclusion : le temps, c'est du chiffre d'affaires"
+      },
+      {
+        type: "p",
+        text: "Dans un marché où chaque journée sans site web représente des opportunités manquées, la rapidité est un avantage concurrentiel direct. Tourbillon Studios a construit son modèle autour de cette réalité : vous méritez un site professionnel, beau et performant — et vous le méritez maintenant, pas dans 3 mois."
+      },
+      {
+        type: "p",
+        text: "48h de délai. Aperçu en direct. 7 jours de retouche garantis. C'est notre promesse, et c'est notre quotidien."
+      }
+    ]
+  },
+  {
     slug: "agence-web-geneve-comment-choisir",
     title: "Agence web à Genève : comment choisir le bon partenaire digital en 2025",
     excerpt: "Face à la prolifération d'agences digitales, comment identifier celle qui correspond vraiment à votre projet ? Critères concrets, questions à poser et erreurs à éviter.",
