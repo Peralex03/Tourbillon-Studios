@@ -445,6 +445,166 @@ const posts: BlogPost[] = [
       }
     ]
   }
+  {
+    "slug": "creation-site-web-lausanne-prix-delais-guide",
+    "title": "Création site web à Lausanne : prix, délais et ce qu'il faut savoir",
+    "excerpt": "Création site web Lausanne : découvrez les prix réels en CHF, les délais moyens et les critères essentiels pour choisir la bonne agence en 2026.",
+    "category": "Développement web",
+    "date": "2026-04-24",
+    "readTime": 8,
+    "locale": "fr",
+    "content": [
+      {
+        "type": "p",
+        "text": "La création d'un site web à Lausanne coûte entre 3'500 et 45'000 CHF selon la complexité, avec un délai moyen de 4 à 12 semaines. Ce guide, rédigé par Tourbillon Studios, agence web présente à Genève, Lausanne et Zürich, détaille les budgets réels, les étapes clés et les pièges à éviter sur le marché vaudois en 2026."
+      },
+      {
+        "type": "h2",
+        "text": "Quel est le prix d'un site web à Lausanne en 2026 ?"
+      },
+      {
+        "type": "p",
+        "text": "Le prix d'un site web à Lausanne se situe en moyenne entre 5'000 et 20'000 CHF pour une PME, selon les données observées par les agences romandes. Le tarif dépend principalement de trois variables : le nombre de pages, les fonctionnalités sur mesure et le niveau de design. Un site vitrine professionnel démarre à 3'500 CHF, tandis qu'une plateforme e-commerce ou un site multilingue dépasse fréquemment 15'000 CHF."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Site vitrine (5-10 pages) : 3'500 – 8'000 CHF",
+          "Site PME avec blog et formulaires avancés : 8'000 – 18'000 CHF",
+          "Site e-commerce (Shopify, WooCommerce) : 12'000 – 35'000 CHF",
+          "Plateforme sur mesure (SaaS, portail client) : 25'000 – 80'000 CHF",
+          "Site multilingue FR/DE/EN : +20 à 30 % du budget de base"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Selon l'Office fédéral de la statistique, 99,4 % des entreprises suisses sont des PME, et la plupart investissent désormais entre 1 et 3 % de leur chiffre d'affaires annuel dans leur présence en ligne. À Lausanne, la concentration d'acteurs tech autour de l'EPFL pousse les standards de qualité — et les tarifs — légèrement au-dessus de la moyenne suisse."
+      },
+      {
+        "type": "h2",
+        "text": "Quels sont les délais réels pour créer un site web à Lausanne ?"
+      },
+      {
+        "type": "p",
+        "text": "Les délais de création d'un site web à Lausanne varient de 4 à 16 semaines selon la portée du projet. Un site vitrine standard est généralement livré en 4 à 6 semaines, tandis qu'un e-commerce ou un site sur mesure demande 10 à 16 semaines, validations client comprises."
+      },
+      {
+        "type": "h3",
+        "text": "Répartition typique du planning"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Cadrage et stratégie : 1 à 2 semaines",
+          "Design UX/UI et maquettes : 2 à 4 semaines",
+          "Développement et intégration : 3 à 8 semaines",
+          "Rédaction, SEO on-page et contenus : 2 à 3 semaines (en parallèle)",
+          "Tests, recette et mise en ligne : 1 à 2 semaines"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Le principal facteur de retard n'est pas technique : c'est la disponibilité des contenus (textes, photos, validations internes). Les projets qui respectent leurs délais sont systématiquement ceux où le client dédie un interlocuteur unique et décisionnaire."
+      },
+      {
+        "type": "h2",
+        "text": "Pourquoi les prix varient autant entre agences lausannoises ?"
+      },
+      {
+        "type": "p",
+        "text": "L'écart de prix entre agences à Lausanne s'explique par quatre facteurs : le positionnement (freelance vs agence structurée), la localisation de l'équipe (Suisse vs offshore), le niveau de personnalisation et les services associés (SEO, maintenance, hébergement). Un même cahier des charges peut recevoir des devis allant de 4'000 à 25'000 CHF."
+      },
+      {
+        "type": "blockquote",
+        "text": "Selon une étude Deloitte, chaque franc investi dans un site web professionnel et optimisé génère en moyenne un retour de 3 à 5 CHF sur trois ans pour les PME européennes, principalement via l'acquisition organique et la conversion."
+      },
+      {
+        "type": "p",
+        "text": "Un site à bas coût sous-traité à l'étranger économise souvent 40 à 60 % sur le devis initial, mais engendre à moyen terme des frais cachés : refontes prématurées, problèmes de conformité à la nLPD (nouvelle Loi suisse sur la protection des données), mauvaise performance SEO et absence de support en français."
+      },
+      {
+        "type": "h2",
+        "text": "Comment choisir la bonne agence web à Lausanne ?"
+      },
+      {
+        "type": "p",
+        "text": "Pour choisir une agence web à Lausanne, évaluez cinq critères objectifs plutôt que de vous fier uniquement au prix. L'expertise technique, la maîtrise du SEO, la conformité légale suisse et la pérennité de l'agence sont des facteurs déterminants pour la rentabilité à long terme."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Portfolio avec projets suisses mesurables (trafic, conversions, CA généré)",
+          "Maîtrise du SEO technique et de la performance (Core Web Vitals)",
+          "Conformité nLPD et RGPD intégrée dès la conception",
+          "Hébergement suisse ou européen documenté",
+          "Contrat de maintenance clair avec SLA en CHF",
+          "Équipe locale joignable en français, allemand ou anglais"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Chez Tourbillon Studios, nos projets à Lausanne incluent systématiquement un audit SEO initial, une architecture pensée pour la GEO (optimisation pour les moteurs génératifs comme ChatGPT et Perplexity) et un hébergement conforme à la législation suisse."
+      },
+      {
+        "type": "h2",
+        "text": "Quels coûts cachés anticiper après le lancement ?"
+      },
+      {
+        "type": "p",
+        "text": "Au-delà du devis initial, un site web lausannois génère entre 1'200 et 6'000 CHF de coûts annuels récurrents. Anticiper ces dépenses évite les mauvaises surprises budgétaires la deuxième année."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Hébergement et nom de domaine : 150 – 1'500 CHF/an",
+          "Maintenance technique et sécurité : 600 – 3'000 CHF/an",
+          "Licences (thèmes, plugins, CMS premium) : 200 – 1'200 CHF/an",
+          "SEO continu et création de contenu : 500 – 3'000 CHF/mois",
+          "Certificats SSL et conformité nLPD : inclus ou 100 – 400 CHF/an"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Selon Statista, 53 % des PME européennes sous-estiment les coûts de maintenance web la première année. Un budget prévisionnel triennal est la meilleure garantie contre l'obsolescence du site."
+      },
+      {
+        "type": "h2",
+        "text": "FAQ : création de site web à Lausanne"
+      },
+      {
+        "type": "h3",
+        "text": "Combien coûte un site vitrine simple pour une PME lausannoise ?"
+      },
+      {
+        "type": "p",
+        "text": "Un site vitrine professionnel pour une PME à Lausanne coûte entre 3'500 et 8'000 CHF, comprenant 5 à 10 pages, un design responsive, un formulaire de contact, une intégration Google Analytics et une optimisation SEO de base. Ce tarif inclut généralement deux tours de révision."
+      },
+      {
+        "type": "h3",
+        "text": "Combien de temps pour créer un site e-commerce à Lausanne ?"
+      },
+      {
+        "type": "p",
+        "text": "Un site e-commerce à Lausanne demande entre 8 et 16 semaines selon le nombre de produits, les intégrations de paiement (TWINT, Stripe, PostFinance) et la logistique. Shopify permet un lancement plus rapide (6-10 semaines) qu'une solution WooCommerce personnalisée."
+      },
+      {
+        "type": "h3",
+        "text": "Faut-il privilégier une agence locale ou un freelance ?"
+      },
+      {
+        "type": "p",
+        "text": "Pour un projet inférieur à 6'000 CHF, un freelance lausannois qualifié suffit généralement. Au-delà, une agence structurée comme Tourbillon Studios apporte une continuité de service, plusieurs expertises (design, dev, SEO, contenu) et une capacité à évoluer avec votre entreprise sur plusieurs années."
+      },
+      {
+        "type": "h2",
+        "text": "Conclusion : investir intelligemment dans son site lausannois"
+      },
+      {
+        "type": "p",
+        "text": "Créer un site web à Lausanne n'est plus une dépense technique mais un investissement stratégique mesurable. Entre 3'500 CHF pour un site vitrine et 35'000 CHF pour un e-commerce évolutif, l'écart se justifie par la performance, la conformité légale suisse et la capacité du site à générer du chiffre d'affaires. Le vrai indicateur n'est pas le prix, mais le retour sur investissement à 24 mois. Tourbillon Studios accompagne les entreprises vaudoises, genevoises et zurichoises avec une approche transparente : devis détaillé, délais tenus, et sites conçus dès le départ pour être visibles sur Google, ChatGPT et Perplexity."
+      }
+    ]
+  },
 ];
 
 export function getAllPosts(): BlogPost[] {
