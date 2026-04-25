@@ -605,6 +605,147 @@ const posts: BlogPost[] = [
       }
     ]
   },
+  {
+    "slug": "refonte-site-web-quand-comment-moderniser-presence-en-ligne",
+    "title": "Refonte site web : quand et comment moderniser votre présence en ligne",
+    "excerpt": "Refonte site web en Suisse : signaux d'alerte, méthodologie et budget. Le guide expert pour moderniser votre présence en ligne sans perdre votre SEO.",
+    "category": "Développement web",
+    "date": "2026-04-25",
+    "readTime": 8,
+    "locale": "fr",
+    "content": [
+      {
+        "type": "p",
+        "text": "Une refonte de site web n'est pas un simple lifting graphique : c'est une remise à plat stratégique de votre présence en ligne. Pour une PME suisse, le bon timing et la bonne méthode font la différence entre un investissement rentable et un projet qui pénalise le référencement pendant des mois. Chez Tourbillon Studios, à Genève, Lausanne et Zürich, nous accompagnons régulièrement des entreprises confrontées à un site vieillissant qui freine leur croissance. Cet article expose, avec la précision suisse qui s'impose, quand engager une refonte et comment la conduire sans casser ce qui fonctionne."
+      },
+      {
+        "type": "h2",
+        "text": "Quand faut-il envisager une refonte de site web ?"
+      },
+      {
+        "type": "p",
+        "text": "Une refonte devient nécessaire lorsque votre site ne convertit plus, ne se charge plus rapidement ou ne reflète plus votre positionnement actuel — généralement tous les 4 à 5 ans. Selon une étude de Stanford Web Credibility Research, 75 % des utilisateurs jugent la crédibilité d'une entreprise uniquement sur le design de son site. Et selon Google, la probabilité de rebond augmente de 32 % lorsque le temps de chargement passe de 1 à 3 secondes."
+      },
+      {
+        "type": "p",
+        "text": "Voici les signaux d'alerte concrets qui justifient une refonte :"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Le site n'est pas responsive ou s'affiche mal sur mobile (plus de 60 % du trafic suisse provient du mobile selon l'OFCOM)",
+          "Le score Core Web Vitals est dans le rouge sur PageSpeed Insights",
+          "Le CMS n'est plus maintenu (anciennes versions de WordPress, Joomla, sites HTML statiques)",
+          "Les conversions stagnent malgré un trafic stable ou en hausse",
+          "L'identité visuelle a évolué mais le site est resté figé",
+          "Le site n'est pas conforme à la nLPD suisse ou au RGPD européen",
+          "L'ajout de contenu nécessite l'intervention d'un développeur"
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Pourquoi la refonte est-elle un levier stratégique et pas un coût ?"
+      },
+      {
+        "type": "p",
+        "text": "Une refonte bien menée génère un retour sur investissement mesurable en 6 à 12 mois via l'amélioration du taux de conversion, du SEO et de la productivité interne. Selon Forrester Research, chaque franc investi dans l'expérience utilisateur en rapporte jusqu'à 100 en moyenne. Pour une PME suisse facturant des prestations à forte valeur ajoutée, gagner 1 point de taux de conversion peut représenter plusieurs dizaines de milliers de CHF annuels."
+      },
+      {
+        "type": "blockquote",
+        "text": "Selon une étude Adobe, 38 % des visiteurs cessent d'interagir avec un site dont la mise en page ou les contenus sont peu attractifs — un chiffre qui place la refonte au cœur de la performance commerciale, pas seulement de l'esthétique."
+      },
+      {
+        "type": "h2",
+        "text": "Comment réussir une refonte sans perdre son référencement ?"
+      },
+      {
+        "type": "p",
+        "text": "La règle d'or : préserver l'équité SEO acquise grâce à un audit technique préalable et un plan de redirections 301 exhaustif. C'est l'erreur la plus coûteuse que nous voyons sur le marché suisse : des sites refondus qui perdent 40 à 60 % de leur trafic organique faute de migration maîtrisée."
+      },
+      {
+        "type": "p",
+        "text": "La méthodologie éprouvée par Tourbillon Studios suit sept étapes :"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Audit complet : SEO, performance, accessibilité, analytics, contenus",
+          "Cartographie des URLs existantes et identification des pages à fort trafic",
+          "Définition des objectifs business chiffrés (KPI, conversions, leads)",
+          "Architecture de l'information et wireframes validés avant tout design",
+          "Design UX/UI orienté conversion et identité de marque",
+          "Développement avec stack moderne (Next.js, headless CMS, hébergement européen)",
+          "Plan de redirections 301, recette technique et déploiement progressif"
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Quel budget prévoir pour une refonte en Suisse ?"
+      },
+      {
+        "type": "p",
+        "text": "Le budget d'une refonte professionnelle en Suisse romande s'étale typiquement entre 8 000 et 50 000 CHF, selon la complexité fonctionnelle. Un site vitrine PME de 10 à 15 pages se situe entre 8 000 et 18 000 CHF. Un site corporate avec espace client, multilingue et intégrations CRM dépasse souvent 30 000 CHF. Une plateforme e-commerce sur mesure démarre autour de 25 000 CHF et peut grimper bien au-delà selon les flux et les intégrations ERP."
+      },
+      {
+        "type": "p",
+        "text": "Ces fourchettes reflètent la réalité du marché suisse, où la qualité du code, la conformité nLPD et l'hébergement souverain pèsent légitimement sur le devis. Méfiez-vous des offres à 2 000 CHF : elles cachent presque toujours un template générique sans stratégie SEO ni accompagnement post-livraison."
+      },
+      {
+        "type": "h2",
+        "text": "Quelles technologies privilégier en 2026 ?"
+      },
+      {
+        "type": "p",
+        "text": "Les architectures Jamstack et headless dominent désormais les refontes haut de gamme grâce à leur vitesse, leur sécurité et leur scalabilité. Concrètement, nous recommandons aux PME suisses :"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Next.js ou Astro pour le frontend (performance native, SEO optimal)",
+          "Sanity, Strapi ou Payload CMS pour la gestion de contenu",
+          "Hébergement Vercel, Netlify ou un cloud suisse (Infomaniak) pour la souveraineté des données",
+          "Intégration analytics conforme nLPD (Plausible, Matomo) plutôt que Google Analytics par défaut",
+          "Composants accessibles WCAG 2.2 AA, désormais quasi-obligatoires"
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "FAQ : les questions fréquentes sur la refonte de site web"
+      },
+      {
+        "type": "h3",
+        "text": "Combien de temps dure une refonte de site web ?"
+      },
+      {
+        "type": "p",
+        "text": "Pour un site vitrine PME, comptez 8 à 12 semaines entre le brief initial et la mise en ligne. Un projet e-commerce ou corporate complexe demande 4 à 6 mois. La phase de cadrage stratégique (2 à 3 semaines) est non négociable : c'est elle qui garantit que le site répondra réellement aux objectifs business."
+      },
+      {
+        "type": "h3",
+        "text": "Faut-il refondre ou repartir de zéro ?"
+      },
+      {
+        "type": "p",
+        "text": "Si l'architecture technique est saine et le CMS récent, une évolution progressive suffit souvent. Si le site cumule dette technique, design daté et CMS obsolète, repartir de zéro coûte généralement moins cher à moyen terme que des correctifs successifs."
+      },
+      {
+        "type": "h3",
+        "text": "Comment éviter la chute de trafic SEO après une refonte ?"
+      },
+      {
+        "type": "p",
+        "text": "Trois actions essentielles : un audit SEO préalable pour identifier les pages stratégiques, un plan de redirections 301 ligne par ligne, et une surveillance Search Console quotidienne pendant les 30 jours suivant la mise en ligne. Avec cette discipline, la baisse temporaire reste sous 10 % et le trafic dépasse souvent l'ancien niveau dans les 90 jours."
+      },
+      {
+        "type": "h2",
+        "text": "Conclusion : faire de la refonte un accélérateur de croissance"
+      },
+      {
+        "type": "p",
+        "text": "Une refonte de site web n'est pas une dépense esthétique mais un investissement stratégique mesurable. Pour les PME suisses, le bon moment se situe à l'intersection de trois signaux : un site qui ne convertit plus, une marque qui a évolué, et une technologie qui freine vos équipes. La réussite tient ensuite à la rigueur méthodologique : audit, redirections, performance, conformité nLPD. Tourbillon Studios accompagne les entreprises de Genève, Lausanne et Zürich dans cette transformation, avec une exigence d'artisanat numérique et un objectif simple : que votre nouveau site génère plus de valeur que l'ancien, dès le premier mois en ligne."
+      }
+    ]
+  },
 ];
 
 export function getAllPosts(): BlogPost[] {
