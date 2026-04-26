@@ -746,6 +746,146 @@ const posts: BlogPost[] = [
       }
     ]
   },
+  {
+    "slug": "site-ecommerce-suisse-shopify-vs-sur-mesure",
+    "title": "Site e-commerce Suisse : Shopify vs sur mesure, que choisir ?",
+    "excerpt": "Shopify ou solution e-commerce sur mesure pour votre site marchand en Suisse ? Comparatif coûts, performance, TVA, nLPD et critères de choix 2026.",
+    "category": "E-commerce",
+    "date": "2026-04-26",
+    "readTime": 8,
+    "locale": "fr",
+    "content": [
+      {
+        "type": "p",
+        "text": "Lancer un site e-commerce en Suisse impose un choix structurant : adopter une plateforme SaaS comme Shopify ou investir dans une solution sur mesure. Ce choix conditionne vos coûts, votre conformité à la nLPD, vos performances SEO et votre capacité à intégrer les spécificités helvétiques (TVA à 8,1 %, paiements TWINT, livraisons CFF/Poste). Tourbillon Studios accompagne les PME à Genève, Lausanne et Zürich sur cet arbitrage stratégique. Voici une analyse factuelle pour décider sans regret."
+      },
+      {
+        "type": "h2",
+        "text": "Pourquoi le marché e-commerce suisse impose une réflexion spécifique ?"
+      },
+      {
+        "type": "p",
+        "text": "Le commerce en ligne suisse a généré 14,4 milliards de CHF en 2023 selon l'Association suisse de vente à distance (VSV/GfK), avec une croissance soutenue malgré la concurrence des plateformes étrangères. Cette réalité change la donne : un site e-commerce suisse doit gérer multilinguisme (FR/DE/IT/EN), TVA helvétique, paiements locaux (TWINT, PostFinance, cartes), et conformité nLPD entrée en vigueur en septembre 2023."
+      },
+      {
+        "type": "p",
+        "text": "Selon Statista, plus de 70 % des Suisses ont effectué un achat en ligne en 2024, et la part du mobile dépasse désormais 55 % des transactions. Aucune plateforme ne peut être choisie sans tenir compte de ces variables locales."
+      },
+      {
+        "type": "h2",
+        "text": "Qu'est-ce que Shopify apporte concrètement à une PME suisse ?"
+      },
+      {
+        "type": "p",
+        "text": "Shopify est une solution SaaS hébergée qui permet de lancer un site e-commerce en quelques semaines, avec une infrastructure mondiale et un écosystème d'applications mature. Pour une PME suisse, c'est souvent le chemin le plus rapide vers la mise en marché."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Coût d'entrée : dès 27 CHF/mois (Basic) à 384 CHF/mois (Advanced), hors thème et apps",
+          "Mise en ligne rapide : 4 à 8 semaines pour un site standard",
+          "Intégrations natives : TWINT via Stripe, PostFinance, Klarna, Apple Pay",
+          "Hébergement, sécurité PCI-DSS et mises à jour gérés par Shopify",
+          "Limites : commissions transactionnelles (jusqu'à 2 % sans Shopify Payments), personnalisation back-end restreinte, dépendance à l'écosystème"
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Quand une solution e-commerce sur mesure devient-elle pertinente ?"
+      },
+      {
+        "type": "p",
+        "text": "Une solution sur mesure (Next.js, Medusa, Laravel, Symfony, ou headless avec Sanity/Strapi) s'impose dès que votre modèle métier sort des standards : configurateurs produits complexes, B2B avec tarifs négociés, intégration ERP (Abacus, SAP, Bexio), logiques de stock multi-entrepôts ou expérience UX différenciante."
+      },
+      {
+        "type": "p",
+        "text": "L'investissement initial est plus élevé (généralement 35 000 à 150 000 CHF en Suisse selon la complexité), mais l'absence de commissions par vente et la liberté technique deviennent rentables au-delà d'un certain volume. Vous possédez votre code, vos données et votre roadmap."
+      },
+      {
+        "type": "blockquote",
+        "text": "Selon une étude Deloitte 2024, les sites e-commerce performants chargent en moins de 2 secondes et convertissent jusqu'à 2,5 fois mieux que ceux dépassant 4 secondes — un avantage souvent décisif pour les architectures sur mesure optimisées."
+      },
+      {
+        "type": "h2",
+        "text": "Comment comparer les coûts réels sur 3 ans ?"
+      },
+      {
+        "type": "p",
+        "text": "Le piège classique consiste à comparer le coût d'entrée. La bonne lecture est le coût total de possession (TCO) sur 3 ans, en intégrant licences, apps, commissions, maintenance et évolutions."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Shopify (PME, 500k CHF de CA/an) : ~25 000 à 45 000 CHF sur 3 ans (abonnement + apps + commissions + thème custom)",
+          "Sur mesure (PME équivalente) : ~50 000 à 120 000 CHF sur 3 ans (développement + hébergement Suisse + maintenance)",
+          "Point de bascule typique : au-delà de 1,5 à 2 millions de CHF de CA annuel, le sur mesure devient plus économique",
+          "Variable cachée : les apps Shopify cumulées dépassent souvent 200 CHF/mois pour un site mature"
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Quels critères techniques privilégier pour le marché suisse ?"
+      },
+      {
+        "type": "p",
+        "text": "Au-delà du coût, cinq critères techniques doivent guider la décision : conformité nLPD, performance Core Web Vitals, SEO multilingue, intégrations locales et scalabilité."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Hébergement et données : Shopify héberge aux États-Unis et en Irlande ; le sur mesure permet un hébergement en Suisse (Infomaniak, Exoscale) souvent exigé en B2B",
+          "SEO multilingue : Shopify gère mal nativement les sous-dossiers /fr/ /de/ /it/, le sur mesure offre une liberté totale",
+          "Performance : un Next.js headless atteint régulièrement 95+ au Lighthouse, là où Shopify plafonne souvent à 70-85",
+          "Intégrations ERP suisses : Bexio, Abacus, SwissDec — plus simples en sur mesure via API",
+          "Conformité nLPD : registre des traitements, gestion des consentements, droit à l'effacement — plus contrôlables en sur mesure"
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Comment Tourbillon Studios accompagne ce choix ?"
+      },
+      {
+        "type": "p",
+        "text": "À Genève, Lausanne et Zürich, Tourbillon Studios commence chaque projet e-commerce par un audit stratégique court (1 à 2 semaines) qui croise modèle économique, volumes prévus, contraintes ERP et ambition de marque. Le verdict est honnête : pour ~70 % des PME suisses, Shopify avec un thème custom et un développement headless ciblé reste le meilleur compromis. Pour les 30 % restants — B2B complexes, marques premium, configurateurs, marketplaces — nous concevons des architectures sur mesure en Next.js, souvent couplées à un CMS headless."
+      },
+      {
+        "type": "h2",
+        "text": "FAQ : Shopify ou sur mesure pour un e-commerce suisse"
+      },
+      {
+        "type": "h3",
+        "text": "Shopify est-il conforme à la nLPD suisse ?"
+      },
+      {
+        "type": "p",
+        "text": "Oui, à condition de configurer correctement la gestion des cookies, le registre des traitements et un Data Processing Agreement avec Shopify. Toutefois, comme l'hébergement est hors Suisse, certains secteurs (santé, finance, secteur public) préféreront un hébergement helvétique, possible uniquement en sur mesure."
+      },
+      {
+        "type": "h3",
+        "text": "Peut-on migrer de Shopify vers une solution sur mesure plus tard ?"
+      },
+      {
+        "type": "p",
+        "text": "Oui, et c'est même une trajectoire fréquente. Beaucoup de marques suisses lancent sur Shopify pour valider leur marché, puis migrent vers une solution headless ou sur mesure entre 2 et 5 millions de CHF de CA annuel. Anticiper la migration dès le départ (export catalogue, structure d'URL propre) facilite l'opération."
+      },
+      {
+        "type": "h3",
+        "text": "Quel délai pour lancer un e-commerce en Suisse ?"
+      },
+      {
+        "type": "p",
+        "text": "Comptez 6 à 10 semaines pour un Shopify professionnel multilingue, et 4 à 8 mois pour une solution sur mesure complète intégrée à un ERP. Ces délais incluent design, développement, intégration paiements suisses (TWINT, PostFinance) et tests de conformité."
+      },
+      {
+        "type": "h2",
+        "text": "Conclusion : un choix stratégique, pas idéologique"
+      },
+      {
+        "type": "p",
+        "text": "Shopify et le sur mesure ne sont pas concurrents : ils répondent à des moments différents de la maturité d'une marque suisse. Shopify excelle pour démarrer vite, valider un marché et atteindre 1 à 2 millions de CHF de CA. Le sur mesure devient stratégique quand la différenciation, l'intégration ERP, la performance ou la souveraineté des données pèsent davantage que la rapidité de mise en ligne. Le bon réflexe n'est pas de choisir une plateforme, mais de partir de votre modèle économique, de vos volumes et de votre ambition à 3 ans. C'est exactement la démarche que Tourbillon Studios applique à chaque projet e-commerce en Suisse romande et alémanique."
+      }
+    ]
+  },
 ];
 
 export function getAllPosts(): BlogPost[] {
