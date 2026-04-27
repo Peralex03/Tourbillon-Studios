@@ -886,6 +886,141 @@ const posts: BlogPost[] = [
       }
     ]
   },
+  {
+    "slug": "prix-site-web-professionnel-suisse-2025",
+    "title": "Combien coûte un site web professionnel en Suisse en 2025 ?",
+    "excerpt": "Prix d'un site web professionnel en Suisse en 2025 : fourchettes réelles en CHF, facteurs de coût et conseils pour PME, startups et indépendants.",
+    "category": "Stratégie digitale",
+    "date": "2026-04-27",
+    "readTime": 8,
+    "locale": "fr",
+    "content": [
+      {
+        "type": "p",
+        "text": "En Suisse, le prix d'un site web professionnel en 2025 se situe entre 3 000 et 80 000 CHF selon la complexité, la technologie choisie et le niveau de personnalisation. Cette fourchette large s'explique par la diversité des besoins : un site vitrine pour indépendant à Lausanne n'a rien à voir avec une plateforme e-commerce multilingue déployée à Zürich. Cet article détaille, chiffres à l'appui, ce que paie réellement une PME suisse en 2025 et pourquoi."
+      },
+      {
+        "type": "h2",
+        "text": "Quel est le prix moyen d'un site web professionnel en Suisse en 2025 ?"
+      },
+      {
+        "type": "p",
+        "text": "Le prix moyen d'un site web professionnel en Suisse oscille entre 8 000 et 25 000 CHF pour une PME, selon les données observées par Tourbillon Studios sur le marché romand et alémanique. Ce tarif inclut généralement la stratégie, le design sur mesure, le développement, l'intégration SEO et la mise en ligne. Pour comparaison, la moyenne européenne se situe entre 4 000 et 15 000 EUR selon Statista (2024), ce qui confirme une prime suisse d'environ 30 à 40 % liée au coût de la main-d'œuvre locale."
+      },
+      {
+        "type": "p",
+        "text": "Voici les fourchettes typiques observées à Genève, Lausanne et Zürich :"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Site vitrine simple (5 à 10 pages) : 3 000 à 8 000 CHF",
+          "Site PME sur mesure (10 à 30 pages, multilingue) : 8 000 à 20 000 CHF",
+          "Site corporate avancé avec intégrations CRM : 20 000 à 50 000 CHF",
+          "E-commerce Shopify ou WooCommerce : 10 000 à 35 000 CHF",
+          "Plateforme e-commerce sur mesure ou headless : 40 000 à 80 000 CHF+"
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Pourquoi un site web coûte-t-il plus cher en Suisse qu'ailleurs ?"
+      },
+      {
+        "type": "p",
+        "text": "Le coût d'un site web en Suisse reflète trois facteurs structurels : le tarif horaire élevé des développeurs (entre 120 et 220 CHF/heure selon swissICT 2024), la conformité réglementaire (nLPD, accessibilité WCAG, hébergement souverain) et le niveau d'exigence qualité du marché helvétique. Selon swissICT, le salaire médian d'un développeur web senior en Suisse atteint 115 000 CHF annuels, soit près du double de la moyenne française."
+      },
+      {
+        "type": "p",
+        "text": "À cela s'ajoutent les coûts de conformité spécifiquement suisses : adaptation à la nouvelle Loi sur la protection des données (nLPD entrée en vigueur en septembre 2023), hébergement sur sol helvétique souvent demandé par les secteurs réglementés (finance, santé, juridique) et traduction professionnelle multilingue (FR/DE/IT/EN), quasi standard pour toute entreprise nationale."
+      },
+      {
+        "type": "blockquote",
+        "text": "Selon une étude Localsearch 2024, 68 % des PME suisses considèrent leur site web comme leur premier canal commercial, mais seulement 41 % investissent plus de 10 000 CHF dans sa refonte — un écart qui explique la lente performance digitale du tissu économique helvétique."
+      },
+      {
+        "type": "h2",
+        "text": "Quels sont les facteurs qui font varier le prix d'un site web ?"
+      },
+      {
+        "type": "p",
+        "text": "Sept variables expliquent l'essentiel des écarts de prix observés sur le marché suisse en 2025. Comprendre ces leviers permet à toute PME d'anticiper son budget réel avant de demander un devis."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Nombre de pages et complexité de l'arborescence",
+          "Design sur mesure vs template adapté",
+          "Multilinguisme (chaque langue ajoute en moyenne 15 à 25 % au coût)",
+          "Intégrations tierces (CRM, ERP, paiement, réservation)",
+          "Niveau de SEO technique et stratégie de contenu",
+          "Performance et conformité (Core Web Vitals, nLPD, accessibilité)",
+          "Maintenance et hébergement post-lancement (généralement 80 à 300 CHF/mois)"
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Combien investir selon le type d'entreprise ?"
+      },
+      {
+        "type": "h3",
+        "text": "Indépendants et microentreprises"
+      },
+      {
+        "type": "p",
+        "text": "Pour un avocat indépendant, un cabinet médical ou un artisan, un budget de 3 000 à 7 000 CHF suffit pour un site vitrine professionnel, optimisé localement et conforme nLPD. L'objectif est la crédibilité et le référencement local."
+      },
+      {
+        "type": "h3",
+        "text": "PME établies"
+      },
+      {
+        "type": "p",
+        "text": "Une PME suisse de 10 à 100 employés devrait prévoir entre 12 000 et 30 000 CHF pour un site refondu intégrant CMS, multilingue, SEO avancé et tracking analytics. C'est dans cette fourchette que Tourbillon Studios accompagne la majorité de ses clients à Genève, Lausanne et Zürich."
+      },
+      {
+        "type": "h3",
+        "text": "Startups et e-commerce"
+      },
+      {
+        "type": "p",
+        "text": "Les startups en levée de fonds investissent typiquement 15 000 à 50 000 CHF pour un site qui combine narration produit, conversion et scalabilité technique. L'e-commerce dépasse souvent 25 000 CHF dès lors qu'il intègre paiements multi-devises, gestion logistique et intégration ERP."
+      },
+      {
+        "type": "h2",
+        "text": "Comment éviter de payer trop cher (ou trop peu) ?"
+      },
+      {
+        "type": "p",
+        "text": "Le bon prix d'un site web professionnel n'est ni le moins cher, ni le plus élevé : c'est celui aligné sur le ROI attendu. Selon HubSpot (2024), un site optimisé génère en moyenne 2,5 fois plus de leads qualifiés qu'un site standard, ce qui amortit rapidement un investissement bien structuré."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Demandez toujours 2 à 3 devis détaillés et comparables ligne par ligne",
+          "Méfiez-vous des offres sous 2 000 CHF : elles excluent généralement SEO, conformité et maintenance",
+          "Exigez la propriété complète du code et des accès",
+          "Privilégiez les agences suisses pour la conformité nLPD et la proximité",
+          "Prévoyez un budget de maintenance représentant 15 à 20 % du coût initial par an"
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "FAQ : prix et investissement d'un site web en Suisse"
+      },
+      {
+        "type": "p",
+        "text": "Un site WordPress est-il moins cher qu'un site sur mesure ? Oui, en moyenne 30 à 50 % moins cher à la création, mais les coûts de maintenance et de sécurité sur la durée réduisent souvent l'écart à 5 ans. Combien de temps faut-il pour créer un site professionnel en Suisse ? Entre 6 et 16 semaines pour un projet PME standard, selon la complexité et la disponibilité des contenus. Faut-il facturer la TVA suisse sur un site web ? Oui, la TVA de 8,1 % s'applique aux prestations digitales fournies par une agence suisse à un client suisse, à intégrer dans le budget total."
+      },
+      {
+        "type": "h2",
+        "text": "Conclusion : un investissement stratégique, pas une dépense"
+      },
+      {
+        "type": "p",
+        "text": "En 2025, le coût d'un site web professionnel en Suisse reflète une réalité économique : un actif digital performant, conforme à la nLPD et pensé pour convertir s'amortit en quelques mois pour une PME bien positionnée. Les fourchettes évoquées — de 3 000 à 80 000 CHF — ne sont pas des prix, mais des niveaux d'ambition. Chez Tourbillon Studios, à Genève, Lausanne et Zürich, nous construisons des sites web alignés sur des objectifs commerciaux mesurables, avec la précision suisse comme exigence non négociable. Le bon investissement n'est jamais le moins cher : c'est celui qui produit des résultats."
+      }
+    ]
+  },
 ];
 
 export function getAllPosts(): BlogPost[] {
