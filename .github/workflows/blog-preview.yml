@@ -13,37 +13,35 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Send weekly preview to Telegram
+      - name: Build and send Telegram preview
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          WEEK=$(date '+%d/%m/%Y')
-
-          TOPICS=$(node -e "
-            const topics = require('./scripts/topics.json');
+          node -e "
+            const fs = require('fs');
+            const topics = JSON.parse(fs.readFileSync('./scripts/topics.json', 'utf8'));
             const pending = topics.filter(t => t.status === 'pending').slice(0, 7);
+            const done = topics.filter(t => t.status === 'done').length;
+            const week = new Date().toLocaleDateString('fr-CH', { day: '2-digit', month: '2-digit', year: 'numeric' });
+
+            let lines = ['Articles prevus - semaine du ' + week, ''];
             if (pending.length === 0) {
-              process.stdout.write('Aucun sujet en attente.');
+              lines.push('Aucun sujet en attente. Ajouter des sujets dans scripts/topics.json');
             } else {
-              pending.forEach((t, i) => process.stdout.write((i + 1) + '. ' + t.topic + '\n'));
+              pending.forEach((t, i) => lines.push((i + 1) + '. ' + t.topic));
             }
-          ")
+            lines.push('');
+            lines.push('Publies: ' + done + ' | En attente: ' + (topics.length - done));
+            lines.push('Generation automatique chaque jour a 08h00 UTC.');
 
-          TOTAL_DONE=$(node -e "const t=require('./scripts/topics.json');console.log(t.filter(x=>x.status==='done').length);")
-          TOTAL_PENDING=$(node -e "const t=require('./scripts/topics.json');console.log(t.filter(x=>x.status==='pending').length);")
-
-          TEXT="Articles prevus - semaine du ${WEEK}
-
-${TOPICS}
-
-Publies: ${TOTAL_DONE} | En attente: ${TOTAL_PENDING}
-Generation automatique chaque jour a 08h00 UTC."
+            fs.writeFileSync('/tmp/tg_message.txt', lines.join('\n'));
+          "
 
           curl -s -X POST \
             "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
-            --data-urlencode "text=${TEXT}" \
             -d "chat_id=${TELEGRAM_CHAT_ID}" \
+            --data-urlencode "text@/tmp/tg_message.txt" \
             > /dev/null
 
           echo "Preview sent to Telegram"
