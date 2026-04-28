@@ -12,6 +12,9 @@ export default function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
 
+  // pathname from next-intl is locale-stripped, so "/" = home, "/blog" = blog list
+  const isHome = pathname === "/";
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
     window.addEventListener("scroll", onScroll);
@@ -20,6 +23,30 @@ export default function Navbar() {
 
   function switchLocale(next: string) {
     router.replace(pathname, { locale: next });
+  }
+
+  // Smart anchor: on home → in-page anchor; elsewhere → navigate to home with hash
+  function AnchorLink({
+    hash,
+    children,
+    className,
+  }: {
+    hash: string;
+    children: React.ReactNode;
+    className?: string;
+  }) {
+    if (isHome) {
+      return (
+        <a href={`#${hash}`} className={className}>
+          {children}
+        </a>
+      );
+    }
+    return (
+      <Link href={`/#${hash}`} className={className}>
+        {children}
+      </Link>
+    );
   }
 
   return (
@@ -31,23 +58,26 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
-        <a href="#" className="text-lg font-semibold tracking-tight text-gray-900 shrink-0">
+        <Link
+          href="/"
+          className="text-lg font-semibold tracking-tight text-gray-900 shrink-0"
+        >
           Tourbillon<span className="text-violet-600">.</span>
-        </a>
+        </Link>
 
         <div className="hidden md:flex items-center gap-6 text-sm text-gray-600">
-          <a href="#services" className="hover:text-gray-900 transition-colors">
+          <AnchorLink hash="services" className="hover:text-gray-900 transition-colors">
             {t("services")}
-          </a>
-          <a href="#testimonials" className="hover:text-gray-900 transition-colors">
+          </AnchorLink>
+          <AnchorLink hash="testimonials" className="hover:text-gray-900 transition-colors">
             {t("testimonials")}
-          </a>
+          </AnchorLink>
           <Link href="/blog" className="hover:text-gray-900 transition-colors">
             {t("blog")}
           </Link>
-          <a href="#contact" className="hover:text-gray-900 transition-colors">
+          <AnchorLink hash="contact" className="hover:text-gray-900 transition-colors">
             {t("contact")}
-          </a>
+          </AnchorLink>
         </div>
 
         <div className="flex items-center gap-3 ml-auto">
@@ -68,12 +98,12 @@ export default function Navbar() {
             ))}
           </div>
 
-          <a
-            href="#contact"
+          <AnchorLink
+            hash="contact"
             className="text-sm font-medium bg-gray-900 text-white px-4 py-2 rounded-lg hover:bg-violet-600 transition-colors duration-200 shrink-0"
           >
             {t("cta")}
-          </a>
+          </AnchorLink>
         </div>
       </nav>
     </header>
