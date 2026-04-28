@@ -50,19 +50,30 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          DONE=$(node -e "
-            const t = require('./scripts/topics.json');
-            const last = t.filter(x => x.status === 'done').pop();
-            console.log(last ? last.slug : 'inconnu');
+          # Pull latest topics.json written by the agent (it committed + pushed)
+          git pull --rebase origin main --quiet || true
+
+          INFO=$(node -e "
+            const fs = require('fs');
+            const t = JSON.parse(fs.readFileSync('./scripts/topics.json', 'utf8'));
+            const last = [...t].reverse().find(x => x.status === 'done');
+            const remaining = t.filter(x => x.status === 'pending').length;
+            const slug = last ? last.slug : 'voir repo';
+            const title = last ? (last.topic || slug) : '—';
+            console.log(slug + '|' + remaining + '|' + title);
           ")
-          REMAINING=$(node -e "
-            const t = require('./scripts/topics.json');
-            console.log(t.filter(x => x.status === 'pending').length);
-          ")
+
+          SLUG=$(echo "$INFO" | cut -d'|' -f1)
+          REMAINING=$(echo "$INFO" | cut -d'|' -f2)
+          TITLE=$(echo "$INFO" | cut -d'|' -f3)
+
           curl -s -X POST \
             "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
-            -d chat_id="${TELEGRAM_CHAT_ID}" \
-            -d text="✅ Nouvel article publié sur Tourbillon Studios%0ASlug: ${DONE}%0ASujets restants: ${REMAINING}" \
+            --data-urlencode "text=✅ Nouvel article publié
+Sujet: ${TITLE}
+Slug: ${SLUG}
+Sujets restants: ${REMAINING}" \
+            -d "chat_id=${TELEGRAM_CHAT_ID}" \
             > /dev/null
 
       - name: Notify Telegram on failure
