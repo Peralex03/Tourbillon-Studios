@@ -444,7 +444,7 @@ const posts: BlogPost[] = [
         text: "Le SEO n'est pas une action ponctuelle mais un processus continu. Configurez Google Search Console (gratuit) et Google Analytics pour suivre vos positions, vos clics et vos conversions. Révisez votre stratégie chaque trimestre et ajustez en fonction des données. Les résultats sérieux commencent généralement à apparaître entre 3 et 6 mois d'effort constant."
       }
     ]
-  }
+  },
   {
     "slug": "creation-site-web-lausanne-prix-delais-guide",
     "title": "Création site web à Lausanne : prix, délais et ce qu'il faut savoir",

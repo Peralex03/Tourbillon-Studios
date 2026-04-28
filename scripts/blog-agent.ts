@@ -124,8 +124,13 @@ function appendToBlog(post: BlogPost): void {
     .map((line) => "  " + line)
     .join("\n");
 
-  const before = content.slice(0, insertionPoint);
+  let before = content.slice(0, insertionPoint);
   const after = content.slice(insertionPoint);
+
+  // Ensure the previous article (last one in array) ends with a comma.
+  // The `before` slice ends right before "];\n\nexport function getAllPosts".
+  // It typically ends with "  }\n" (last article close) — we need "  },\n".
+  before = before.replace(/(\n  })\s*$/, "$1,");
 
   const updated = before + serialized + ",\n" + after;
   writeFileSync(BLOG_PATH, updated);
