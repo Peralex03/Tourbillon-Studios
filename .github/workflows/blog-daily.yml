@@ -1,13 +1,12 @@
-name: 📝 Blog — Génération quotidienne
+name: Blog - Generation quotidienne
 
 on:
   schedule:
-    # 08h00 UTC = 10h00 CEST (été) / 09h00 CET (hiver)
     - cron: "0 8 * * *"
   workflow_dispatch:
     inputs:
       count:
-        description: "Nombre d'articles à générer"
+        description: "Nombre d'articles a generer"
         required: false
         default: "1"
 
@@ -50,30 +49,26 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          # Pull latest topics.json written by the agent (it committed + pushed)
           git pull --rebase origin main --quiet || true
 
-          INFO=$(node -e "
+          node -e "
             const fs = require('fs');
             const t = JSON.parse(fs.readFileSync('./scripts/topics.json', 'utf8'));
             const last = [...t].reverse().find(x => x.status === 'done');
             const remaining = t.filter(x => x.status === 'pending').length;
-            const slug = last ? last.slug : 'voir repo';
-            const title = last ? (last.topic || slug) : '—';
-            console.log(slug + '|' + remaining + '|' + title);
-          ")
-
-          SLUG=$(echo "$INFO" | cut -d'|' -f1)
-          REMAINING=$(echo "$INFO" | cut -d'|' -f2)
-          TITLE=$(echo "$INFO" | cut -d'|' -f3)
+            const lines = [
+              'Nouvel article publie sur Tourbillon Studios',
+              'Sujet: ' + (last ? last.topic : 'inconnu'),
+              'Slug: ' + (last ? last.slug : 'voir repo'),
+              'Sujets restants: ' + remaining
+            ];
+            fs.writeFileSync('/tmp/tg_message.txt', lines.join('\n'));
+          "
 
           curl -s -X POST \
             "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
-            --data-urlencode "text=✅ Nouvel article publié
-Sujet: ${TITLE}
-Slug: ${SLUG}
-Sujets restants: ${REMAINING}" \
             -d "chat_id=${TELEGRAM_CHAT_ID}" \
+            --data-urlencode "text@/tmp/tg_message.txt" \
             > /dev/null
 
       - name: Notify Telegram on failure
@@ -84,6 +79,6 @@ Sujets restants: ${REMAINING}" \
         run: |
           curl -s -X POST \
             "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
-            -d chat_id="${TELEGRAM_CHAT_ID}" \
-            -d text="❌ Erreur lors de la génération d'article Tourbillon Studios. Voir GitHub Actions pour les détails." \
+            -d "chat_id=${TELEGRAM_CHAT_ID}" \
+            --data-urlencode "text=Erreur generation article Tourbillon Studios. Voir GitHub Actions." \
             > /dev/null
