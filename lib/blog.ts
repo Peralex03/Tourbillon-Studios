@@ -1289,6 +1289,144 @@ const posts: BlogPost[] = [
       }
     ]
   },
+  {
+    "slug": "web-app-vs-site-vitrine-guide-startups-suisses",
+    "title": "Web app vs site vitrine : guide décisionnel pour startups suisses",
+    "excerpt": "Web app ou site vitrine ? Guide décisionnel pour startups suisses : critères, coûts en CHF, ROI et cadre légal nLPD pour choisir la bonne approche.",
+    "category": "Stratégie digitale",
+    "date": "2026-04-30",
+    "readTime": 8,
+    "locale": "fr",
+    "content": [
+      {
+        "type": "p",
+        "text": "Lancer une startup en Suisse impose un choix structurant dès les premières semaines : faut-il développer une web app ou un site vitrine ? Ce choix conditionne le budget, la vitesse de mise sur le marché et la trajectoire produit. Chez Tourbillon Studios, nous accompagnons des fondateurs à Genève, Lausanne et Zürich confrontés quotidiennement à cet arbitrage. Ce guide décisionnel clarifie les critères concrets pour trancher sans regret."
+      },
+      {
+        "type": "h2",
+        "text": "Quelle est la différence entre une web app et un site vitrine ?"
+      },
+      {
+        "type": "p",
+        "text": "Un site vitrine présente une entreprise et ses offres de manière statique ou semi-dynamique, tandis qu'une web app délivre un service interactif via le navigateur (compte utilisateur, calculs, transactions, données). Le site vitrine est un outil marketing ; la web app est le produit lui-même. Cette distinction détermine 80 % des décisions techniques et budgétaires qui suivront."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Site vitrine : 5 à 20 pages, contenu éditorial, formulaire de contact, objectif de conversion lead.",
+          "Web app : authentification, base de données, logique métier, tableaux de bord, paiement intégré.",
+          "Site hybride : vitrine + espace client léger (réservation, devis automatisé, portail membre)."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Pourquoi le choix dépend du modèle économique de la startup ?"
+      },
+      {
+        "type": "p",
+        "text": "La règle est simple : si votre proposition de valeur s'exécute en ligne, vous avez besoin d'une web app. Si elle se vend en ligne mais s'exécute hors ligne (conseil, artisanat, immobilier, restauration), un site vitrine bien construit suffit souvent au démarrage. Selon une étude Stripe publiée en 2024, 62 % des startups SaaS européennes considèrent que leur premier MVP web a directement déterminé leur capacité à lever des fonds dans les douze mois."
+      },
+      {
+        "type": "p",
+        "text": "En clair : un site vitrine valide un message, une web app valide un produit. Ce ne sont pas les mêmes hypothèses."
+      },
+      {
+        "type": "h2",
+        "text": "Combien coûte chaque option en Suisse ?"
+      },
+      {
+        "type": "p",
+        "text": "Sur le marché suisse, un site vitrine professionnel se situe entre 5'000 et 25'000 CHF selon la complexité, le contenu sur mesure et l'intégration SEO. Une web app MVP démarre généralement à 25'000 CHF et atteint 80'000 à 150'000 CHF pour une version production-ready avec authentification robuste, paiement, back-office et hébergement conforme nLPD."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Site vitrine basique (CMS, 8 pages, SEO de base) : 5'000 – 12'000 CHF.",
+          "Site vitrine premium (design sur mesure, multilingue FR/DE/EN, blog, analytics avancé) : 12'000 – 25'000 CHF.",
+          "Web app MVP (3-5 fonctionnalités clés, 1 rôle utilisateur) : 25'000 – 60'000 CHF.",
+          "Web app SaaS production (multi-tenant, paiement, RBAC, conformité) : 80'000 – 150'000 CHF."
+        ]
+      },
+      {
+        "type": "blockquote",
+        "text": "Selon le baromètre digitalswitzerland 2024, 71 % des PME suisses qui ont investi dans une plateforme web interactive (web app ou portail client) déclarent un retour sur investissement mesurable en moins de 18 mois, contre 43 % pour celles ayant uniquement un site vitrine."
+      },
+      {
+        "type": "h2",
+        "text": "Comment décider rapidement : les 5 questions filtres ?"
+      },
+      {
+        "type": "p",
+        "text": "Avant tout chiffrage, répondez à ces cinq questions. Trois réponses positives ou plus orientent vers une web app ; sinon, un site vitrine optimisé reste le bon choix de départ."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Vos utilisateurs doivent-ils créer un compte pour utiliser le service ?",
+          "Le produit génère-t-il, transforme-t-il ou stocke-t-il des données spécifiques à chaque utilisateur ?",
+          "Le revenu provient-il de transactions ou d'abonnements récurrents traités en ligne ?",
+          "Avez-vous besoin de mesurer l'usage produit (rétention, activation, churn) pour itérer ?",
+          "L'expérience utilisateur est-elle elle-même la promesse de valeur ?"
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Quels sont les pièges spécifiques au marché suisse ?"
+      },
+      {
+        "type": "p",
+        "text": "Trois écueils reviennent systématiquement chez les startups romandes et alémaniques que nous accompagnons. Premièrement, sous-estimer la conformité nLPD entrée en vigueur en septembre 2023 : une web app traitant des données personnelles impose registre des traitements, hébergement maîtrisé et politique de confidentialité explicite. Deuxièmement, négliger le multilinguisme : 67 % des PME suisses opèrent sur au moins deux régions linguistiques selon l'OFS. Troisièmement, choisir une stack technique trop ambitieuse pour un MVP qui devrait valider une hypothèse en 8 à 12 semaines."
+      },
+      {
+        "type": "p",
+        "text": "Une approche pragmatique consiste à démarrer par un site vitrine bilingue FR/DE indexable, puis à greffer progressivement les modules applicatifs validés par la traction commerciale."
+      },
+      {
+        "type": "h2",
+        "text": "Comment Tourbillon Studios aborde cet arbitrage ?"
+      },
+      {
+        "type": "p",
+        "text": "Notre méthode chez Tourbillon Studios, depuis Genève, Lausanne et Zürich, repose sur un atelier de cadrage de deux jours qui aboutit à une recommandation chiffrée. Nous évaluons la maturité du modèle économique, la pression concurrentielle, la fenêtre de financement et la complexité réglementaire. Pour 70 % des startups en pré-seed, nous recommandons un site vitrine performant couplé à un prototype Figma cliquable, plutôt qu'une web app prématurée qui consommerait la runway sans valider la traction."
+      },
+      {
+        "type": "h2",
+        "text": "FAQ : web app vs site vitrine pour startups suisses"
+      },
+      {
+        "type": "h3",
+        "text": "Peut-on transformer un site vitrine en web app plus tard ?"
+      },
+      {
+        "type": "p",
+        "text": "Oui, à condition d'anticiper l'architecture. Un site vitrine construit sur une stack moderne (Next.js, headless CMS, API-first) peut accueillir progressivement des fonctionnalités applicatives sans refonte. C'est la stratégie que nous privilégions pour les startups en phase d'amorçage."
+      },
+      {
+        "type": "h3",
+        "text": "Une web app no-code est-elle pertinente pour valider un MVP ?"
+      },
+      {
+        "type": "p",
+        "text": "Oui pour tester une hypothèse en moins de 6 semaines avec un budget inférieur à 15'000 CHF, via des outils comme Bubble, Softr ou Webflow + Xano. Au-delà de quelques centaines d'utilisateurs actifs ou dès qu'apparaissent des exigences de performance et de conformité nLPD, une migration vers du code sur mesure devient indispensable."
+      },
+      {
+        "type": "h3",
+        "text": "Quel délai prévoir pour chaque option ?"
+      },
+      {
+        "type": "p",
+        "text": "Un site vitrine professionnel se livre en 4 à 8 semaines en Suisse. Un MVP de web app demande 10 à 16 semaines, et une version SaaS commercialisable 5 à 9 mois selon le périmètre fonctionnel et l'intégration des paiements."
+      },
+      {
+        "type": "h2",
+        "text": "Conclusion : choisir selon la traction, pas selon l'ambition"
+      },
+      {
+        "type": "p",
+        "text": "Le bon choix entre web app et site vitrine n'est pas une question d'ambition mais de séquençage. Une startup suisse gagne presque toujours à valider son message avec un site vitrine performant, multilingue et conforme nLPD avant d'investir dans une web app dont chaque fonctionnalité doit être justifiée par la donnée. Cette discipline préserve la runway, accélère l'apprentissage et facilite les futures levées de fonds. Chez Tourbillon Studios, nous croyons qu'un produit digital ne se construit pas — il se découvre, étape par étape, en restant aligné avec la traction réelle du marché."
+      }
+    ]
+  },
 ];
 
 export function getAllPosts(): BlogPost[] {
