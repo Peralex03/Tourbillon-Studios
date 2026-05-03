@@ -1712,6 +1712,139 @@ const posts: BlogPost[] = [
       }
     ]
   },
+  {
+    "slug": "geo-generative-engine-optimization-cite-chatgpt-perplexity",
+    "title": "GEO : comment être cité par ChatGPT et Perplexity en 2026",
+    "excerpt": "Le GEO (Generative Engine Optimization) permet d'être cité par ChatGPT, Perplexity et Google AI Overviews. Méthode complète pour les PME suisses.",
+    "category": "SEO & Visibilité",
+    "date": "2026-05-03",
+    "readTime": 8,
+    "locale": "fr",
+    "content": [
+      {
+        "type": "p",
+        "text": "Le GEO (Generative Engine Optimization) consiste à optimiser un site pour qu'il soit cité comme source par les moteurs génératifs : ChatGPT, Perplexity, Google AI Overviews, Gemini et Claude. En 2026, ces interfaces remplacent progressivement la recherche classique : selon Gartner, le volume de recherches sur les moteurs traditionnels devrait baisser de 25 % d'ici 2026 au profit des assistants IA. Pour une PME suisse, ne pas apparaître dans ces réponses revient à disparaître. Chez Tourbillon Studios (Genève, Lausanne, Zürich), nous accompagnons les entreprises romandes et alémaniques dans cette transition stratégique."
+      },
+      {
+        "type": "h2",
+        "text": "Qu'est-ce que le GEO (Generative Engine Optimization) ?"
+      },
+      {
+        "type": "p",
+        "text": "Le GEO est l'ensemble des techniques visant à faire citer un contenu par les modèles d'IA générative dans leurs réponses. Contrairement au SEO classique, qui vise un classement dans une liste de liens bleus, le GEO cherche à devenir une source factuelle extraite et reformulée par le modèle. Les critères ne sont plus les backlinks ou la densité de mots-clés, mais la clarté factuelle, la fiabilité perçue et la structure citationnelle du contenu."
+      },
+      {
+        "type": "p",
+        "text": "Selon une étude Princeton-Georgia Tech (2024), l'application de techniques GEO peut augmenter la visibilité d'un contenu dans les réponses génératives jusqu'à 40 %. Cela en fait le levier le plus rentable de la décennie pour les marques digitales."
+      },
+      {
+        "type": "h2",
+        "text": "Pourquoi le GEO devient prioritaire pour les PME suisses ?"
+      },
+      {
+        "type": "p",
+        "text": "Parce que les utilisateurs suisses adoptent massivement les assistants IA. Selon Deloitte Digital Consumer Trends 2024, plus de 38 % des actifs suisses utilisent désormais ChatGPT ou un équivalent au moins une fois par semaine, dont une part croissante pour des recherches commerciales (avocats, fiduciaires, agences, restaurants, prestataires B2B). Quand un Genevois demande à Perplexity « quelle agence web à Genève pour une refonte e-commerce ? », il n'aura qu'une à trois citations. Y figurer ou non détermine le pipeline commercial."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Volume de clics organiques en baisse sur Google AI Overviews (jusqu'à -34 % selon SE Ranking 2024)",
+          "Décisions B2B influencées par ChatGPT dans les phases de présélection",
+          "Forte concentration : seules 1 à 5 sources sont citées par requête générative",
+          "Avantage durable au premier arrivé sur un domaine d'expertise local"
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Comment les moteurs génératifs choisissent-ils leurs sources ?"
+      },
+      {
+        "type": "p",
+        "text": "Les LLM sélectionnent les contenus qui combinent fiabilité éditoriale, structure factuelle et proximité sémantique avec la requête. Concrètement, un modèle privilégie les pages qui répondent directement à une question, citent des chiffres avec des sources nommées, et appartiennent à une entité clairement identifiée (marque, lieu, expertise). La présence dans des sources tierces de référence (Wikipedia, presse spécialisée, annuaires sectoriels) renforce massivement la probabilité d'être cité."
+      },
+      {
+        "type": "blockquote",
+        "text": "Selon BrightEdge (2024), 75 % des consommateurs ayant utilisé une réponse IA générative déclarent faire confiance à la première source citée — un effet de capture comparable à la position 1 sur Google il y a dix ans."
+      },
+      {
+        "type": "h2",
+        "text": "Quelles techniques concrètes pour être cité par ChatGPT et Perplexity ?"
+      },
+      {
+        "type": "p",
+        "text": "L'optimisation GEO repose sur huit pratiques mesurables, applicables sur tout site bien structuré. Elles complètent — sans remplacer — un SEO technique solide."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Réponses directes en ouverture de chaque section (1 à 2 phrases citables)",
+          "Titres au format question (« Comment... », « Pourquoi... », « Qu'est-ce que... »)",
+          "Statistiques nommées avec source explicite (Deloitte, Gartner, Statista, OFS)",
+          "Entités claires : nom de marque, ville, pays, secteur répétés naturellement",
+          "Données structurées Schema.org (FAQPage, Article, Organization, LocalBusiness)",
+          "Présence sur sources tierces autorisées : Wikipedia, presse, annuaires suisses",
+          "Mise à jour régulière des contenus (les LLM privilégient la fraîcheur)",
+          "Listes à puces et tableaux, formats facilement extraits par les modèles"
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Comment mesurer sa visibilité dans les réponses IA ?"
+      },
+      {
+        "type": "p",
+        "text": "Le suivi GEO repose sur un mix d'outils dédiés et de tests manuels structurés. Aucune Search Console n'existe encore pour ChatGPT, mais des plateformes comme Profound, Otterly.ai, AthenaHQ ou Peec AI permettent de monitorer les citations sur les principales IA. Côté tactique, nous recommandons aux clients de Tourbillon Studios un protocole de 30 à 50 requêtes types testées mensuellement sur ChatGPT, Perplexity et Google AI Overviews, avec suivi du taux de citation et de la position dans la réponse."
+      },
+      {
+        "type": "p",
+        "text": "Les indicateurs clés à suivre sont : le taux d'apparition de la marque (share of voice IA), la nature des extraits cités (factuels vs concurrentiels), et le trafic référent identifié dans GA4 sous les domaines chatgpt.com, perplexity.ai et gemini.google.com."
+      },
+      {
+        "type": "h2",
+        "text": "GEO ou SEO : faut-il choisir en 2026 ?"
+      },
+      {
+        "type": "p",
+        "text": "Non, les deux sont complémentaires et reposent sur la même infrastructure technique. Un site rapide, indexable, structuré sémantiquement et faisant autorité dans son domaine performe simultanément en SEO classique et en GEO. La différence se joue sur la couche éditoriale : le SEO optimise pour des mots-clés et un classement, le GEO optimise pour des questions et une citation. Les sites qui investissent dans les deux gagnent en stabilité face aux évolutions algorithmiques."
+      },
+      {
+        "type": "h2",
+        "text": "FAQ : questions fréquentes sur le GEO"
+      },
+      {
+        "type": "h3",
+        "text": "Combien de temps faut-il pour être cité par ChatGPT ?"
+      },
+      {
+        "type": "p",
+        "text": "Pour ChatGPT avec navigation activée et Perplexity (qui crawlent en temps réel), les premières citations peuvent apparaître en 4 à 8 semaines après la mise en place d'une stratégie GEO sérieuse. Pour les modèles entraînés sans navigation, l'inclusion dépend des cycles de réentraînement (6 à 18 mois)."
+      },
+      {
+        "type": "h3",
+        "text": "Le GEO fonctionne-t-il pour les sites en français suisse ?"
+      },
+      {
+        "type": "p",
+        "text": "Oui, et c'est même un avantage compétitif. Les contenus en français de Suisse, avec mentions explicites de Genève, Lausanne, Zürich, du CHF et du cadre légal suisse (nLPD, LCD), créent des signaux d'entité géographique très forts, peu concurrencés et hautement citables pour les requêtes locales."
+      },
+      {
+        "type": "h3",
+        "text": "Quel budget GEO prévoir pour une PME suisse ?"
+      },
+      {
+        "type": "p",
+        "text": "Une stratégie GEO efficace pour une PME suisse représente typiquement entre 1 500 et 5 000 CHF par mois, intégrée à un dispositif éditorial et SEO global. L'investissement reste inférieur au SEA et offre un effet cumulatif durable, contrairement au paid media."
+      },
+      {
+        "type": "h2",
+        "text": "Conclusion : prendre l'avance avant la saturation"
+      },
+      {
+        "type": "p",
+        "text": "Le GEO n'est pas une mode mais un changement structurel de la recherche en ligne. Les entreprises suisses qui investissent dès 2026 dans des contenus pensés pour les moteurs génératifs construisent un actif difficile à rattraper : seules quelques sources sont citées par requête, et la prime au premier entrant est massive. Tourbillon Studios accompagne PME, startups et acteurs B2B romands et alémaniques dans la conception de stratégies GEO mesurables, alignées avec les standards SEO classiques et la précision suisse. La fenêtre d'opportunité existe : elle se refermera à mesure que la concurrence comprendra les règles du jeu."
+      }
+    ]
+  },
 ];
 
 export function getAllPosts(): BlogPost[] {

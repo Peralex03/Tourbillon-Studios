@@ -55,7 +55,9 @@
   },
   {
     "topic": "GEO generative engine optimization : être cité par ChatGPT et Perplexity",
-    "status": "pending"
+    "status": "done",
+    "slug": "geo-generative-engine-optimization-cite-chatgpt-perplexity",
+    "generatedAt": "2026-05-03T09:26:45.940Z"
   },
   {
     "topic": "RGPD et nLPD en Suisse : ce que votre site web doit respecter",
