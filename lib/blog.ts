@@ -2362,6 +2362,158 @@ const posts: BlogPost[] = [
       }
     ]
   },
+  {
+    "slug": "seo-technique-2025-core-web-vitals-https-architecture-url",
+    "title": "SEO technique en 2025 : Core Web Vitals, HTTPS et architecture d'URL",
+    "excerpt": "Guide expert du SEO technique en 2025 : Core Web Vitals, HTTPS et architecture d'URL pour PME suisses qui veulent dominer Google et les moteurs IA.",
+    "category": "SEO & Visibilité",
+    "date": "2026-05-08",
+    "readTime": 8,
+    "locale": "fr",
+    "content": [
+      {
+        "type": "p",
+        "text": "Le SEO technique est devenu en 2025 le socle non négociable de toute stratégie de visibilité, en Suisse comme ailleurs. Avec l'essor des moteurs génératifs (ChatGPT Search, Perplexity, Google AI Overviews) et la pression concurrentielle sur les marchés genevois, lausannois et zurichois, un site mal optimisé techniquement perd à la fois son classement Google et ses chances d'être cité par une IA. Cet article détaille les trois piliers techniques prioritaires : Core Web Vitals, HTTPS et architecture d'URL."
+      },
+      {
+        "type": "h2",
+        "text": "Qu'est-ce que le SEO technique en 2025 ?"
+      },
+      {
+        "type": "p",
+        "text": "Le SEO technique regroupe l'ensemble des optimisations infrastructure (vitesse, sécurité, structure, indexation) qui permettent aux moteurs de recherche et aux IA de crawler, comprendre et citer un site. En 2025, Google utilise plus de 200 signaux de classement, et selon Backlinko, les trois quarts des sites en première page respectent les seuils Core Web Vitals. Pour une PME suisse, négliger ces fondations revient à investir dans le contenu sur des sables mouvants."
+      },
+      {
+        "type": "p",
+        "text": "Chez Tourbillon Studios, nos audits techniques menés à Genève, Lausanne et Zürich montrent qu'environ 60 % des sites de PME romandes échouent sur au moins un Core Web Vital — un manque à gagner direct en trafic qualifié."
+      },
+      {
+        "type": "h2",
+        "text": "Pourquoi les Core Web Vitals sont décisifs pour le classement Google ?"
+      },
+      {
+        "type": "p",
+        "text": "Les Core Web Vitals mesurent l'expérience utilisateur réelle via trois indicateurs officiels Google : LCP (Largest Contentful Paint), INP (Interaction to Next Paint, qui a remplacé FID en mars 2024) et CLS (Cumulative Layout Shift). Ils sont intégrés au Page Experience update et conditionnent directement le ranking sur mobile."
+      },
+      {
+        "type": "p",
+        "text": "Les seuils à respecter en 2025 :"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "LCP : moins de 2,5 secondes (chargement du plus grand élément visible)",
+          "INP : moins de 200 millisecondes (réactivité aux interactions)",
+          "CLS : score inférieur à 0,1 (stabilité visuelle de la mise en page)",
+          "TTFB (Time to First Byte) : idéalement sous 800 ms, critique en Suisse où les visiteurs sont exigeants"
+        ]
+      },
+      {
+        "type": "blockquote",
+        "text": "Selon une étude Deloitte publiée en 2024, une amélioration de 0,1 seconde de la vitesse mobile augmente les conversions e-commerce de 8,4 % et le panier moyen de 9,2 %."
+      },
+      {
+        "type": "h2",
+        "text": "Comment HTTPS et la sécurité influencent le SEO suisse ?"
+      },
+      {
+        "type": "p",
+        "text": "HTTPS est un facteur de classement officiel depuis 2014, mais en 2025 il devient une exigence absolue : Chrome marque tout site HTTP comme « non sécurisé », ce qui détruit le taux de conversion. En Suisse, la nLPD (nouvelle Loi sur la protection des données) entrée en vigueur en septembre 2023 impose en outre le chiffrement des données personnelles, rendant HTTPS juridiquement nécessaire pour tout site collectant des formulaires."
+      },
+      {
+        "type": "p",
+        "text": "Les bonnes pratiques techniques à appliquer :"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Certificat TLS 1.3 (Let's Encrypt suffit pour la plupart des PME, gratuit)",
+          "Redirections 301 systématiques de HTTP vers HTTPS",
+          "HSTS activé avec préchargement (header Strict-Transport-Security)",
+          "Mixed content éliminé : aucune ressource HTTP sur une page HTTPS",
+          "Cookies sécurisés avec flags Secure et SameSite"
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Quelle architecture d'URL adopter pour maximiser le SEO ?"
+      },
+      {
+        "type": "p",
+        "text": "Une architecture d'URL performante est plate (3 niveaux maximum), sémantique et stable. Selon une analyse Ahrefs de 2024 portant sur 11,8 millions de résultats Google, les URLs courtes (moins de 60 caractères) se classent en moyenne 2,5 positions plus haut que les longues. Pour le marché suisse multilingue, la structure d'URL doit aussi gérer proprement français, allemand, italien et anglais."
+      },
+      {
+        "type": "p",
+        "text": "Règles d'architecture recommandées :"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Sous-dossiers par langue : /fr/, /de/, /it/, /en/ (préférable aux sous-domaines pour concentrer l'autorité)",
+          "Tags hreflang correctement déclarés pour signaler les versions linguistiques",
+          "URLs en kebab-case, sans paramètres dynamiques inutiles (?id=123)",
+          "Mots-clés cibles dans le slug, sans bourrage",
+          "Structure logique : domaine.ch/categorie/sous-categorie/produit",
+          "Canonical tags pour éviter le contenu dupliqué entre versions desktop/mobile/AMP"
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Comment auditer techniquement son site en 2025 ?"
+      },
+      {
+        "type": "p",
+        "text": "Un audit SEO technique complet combine des outils gratuits et professionnels pour couvrir vitesse, indexabilité et structure. La méthodologie Tourbillon Studios pour nos clients suisses suit une séquence stricte permettant d'identifier en 48 heures les blocages prioritaires."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "PageSpeed Insights et Chrome UX Report pour les Core Web Vitals en données réelles",
+          "Google Search Console pour l'indexation, les erreurs de crawl et les Core Web Vitals agrégés",
+          "Screaming Frog ou Sitebulb pour le crawl technique complet (balises, redirections, profondeur)",
+          "Schema.org markup validé via le Rich Results Test (crucial pour les AI Overviews)",
+          "Sitemap XML à jour soumis dans Search Console et Bing Webmaster Tools",
+          "Robots.txt cohérent, sans bloquer involontairement des ressources CSS/JS"
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "FAQ : SEO technique pour PME suisses"
+      },
+      {
+        "type": "h3",
+        "text": "Combien coûte un audit SEO technique en Suisse ?"
+      },
+      {
+        "type": "p",
+        "text": "Un audit SEO technique professionnel pour une PME suisse se situe généralement entre 1 500 et 5 000 CHF selon la taille du site. Tourbillon Studios propose des audits forfaitaires adaptés aux entreprises de Genève, Lausanne et Zürich, avec restitution actionnable et priorisation des chantiers."
+      },
+      {
+        "type": "h3",
+        "text": "Faut-il refondre son site pour passer les Core Web Vitals ?"
+      },
+      {
+        "type": "p",
+        "text": "Non, dans 70 % des cas une optimisation ciblée suffit : compression d'images en WebP/AVIF, lazy loading, mise en cache, suppression du JavaScript bloquant. Une refonte complète n'est justifiée que si le CMS ou le thème est structurellement obsolète."
+      },
+      {
+        "type": "h3",
+        "text": "Le SEO technique influence-t-il les citations par ChatGPT ou Perplexity ?"
+      },
+      {
+        "type": "p",
+        "text": "Oui, directement. Les moteurs IA crawlent le web via des bots qui privilégient les sites rapides, sécurisés et structurés. Un site lent ou mal indexé sera peu cité dans les réponses génératives, même avec un excellent contenu."
+      },
+      {
+        "type": "h2",
+        "text": "Conclusion : le SEO technique, investissement prioritaire pour 2025-2026"
+      },
+      {
+        "type": "p",
+        "text": "En 2025, le SEO technique n'est plus une option mais le prérequis absolu pour exister sur Google et dans les moteurs IA. Core Web Vitals, HTTPS conforme nLPD et architecture d'URL propre forment le triptyque sur lequel repose toute stratégie de visibilité durable. Pour les PME, startups et entrepreneurs suisses qui veulent transformer leur site en véritable canal d'acquisition, l'expertise technique de Tourbillon Studios à Genève, Lausanne et Zürich permet de combiner précision suisse et performance mesurable. Le bon moment pour auditer votre site, c'est maintenant — avant que vos concurrents ne le fassent."
+      }
+    ]
+  },
 ];
 
 export function getAllPosts(): BlogPost[] {
