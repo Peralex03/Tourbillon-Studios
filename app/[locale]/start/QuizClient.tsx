@@ -221,6 +221,7 @@ export default function QuizClient({ locale, mode = "fullscreen" }: Props) {
                   status={status}
                   errorMsg={errorMsg}
                   onSubmit={submitContact}
+                  onBack={goBack}
                 />
               )}
 
@@ -382,6 +383,7 @@ function ContactStep({
   status,
   errorMsg,
   onSubmit,
+  onBack,
 }: {
   visibleIndex: number;
   total: number;
@@ -394,6 +396,7 @@ function ContactStep({
     message?: string;
     company?: string;
   }) => void;
+  onBack: () => void;
 }) {
   const sending = status === "sending";
 
@@ -488,19 +491,32 @@ function ContactStep({
           />
         </QuizField>
 
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-2">
-          <button
-            type="submit"
-            disabled={sending}
-            className="inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-[var(--accent)] text-[var(--accent-ink)] text-[0.9375rem] font-medium hover:bg-[var(--accent-hover)] transition-colors disabled:opacity-60"
-          >
-            {sending ? "Envoi en cours…" : "Transmettre ma demande"}
-            {!sending && (
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-2">
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={onBack}
+              disabled={sending}
+              className="inline-flex items-center gap-2 px-5 py-3.5 rounded-full glass-subtle text-[var(--text)] hover:border-[var(--accent)] transition-colors text-[0.9375rem] disabled:opacity-50"
+            >
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M7 17L17 7M9 7h8v8" />
+                <path d="M19 12H5M12 19l-7-7 7-7" />
               </svg>
-            )}
-          </button>
+              Retour
+            </button>
+            <button
+              type="submit"
+              disabled={sending}
+              className="inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-[var(--accent)] text-[var(--accent-ink)] text-[0.9375rem] font-medium hover:bg-[var(--accent-hover)] transition-colors disabled:opacity-60"
+            >
+              {sending ? "Envoi en cours…" : "Transmettre ma demande"}
+              {!sending && (
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M7 17L17 7M9 7h8v8" />
+                </svg>
+              )}
+            </button>
+          </div>
           {errorMsg && (
             <span className="font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--error)]">
               {errorMsg === "invalid_email" && "Email invalide"}

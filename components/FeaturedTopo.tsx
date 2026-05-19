@@ -14,11 +14,11 @@ import { useEffect, useRef } from "react";
 export default function FeaturedTopo({
   opacity = 0.22,
   /** Number of iso-line levels — more = denser contours */
-  levels = 12,
+  levels = 7,
   /** Target grid cell size in pixels (smaller = tighter resolution) */
-  cellSize = 10,
+  cellSize = 12,
   /** Approx pixel wavelength between major topographic features */
-  wavelength = 130,
+  wavelength = 280,
 }: {
   opacity?: number;
   levels?: number;
@@ -111,12 +111,11 @@ export default function FeaturedTopo({
       const fx = px * k;
       const fy = py * k;
 
+      // Looser, calmer noise · fewer harmonics, lower frequencies
       let a = 0;
-      a += Math.sin(fx * 0.62 + t * 0.18) * Math.cos(fy * 0.58 - t * 0.12) * 0.55;
-      a += Math.sin(fx * 1.05 - t * 0.22) * Math.cos(fy * 1.13 + t * 0.16) * 0.32;
-      a += Math.sin((fx + fy) * 0.84 + t * 0.10) * 0.22;
-      a += Math.cos((fx - fy) * 0.71 - t * 0.20) * 0.18;
-      a += Math.sin(fx * 1.6 + t * 0.27) * Math.sin(fy * 1.4 - t * 0.24) * 0.10;
+      a += Math.sin(fx * 0.55 + t * 0.14) * Math.cos(fy * 0.50 - t * 0.10) * 0.70;
+      a += Math.sin(fx * 0.95 - t * 0.18) * Math.cos(fy * 1.02 + t * 0.13) * 0.32;
+      a += Math.sin((fx + fy) * 0.70 + t * 0.08) * 0.18;
 
       // Mouse bump · Gaussian peak at cursor (in viewport-relative coords)
       const u = px / width;
