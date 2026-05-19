@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import RevealText from "@/components/RevealText";
+import FeaturedTopo from "@/components/FeaturedTopo";
 import { TEAM, VALUES, CITIES } from "@/lib/team";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -18,8 +18,9 @@ export default async function AboutPage() {
   return (
     <>
       {/* HERO */}
-      <section className="px-6 lg:px-10 pt-32 lg:pt-36 pb-16 lg:pb-20 border-b border-[var(--stroke)]">
-        <div className="mx-auto max-w-[1400px]">
+      <section className="relative px-6 lg:px-10 pt-32 lg:pt-36 pb-16 lg:pb-20 border-b border-[var(--stroke)] overflow-hidden">
+        <FeaturedTopo opacity={0.18} contourCount={10} />
+        <div className="relative mx-auto max-w-[1400px]">
           <div className="text-eyebrow mb-6">{t("eyebrow")}</div>
           <h1 className="text-h1 tracking-tight max-w-3xl">
             Nous concevons des sites web qui{" "}

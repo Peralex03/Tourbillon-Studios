@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import RevealText from "@/components/RevealText";
+import FeaturedTopo from "@/components/FeaturedTopo";
 import ContactForm from "./ContactForm";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -17,21 +17,16 @@ export default async function ContactPage() {
   return (
     <>
       {/* HERO */}
-      <section className="px-6 lg:px-10 pt-32 lg:pt-40 pb-16 border-b border-[var(--stroke)]">
-        <div className="mx-auto max-w-[1400px]">
-          <div className="text-eyebrow mb-8">{t("eyebrow")}</div>
-          <h1 className="text-h1 lg:text-display tracking-tight max-w-5xl">
-            <RevealText as="span" splitBy="word">{t("heroLine")}</RevealText>
+      <section className="relative px-6 lg:px-10 pt-32 lg:pt-36 pb-16 border-b border-[var(--stroke)] overflow-hidden">
+        <FeaturedTopo opacity={0.18} contourCount={10} />
+        <div className="relative mx-auto max-w-[1400px]">
+          <div className="text-eyebrow mb-6">{t("eyebrow")}</div>
+          <h1 className="text-h1 tracking-tight max-w-3xl">
+            Discutons de votre <span className="accent-serif">projet</span>.
           </h1>
-          <RevealText
-            as="p"
-            className="mt-10 text-[1.0625rem] lg:text-[1.125rem] text-[var(--text-dim)] max-w-2xl leading-relaxed"
-            splitBy="word"
-            delay={0.3}
-            stagger={0.012}
-          >
+          <p className="mt-6 text-[1rem] lg:text-[1.0625rem] text-[var(--text-dim)] max-w-2xl leading-relaxed">
             {t("heroSubtitle")}
-          </RevealText>
+          </p>
         </div>
       </section>
 

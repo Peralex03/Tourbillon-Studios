@@ -8,7 +8,6 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import SmoothScroll from "@/components/SmoothScroll";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
-import TopographicBackground from "@/components/TopographicBackground";
 import "../globals.css";
 
 const inter = Inter({
@@ -60,7 +59,6 @@ export default async function LocaleLayout({
         <ThemeProvider>
           <NextIntlClientProvider messages={messages}>
             <SmoothScroll />
-            <TopographicBackground />
             <SiteHeader />
             <main>{children}</main>
             <SiteFooter />
