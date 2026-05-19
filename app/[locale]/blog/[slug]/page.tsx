@@ -2,8 +2,6 @@ import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { getAllPosts, getPostBySlug, formatDate, BlogSection } from "@/lib/blog";
 import { Link } from "@/i18n/navigation";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 
 export async function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }));
@@ -33,29 +31,42 @@ function RenderSection({ section }: { section: BlogSection }) {
   switch (section.type) {
     case "h2":
       return (
-        <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">{section.text}</h2>
+        <h2 className="font-serif text-[clamp(1.75rem,3vw,2.5rem)] font-light tracking-tight mt-14 mb-5 text-[var(--text)]">
+          {section.text}
+        </h2>
       );
     case "h3":
       return (
-        <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">{section.text}</h3>
+        <h3 className="font-serif text-[clamp(1.375rem,2vw,1.75rem)] font-light tracking-tight mt-10 mb-4 text-[var(--text)]">
+          {section.text}
+        </h3>
       );
     case "p":
-      return <p className="text-gray-600 leading-relaxed mb-5">{section.text}</p>;
+      return (
+        <p className="text-[1.0625rem] lg:text-[1.125rem] text-[var(--text-dim)] leading-[1.75] mb-6">
+          {section.text}
+        </p>
+      );
     case "ul":
       return (
-        <ul className="mb-5 space-y-2">
+        <ul className="mb-8 space-y-3">
           {section.items?.map((item, i) => (
-            <li key={i} className="flex items-start gap-2 text-gray-600">
-              <span className="mt-1 w-1.5 h-1.5 rounded-full bg-violet-500 shrink-0" />
-              {item}
+            <li
+              key={i}
+              className="flex items-start gap-3 text-[1.0625rem] text-[var(--text-dim)] leading-relaxed"
+            >
+              <span className="mt-3 w-1.5 h-1.5 rounded-full bg-[var(--accent)] shrink-0" />
+              <span>{item}</span>
             </li>
           ))}
         </ul>
       );
     case "blockquote":
       return (
-        <blockquote className="my-6 pl-5 border-l-4 border-violet-400 bg-violet-50/50 rounded-r-xl py-4 pr-4">
-          <p className="text-gray-700 italic leading-relaxed">{section.text}</p>
+        <blockquote className="my-10 pl-6 border-l-2 border-[var(--accent)] bg-[var(--surface-1)] py-6 pr-6 rounded-r-sm">
+          <p className="font-serif text-[1.25rem] lg:text-[1.375rem] font-light italic leading-relaxed text-[var(--text)]">
+            {section.text}
+          </p>
         </blockquote>
       );
     default:
@@ -76,67 +87,68 @@ export default async function ArticlePage({
 
   return (
     <>
-      <Navbar />
-      <main className="pt-24 pb-20 px-6 min-h-screen">
-        <div className="fixed top-0 right-0 w-[500px] h-[500px] rounded-full bg-violet-100/20 blur-[120px] -z-10 pointer-events-none" />
-
-        <div className="max-w-2xl mx-auto">
+      <article className="pt-32 lg:pt-40 pb-20 px-6 lg:px-10">
+        <div className="mx-auto max-w-[760px]">
           {/* Back link */}
           <Link
             href="/blog"
-            className="inline-flex items-center text-sm text-gray-400 hover:text-violet-600 transition-colors mb-8"
+            className="inline-flex items-center text-eyebrow text-[var(--text-dim)] hover:text-[var(--accent)] transition-colors mb-12"
           >
             {t("backToBlog")}
           </Link>
 
           {/* Article header */}
-          <header className="mb-10">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-xs font-semibold text-violet-600 bg-violet-50 border border-violet-100 px-2.5 py-1 rounded-full">
+          <header className="mb-14">
+            <div className="flex items-center gap-4 mb-6 flex-wrap">
+              <span className="font-mono text-[0.6875rem] uppercase tracking-wider px-3 py-1.5 rounded-full bg-[var(--surface-1)] border border-[var(--stroke)] text-[var(--accent)]">
                 {post.category}
               </span>
-              <span className="text-xs text-gray-400">
+              <span className="font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-faint)]">
                 {post.readTime} {t("minRead")}
               </span>
-              <time className="text-xs text-gray-400">
+              <time className="font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-faint)]">
                 {formatDate(post.date, locale)}
               </time>
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 leading-tight">
+            <h1 className="font-serif text-[clamp(2.25rem,5vw,4rem)] font-light tracking-tight leading-[1.05] text-[var(--text)]">
               {post.title}
             </h1>
-            <p className="text-lg text-gray-500 mt-4 leading-relaxed">{post.excerpt}</p>
+            <p className="mt-8 text-[1.125rem] lg:text-[1.25rem] text-[var(--text-dim)] leading-relaxed">
+              {post.excerpt}
+            </p>
           </header>
 
-          <hr className="border-gray-100 mb-10" />
+          <hr className="border-[var(--stroke)] mb-12" />
 
           {/* Article body */}
-          <article className="prose-sm">
+          <div>
             {post.content.map((section, i) => (
               <RenderSection key={i} section={section} />
             ))}
-          </article>
+          </div>
 
-          <hr className="border-gray-100 mt-12 mb-8" />
+          <hr className="border-[var(--stroke)] mt-16 mb-12" />
 
-          {/* CTA */}
-          <div className="bg-gradient-to-br from-violet-50 to-indigo-50 border border-violet-100 rounded-2xl p-8 text-center">
-            <h3 className="text-xl font-bold text-gray-900 mb-2">
+          {/* CTA — connects to interactive quiz */}
+          <div className="bg-[var(--surface-1)] border border-[var(--stroke)] rounded-sm p-10 text-center">
+            <h3 className="font-serif text-[1.75rem] lg:text-[2rem] font-light tracking-tight text-[var(--text)] mb-3">
               Vous avez un projet digital ?
             </h3>
-            <p className="text-gray-500 mb-5 text-sm">
-              Parlons de votre projet — premier échange gratuit et sans engagement.
+            <p className="text-[var(--text-dim)] mb-7 text-[1rem] leading-relaxed max-w-md mx-auto">
+              Quatre questions, vingt secondes, et on revient vers vous sous 24h.
             </p>
             <Link
-              href="/#contact"
-              className="inline-block font-medium bg-gray-900 text-white px-6 py-3 rounded-xl hover:bg-violet-600 transition-colors duration-200"
+              href="/start"
+              className="inline-flex items-center gap-3 px-7 py-4 rounded-full bg-[var(--accent)] text-[var(--accent-ink)] font-medium hover:bg-[var(--accent-hover)] transition-colors"
             >
-              Prendre contact →
+              Lancer le projet
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 17L17 7M9 7h8v8" />
+              </svg>
             </Link>
           </div>
         </div>
-      </main>
-      <Footer />
+      </article>
     </>
   );
 }

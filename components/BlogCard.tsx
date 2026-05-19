@@ -10,34 +10,47 @@ interface Props {
 
 export default function BlogCard({ post, locale, readMoreLabel, minReadLabel }: Props) {
   return (
-    <article className="group bg-white/60 backdrop-blur-md border border-gray-200/70 rounded-2xl p-7 flex flex-col gap-4 hover:border-violet-300/70 hover:shadow-xl hover:shadow-violet-100/30 transition-all duration-300">
-      <div className="flex items-center justify-between gap-3">
-        <span className="text-xs font-semibold text-violet-600 bg-violet-50 border border-violet-100 px-2.5 py-1 rounded-full">
-          {post.category}
-        </span>
-        <span className="text-xs text-gray-400">
-          {post.readTime} {minReadLabel}
-        </span>
-      </div>
+    <Link href={`/blog/${post.slug}`} className="group block">
+      <article className="h-full bg-[var(--surface-1)] border border-[var(--stroke)] hover:border-[var(--stroke-strong)] hover:bg-[var(--surface-2)] transition-colors p-7 lg:p-8 flex flex-col gap-5 min-h-[280px]">
+        <div className="flex items-center justify-between gap-3">
+          <span className="font-mono text-[0.6875rem] uppercase tracking-wider px-2.5 py-1 rounded-full border border-[var(--stroke)] text-[var(--accent)]">
+            {post.category}
+          </span>
+          <span className="font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-faint)]">
+            {post.readTime} {minReadLabel}
+          </span>
+        </div>
 
-      <div className="flex-1">
-        <h2 className="text-lg font-semibold text-gray-900 leading-snug mb-2 group-hover:text-violet-600 transition-colors">
-          {post.title}
-        </h2>
-        <p className="text-sm text-gray-500 leading-relaxed line-clamp-3">
-          {post.excerpt}
-        </p>
-      </div>
+        <div className="flex-1">
+          <h2 className="font-serif text-[1.5rem] lg:text-[1.625rem] font-light leading-[1.15] tracking-tight text-[var(--text)] group-hover:text-[var(--accent)] transition-colors mb-3">
+            {post.title}
+          </h2>
+          <p className="text-[0.9375rem] text-[var(--text-dim)] leading-relaxed line-clamp-3">
+            {post.excerpt}
+          </p>
+        </div>
 
-      <div className="flex items-center justify-between pt-2 border-t border-gray-100">
-        <time className="text-xs text-gray-400">{formatDate(post.date, locale)}</time>
-        <Link
-          href={`/blog/${post.slug}`}
-          className="text-sm font-medium text-violet-600 hover:text-violet-800 transition-colors"
-        >
-          {readMoreLabel}
-        </Link>
-      </div>
-    </article>
+        <div className="flex items-center justify-between pt-5 border-t border-[var(--stroke)]">
+          <time className="font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-faint)]">
+            {formatDate(post.date, locale)}
+          </time>
+          <span className="inline-flex items-center gap-1.5 text-[0.8125rem] text-[var(--text-dim)] group-hover:text-[var(--accent)] transition-colors">
+            {readMoreLabel}
+            <svg
+              width="11"
+              height="11"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            >
+              <path d="M7 17L17 7M9 7h8v8" />
+            </svg>
+          </span>
+        </div>
+      </article>
+    </Link>
   );
 }

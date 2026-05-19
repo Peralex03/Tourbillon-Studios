@@ -1,8 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { getAllPosts } from "@/lib/blog";
 import BlogCard from "@/components/BlogCard";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import RevealText from "@/components/RevealText";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -20,27 +19,23 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
 
   return (
     <>
-      <Navbar />
-      <main className="pt-24 pb-20 px-6 min-h-screen">
-        {/* Background blob */}
-        <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full bg-violet-100/30 blur-[120px] -z-10 pointer-events-none" />
+      {/* HERO */}
+      <section className="px-6 lg:px-10 pt-32 lg:pt-40 pb-20 border-b border-[var(--stroke)]">
+        <div className="mx-auto max-w-[1400px]">
+          <div className="text-eyebrow mb-8">{t("label")}</div>
+          <h1 className="text-h1 font-serif font-light tracking-tight max-w-5xl">
+            <RevealText as="span" splitBy="word">{t("heading")}</RevealText>
+          </h1>
+          <p className="mt-8 text-[1.0625rem] lg:text-[1.125rem] text-[var(--text-dim)] max-w-2xl">
+            {t("subtitle")}
+          </p>
+        </div>
+      </section>
 
-        <div className="max-w-5xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-14">
-            <span className="text-sm font-medium text-violet-600 uppercase tracking-widest">
-              {t("label")}
-            </span>
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mt-3">
-              {t("heading")}
-            </h1>
-            <p className="text-gray-500 mt-4 max-w-2xl mx-auto text-lg">
-              {t("subtitle")}
-            </p>
-          </div>
-
-          {/* Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* GRID */}
+      <section className="px-6 lg:px-10 py-20 lg:py-28">
+        <div className="mx-auto max-w-[1400px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {posts.map((post) => (
               <BlogCard
                 key={post.slug}
@@ -52,8 +47,7 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
             ))}
           </div>
         </div>
-      </main>
-      <Footer />
+      </section>
     </>
   );
 }
