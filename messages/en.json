@@ -1,88 +1,178 @@
 {
   "nav": {
-    "services": "Services",
-    "testimonials": "Work",
+    "about": "À propos",
+    "process": "Méthode",
+    "pricing": "Tarifs",
     "blog": "Blog",
     "contact": "Contact",
-    "cta": "Start a project"
+    "cta": "Démarrer"
   },
-  "hero": {
-    "badge": "Geneva · Lausanne · Zurich",
-    "headline1": "Your digital presence,",
-    "headline2": "uncompromised.",
-    "subtitle": "Tourbillon Studios crafts websites, web apps, e-commerce stores and photo/video productions with Swiss precision that sets you apart.",
-    "cta1": "Explore services",
-    "cta2": "Get in touch →"
+  "theme": {
+    "light": "Mode clair",
+    "dark": "Mode sombre"
   },
-  "services": {
-    "label": "What we do",
-    "heading": "Our services",
-    "subtitle": "From concept to launch, we handle every detail to deliver a flawless product.",
-    "vitrine": {
-      "title": "Website & Corporate",
-      "description": "Fast, elegant and SEO-ready sites that reflect your identity and turn visitors into clients."
-    },
-    "webapp": {
-      "title": "Web App & Dashboard",
-      "description": "Bespoke business applications with backoffice, booking management, automated workflows and admin panel."
-    },
-    "ecommerce": {
-      "title": "E-Commerce",
-      "description": "Conversion-optimised online stores — inventory management, integrated payments, seamless shopping experience."
-    },
-    "photo": {
-      "title": "Photo & Video",
-      "description": "Corporate, real estate and event shoots. Matterport 3D scans, certified drones, social media content."
-    }
+  "home": {
+    "heroLine1": "Sites premium",
+    "heroLine2": "livrés en",
+    "heroLine3Italic": "quarante-huit",
+    "heroLine3End": "heures.",
+    "heroSubtitle": "En abonnement mensuel. Zéro setup. Performances mesurées en CHF gagnés, pas en pixels.",
+    "ctaPrimary": "Voir les plans",
+    "ctaSecondary": "La méthode 48h",
+    "metricsEyebrow": "Pourquoi nos clients restent",
+    "metric1Value": "48h",
+    "metric1Label": "Délai moyen de livraison",
+    "metric2Value": "95+",
+    "metric2Label": "Score Lighthouse moyen",
+    "metric3Value": "+34%",
+    "metric3Label": "Conversion vs ancien site",
+    "featuredEyebrow": "Cas client",
+    "featuredCta": "Voir l'étude",
+    "logosEyebrow": "Ils nous font confiance",
+    "testimonialEyebrow": "Un mot client",
+    "testimonialQuote": "Ils ont livré en 36 heures un site qui convertit mieux que celui qu'on avait construit en 4 mois. Le rapport qualité-vitesse-prix est sans équivalent en Suisse.",
+    "testimonialAuthor": "Direction, Your Swiss Concierge",
+    "ctaFinalTitle": "Prêt à lancer ?",
+    "ctaFinalBody": "Premier échange gratuit, réponse sous 24h ouvrées.",
+    "ctaFinalButton": "Parlons de votre projet"
   },
-  "projects": {
-    "label": "Our work",
-    "heading": "Recent projects",
-    "subtitle": "Varied projects, one constant standard.",
-    "viewAll": "View all projects →"
+  "about": {
+    "eyebrow": "À propos",
+    "heroLine": "On construit des sites qui paient leur abonnement.",
+    "manifestoTitle": "Pourquoi Tourbillon existe",
+    "manifestoP1": "Le marché web suisse est cassé. Des devis à 15 000 CHF pour des sites WordPress génériques, des délais de trois mois pour du contenu qu'un développeur livre en deux jours, des agences qui facturent l'opacité comme un service.",
+    "manifestoP2": "On a construit Tourbillon Studios pour casser ce modèle. Pas par idéologie — par pragmatisme. Un site web est un actif commercial, pas une œuvre. Il doit être livré vite, convertir, et coûter ce qu'il vaut.",
+    "manifestoP3": "Notre promesse : 48 heures de la signature à la mise en ligne. Un seul prix par mois, tout compris. Aucun frais de setup. Et si on dépasse, vous ne payez pas le premier mois.",
+    "valuesEyebrow": "Nos piliers",
+    "valuesTitle": "Quatre principes, zéro négociation.",
+    "teamEyebrow": "L'équipe",
+    "teamTitle": "Petite, dense, autonome.",
+    "citiesEyebrow": "Présence",
+    "citiesTitle": "Trois villes, un seul standard."
   },
-  "testimonials": {
-    "label": "What they say",
-    "heading": "Testimonials",
-    "t1": {
-      "quote": "Tourbillon Studios delivered our concierge platform on time, with an intuitive backoffice and a polished visual identity. Clear communication throughout.",
-      "name": "Your Swiss Concierge",
-      "company": "Luxury mobility & concierge, Geneva"
-    },
-    "t2": {
-      "quote": "They created Aspaklaria's complete identity — photography, e-commerce, branding. The result exceeded what we imagined.",
-      "name": "Aspaklaria Collection",
-      "company": "Luxury watch e-commerce"
-    },
-    "t3": {
-      "quote": "For Late Night, they led creative direction and photo/video production in Milan. A rare level of standards, flawless deliverables.",
-      "name": "Late Night",
-      "company": "Luxury fashion collection, Milan"
-    }
+  "process": {
+    "eyebrow": "Méthode",
+    "heroLine1": "La méthode",
+    "heroLine2Italic": "48 heures",
+    "heroSubtitle": "Quatre étapes calibrées. Un délai garanti. Un mois gratuit si on dépasse.",
+    "step1Number": "01",
+    "step1Title": "Brief — 2 heures",
+    "step1Description": "Visio de cadrage. On formalise objectifs, audience, contenu disponible, identité visuelle existante. Vous repartez avec un récap écrit et un planning précis.",
+    "step2Number": "02",
+    "step2Title": "Build — 24 à 36 heures",
+    "step2Description": "Architecture, design, intégration. Vous suivez l'avancée en direct sur une URL privée. Pas de réunions intermédiaires — on construit, vous regardez.",
+    "step3Number": "03",
+    "step3Title": "Preview live — H+36",
+    "step3Description": "Vous recevez l'URL finale. Test sur votre device, vos navigateurs, vos contenus. Validation ou liste de retouches.",
+    "step4Number": "04",
+    "step4Title": "Retouches 7 jours",
+    "step4Description": "Une semaine pour ajuster ce qui ne vous convient pas — textes, couleurs, structure. Inclus dans l'abonnement, sans limite.",
+    "guaranteeTitle": "Si on dépasse 48h, le premier mois est gratuit.",
+    "guaranteeBody": "On respecte ce délai sur 99% des projets Starter et Pro. Le 1% restant, c'est notre problème, pas le vôtre.",
+    "faqTitle": "Questions fréquentes",
+    "faqQ1": "Et si je n'ai pas mon contenu prêt ?",
+    "faqA1": "On peut rédiger les textes pour vous (en option) ou utiliser un contenu placeholder qu'on remplace au cours des retouches. Le délai 48h est garanti uniquement si vous fournissez les contenus de base au brief.",
+    "faqQ2": "C'est quoi un projet Custom alors ?",
+    "faqA2": "Les projets Custom (web app, e-commerce avancé) dépassent les 48h naturellement. On vous communique un délai sur mesure après le brief, généralement 1 à 4 semaines.",
+    "faqQ3": "Que se passe-t-il pendant les 36 heures de build ?",
+    "faqA3": "L'équipe code. Vous accédez à l'URL privée et voyez le site se construire section par section. Pas de slides PowerPoint, pas de wireframes en réunion — du code réel dès la première heure.",
+    "faqQ4": "Et si je veux changer de direction en cours de route ?",
+    "faqA4": "Pendant la semaine de retouches, oui. Pendant les 36 heures de build, non — c'est ce qui permet de tenir le délai. Le brief est le moment décisif.",
+    "ctaTitle": "Prêt à lancer la méthode ?",
+    "ctaButton": "Commencer maintenant"
+  },
+  "pricing": {
+    "eyebrow": "Tarifs",
+    "heroLine1": "Un seul prix",
+    "heroLine2": "par mois.",
+    "heroLine3Italic": "Tout inclus.",
+    "heroSubtitle": "Zéro frais de setup. Résiliation sans engagement. Le code reste à vous.",
+    "popular": "Le plus populaire",
+    "perMonth": "/mois",
+    "vatNote": "Hors TVA suisse. Engagement minimum 1 mois.",
+    "everyPlanIncludes": "Inclus dans tous les plans",
+    "ownershipTitle": "Le code reste à vous",
+    "ownershipBody": "Quel que soit le plan, à la résiliation on vous fournit l'archive complète du code source. Vous pouvez héberger ailleurs, ou continuer seul.",
+    "roiTitle": "Calculer le retour sur investissement",
+    "roiBody": "Estimez ce qu'un site convertissant à +34% peut générer pour votre activité.",
+    "roiVisitorsLabel": "Visiteurs mensuels actuels",
+    "roiAvgValueLabel": "Valeur moyenne d'un client (CHF)",
+    "roiCurrentRateLabel": "Taux de conversion actuel (%)",
+    "roiResultLabel": "Gain mensuel estimé",
+    "roiResultNote": "Estimation basée sur une amélioration moyenne de +34% du taux de conversion observée sur nos projets.",
+    "faqTitle": "Questions sur l'abonnement",
+    "ctaTitle": "Lancer dans les 48h ?",
+    "ctaButton": "Démarrer maintenant"
+  },
+  "work": {
+    "eyebrow": "Travaux",
+    "heroLine": "Quelques projets récents.",
+    "heroSubtitle": "Sélection de cas où nos clients ont vu un retour mesurable en moins de 90 jours.",
+    "viewCase": "Voir le cas",
+    "viewLive": "Voir le site live",
+    "backToWork": "← Tous les travaux",
+    "challengeLabel": "Le défi",
+    "solutionLabel": "L'approche",
+    "resultsLabel": "Résultats",
+    "servicesLabel": "Services"
   },
   "contact": {
-    "label": "Let's work together",
-    "heading": "A project in mind?",
-    "subtitle": "Tell us about your project and we'll get back to you within 24 hours.",
-    "email_display": "contact@tourbillonstudios.ch",
-    "name": "Name",
+    "eyebrow": "Contact",
+    "heroLine": "Parlons de votre projet.",
+    "heroSubtitle": "Premier échange gratuit, réponse sous 24h ouvrées. Si vous savez déjà quel plan vous convient, mentionnez-le directement.",
+    "name": "Nom complet",
+    "namePlaceholder": "Prénom Nom",
     "email": "Email",
-    "message": "Your project",
-    "messagePlaceholder": "Describe your project, goals, approximate budget...",
-    "submit": "Send message",
-    "successTitle": "Message sent!",
-    "successText": "We'll get back to you within 24 hours."
+    "emailPlaceholder": "vous@entreprise.ch",
+    "company": "Entreprise (optionnel)",
+    "companyPlaceholder": "Nom de votre société",
+    "projectType": "Type de projet",
+    "projectTypeOptions": {
+      "vitrine": "Site vitrine",
+      "ecommerce": "E-commerce",
+      "webapp": "Web app sur mesure",
+      "refonte": "Refonte d'un site existant",
+      "other": "Autre / je ne sais pas encore"
+    },
+    "budget": "Plan envisagé",
+    "budgetOptions": {
+      "starter": "Starter — 290 CHF/mois",
+      "pro": "Pro — 590 CHF/mois",
+      "custom": "Custom — sur devis",
+      "explore": "À explorer ensemble"
+    },
+    "deadline": "Délai souhaité",
+    "deadlineOptions": {
+      "asap": "Le plus tôt possible (48h)",
+      "month": "Dans le mois",
+      "quarter": "Dans le trimestre",
+      "flexible": "Flexible"
+    },
+    "message": "Votre projet",
+    "messagePlaceholder": "Décrivez votre activité, vos objectifs, ce que vous attendez du site...",
+    "submit": "Envoyer la demande",
+    "submitSending": "Envoi…",
+    "responseTime": "Réponse sous 24h ouvrées",
+    "successTitle": "Message envoyé.",
+    "successText": "On revient vers vous dans les 24 heures à l'adresse fournie. Pour les urgences, écrivez directement à contact@tourbillonstudios.ch.",
+    "directEmail": "Email direct",
+    "telegramLabel": "Telegram",
+    "presence": "Présence",
+    "availability": "Disponibilité"
   },
   "footer": {
-    "tagline": "Swiss Made Digital · Geneva · Lausanne · Zurich",
-    "copyright": "Tourbillon Studios. All rights reserved."
+    "tagline": "Studio digital suisse. Sites premium livrés en 48h, en abonnement mensuel.",
+    "explore": "Explorer",
+    "contact": "Contact",
+    "rights": "Tous droits réservés.",
+    "status": "Acceptant des projets pour ce mois"
   },
   "blog": {
     "label": "Insights",
     "heading": "Blog",
-    "subtitle": "Tips, guides and resources to grow your digital presence in Switzerland.",
-    "readMore": "Read article →",
-    "backToBlog": "← Back to blog",
-    "minRead": "min read"
+    "subtitle": "Conseils, guides et ressources pour développer votre présence digitale en Suisse.",
+    "readMore": "Lire l'article →",
+    "backToBlog": "← Retour au blog",
+    "minRead": "min de lecture"
   }
 }
