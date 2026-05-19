@@ -207,7 +207,7 @@ export default async function HomePage() {
           </p>
           <div className="mt-10 inline-flex">
             <Link
-              href="/contact"
+              href="/start"
               className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[var(--accent)] text-[var(--accent-ink)] text-[1rem] font-medium hover:bg-[var(--accent-hover)] transition-colors"
             >
               {t("ctaFinalButton")}

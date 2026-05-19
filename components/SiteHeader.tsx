@@ -105,9 +105,9 @@ export default function SiteHeader() {
 
           <ThemeToggle />
 
-          {/* Contact CTA */}
+          {/* Start CTA — goes to interactive quiz */}
           <Link
-            href="/contact"
+            href="/start"
             className="hidden sm:inline-flex items-center gap-2 ml-1 px-4 py-2 rounded-full bg-[var(--accent)] text-[var(--accent-ink)] text-[0.875rem] font-medium hover:bg-[var(--accent-hover)] transition-colors"
           >
             {t("cta")}
@@ -141,7 +141,7 @@ export default function SiteHeader() {
               </Link>
             ))}
             <Link
-              href="/contact"
+              href="/start"
               className="mt-4 inline-flex items-center justify-between px-5 py-4 rounded-full bg-[var(--accent)] text-[var(--accent-ink)] font-medium"
             >
               {t("cta")} <ArrowIcon />
