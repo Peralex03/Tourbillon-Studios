@@ -258,20 +258,46 @@ body {
   border: 1px solid var(--glass-border);
 }
 
-/* Header-specific glass · stronger opacity + stronger blur so it reads on
-   a flat warm background where regular .glass-strong is too subtle. */
+/* Header-specific glass.
+   IMPORTANT: uses surface-1/surface-2 (lighter than --bg) so the overlay
+   is visibly different from the page background. Using var(--bg) here would
+   render an identical color to the body and look invisible. */
 .header-glass-top {
-  background: color-mix(in srgb, var(--bg) 60%, transparent);
-  backdrop-filter: blur(18px) saturate(140%);
-  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  background: color-mix(in srgb, var(--surface-1) 55%, transparent);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
 }
 
 .header-glass-scrolled {
-  background: color-mix(in srgb, var(--bg) 82%, transparent);
-  backdrop-filter: blur(28px) saturate(160%);
-  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  background: color-mix(in srgb, var(--surface-2) 88%, transparent);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
   border-bottom: 1px solid var(--stroke);
   box-shadow: 0 4px 24px var(--glass-shadow);
+}
+
+/* Mobile · much gentler blur (avoid the "too strong" effect) */
+@media (max-width: 767px) {
+  .glass {
+    backdrop-filter: blur(10px) saturate(120%);
+    -webkit-backdrop-filter: blur(10px) saturate(120%);
+  }
+  .glass-strong {
+    backdrop-filter: blur(16px) saturate(130%);
+    -webkit-backdrop-filter: blur(16px) saturate(130%);
+  }
+  .glass-subtle {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .header-glass-top {
+    backdrop-filter: blur(10px) saturate(120%);
+    -webkit-backdrop-filter: blur(10px) saturate(120%);
+  }
+  .header-glass-scrolled {
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+  }
 }
 
 /* Glass-shine kept as an alias to .glass — no hover lightening per design choice */
