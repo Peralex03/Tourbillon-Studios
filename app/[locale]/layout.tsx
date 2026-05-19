@@ -64,7 +64,6 @@ export default async function LocaleLayout({
             <SiteHeader />
             <main>{children}</main>
             <SiteFooter />
-            <div className="noise-overlay" aria-hidden="true" />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

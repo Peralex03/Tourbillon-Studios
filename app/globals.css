@@ -344,18 +344,11 @@ body {
   background: var(--text-faint);
 }
 
-/* ============================================
-   NOISE OVERLAY
-   ============================================ */
-.noise-overlay {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: var(--noise);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
-  mix-blend-mode: overlay;
-}
+/* NOISE OVERLAY — removed.
+   Previously used mix-blend-mode: overlay on a fixed full-viewport element,
+   which silently disabled backdrop-filter on every other fixed element in
+   the document (header glass) on desktop Chromium. The visual benefit (1.8%
+   opacity noise grain) wasn't worth breaking blur site-wide. */
 
 /* ============================================
    GRID HELPER
