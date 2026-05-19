@@ -4,6 +4,8 @@ import { PRICING_PLANS, PRICING_FAQ, PRICING_COMPARISON } from "@/lib/pricing";
 import RoiCalculator from "./RoiCalculator";
 import Accordion from "@/components/Accordion";
 import FeaturedTopo from "@/components/FeaturedTopo";
+import Button from "@/components/Button";
+import PlanRecommender from "./PlanRecommender";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -127,6 +129,15 @@ export default async function PricingPage() {
               {t("ownershipBody")}
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* ============================================
+          PLAN RECOMMENDER · mini-quiz
+          ============================================ */}
+      <section className="px-6 lg:px-10 py-20 lg:py-28 border-b border-[var(--stroke)]">
+        <div className="mx-auto max-w-[1100px]">
+          <PlanRecommender />
         </div>
       </section>
 

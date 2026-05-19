@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import StudioStatus from "./StudioStatus";
 
 export default async function SiteFooter() {
   const t = await getTranslations("footer");
@@ -57,10 +58,7 @@ export default async function SiteFooter() {
           <p className="font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-faint)]">
             © {year} Tourbillon Studios · {t("rights")}
           </p>
-          <div className="flex items-center gap-2 text-[0.6875rem] font-mono uppercase tracking-wider text-[var(--text-faint)]">
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-[var(--accent)] animate-pulse" />
-            {t("status")}
-          </div>
+          <StudioStatus />
         </div>
       </div>
     </footer>

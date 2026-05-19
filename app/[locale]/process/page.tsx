@@ -1,7 +1,8 @@
 import { getTranslations } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
 import Accordion from "@/components/Accordion";
 import FeaturedTopo from "@/components/FeaturedTopo";
+import ProcessTimeline from "@/components/ProcessTimeline";
+import Button from "@/components/Button";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -15,10 +16,18 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function ProcessPage() {
   const t = await getTranslations("process");
 
-  const steps = [1, 2, 3, 4].map((n) => ({
+  const mockups: Array<"brief" | "build" | "preview" | "retouches"> = [
+    "brief",
+    "build",
+    "preview",
+    "retouches",
+  ];
+
+  const steps = [1, 2, 3, 4].map((n, i) => ({
     number: t(`step${n}Number` as "step1Number"),
     title: t(`step${n}Title` as "step1Title"),
     description: t(`step${n}Description` as "step1Description"),
+    mockup: mockups[i],
   }));
 
   const faqs = [1, 2, 3, 4].map((n) => ({
@@ -42,42 +51,9 @@ export default async function ProcessPage() {
         </div>
       </section>
 
-      {/* STEPS TIMELINE */}
-      <section className="px-6 lg:px-10 py-24 lg:py-32 border-b border-[var(--stroke)]">
-        <div className="mx-auto max-w-[1400px]">
-          <div className="space-y-20 lg:space-y-32">
-            {steps.map((step, i) => (
-              <div
-                key={i}
-                className="grid-12 items-start gap-y-6 border-t border-[var(--stroke)] pt-10 lg:pt-16"
-              >
-                {/* Number */}
-                <div className="col-span-12 lg:col-span-2">
-                  <div className="font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-faint)]">
-                    STEP
-                  </div>
-                  <div className="text-[clamp(2.25rem,3.5vw,3rem)] font-medium leading-none mt-2 text-[var(--accent)]">
-                    {step.number}
-                  </div>
-                </div>
-
-                {/* Title */}
-                <div className="col-span-12 lg:col-span-5">
-                  <h3 className="text-h2 tracking-tight leading-[1.05]">
-                    {step.title}
-                  </h3>
-                </div>
-
-                {/* Description */}
-                <div className="col-span-12 lg:col-span-5 lg:pt-3">
-                  <p className="text-[var(--text-dim)] text-[1.0625rem] leading-relaxed max-w-xl">
-                    {step.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+      {/* INTERACTIVE TIMELINE · sticky scroll + SVG mockups */}
+      <section className="py-16 lg:py-20 border-b border-[var(--stroke)]">
+        <ProcessTimeline steps={steps} />
       </section>
 
       {/* GUARANTEE */}
@@ -111,14 +87,8 @@ export default async function ProcessPage() {
           <h2 className="text-h1 tracking-tight">
             Prêt à <span className="accent-serif">lancer un projet</span> ?
           </h2>
-          <div className="mt-8 inline-flex">
-            <Link
-              href="/start"
-              className="inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-[var(--accent)] text-[var(--accent-ink)] font-medium hover:bg-[var(--accent-hover)] transition-colors text-[0.9375rem]"
-            >
-              {t("ctaButton")}
-              <ArrowIcon />
-            </Link>
+          <div className="mt-8">
+            <Button href="/start">{t("ctaButton")}</Button>
           </div>
         </div>
       </section>
@@ -126,10 +96,3 @@ export default async function ProcessPage() {
   );
 }
 
-function ArrowIcon() {
-  return (
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M7 17L17 7M9 7h8v8" />
-    </svg>
-  );
-}

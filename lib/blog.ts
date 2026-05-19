@@ -2524,6 +2524,33 @@ export function getPostBySlug(slug: string): BlogPost | undefined {
   return posts.find((p) => p.slug === slug);
 }
 
+/**
+ * Return up to `limit` related posts to the current one.
+ * Selection: same category first (by date desc), then fill from latest others.
+ * Current post excluded.
+ */
+export function getRelatedPosts(currentSlug: string, limit = 3): BlogPost[] {
+  const current = getPostBySlug(currentSlug);
+  if (!current) return [];
+
+  const others = posts.filter((p) => p.slug !== currentSlug);
+  const sortedByDate = [...others].sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
+
+  const sameCategory = sortedByDate.filter((p) => p.category === current.category);
+  const result: BlogPost[] = [];
+  for (const p of sameCategory) {
+    if (result.length >= limit) break;
+    result.push(p);
+  }
+  for (const p of sortedByDate) {
+    if (result.length >= limit) break;
+    if (!result.find((r) => r.slug === p.slug)) result.push(p);
+  }
+  return result.slice(0, limit);
+}
+
 export function formatDate(dateStr: string, locale: string): string {
   const date = new Date(dateStr);
   const localeMap: Record<string, string> = {

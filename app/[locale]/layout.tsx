@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import SmoothScroll from "@/components/SmoothScroll";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import ScrollProgress from "@/components/ScrollProgress";
 import "../globals.css";
 
 const inter = Inter({
@@ -59,6 +60,7 @@ export default async function LocaleLayout({
         <ThemeProvider>
           <NextIntlClientProvider messages={messages}>
             <SmoothScroll />
+            <ScrollProgress />
             <SiteHeader />
             <main>{children}</main>
             <SiteFooter />

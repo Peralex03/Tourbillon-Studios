@@ -1,7 +1,15 @@
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
-import { getAllPosts, getPostBySlug, formatDate, BlogSection } from "@/lib/blog";
+import {
+  getAllPosts,
+  getPostBySlug,
+  getRelatedPosts,
+  formatDate,
+  BlogSection,
+} from "@/lib/blog";
 import { Link } from "@/i18n/navigation";
+import BlogCard from "@/components/BlogCard";
+import Button from "@/components/Button";
 
 export async function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }));
@@ -130,25 +138,61 @@ export default async function ArticlePage({
           <hr className="border-[var(--stroke)] mt-16 mb-12" />
 
           {/* CTA · connects to interactive quiz */}
-          <div className="bg-[var(--surface-1)] border border-[var(--stroke)] rounded-sm p-10 text-center">
-            <h3 className="text-[1.75rem] lg:text-[2rem] font-medium tracking-tight text-[var(--text)] mb-3">
+          <div className="glass rounded-lg p-9 lg:p-10 text-center">
+            <h3 className="text-[1.5rem] lg:text-[1.75rem] font-medium tracking-tight text-[var(--text)] mb-3">
               Un projet digital à lancer ?
             </h3>
-            <p className="text-[var(--text-dim)] mb-7 text-[1rem] leading-relaxed max-w-md mx-auto">
+            <p className="text-[var(--text-dim)] mb-6 text-[0.9375rem] leading-relaxed max-w-md mx-auto">
               Quelques questions pour cadrer votre projet. Nous vous recontactons sous 24 heures ouvrées.
             </p>
-            <Link
-              href="/start"
-              className="inline-flex items-center gap-3 px-7 py-4 rounded-full bg-[var(--accent)] text-[var(--accent-ink)] font-medium hover:bg-[var(--accent-hover)] transition-colors"
-            >
+            <Button href="/start" size="md">
               Démarrer un projet
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M7 17L17 7M9 7h8v8" />
-              </svg>
-            </Link>
+            </Button>
           </div>
         </div>
       </article>
+
+      {/* RELATED ARTICLES */}
+      <RelatedArticlesSection
+        currentSlug={post.slug}
+        locale={locale}
+        readMoreLabel={t("readMore")}
+        minReadLabel={t("minRead")}
+      />
     </>
+  );
+}
+
+async function RelatedArticlesSection({
+  currentSlug,
+  locale,
+  readMoreLabel,
+  minReadLabel,
+}: {
+  currentSlug: string;
+  locale: string;
+  readMoreLabel: string;
+  minReadLabel: string;
+}) {
+  const related = getRelatedPosts(currentSlug, 3);
+  if (related.length === 0) return null;
+
+  return (
+    <section className="px-6 lg:px-10 pt-12 pb-20 lg:pb-28 border-t border-[var(--stroke)] mt-12">
+      <div className="mx-auto max-w-[1400px]">
+        <div className="text-eyebrow mb-8">À lire ensuite</div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+          {related.map((p) => (
+            <BlogCard
+              key={p.slug}
+              post={p}
+              locale={locale}
+              readMoreLabel={readMoreLabel}
+              minReadLabel={minReadLabel}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
