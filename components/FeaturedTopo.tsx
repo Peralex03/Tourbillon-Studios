@@ -3,34 +3,27 @@
 import { useEffect, useRef } from "react";
 
 /**
- * Real topographic iso-line background, section-scoped.
+ * Real topographic iso-line background · section-scoped, responsive density.
  *
- * Generates a 2D "altitude" field using layered noise (sum of sinusoids at
- * multiple frequencies), then extracts iso-lines via the marching squares
- * algorithm at several altitude thresholds.
+ * Grid resolution adapts to viewport so line spacing stays constant in pixels
+ * regardless of screen size. Noise function uses pixel-space coordinates so
+ * contours look the same density on any device.
  *
- * Result: irregular, multi-focal contour lines — like a real topographic map
- * (peaks, valleys, ridges) — that breathe slowly with time and warp toward
- * the cursor.
- *
- * Performance:
- *  · Fixed grid resolution (90×50 = 4500 cells × 7 levels per frame)
- *  · Pauses paint when section is off-screen (IntersectionObserver)
- *  · Auto-disabled on mobile + prefers-reduced-motion
+ * Marching squares extracts iso-lines at multiple altitude levels.
  */
 export default function FeaturedTopo({
   opacity = 0.22,
-  /** Number of iso-line levels drawn between minVal and maxVal */
-  levels = 8,
-  /** Approx grid columns (computed per resize) */
-  cols = 90,
-  /** Approx grid rows (computed per resize) */
-  rows = 50,
+  /** Number of iso-line levels — more = denser contours */
+  levels = 12,
+  /** Target grid cell size in pixels (smaller = tighter resolution) */
+  cellSize = 10,
+  /** Approx pixel wavelength between major topographic features */
+  wavelength = 130,
 }: {
   opacity?: number;
   levels?: number;
-  cols?: number;
-  rows?: number;
+  cellSize?: number;
+  wavelength?: number;
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rafRef = useRef<number | null>(null);
@@ -55,9 +48,9 @@ export default function FeaturedTopo({
     let width = 0;
     let height = 0;
     let dpr = 1;
-
-    // Pre-allocated field
-    const field = new Float32Array(cols * rows);
+    let cols = 0;
+    let rows = 0;
+    let field: Float32Array = new Float32Array(0);
 
     function getStrokeColor(): string {
       const root = document.documentElement;
@@ -78,6 +71,11 @@ export default function FeaturedTopo({
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
       if (ctx) ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      // Adapt grid to viewport size so cell pixel size stays roughly constant
+      cols = Math.max(16, Math.ceil(width / cellSize));
+      rows = Math.max(12, Math.ceil(height / cellSize));
+      field = new Float32Array(cols * rows);
     }
 
     function onMove(e: MouseEvent) {
@@ -101,29 +99,32 @@ export default function FeaturedTopo({
     window.addEventListener("mousemove", onMove, { passive: true });
 
     const t0 = performance.now();
+    const TWO_PI = Math.PI * 2;
 
     /**
-     * Multi-octave noise. Sum of sinusoids at different frequencies +
-     * a slow drift in time. Gives a non-symmetric, multi-focal field.
+     * Layered noise. Inputs are in pixel-space (px, py) so the spatial
+     * frequency stays constant regardless of viewport.
      */
-    function altitude(x: number, y: number, t: number, mx: number, my: number): number {
-      // Normalize coords to ~0..1
-      const u = x / cols;
-      const v = y / rows;
+    function altitude(px: number, py: number, t: number, mx: number, my: number): number {
+      // Wavelength → angular frequency
+      const k = TWO_PI / wavelength;
+      const fx = px * k;
+      const fy = py * k;
 
-      // Layered sinusoids — each pair produces interference patterns
       let a = 0;
-      a += Math.sin(u * 5.3 + t * 0.18) * Math.cos(v * 4.1 - t * 0.13) * 0.55;
-      a += Math.sin(u * 8.7 - t * 0.21) * Math.cos(v * 9.3 + t * 0.17) * 0.32;
-      a += Math.sin((u + v) * 11.7 + t * 0.11) * 0.22;
-      a += Math.cos((u - v) * 7.5 - t * 0.19) * 0.18;
-      a += Math.sin(u * 13.4 + t * 0.27) * Math.sin(v * 11.1 - t * 0.23) * 0.12;
+      a += Math.sin(fx * 0.62 + t * 0.18) * Math.cos(fy * 0.58 - t * 0.12) * 0.55;
+      a += Math.sin(fx * 1.05 - t * 0.22) * Math.cos(fy * 1.13 + t * 0.16) * 0.32;
+      a += Math.sin((fx + fy) * 0.84 + t * 0.10) * 0.22;
+      a += Math.cos((fx - fy) * 0.71 - t * 0.20) * 0.18;
+      a += Math.sin(fx * 1.6 + t * 0.27) * Math.sin(fy * 1.4 - t * 0.24) * 0.10;
 
-      // Mouse bump · a Gaussian peak at the cursor position raises the field
+      // Mouse bump · Gaussian peak at cursor (in viewport-relative coords)
+      const u = px / width;
+      const v = py / height;
       const du = u - mx;
       const dv = v - my;
       const r2 = du * du + dv * dv;
-      a += Math.exp(-r2 * 8) * 0.5;
+      a += Math.exp(-r2 * 10) * 0.45;
 
       return a;
     }
@@ -141,10 +142,15 @@ export default function FeaturedTopo({
       ms.x += (m.x - ms.x) * 0.07;
       ms.y += (m.y - ms.y) * 0.07;
 
+      const cellW = width / (cols - 1);
+      const cellH = height / (rows - 1);
+
       // Fill altitude field
       for (let j = 0; j < rows; j++) {
         for (let i = 0; i < cols; i++) {
-          field[j * cols + i] = altitude(i, j, time, ms.x, ms.y);
+          const px = i * cellW;
+          const py = j * cellH;
+          field[j * cols + i] = altitude(px, py, time, ms.x, ms.y);
         }
       }
 
@@ -154,18 +160,12 @@ export default function FeaturedTopo({
       ctx.lineJoin = "round";
       ctx.strokeStyle = getStrokeColor();
 
-      const cellW = width / (cols - 1);
-      const cellH = height / (rows - 1);
-
-      // Iso-levels distributed in the altitude range
-      // Field roughly spans [-1.5, 2.5], we sample a band that gives 5-9 visible contours.
-      const minLevel = -0.8;
-      const maxLevel = 1.5;
+      const minLevel = -0.7;
+      const maxLevel = 1.3;
       const step = (maxLevel - minLevel) / (levels - 1);
 
       for (let n = 0; n < levels; n++) {
         const level = minLevel + n * step;
-
         ctx.beginPath();
 
         for (let j = 0; j < rows - 1; j++) {
@@ -175,7 +175,6 @@ export default function FeaturedTopo({
             const br = field[(j + 1) * cols + (i + 1)];
             const bl = field[(j + 1) * cols + i];
 
-            // Build the case index: TL=8, TR=4, BR=2, BL=1
             let idx = 0;
             if (tl > level) idx |= 8;
             if (tr > level) idx |= 4;
@@ -187,14 +186,12 @@ export default function FeaturedTopo({
             const x = i * cellW;
             const y = j * cellH;
 
-            // Linear interpolation along each edge to find crossing point
             const interp = (v0: number, v1: number) => {
               const denom = v1 - v0;
               if (Math.abs(denom) < 1e-9) return 0.5;
               return (level - v0) / denom;
             };
 
-            // Crossing offsets along the four edges
             const topX = x + interp(tl, tr) * cellW;
             const topY = y;
             const rightX = x + cellW;
@@ -205,43 +202,43 @@ export default function FeaturedTopo({
             const leftY = y + interp(tl, bl) * cellH;
 
             switch (idx) {
-              case 1: // BL above
-              case 14: // all but BL above (inverse) — same segment
+              case 1:
+              case 14:
                 ctx.moveTo(leftX, leftY);
                 ctx.lineTo(botX, botY);
                 break;
-              case 2: // BR above
-              case 13: // all but BR
+              case 2:
+              case 13:
                 ctx.moveTo(botX, botY);
                 ctx.lineTo(rightX, rightY);
                 break;
-              case 3: // BL + BR
-              case 12: // TL + TR
+              case 3:
+              case 12:
                 ctx.moveTo(leftX, leftY);
                 ctx.lineTo(rightX, rightY);
                 break;
-              case 4: // TR
-              case 11: // all but TR
+              case 4:
+              case 11:
                 ctx.moveTo(topX, topY);
                 ctx.lineTo(rightX, rightY);
                 break;
-              case 5: // TR + BL (saddle) — two segments
+              case 5:
                 ctx.moveTo(leftX, leftY);
                 ctx.lineTo(topX, topY);
                 ctx.moveTo(botX, botY);
                 ctx.lineTo(rightX, rightY);
                 break;
-              case 6: // TR + BR
-              case 9: // TL + BL
+              case 6:
+              case 9:
                 ctx.moveTo(topX, topY);
                 ctx.lineTo(botX, botY);
                 break;
-              case 7: // all but TL above (or TL only below) — 1 segment top→left
-              case 8: // TL only above — same
+              case 7:
+              case 8:
                 ctx.moveTo(topX, topY);
                 ctx.lineTo(leftX, leftY);
                 break;
-              case 10: // TL + BR (saddle)
+              case 10:
                 ctx.moveTo(topX, topY);
                 ctx.lineTo(rightX, rightY);
                 ctx.moveTo(leftX, leftY);
@@ -265,7 +262,7 @@ export default function FeaturedTopo({
       io.disconnect();
       ro.disconnect();
     };
-  }, [opacity, levels, cols, rows]);
+  }, [opacity, levels, cellSize, wavelength]);
 
   return (
     <canvas

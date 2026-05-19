@@ -153,8 +153,8 @@ export default function QuizClient({ locale, mode = "fullscreen" }: Props) {
           : "min-h-[100svh]",
       ].join(" ")}
     >
-      {/* Top bar · progress + back/quit */}
-      <div className="px-6 lg:px-10 py-4 lg:py-5 flex items-center gap-6">
+      {/* Top bar · back + quit/découvrir (progress moved to bottom) */}
+      <div className="px-6 lg:px-10 py-4 lg:py-5 flex items-center justify-between gap-6">
         {/* Back */}
         <button
           onClick={goBack}
@@ -167,22 +167,6 @@ export default function QuizClient({ locale, mode = "fullscreen" }: Props) {
           </svg>
           <span className="hidden sm:inline">Retour</span>
         </button>
-
-        {/* Progress dots */}
-        <div className="flex-1 flex items-center justify-center gap-2">
-          {currentId !== "summary" &&
-            Array.from({ length: VISIBLE_STEPS_COUNT }).map((_, i) => (
-              <span
-                key={i}
-                className={[
-                  "h-px transition-all duration-500",
-                  i <= visibleIndex
-                    ? "w-8 bg-[var(--accent)]"
-                    : "w-5 bg-[var(--stroke)]",
-                ].join(" ")}
-              />
-            ))}
-        </div>
 
         {/* Quit · only in fullscreen mode */}
         {!isEmbed ? (
@@ -248,10 +232,32 @@ export default function QuizClient({ locale, mode = "fullscreen" }: Props) {
         </div>
       </div>
 
-      {/* Bottom hint */}
-      {currentStep.id !== "summary" && currentStep.id !== "contact" && (
-        <div className="px-6 lg:px-10 pb-6 text-center font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-faint)]">
-          Astuce · utilisez les touches 1, 2, 3 ou 4 du clavier
+      {/* Bottom bar · progress + keyboard hint */}
+      {currentStep.id !== "summary" && (
+        <div className="px-6 lg:px-10 pb-6 lg:pb-8 flex flex-col items-center gap-3">
+          <div className="flex items-center justify-center gap-2">
+            {Array.from({ length: VISIBLE_STEPS_COUNT }).map((_, i) => (
+              <span
+                key={i}
+                className={[
+                  "h-px transition-all duration-500",
+                  i < visibleIndex
+                    ? "w-8 bg-[var(--accent)]"
+                    : i === visibleIndex
+                    ? "w-10 bg-[var(--accent)]"
+                    : "w-5 bg-[var(--stroke)]",
+                ].join(" ")}
+              />
+            ))}
+            <span className="ml-3 font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-faint)]">
+              {String(visibleIndex + 1).padStart(2, "0")} / {String(VISIBLE_STEPS_COUNT).padStart(2, "0")}
+            </span>
+          </div>
+          {currentStep.id !== "contact" && (
+            <div className="text-center font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-faint)] hidden sm:block">
+              Astuce · touches 1, 2, 3 ou 4 du clavier
+            </div>
+          )}
         </div>
       )}
     </div>

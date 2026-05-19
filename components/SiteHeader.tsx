@@ -41,10 +41,8 @@ export default function SiteHeader() {
   return (
     <header
       className={[
-        "fixed top-0 inset-x-0 z-50 transition-[backdrop-filter,background,border-color] duration-300",
-        scrolled
-          ? "glass-strong border-b border-[var(--stroke)]"
-          : "glass-subtle border-b border-transparent",
+        "fixed top-0 inset-x-0 z-50 transition-[backdrop-filter,background,border-color,box-shadow] duration-300",
+        scrolled ? "header-glass-scrolled" : "header-glass-top",
       ].join(" ")}
     >
       <nav className="mx-auto max-w-[1400px] px-6 lg:px-10 h-16 lg:h-20 flex items-center gap-4">

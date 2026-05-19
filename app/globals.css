@@ -253,9 +253,25 @@ body {
 
 .glass-subtle {
   background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border: 1px solid var(--glass-border);
+}
+
+/* Header-specific glass · stronger opacity + stronger blur so it reads on
+   a flat warm background where regular .glass-strong is too subtle. */
+.header-glass-top {
+  background: color-mix(in srgb, var(--bg) 60%, transparent);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+}
+
+.header-glass-scrolled {
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  border-bottom: 1px solid var(--stroke);
+  box-shadow: 0 4px 24px var(--glass-shadow);
 }
 
 /* Glass-shine kept as an alias to .glass — no hover lightening per design choice */
