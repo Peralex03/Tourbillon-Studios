@@ -52,7 +52,7 @@ export default function SiteHeader() {
         {/* Logo */}
         <Link
           href="/"
-          className="font-serif text-[1.35rem] font-light tracking-tight text-[var(--text)] hover:text-[var(--accent)] transition-colors shrink-0"
+          className="font-serif text-[1.35rem] font-normal tracking-tight text-[var(--text)] hover:text-[var(--accent)] transition-colors shrink-0"
           aria-label="Tourbillon Studios"
         >
           Tourbillon<span className="text-[var(--accent)]">.</span>

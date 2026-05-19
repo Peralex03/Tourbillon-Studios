@@ -31,13 +31,13 @@ function RenderSection({ section }: { section: BlogSection }) {
   switch (section.type) {
     case "h2":
       return (
-        <h2 className="font-serif text-[clamp(1.75rem,3vw,2.5rem)] font-light tracking-tight mt-14 mb-5 text-[var(--text)]">
+        <h2 className="font-serif text-[clamp(1.75rem,3vw,2.5rem)] font-normal tracking-tight mt-14 mb-5 text-[var(--text)]">
           {section.text}
         </h2>
       );
     case "h3":
       return (
-        <h3 className="font-serif text-[clamp(1.375rem,2vw,1.75rem)] font-light tracking-tight mt-10 mb-4 text-[var(--text)]">
+        <h3 className="font-serif text-[clamp(1.375rem,2vw,1.75rem)] font-normal tracking-tight mt-10 mb-4 text-[var(--text)]">
           {section.text}
         </h3>
       );
@@ -64,7 +64,7 @@ function RenderSection({ section }: { section: BlogSection }) {
     case "blockquote":
       return (
         <blockquote className="my-10 pl-6 border-l-2 border-[var(--accent)] bg-[var(--surface-1)] py-6 pr-6 rounded-r-sm">
-          <p className="font-serif text-[1.25rem] lg:text-[1.375rem] font-light italic leading-relaxed text-[var(--text)]">
+          <p className="font-serif text-[1.25rem] lg:text-[1.375rem] font-normal italic leading-relaxed text-[var(--text)]">
             {section.text}
           </p>
         </blockquote>
@@ -110,7 +110,7 @@ export default async function ArticlePage({
                 {formatDate(post.date, locale)}
               </time>
             </div>
-            <h1 className="font-serif text-[clamp(2.25rem,5vw,4rem)] font-light tracking-tight leading-[1.05] text-[var(--text)]">
+            <h1 className="font-serif text-[clamp(2.25rem,5vw,4rem)] font-normal tracking-tight leading-[1.05] text-[var(--text)]">
               {post.title}
             </h1>
             <p className="mt-8 text-[1.125rem] lg:text-[1.25rem] text-[var(--text-dim)] leading-relaxed">
@@ -131,17 +131,17 @@ export default async function ArticlePage({
 
           {/* CTA — connects to interactive quiz */}
           <div className="bg-[var(--surface-1)] border border-[var(--stroke)] rounded-sm p-10 text-center">
-            <h3 className="font-serif text-[1.75rem] lg:text-[2rem] font-light tracking-tight text-[var(--text)] mb-3">
-              Vous avez un projet digital ?
+            <h3 className="font-serif text-[1.75rem] lg:text-[2rem] font-normal tracking-tight text-[var(--text)] mb-3">
+              Un projet digital à lancer ?
             </h3>
             <p className="text-[var(--text-dim)] mb-7 text-[1rem] leading-relaxed max-w-md mx-auto">
-              Quatre questions, vingt secondes, et on revient vers vous sous 24h.
+              Quelques questions pour cadrer votre projet. Nous vous recontactons sous 24 heures ouvrées.
             </p>
             <Link
               href="/start"
               className="inline-flex items-center gap-3 px-7 py-4 rounded-full bg-[var(--accent)] text-[var(--accent-ink)] font-medium hover:bg-[var(--accent-hover)] transition-colors"
             >
-              Lancer le projet
+              Démarrer un projet
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M7 17L17 7M9 7h8v8" />
               </svg>

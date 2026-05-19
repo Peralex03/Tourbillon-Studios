@@ -27,7 +27,7 @@ export default async function HomePage() {
               GENÈVE · LAUSANNE · ZÜRICH
             </RevealText>
 
-            <h1 className="text-display font-serif font-light text-[var(--text)]">
+            <h1 className="text-display font-serif font-normal text-[var(--text)]">
               <RevealText as="span" className="block" splitBy="word">
                 {t("heroLine1")}
               </RevealText>
@@ -163,7 +163,7 @@ export default async function HomePage() {
             {[...LOGOS, ...LOGOS].map((logo, i) => (
               <span
                 key={i}
-                className="font-serif text-[clamp(1.5rem,3vw,2.25rem)] italic font-light text-[var(--text-dim)] hover:text-[var(--text)] transition-colors"
+                className="font-serif text-[clamp(1.5rem,3vw,2.25rem)] italic font-normal text-[var(--text-dim)] hover:text-[var(--text)] transition-colors"
               >
                 {logo}
               </span>
@@ -183,7 +183,7 @@ export default async function HomePage() {
           <div className="text-eyebrow mb-10 text-center">
             {t("testimonialEyebrow")}
           </div>
-          <blockquote className="font-serif text-[clamp(1.75rem,4vw,3.25rem)] font-light leading-[1.15] text-[var(--text)] text-center tracking-tight">
+          <blockquote className="font-serif text-[clamp(1.75rem,4vw,3.25rem)] font-normal leading-[1.15] text-[var(--text)] text-center tracking-tight">
             <RevealText as="span" splitBy="word" stagger={0.025}>
               {`"${t("testimonialQuote")}"`}
             </RevealText>
@@ -199,7 +199,7 @@ export default async function HomePage() {
           ============================================ */}
       <section className="px-6 lg:px-10 py-24 lg:py-32 border-t border-[var(--stroke)]">
         <div className="mx-auto max-w-[1400px] text-center">
-          <h2 className="text-h1 font-serif font-light tracking-tight">
+          <h2 className="text-h1 font-serif font-normal tracking-tight">
             <RevealText as="span" splitBy="word">{t("ctaFinalTitle")}</RevealText>
           </h2>
           <p className="mt-6 text-[var(--text-dim)] text-[1.0625rem] max-w-lg mx-auto">
@@ -226,7 +226,7 @@ function MetricItem({ value, label, index }: { value: string; label: string; ind
       <span className="absolute -top-4 left-0 font-mono text-[0.6875rem] tracking-wider text-[var(--text-faint)]">
         {index}
       </span>
-      <div className="font-serif text-[clamp(4rem,8vw,7rem)] leading-none tracking-tight text-[var(--text)] font-light">
+      <div className="font-serif text-[clamp(4rem,8vw,7rem)] leading-none tracking-tight text-[var(--text)] font-normal">
         {value}
       </div>
       <div className="mt-4 text-[0.95rem] text-[var(--text-dim)] max-w-[16ch]">

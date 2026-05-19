@@ -25,7 +25,7 @@ export default async function PricingPage() {
         <div className="mx-auto max-w-[1400px]">
           <div className="text-eyebrow mb-8">{t("eyebrow")}</div>
 
-          <h1 className="text-h1 font-serif font-light tracking-tight max-w-5xl">
+          <h1 className="text-h1 font-serif font-normal tracking-tight max-w-5xl">
             <RevealText as="span" splitBy="word" className="block">{t("heroLine1")}</RevealText>
             <RevealText as="span" splitBy="word" className="block" delay={0.1}>{t("heroLine2")}</RevealText>
             <RevealText as="span" splitBy="word" className="block italic text-[var(--accent)]" delay={0.2}>{t("heroLine3Italic")}</RevealText>
@@ -66,7 +66,7 @@ export default async function PricingPage() {
                 )}
 
                 <header className="mb-8">
-                  <h2 className="font-serif text-[2.25rem] font-light text-[var(--text)] tracking-tight">
+                  <h2 className="font-serif text-[2.25rem] font-normal text-[var(--text)] tracking-tight">
                     {plan.name}
                   </h2>
                   <p className="mt-3 text-[var(--text-dim)] text-[0.95rem] leading-relaxed">
@@ -76,7 +76,7 @@ export default async function PricingPage() {
 
                 <div className="mb-8 pb-8 border-b border-[var(--stroke)]">
                   <div className="flex items-baseline gap-2">
-                    <span className="font-serif text-[clamp(3.5rem,6vw,5rem)] font-light tracking-tight leading-none text-[var(--text)]">
+                    <span className="font-serif text-[clamp(3.5rem,6vw,5rem)] font-normal tracking-tight leading-none text-[var(--text)]">
                       {plan.monthlyPrice}
                     </span>
                     <span className="font-mono text-[0.875rem] text-[var(--text-dim)]">
@@ -126,7 +126,7 @@ export default async function PricingPage() {
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 p-8 lg:p-10 border border-[var(--stroke)] rounded-sm bg-[var(--surface-1)]">
             <div>
               <div className="text-eyebrow mb-3">{t("everyPlanIncludes")}</div>
-              <h3 className="font-serif text-h3 font-light tracking-tight">{t("ownershipTitle")}</h3>
+              <h3 className="font-serif text-h3 font-normal tracking-tight">{t("ownershipTitle")}</h3>
             </div>
             <p className="text-[var(--text-dim)] text-[1rem] leading-relaxed self-end">
               {t("ownershipBody")}
@@ -141,7 +141,7 @@ export default async function PricingPage() {
       <section className="px-6 lg:px-10 py-24 lg:py-32 border-b border-[var(--stroke)]">
         <div className="mx-auto max-w-[1100px]">
           <div className="text-eyebrow mb-6">ROI</div>
-          <h2 className="font-serif text-h2 font-light tracking-tight">
+          <h2 className="font-serif text-h2 font-normal tracking-tight">
             <RevealText as="span" splitBy="word">{t("roiTitle")}</RevealText>
           </h2>
           <p className="mt-6 text-[var(--text-dim)] text-[1.0625rem] max-w-xl">
@@ -166,7 +166,7 @@ export default async function PricingPage() {
       <section className="px-6 lg:px-10 py-24 lg:py-32 border-b border-[var(--stroke)]">
         <div className="mx-auto max-w-[1100px]">
           <div className="text-eyebrow mb-6">FAQ</div>
-          <h2 className="font-serif text-h2 font-light tracking-tight mb-12 lg:mb-16">
+          <h2 className="font-serif text-h2 font-normal tracking-tight mb-12 lg:mb-16">
             {t("faqTitle")}
           </h2>
 
@@ -178,7 +178,7 @@ export default async function PricingPage() {
                 {...(i === 0 ? { open: true } : {})}
               >
                 <summary className="flex items-start justify-between gap-6 list-none">
-                  <span className="font-serif text-[1.25rem] lg:text-[1.5rem] text-[var(--text)] font-light tracking-tight">
+                  <span className="font-serif text-[1.25rem] lg:text-[1.5rem] text-[var(--text)] font-normal tracking-tight">
                     {item.q}
                   </span>
                   <span className="shrink-0 mt-1 w-8 h-8 flex items-center justify-center rounded-full border border-[var(--stroke)] text-[var(--text-dim)] group-open:bg-[var(--accent)] group-open:text-[var(--accent-ink)] group-open:border-[var(--accent)] transition-colors">
@@ -199,7 +199,7 @@ export default async function PricingPage() {
           ============================================ */}
       <section className="px-6 lg:px-10 py-24 lg:py-32">
         <div className="mx-auto max-w-[1400px] text-center">
-          <h2 className="font-serif text-h1 font-light tracking-tight">
+          <h2 className="font-serif text-h1 font-normal tracking-tight">
             <RevealText as="span" splitBy="word">{t("ctaTitle")}</RevealText>
           </h2>
           <div className="mt-10 inline-flex">

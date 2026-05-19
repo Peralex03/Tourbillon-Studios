@@ -23,7 +23,7 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
       <section className="px-6 lg:px-10 pt-32 lg:pt-40 pb-20 border-b border-[var(--stroke)]">
         <div className="mx-auto max-w-[1400px]">
           <div className="text-eyebrow mb-8">{t("label")}</div>
-          <h1 className="text-h1 font-serif font-light tracking-tight max-w-5xl">
+          <h1 className="text-h1 font-serif font-normal tracking-tight max-w-5xl">
             <RevealText as="span" splitBy="word">{t("heading")}</RevealText>
           </h1>
           <p className="mt-8 text-[1.0625rem] lg:text-[1.125rem] text-[var(--text-dim)] max-w-2xl">

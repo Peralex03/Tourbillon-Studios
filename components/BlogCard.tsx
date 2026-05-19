@@ -22,7 +22,7 @@ export default function BlogCard({ post, locale, readMoreLabel, minReadLabel }: 
         </div>
 
         <div className="flex-1">
-          <h2 className="font-serif text-[1.5rem] lg:text-[1.625rem] font-light leading-[1.15] tracking-tight text-[var(--text)] group-hover:text-[var(--accent)] transition-colors mb-3">
+          <h2 className="font-serif text-[1.5rem] lg:text-[1.625rem] font-normal leading-[1.15] tracking-tight text-[var(--text)] group-hover:text-[var(--accent)] transition-colors mb-3">
             {post.title}
           </h2>
           <p className="text-[0.9375rem] text-[var(--text-dim)] leading-relaxed line-clamp-3">

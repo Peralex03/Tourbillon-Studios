@@ -61,7 +61,7 @@ export default function ContactForm({ labels }: { labels: Labels }) {
             <path d="M20 6L9 17l-5-5" />
           </svg>
         </div>
-        <h2 className="font-serif text-h2 font-light tracking-tight">{labels.successTitle}</h2>
+        <h2 className="font-serif text-h2 font-normal tracking-tight">{labels.successTitle}</h2>
         <p className="text-[var(--text-dim)] text-[1rem] leading-relaxed max-w-xl">
           {labels.successText}
         </p>

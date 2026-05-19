@@ -20,7 +20,7 @@ export default async function ContactPage() {
       <section className="px-6 lg:px-10 pt-32 lg:pt-40 pb-16 border-b border-[var(--stroke)]">
         <div className="mx-auto max-w-[1400px]">
           <div className="text-eyebrow mb-8">{t("eyebrow")}</div>
-          <h1 className="text-h1 lg:text-display font-serif font-light tracking-tight max-w-5xl">
+          <h1 className="text-h1 lg:text-display font-serif font-normal tracking-tight max-w-5xl">
             <RevealText as="span" splitBy="word">{t("heroLine")}</RevealText>
           </h1>
           <RevealText
@@ -87,7 +87,7 @@ export default async function ContactPage() {
               <div className="text-eyebrow mb-3">{t("directEmail")}</div>
               <a
                 href="mailto:contact@tourbillonstudios.ch"
-                className="font-serif text-[1.25rem] lg:text-[1.5rem] font-light hover:text-[var(--accent)] transition-colors"
+                className="font-serif text-[1.25rem] lg:text-[1.5rem] font-normal hover:text-[var(--accent)] transition-colors"
               >
                 contact@tourbillonstudios.ch
               </a>
@@ -95,7 +95,7 @@ export default async function ContactPage() {
 
             <div>
               <div className="text-eyebrow mb-3">{t("presence")}</div>
-              <ul className="space-y-1 font-serif text-[1.125rem] font-light text-[var(--text)]">
+              <ul className="space-y-1 font-serif text-[1.125rem] font-normal text-[var(--text)]">
                 <li>Genève</li>
                 <li>Lausanne</li>
                 <li>Zürich</li>

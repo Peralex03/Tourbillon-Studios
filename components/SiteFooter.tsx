@@ -14,7 +14,7 @@ export default async function SiteFooter() {
           <div className="flex-1">
             <Link
               href="/"
-              className="font-serif font-light text-[clamp(3rem,8vw,7rem)] leading-none tracking-tight text-[var(--text)] hover:text-[var(--accent)] transition-colors inline-block"
+              className="font-serif font-normal text-[clamp(3rem,8vw,7rem)] leading-none tracking-tight text-[var(--text)] hover:text-[var(--accent)] transition-colors inline-block"
             >
               Tourbillon<span className="text-[var(--accent)]">.</span>
             </Link>

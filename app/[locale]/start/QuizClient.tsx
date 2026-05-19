@@ -138,12 +138,12 @@ export default function QuizClient({ locale }: { locale: string }) {
           onClick={goBack}
           disabled={history.length === 0}
           className="font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-dim)] hover:text-[var(--text)] disabled:opacity-30 transition-colors flex items-center gap-2"
-          aria-label="Précédente"
+          aria-label="Question précédente"
         >
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
             <path d="M19 12H5M12 19l-7-7 7-7" />
           </svg>
-          <span className="hidden sm:inline">Précédente</span>
+          <span className="hidden sm:inline">Retour</span>
         </button>
 
         {/* Progress dots */}
@@ -217,7 +217,7 @@ export default function QuizClient({ locale }: { locale: string }) {
       {/* Bottom hint */}
       {currentStep.id !== "summary" && currentStep.id !== "contact" && (
         <div className="px-6 lg:px-10 pb-8 text-center font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-faint)]">
-          Astuce — appuyez sur 1, 2, 3 ou 4
+          Astuce — utilisez les touches 1, 2, 3 ou 4 du clavier
         </div>
       )}
     </div>
@@ -245,11 +245,11 @@ function ChoiceStep({
         <div className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-[var(--accent)] mb-4">
           {String(visibleIndex + 1).padStart(2, "0")} / {String(total).padStart(2, "0")} — {step.eyebrow}
         </div>
-        <h1 className="font-serif text-[clamp(2.5rem,6vw,5rem)] font-light leading-[1.02] tracking-tight text-[var(--text)]">
+        <h1 className="font-serif text-[clamp(2.5rem,6vw,5rem)] font-normal leading-[1.05] tracking-tight text-[var(--text)]">
           {step.question}
         </h1>
         {step.subtitle && (
-          <p className="mt-6 text-[1rem] text-[var(--text-dim)] max-w-md">
+          <p className="mt-6 text-[1rem] text-[var(--text-dim)] max-w-md leading-relaxed">
             {step.subtitle}
           </p>
         )}
@@ -272,7 +272,7 @@ function ChoiceStep({
               {String(i + 1).padStart(2, "0")}
             </span>
             <div>
-              <div className="font-serif text-[1.5rem] lg:text-[2rem] font-light tracking-tight leading-[1.05] text-[var(--text)] group-hover:text-[var(--accent-ink)] transition-colors">
+              <div className="font-serif text-[1.5rem] lg:text-[2rem] font-normal tracking-tight leading-[1.05] text-[var(--text)] group-hover:text-[var(--accent-ink)] transition-colors">
                 {choice.label}
               </div>
               {choice.hint && (
@@ -329,31 +329,31 @@ function ContactStep({
     <div className="grid grid-cols-12 gap-6 lg:gap-10 items-start">
       <div className="col-span-12 lg:col-span-5">
         <div className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-[var(--accent)] mb-4">
-          {String(visibleIndex + 1).padStart(2, "0")} / {String(total).padStart(2, "0")} — Vous trouver
+          {String(visibleIndex + 1).padStart(2, "0")} / {String(total).padStart(2, "0")} — Coordonnées
         </div>
-        <h1 className="font-serif text-[clamp(2.5rem,6vw,5rem)] font-light leading-[1.02] tracking-tight text-[var(--text)]">
-          On vous écrit où ?
+        <h1 className="font-serif text-[clamp(2.5rem,6vw,5rem)] font-normal leading-[1.05] tracking-tight text-[var(--text)]">
+          Comment pouvons-nous vous joindre ?
         </h1>
-        <p className="mt-6 text-[1rem] text-[var(--text-dim)] max-w-md">
-          Réponse sous 24h ouvrées. Rien d'autre.
+        <p className="mt-6 text-[1rem] text-[var(--text-dim)] max-w-md leading-relaxed">
+          Réponse sous 24 heures ouvrées.
         </p>
 
         {/* Mini recap of choices so far */}
         <div className="mt-12 hidden lg:block space-y-3">
           <div className="font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-faint)] mb-2">
-            Votre projet jusqu'ici
+            Récapitulatif
           </div>
           {answers.projectType && <RecapLine label="Projet" value={answers.projectType} />}
-          {answers.scale && <RecapLine label="Échelle" value={answers.scale} />}
-          {answers.complexity && <RecapLine label="Complexité" value={answers.complexity} />}
+          {answers.scale && <RecapLine label="Catalogue" value={answers.scale} />}
+          {answers.complexity && <RecapLine label="Périmètre" value={answers.complexity} />}
           {answers.speed && <RecapLine label="Délai" value={answers.speed} />}
-          {answers.plan && <RecapLine label="Plan" value={answers.plan} />}
-          {answers.size && <RecapLine label="Équipe" value={answers.size} />}
+          {answers.plan && <RecapLine label="Formule" value={answers.plan} />}
+          {answers.size && <RecapLine label="Structure" value={answers.size} />}
         </div>
       </div>
 
       <form onSubmit={handleSubmit} className="col-span-12 lg:col-span-7 space-y-6">
-        <QuizField id="name" label="Votre nom" required>
+        <QuizField id="name" label="Nom complet" required>
           <input
             id="name"
             name="name"
@@ -366,7 +366,7 @@ function ContactStep({
           />
         </QuizField>
 
-        <QuizField id="email" label="Email" required>
+        <QuizField id="email" label="Adresse email" required>
           <input
             id="email"
             name="email"
@@ -390,12 +390,12 @@ function ContactStep({
           />
         </QuizField>
 
-        <QuizField id="message" label="Quelque chose à ajouter ?">
+        <QuizField id="message" label="Précisions complémentaires (optionnel)">
           <textarea
             id="message"
             name="message"
             rows={3}
-            placeholder="Contexte, URL existante, contraintes…"
+            placeholder="Contexte, URL existante, contraintes particulières…"
             className="quiz-input resize-none"
           />
         </QuizField>
@@ -406,7 +406,7 @@ function ContactStep({
             disabled={sending}
             className="inline-flex items-center gap-3 px-7 py-4 rounded-full bg-[var(--accent)] text-[var(--accent-ink)] text-[0.95rem] font-medium hover:bg-[var(--accent-hover)] transition-colors disabled:opacity-60"
           >
-            {sending ? "Envoi…" : "Envoyer mon projet"}
+            {sending ? "Envoi en cours…" : "Transmettre ma demande"}
             {!sending && (
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M7 17L17 7M9 7h8v8" />
@@ -503,24 +503,24 @@ function SummaryStep({ answers }: { answers: QuizAnswers }) {
       </motion.div>
 
       <div className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-[var(--accent)] mb-5">
-        Bien reçu
+        Demande transmise
       </div>
 
-      <h1 className="font-serif text-[clamp(2.75rem,7vw,5.5rem)] font-light leading-[1.02] tracking-tight">
-        On vous écrit dans les <span className="italic text-[var(--accent)]">24 heures</span>.
+      <h1 className="font-serif text-[clamp(2.75rem,7vw,5.5rem)] font-normal leading-[1.05] tracking-tight">
+        Nous vous recontactons sous <span className="italic text-[var(--accent)]">24 heures</span>.
       </h1>
 
       <p className="mt-10 text-[1.0625rem] text-[var(--text-dim)] max-w-xl mx-auto leading-relaxed">
         {answers.name ? `Merci ${answers.name.split(" ")[0]}. ` : ""}
-        Votre projet est sur notre table. Le récap est parti directement sur notre Telegram interne, on regarde et on revient vers vous avec un plan d'attaque concret.
+        Votre demande a bien été transmise à notre équipe. Nous étudions votre projet et reviendrons vers vous avec une proposition concrète sous 24 heures ouvrées.
       </p>
 
       <div className="mt-12 flex flex-wrap items-center justify-center gap-3">
         <Link
-          href="/work"
+          href="/blog"
           className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-[var(--stroke-strong)] text-[var(--text)] hover:border-[var(--text)] transition-colors text-[0.95rem]"
         >
-          Voir nos projets
+          Consulter notre journal
         </Link>
         <Link
           href="/"

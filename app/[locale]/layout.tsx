@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Fraunces } from "next/font/google";
+import { Inter, Geist_Mono, Instrument_Serif } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -10,8 +10,8 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import "../globals.css";
 
-const geist = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
 });
@@ -22,17 +22,18 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
   subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
   display: "swap",
-  axes: ["opsz", "SOFT"],
 });
 
 export const metadata: Metadata = {
-  title: "Tourbillon Studios — Sites livrés en 48h, en abonnement",
+  title: "Tourbillon Studios — Sites livrés en 48 heures, en abonnement",
   description:
-    "Agence web suisse. Sites premium livrés en 48h, en abonnement mensuel, zéro setup. Genève · Lausanne · Zürich.",
+    "Studio digital suisse. Conception et développement de sites web livrés en 48 heures, en abonnement mensuel, sans frais d'installation. Genève · Lausanne · Zürich.",
   metadataBase: new URL("https://tourbillonstudios.ch"),
 };
 
@@ -51,7 +52,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${geist.variable} ${geistMono.variable} ${fraunces.variable} h-full`}
+      className={`${inter.variable} ${geistMono.variable} ${instrumentSerif.variable} h-full`}
       suppressHydrationWarning
     >
       <body className="min-h-full antialiased">
