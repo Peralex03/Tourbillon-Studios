@@ -39,7 +39,7 @@ export default async function ProjectPage({
             <div className="font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-faint)]">
               {project.year} · {project.category}
             </div>
-            <h1 className="font-serif text-h1 font-normal tracking-tight max-w-5xl">
+            <h1 className="text-h1 tracking-tight max-w-5xl">
               <RevealText as="span" splitBy="word">{project.client}</RevealText>
             </h1>
             <p className="text-[1.0625rem] lg:text-[1.25rem] text-[var(--text-dim)] max-w-2xl leading-relaxed">
@@ -51,7 +51,7 @@ export default async function ProjectPage({
             className={`relative aspect-[16/9] w-full overflow-hidden bg-gradient-to-br ${project.cover}`}
           >
             <div className="absolute inset-0 flex items-end p-8 lg:p-12">
-              <h2 className="font-serif text-[clamp(2rem,5vw,4.5rem)] text-white font-normal tracking-tight">
+              <h2 className="text-[clamp(2rem,5vw,4.5rem)] text-white font-medium tracking-tight">
                 {project.title}
               </h2>
             </div>
@@ -66,7 +66,7 @@ export default async function ProjectPage({
             <div className="text-eyebrow mb-3">{t("servicesLabel")}</div>
             <ul className="space-y-1 text-[var(--text)] text-[1rem]">
               {project.services.map((s) => (
-                <li key={s} className="font-serif text-[1.125rem] font-normal">
+                <li key={s} className="text-[1.125rem] font-medium">
                   — {s}
                 </li>
               ))}
@@ -92,7 +92,7 @@ export default async function ProjectPage({
               <div className="grid grid-cols-3 gap-6 lg:gap-10">
                 {project.results.map((r, i) => (
                   <div key={i}>
-                    <div className="font-serif text-[clamp(2rem,5vw,3.5rem)] font-normal tracking-tight leading-none text-[var(--accent)]">
+                    <div className="text-[clamp(2rem,5vw,3.5rem)] font-medium tracking-tight leading-none text-[var(--accent)]">
                       {r.value}
                     </div>
                     <div className="mt-3 text-[0.875rem] text-[var(--text-dim)]">
@@ -124,7 +124,7 @@ export default async function ProjectPage({
       {/* CTA */}
       <section className="px-6 lg:px-10 py-24 lg:py-32 border-t border-[var(--stroke)]">
         <div className="mx-auto max-w-[1400px] text-center">
-          <h2 className="font-serif text-h1 font-normal tracking-tight">
+          <h2 className="text-h1 tracking-tight">
             Lancer un projet similaire ?
           </h2>
           <div className="mt-10 inline-flex">
@@ -151,7 +151,7 @@ function StoryBlock({ label, body }: { label: string; body: string }) {
         <div className="text-eyebrow">{label}</div>
       </div>
       <div className="col-span-12 lg:col-span-8 lg:col-start-5">
-        <p className="font-serif text-[1.5rem] lg:text-[1.875rem] font-normal leading-[1.35] tracking-tight text-[var(--text)]">
+        <p className="text-[1.5rem] lg:text-[1.875rem] font-medium leading-[1.35] tracking-tight text-[var(--text)]">
           {body}
         </p>
       </div>

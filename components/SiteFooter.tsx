@@ -10,15 +10,15 @@ export default async function SiteFooter() {
     <footer className="border-t border-[var(--stroke)] bg-[var(--bg)] mt-32">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10 py-16 lg:py-24">
         {/* Top — giant wordmark */}
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 mb-16 lg:mb-24">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 mb-12 lg:mb-16">
           <div className="flex-1">
             <Link
               href="/"
-              className="font-serif font-normal text-[clamp(3rem,8vw,7rem)] leading-none tracking-tight text-[var(--text)] hover:text-[var(--accent)] transition-colors inline-block"
+              className="text-[clamp(1.5rem,2.5vw,2rem)] font-medium tracking-tight text-[var(--text)] hover:text-[var(--accent)] transition-colors inline-block"
             >
               Tourbillon<span className="text-[var(--accent)]">.</span>
             </Link>
-            <p className="mt-6 text-[var(--text-dim)] max-w-md text-[1.0625rem] leading-relaxed">
+            <p className="mt-4 text-[var(--text-dim)] max-w-md text-[0.9375rem] leading-relaxed">
               {t("tagline")}
             </p>
           </div>

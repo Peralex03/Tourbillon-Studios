@@ -41,10 +41,9 @@ export default function SiteHeader() {
   return (
     <header
       className={[
-        "fixed top-0 inset-x-0 z-50",
-        "transition-[background,backdrop-filter,border-color] duration-300",
+        "fixed top-0 inset-x-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-[var(--bg)]/80 backdrop-blur-xl border-b border-[var(--stroke)]"
+          ? "glass-strong border-b border-[var(--stroke)]"
           : "bg-transparent border-b border-transparent",
       ].join(" ")}
     >
@@ -52,7 +51,7 @@ export default function SiteHeader() {
         {/* Logo */}
         <Link
           href="/"
-          className="font-serif text-[1.35rem] font-normal tracking-tight text-[var(--text)] hover:text-[var(--accent)] transition-colors shrink-0"
+          className="text-[1.0625rem] font-medium tracking-tight text-[var(--text)] hover:text-[var(--accent)] transition-colors shrink-0"
           aria-label="Tourbillon Studios"
         >
           Tourbillon<span className="text-[var(--accent)]">.</span>

@@ -2,7 +2,7 @@
 
 /* ============================================
    TOURBILLON STUDIOS — DESIGN TOKENS
-   Warm neutrals + terracotta accent · dual mode
+   Warm neutrals + terracotta · dual mode · liquid glass
    ============================================ */
 
 :root,
@@ -25,16 +25,19 @@
   --accent-soft: rgba(212, 101, 74, 0.10);
   --accent-ink: #FFFFFF;
 
+  /* Glass tokens */
+  --glass-bg: rgba(242, 237, 228, 0.04);
+  --glass-border: rgba(242, 237, 228, 0.08);
+  --glass-highlight: rgba(242, 237, 228, 0.06);
+  --glass-shadow: rgba(0, 0, 0, 0.35);
+
   /* Semantic */
   --success: #6BBF87;
   --error: #E07856;
-
-  /* Effects */
   --noise: 0.018;
 }
 
 [data-theme="light"] {
-  /* Surfaces — warm sand */
   --bg: #F5F0E8;
   --surface-1: #FFFFFF;
   --surface-2: #EDE6DB;
@@ -50,14 +53,18 @@
   --accent-soft: rgba(194, 90, 64, 0.08);
   --accent-ink: #FFFFFF;
 
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-border: rgba(26, 22, 20, 0.06);
+  --glass-highlight: rgba(255, 255, 255, 0.85);
+  --glass-shadow: rgba(26, 22, 20, 0.06);
+
   --success: #2E8B57;
   --error: #B04E36;
-
   --noise: 0.025;
 }
 
 /* ============================================
-   THEME BRIDGE — expose tokens to Tailwind v4
+   THEME BRIDGE — Tailwind v4 tokens
    ============================================ */
 @theme inline {
   --color-bg: var(--bg);
@@ -78,19 +85,19 @@
   --font-mono: var(--font-geist-mono);
   --font-serif: var(--font-instrument-serif);
 
-  /* Editorial type scale — recalibrated for readability */
-  --text-display: clamp(3.5rem, 10vw, 9.5rem);
-  --text-h1: clamp(2.75rem, 7vw, 5.75rem);
-  --text-h2: clamp(2rem, 4.5vw, 3.75rem);
-  --text-h3: clamp(1.5rem, 2.5vw, 2.125rem);
-  --text-h4: clamp(1.125rem, 1.5vw, 1.375rem);
+  /* Type scale — capped, readable, professional */
+  --text-display: clamp(2rem, 4vw, 2.5rem);
+  --text-h1: clamp(1.75rem, 3.5vw, 2.25rem);
+  --text-h2: clamp(1.375rem, 2.5vw, 1.75rem);
+  --text-h3: clamp(1.125rem, 1.8vw, 1.375rem);
+  --text-h4: 1.0625rem;
   --text-body: 1.0625rem;
-  --text-small: 0.875rem;
+  --text-small: 0.9375rem;
   --text-micro: 0.75rem;
 }
 
 /* ============================================
-   BASE — readability focused
+   BASE
    ============================================ */
 html {
   background: var(--bg);
@@ -129,10 +136,17 @@ body {
 }
 
 /* ============================================
-   TYPOGRAPHY UTILITIES
+   TYPOGRAPHY
+   - Sans-serif by default (Inter)
+   - Serif for accent words via .accent-serif
    ============================================ */
+.font-sans {
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
 .font-serif {
   font-family: var(--font-instrument-serif), "Times New Roman", Georgia, serif;
+  font-weight: 400;
 }
 
 .font-mono {
@@ -140,39 +154,52 @@ body {
   font-feature-settings: "ss01", "zero";
 }
 
+/* Accent serif — used INSIDE headings/text to emphasize a single keyword */
+.accent-serif {
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+  letter-spacing: 0;
+}
+
 .text-display {
   font-size: var(--text-display);
-  line-height: 0.95;
-  letter-spacing: -0.025em;
-  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  font-weight: 500;
+  font-family: var(--font-inter), system-ui, sans-serif;
 }
 
 .text-h1 {
   font-size: var(--text-h1);
-  line-height: 1.02;
-  letter-spacing: -0.02em;
-  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  font-weight: 500;
+  font-family: var(--font-inter), system-ui, sans-serif;
 }
 
 .text-h2 {
   font-size: var(--text-h2);
-  line-height: 1.08;
-  letter-spacing: -0.015em;
-  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-weight: 500;
+  font-family: var(--font-inter), system-ui, sans-serif;
 }
 
 .text-h3 {
   font-size: var(--text-h3);
-  line-height: 1.2;
-  letter-spacing: -0.01em;
+  line-height: 1.3;
+  letter-spacing: -0.005em;
   font-weight: 500;
+  font-family: var(--font-inter), system-ui, sans-serif;
 }
 
 .text-h4 {
   font-size: var(--text-h4);
-  line-height: 1.35;
-  letter-spacing: -0.005em;
+  line-height: 1.4;
   font-weight: 500;
+  font-family: var(--font-inter), system-ui, sans-serif;
 }
 
 .text-eyebrow {
@@ -189,7 +216,7 @@ body {
   letter-spacing: 0.04em;
 }
 
-/* Reading rhythm for long-form content (blog articles) */
+/* Long-form reading rhythm */
 .prose-tourbillon {
   max-width: 65ch;
 }
@@ -197,6 +224,60 @@ body {
 .prose-tourbillon p {
   line-height: 1.75;
   margin-bottom: 1.5em;
+}
+
+/* ============================================
+   LIQUID GLASS — applied site-wide
+   ============================================ */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    inset 0 1px 0 var(--glass-highlight),
+    0 8px 32px var(--glass-shadow);
+}
+
+.glass-strong {
+  background: var(--glass-bg);
+  backdrop-filter: blur(36px) saturate(160%);
+  -webkit-backdrop-filter: blur(36px) saturate(160%);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    inset 0 1px 0 var(--glass-highlight),
+    0 16px 48px var(--glass-shadow);
+}
+
+.glass-subtle {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+}
+
+/* Glass with shine that follows cursor (set via JS) */
+.glass-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-shine::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    600px circle at var(--shine-x, 50%) var(--shine-y, 50%),
+    var(--glass-highlight),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.glass-shine:hover::before {
+  opacity: 1;
 }
 
 /* ============================================
@@ -208,7 +289,7 @@ body {
 }
 
 /* ============================================
-   FOCUS — accessible
+   FOCUS
    ============================================ */
 :focus-visible {
   outline: 2px solid var(--accent);
@@ -238,7 +319,7 @@ body {
 }
 
 /* ============================================
-   NOISE TEXTURE — very subtle warm grain
+   NOISE OVERLAY
    ============================================ */
 .noise-overlay {
   position: fixed;
@@ -251,7 +332,7 @@ body {
 }
 
 /* ============================================
-   GRID HELPER — 12 col asymmetric layouts
+   GRID HELPER
    ============================================ */
 .grid-12 {
   display: grid;
@@ -266,7 +347,7 @@ body {
 }
 
 /* ============================================
-   MARQUEE — infinite horizontal scroll
+   MARQUEE
    ============================================ */
 @keyframes marquee {
   from { transform: translateX(0); }
@@ -298,9 +379,6 @@ body {
   }
 }
 
-/* ============================================
-   HIDE SCROLLBAR utility
-   ============================================ */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }

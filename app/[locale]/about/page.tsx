@@ -17,12 +17,13 @@ export default async function AboutPage() {
 
   return (
     <>
-      {/* HERO ÉDITORIAL */}
-      <section className="px-6 lg:px-10 pt-32 lg:pt-40 pb-24 lg:pb-32 border-b border-[var(--stroke)]">
+      {/* HERO */}
+      <section className="px-6 lg:px-10 pt-32 lg:pt-36 pb-16 lg:pb-20 border-b border-[var(--stroke)]">
         <div className="mx-auto max-w-[1400px]">
-          <div className="text-eyebrow mb-8">{t("eyebrow")}</div>
-          <h1 className="text-h1 lg:text-display font-serif font-normal tracking-tight max-w-5xl">
-            <RevealText as="span" splitBy="word">{t("heroLine")}</RevealText>
+          <div className="text-eyebrow mb-6">{t("eyebrow")}</div>
+          <h1 className="text-h1 tracking-tight max-w-3xl">
+            Nous concevons des sites web qui{" "}
+            <span className="accent-serif">financent leur abonnement</span>.
           </h1>
         </div>
       </section>
@@ -34,7 +35,7 @@ export default async function AboutPage() {
             <div className="text-eyebrow lg:sticky lg:top-32">{t("manifestoTitle")}</div>
           </div>
           <div className="col-span-12 lg:col-span-7 lg:col-start-6 space-y-8">
-            <p className="font-serif text-h3 font-normal leading-[1.3] tracking-tight text-[var(--text)]">
+            <p className="text-h3 leading-[1.3] tracking-tight text-[var(--text)]">
               {t("manifestoP1")}
             </p>
             <p className="text-[1.0625rem] lg:text-[1.125rem] text-[var(--text-dim)] leading-relaxed">
@@ -52,7 +53,7 @@ export default async function AboutPage() {
         <div className="mx-auto max-w-[1400px]">
           <div className="mb-16 lg:mb-20 max-w-3xl">
             <div className="text-eyebrow mb-6">{t("valuesEyebrow")}</div>
-            <h2 className="font-serif text-h2 font-normal tracking-tight">
+            <h2 className="text-h2 tracking-tight">
               <RevealText as="span" splitBy="word">{t("valuesTitle")}</RevealText>
             </h2>
           </div>
@@ -66,7 +67,7 @@ export default async function AboutPage() {
                 <div className="font-mono text-[0.6875rem] tracking-wider text-[var(--accent)]">
                   {value.eyebrow}
                 </div>
-                <h3 className="font-serif text-[2rem] lg:text-[2.5rem] font-normal tracking-tight leading-none">
+                <h3 className="text-[1.375rem] lg:text-[1.75rem] font-medium tracking-tight leading-tight">
                   {value.title}
                 </h3>
                 <p className="text-[var(--text-dim)] text-[1rem] leading-relaxed max-w-md">
@@ -83,7 +84,7 @@ export default async function AboutPage() {
         <div className="mx-auto max-w-[1400px]">
           <div className="mb-16 max-w-3xl">
             <div className="text-eyebrow mb-6">{t("teamEyebrow")}</div>
-            <h2 className="font-serif text-h2 font-normal tracking-tight">
+            <h2 className="text-h2 tracking-tight">
               <RevealText as="span" splitBy="word">{t("teamTitle")}</RevealText>
             </h2>
           </div>
@@ -91,10 +92,10 @@ export default async function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
             {TEAM.map((member, i) => (
               <article key={i} className="group">
-                <div className="aspect-[4/5] bg-[var(--surface-1)] border border-[var(--stroke)] mb-6 flex items-center justify-center font-serif text-[clamp(4rem,8vw,7rem)] font-normal text-[var(--text-faint)] group-hover:text-[var(--accent)] transition-colors">
+                <div className="glass aspect-[4/5] rounded-lg mb-6 flex items-center justify-center text-[clamp(3rem,6vw,5rem)] font-medium text-[var(--text-faint)] group-hover:text-[var(--accent)] transition-colors">
                   {member.initials}
                 </div>
-                <h3 className="font-serif text-[1.5rem] font-normal tracking-tight">{member.name}</h3>
+                <h3 className="text-[1.125rem] font-medium tracking-tight">{member.name}</h3>
                 <div className="font-mono text-[0.75rem] uppercase tracking-wider text-[var(--text-faint)] mt-1">
                   {member.role}
                 </div>
@@ -112,7 +113,7 @@ export default async function AboutPage() {
         <div className="mx-auto max-w-[1400px]">
           <div className="mb-16 max-w-3xl">
             <div className="text-eyebrow mb-6">{t("citiesEyebrow")}</div>
-            <h2 className="font-serif text-h2 font-normal tracking-tight">
+            <h2 className="text-h2 tracking-tight">
               <RevealText as="span" splitBy="word">{t("citiesTitle")}</RevealText>
             </h2>
           </div>
@@ -123,7 +124,7 @@ export default async function AboutPage() {
                 <div className="font-mono text-[0.6875rem] tracking-wider text-[var(--text-faint)] uppercase">
                   {city.role}
                 </div>
-                <div className="font-serif text-[clamp(2.5rem,5vw,4rem)] font-normal tracking-tight leading-none mt-4">
+                <div className="text-[clamp(1.875rem,3.5vw,2.5rem)] font-medium tracking-tight leading-none mt-4">
                   {city.name}
                 </div>
                 <div className="font-mono text-[0.75rem] text-[var(--text-dim)] mt-6">

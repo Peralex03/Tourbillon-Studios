@@ -1,6 +1,5 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import RevealText from "@/components/RevealText";
 import { PRICING_PLANS, PRICING_FAQ } from "@/lib/pricing";
 import RoiCalculator from "./RoiCalculator";
 
@@ -21,25 +20,18 @@ export default async function PricingPage() {
       {/* ============================================
           HERO
           ============================================ */}
-      <section className="px-6 lg:px-10 pt-32 lg:pt-40 pb-20 border-b border-[var(--stroke)]">
+      <section className="px-6 lg:px-10 pt-32 lg:pt-36 pb-16 border-b border-[var(--stroke)]">
         <div className="mx-auto max-w-[1400px]">
-          <div className="text-eyebrow mb-8">{t("eyebrow")}</div>
+          <div className="text-eyebrow mb-6">{t("eyebrow")}</div>
 
-          <h1 className="text-h1 font-serif font-normal tracking-tight max-w-5xl">
-            <RevealText as="span" splitBy="word" className="block">{t("heroLine1")}</RevealText>
-            <RevealText as="span" splitBy="word" className="block" delay={0.1}>{t("heroLine2")}</RevealText>
-            <RevealText as="span" splitBy="word" className="block italic text-[var(--accent)]" delay={0.2}>{t("heroLine3Italic")}</RevealText>
+          <h1 className="text-h1 max-w-3xl">
+            Un seul prix par mois.{" "}
+            <span className="accent-serif">Tout inclus.</span>
           </h1>
 
-          <RevealText
-            as="p"
-            className="mt-10 text-[1.0625rem] lg:text-[1.125rem] text-[var(--text-dim)] max-w-xl"
-            splitBy="word"
-            delay={0.4}
-            stagger={0.012}
-          >
+          <p className="mt-6 text-[1rem] lg:text-[1.0625rem] text-[var(--text-dim)] max-w-xl leading-relaxed">
             {t("heroSubtitle")}
-          </RevealText>
+          </p>
         </div>
       </section>
 
@@ -53,37 +45,37 @@ export default async function PricingPage() {
               <article
                 key={plan.id}
                 className={[
-                  "relative flex flex-col p-8 lg:p-10 rounded-sm border transition-colors",
+                  "glass glass-shine relative flex flex-col p-7 lg:p-8 rounded-lg transition-colors",
                   plan.featured
-                    ? "bg-[var(--surface-1)] border-[var(--accent)] lg:scale-[1.02]"
-                    : "bg-transparent border-[var(--stroke)] hover:border-[var(--stroke-strong)]",
+                    ? "border-[var(--accent)] lg:scale-[1.02]"
+                    : "hover:border-[var(--stroke-strong)]",
                 ].join(" ")}
               >
                 {plan.featured && (
-                  <span className="absolute -top-3 left-8 px-3 py-1 bg-[var(--accent)] text-[var(--accent-ink)] text-[0.6875rem] font-mono uppercase tracking-wider rounded-full">
+                  <span className="absolute -top-3 left-7 px-3 py-1 bg-[var(--accent)] text-[var(--accent-ink)] text-[0.6875rem] font-mono uppercase tracking-wider rounded-full">
                     {t("popular")}
                   </span>
                 )}
 
-                <header className="mb-8">
-                  <h2 className="font-serif text-[2.25rem] font-normal text-[var(--text)] tracking-tight">
+                <header className="mb-7">
+                  <h2 className="text-h2 text-[var(--text)]">
                     {plan.name}
                   </h2>
-                  <p className="mt-3 text-[var(--text-dim)] text-[0.95rem] leading-relaxed">
+                  <p className="mt-2 text-[var(--text-dim)] text-[0.9375rem] leading-relaxed">
                     {plan.tagline}
                   </p>
                 </header>
 
-                <div className="mb-8 pb-8 border-b border-[var(--stroke)]">
+                <div className="mb-7 pb-7 border-b border-[var(--stroke)]">
                   <div className="flex items-baseline gap-2">
-                    <span className="font-serif text-[clamp(3.5rem,6vw,5rem)] font-normal tracking-tight leading-none text-[var(--text)]">
+                    <span className="text-[clamp(2.5rem,5vw,3.5rem)] font-medium tracking-tight leading-none text-[var(--text)]">
                       {plan.monthlyPrice}
                     </span>
-                    <span className="font-mono text-[0.875rem] text-[var(--text-dim)]">
+                    <span className="font-mono text-[0.8125rem] text-[var(--text-dim)]">
                       CHF{t("perMonth")}
                     </span>
                   </div>
-                  <p className="mt-3 text-[var(--text-faint)] text-[0.8125rem]">
+                  <p className="mt-2 text-[var(--text-faint)] text-[0.8125rem]">
                     {t("vatNote")}
                   </p>
                 </div>
@@ -123,12 +115,12 @@ export default async function PricingPage() {
           </div>
 
           {/* Ownership note */}
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 p-8 lg:p-10 border border-[var(--stroke)] rounded-sm bg-[var(--surface-1)]">
+          <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-8 p-7 lg:p-9 glass rounded-lg">
             <div>
               <div className="text-eyebrow mb-3">{t("everyPlanIncludes")}</div>
-              <h3 className="font-serif text-h3 font-normal tracking-tight">{t("ownershipTitle")}</h3>
+              <h3 className="text-h3 text-[var(--text)]">{t("ownershipTitle")}</h3>
             </div>
-            <p className="text-[var(--text-dim)] text-[1rem] leading-relaxed self-end">
+            <p className="text-[var(--text-dim)] text-[0.9375rem] leading-relaxed self-end">
               {t("ownershipBody")}
             </p>
           </div>
@@ -138,17 +130,17 @@ export default async function PricingPage() {
       {/* ============================================
           ROI CALCULATOR
           ============================================ */}
-      <section className="px-6 lg:px-10 py-24 lg:py-32 border-b border-[var(--stroke)]">
+      <section className="px-6 lg:px-10 py-20 lg:py-28 border-b border-[var(--stroke)]">
         <div className="mx-auto max-w-[1100px]">
-          <div className="text-eyebrow mb-6">ROI</div>
-          <h2 className="font-serif text-h2 font-normal tracking-tight">
-            <RevealText as="span" splitBy="word">{t("roiTitle")}</RevealText>
+          <div className="text-eyebrow mb-5">ROI</div>
+          <h2 className="text-h2 text-[var(--text)]">
+            {t("roiTitle")}
           </h2>
-          <p className="mt-6 text-[var(--text-dim)] text-[1.0625rem] max-w-xl">
+          <p className="mt-5 text-[var(--text-dim)] text-[1rem] max-w-xl leading-relaxed">
             {t("roiBody")}
           </p>
 
-          <div className="mt-12">
+          <div className="mt-10">
             <RoiCalculator
               visitorsLabel={t("roiVisitorsLabel")}
               avgValueLabel={t("roiAvgValueLabel")}
@@ -163,10 +155,10 @@ export default async function PricingPage() {
       {/* ============================================
           FAQ
           ============================================ */}
-      <section className="px-6 lg:px-10 py-24 lg:py-32 border-b border-[var(--stroke)]">
+      <section className="px-6 lg:px-10 py-20 lg:py-28 border-b border-[var(--stroke)]">
         <div className="mx-auto max-w-[1100px]">
-          <div className="text-eyebrow mb-6">FAQ</div>
-          <h2 className="font-serif text-h2 font-normal tracking-tight mb-12 lg:mb-16">
+          <div className="text-eyebrow mb-5">FAQ</div>
+          <h2 className="text-h2 text-[var(--text)] mb-10">
             {t("faqTitle")}
           </h2>
 
@@ -174,18 +166,18 @@ export default async function PricingPage() {
             {PRICING_FAQ.map((item, i) => (
               <details
                 key={i}
-                className="group py-6 cursor-pointer"
+                className="group py-5 cursor-pointer"
                 {...(i === 0 ? { open: true } : {})}
               >
                 <summary className="flex items-start justify-between gap-6 list-none">
-                  <span className="font-serif text-[1.25rem] lg:text-[1.5rem] text-[var(--text)] font-normal tracking-tight">
+                  <span className="text-[1rem] lg:text-[1.0625rem] text-[var(--text)] font-medium tracking-tight">
                     {item.q}
                   </span>
-                  <span className="shrink-0 mt-1 w-8 h-8 flex items-center justify-center rounded-full border border-[var(--stroke)] text-[var(--text-dim)] group-open:bg-[var(--accent)] group-open:text-[var(--accent-ink)] group-open:border-[var(--accent)] transition-colors">
+                  <span className="shrink-0 mt-1 w-7 h-7 flex items-center justify-center rounded-full glass-subtle text-[var(--text-dim)] group-open:bg-[var(--accent)] group-open:text-[var(--accent-ink)] group-open:border-[var(--accent)] transition-colors">
                     <PlusIcon />
                   </span>
                 </summary>
-                <p className="mt-4 text-[var(--text-dim)] text-[1rem] leading-relaxed max-w-3xl">
+                <p className="mt-3 text-[var(--text-dim)] text-[0.9375rem] leading-relaxed max-w-3xl">
                   {item.a}
                 </p>
               </details>
@@ -197,15 +189,16 @@ export default async function PricingPage() {
       {/* ============================================
           CTA
           ============================================ */}
-      <section className="px-6 lg:px-10 py-24 lg:py-32">
+      <section className="px-6 lg:px-10 py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] text-center">
-          <h2 className="font-serif text-h1 font-normal tracking-tight">
-            <RevealText as="span" splitBy="word">{t("ctaTitle")}</RevealText>
+          <h2 className="text-h1">
+            Lancer un projet dans les{" "}
+            <span className="accent-serif">48 heures</span>.
           </h2>
-          <div className="mt-10 inline-flex">
+          <div className="mt-8 inline-flex">
             <Link
-              href="/contact"
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[var(--accent)] text-[var(--accent-ink)] text-[1rem] font-medium hover:bg-[var(--accent-hover)] transition-colors"
+              href="/start"
+              className="inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-[var(--accent)] text-[var(--accent-ink)] text-[0.9375rem] font-medium hover:bg-[var(--accent-hover)] transition-colors"
             >
               {t("ctaButton")}
               <ArrowIcon />

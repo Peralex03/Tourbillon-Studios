@@ -17,7 +17,7 @@ export default async function WorkPage() {
       <section className="px-6 lg:px-10 pt-32 lg:pt-40 pb-20 border-b border-[var(--stroke)]">
         <div className="mx-auto max-w-[1400px]">
           <div className="text-eyebrow mb-8">{t("eyebrow")}</div>
-          <h1 className="text-h1 font-serif font-normal tracking-tight max-w-5xl">
+          <h1 className="text-h1 tracking-tight max-w-5xl">
             <RevealText as="span" splitBy="word">{t("heroLine")}</RevealText>
           </h1>
           <p className="mt-10 text-[1.0625rem] lg:text-[1.125rem] text-[var(--text-dim)] max-w-2xl">
@@ -64,7 +64,7 @@ export default async function WorkPage() {
                         {project.year} · {project.category}
                       </div>
                       <div>
-                        <h2 className="font-serif text-[1.5rem] lg:text-[2rem] font-normal text-white tracking-tight leading-tight">
+                        <h2 className="text-[1.5rem] lg:text-[2rem] font-medium text-white tracking-tight leading-tight">
                           {project.client}
                         </h2>
                         <p className="mt-2 text-white/70 text-[0.875rem] line-clamp-2 max-w-md">

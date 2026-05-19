@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "@/i18n/navigation";
 import {
@@ -16,7 +16,18 @@ const STORAGE_KEY = "tourbillon_quiz_v1";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
-export default function QuizClient({ locale }: { locale: string }) {
+interface Props {
+  locale: string;
+  /**
+   * When "embed" (used on home page), the quiz hides the "Quitter" link
+   * and adapts to its container height instead of taking the full viewport.
+   */
+  mode?: "fullscreen" | "embed";
+}
+
+export default function QuizClient({ locale, mode = "fullscreen" }: Props) {
+  const isEmbed = mode === "embed";
+
   const [currentId, setCurrentId] = useState<StepId>("project");
   const [history, setHistory] = useState<StepId[]>([]);
   const [answers, setAnswers] = useState<QuizAnswers>({});
@@ -74,6 +85,7 @@ export default function QuizClient({ locale }: { locale: string }) {
     name: string;
     email: string;
     message?: string;
+    company?: string;
   }) {
     setStatus("sending");
     setErrorMsg(null);
@@ -87,7 +99,7 @@ export default function QuizClient({ locale }: { locale: string }) {
         body: JSON.stringify({
           answers: finalAnswers,
           locale,
-          source: "quiz",
+          source: isEmbed ? "home_quiz" : "start",
         }),
       });
       if (!res.ok) {
@@ -99,7 +111,6 @@ export default function QuizClient({ locale }: { locale: string }) {
       setStatus("sent");
       setHistory((h) => [...h, currentId]);
       setCurrentId("summary");
-      // Clear local storage on success
       try {
         localStorage.removeItem(STORAGE_KEY);
       } catch {}
@@ -110,9 +121,13 @@ export default function QuizClient({ locale }: { locale: string }) {
     }
   }
 
-  // Keyboard nav — 1..4 for choices, Esc for back
+  // Keyboard nav — only when quiz is in focus (embed: only if user has interacted)
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
+      // Don't hijack keys when user is typing in inputs
+      const target = e.target as HTMLElement | null;
+      if (target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA")) return;
+
       if (e.key === "Escape" && history.length > 0) {
         goBack();
         return;
@@ -130,9 +145,16 @@ export default function QuizClient({ locale }: { locale: string }) {
   }, [currentStep, history.length]);
 
   return (
-    <div className="min-h-[100svh] flex flex-col bg-[var(--bg)]">
-      {/* Top bar — progress + close */}
-      <div className="px-6 lg:px-10 py-6 lg:py-8 flex items-center gap-6 sticky top-0 bg-[var(--bg)]/90 backdrop-blur-md z-10">
+    <div
+      className={[
+        "flex flex-col",
+        isEmbed
+          ? "min-h-[calc(100svh-5rem)] pt-20 lg:pt-24"
+          : "min-h-[100svh]",
+      ].join(" ")}
+    >
+      {/* Top bar — progress + back/quit */}
+      <div className="px-6 lg:px-10 py-4 lg:py-5 flex items-center gap-6">
         {/* Back */}
         <button
           onClick={goBack}
@@ -162,29 +184,41 @@ export default function QuizClient({ locale }: { locale: string }) {
             ))}
         </div>
 
-        {/* Close */}
-        <Link
-          href="/"
-          className="font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-dim)] hover:text-[var(--text)] transition-colors flex items-center gap-2"
-          aria-label="Quitter"
-        >
-          <span className="hidden sm:inline">Quitter</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-            <path d="M5 5l14 14M19 5L5 19" />
-          </svg>
-        </Link>
+        {/* Quit — only in fullscreen mode */}
+        {!isEmbed ? (
+          <Link
+            href="/"
+            className="font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-dim)] hover:text-[var(--text)] transition-colors flex items-center gap-2"
+            aria-label="Quitter"
+          >
+            <span className="hidden sm:inline">Quitter</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+              <path d="M5 5l14 14M19 5L5 19" />
+            </svg>
+          </Link>
+        ) : (
+          <a
+            href="#below-quiz"
+            className="font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-dim)] hover:text-[var(--text)] transition-colors flex items-center gap-2"
+          >
+            <span className="hidden sm:inline">Découvrir le studio</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+              <path d="M12 5v14M5 12l7 7 7-7" />
+            </svg>
+          </a>
+        )}
       </div>
 
       {/* Question canvas */}
-      <div className="flex-1 flex items-center px-6 lg:px-10 py-12 lg:py-16">
+      <div className="flex-1 flex items-center px-6 lg:px-10 py-8 lg:py-12">
         <div className="mx-auto max-w-[1400px] w-full">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentId}
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -24 }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ opacity: 0, filter: "blur(16px)", y: 12 }}
+              animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+              exit={{ opacity: 0, filter: "blur(16px)", y: -12 }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
             >
               {currentStep.id !== "summary" && currentStep.id !== "contact" && (
                 <ChoiceStep
@@ -216,7 +250,7 @@ export default function QuizClient({ locale }: { locale: string }) {
 
       {/* Bottom hint */}
       {currentStep.id !== "summary" && currentStep.id !== "contact" && (
-        <div className="px-6 lg:px-10 pb-8 text-center font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-faint)]">
+        <div className="px-6 lg:px-10 pb-6 text-center font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-faint)]">
           Astuce — utilisez les touches 1, 2, 3 ou 4 du clavier
         </div>
       )}
@@ -225,7 +259,7 @@ export default function QuizClient({ locale }: { locale: string }) {
 }
 
 /* ============================================
-   CHOICE STEP
+   CHOICE STEP — glass cards with shine
    ============================================ */
 function ChoiceStep({
   step,
@@ -240,56 +274,95 @@ function ChoiceStep({
 }) {
   return (
     <div className="grid grid-cols-12 gap-6 lg:gap-10 items-start">
-      {/* Eyebrow + Question */}
+      {/* Eyebrow + Question — left column */}
       <div className="col-span-12 lg:col-span-5">
         <div className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-[var(--accent)] mb-4">
           {String(visibleIndex + 1).padStart(2, "0")} / {String(total).padStart(2, "0")} — {step.eyebrow}
         </div>
-        <h1 className="font-serif text-[clamp(2.5rem,6vw,5rem)] font-normal leading-[1.05] tracking-tight text-[var(--text)]">
+        <h2 className="text-display text-[var(--text)]">
           {step.question}
-        </h1>
+        </h2>
         {step.subtitle && (
-          <p className="mt-6 text-[1rem] text-[var(--text-dim)] max-w-md leading-relaxed">
+          <p className="mt-5 text-[1rem] text-[var(--text-dim)] max-w-md leading-relaxed">
             {step.subtitle}
           </p>
         )}
       </div>
 
-      {/* Choices grid */}
-      <div className="col-span-12 lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4">
+      {/* Choices grid — right column, glass cards */}
+      <div className="col-span-12 lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3">
         {step.choices.map((choice, i) => (
-          <motion.button
+          <GlassChoice
             key={choice.id}
-            type="button"
+            index={i}
+            label={choice.label}
+            hint={choice.hint}
             onClick={() => onPick(choice.id, choice.label, choice.next)}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.15 + i * 0.06 }}
-            whileHover={{ y: -2 }}
-            className="group relative text-left p-6 lg:p-8 border border-[var(--stroke)] bg-[var(--surface-1)] hover:border-[var(--accent)] hover:bg-[var(--accent)] hover:text-[var(--accent-ink)] transition-colors min-h-[140px] lg:min-h-[180px] flex flex-col justify-between focus:outline-none focus-visible:border-[var(--accent)]"
-          >
-            <span className="font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-faint)] group-hover:text-[var(--accent-ink)]/60 transition-colors">
-              {String(i + 1).padStart(2, "0")}
-            </span>
-            <div>
-              <div className="font-serif text-[1.5rem] lg:text-[2rem] font-normal tracking-tight leading-[1.05] text-[var(--text)] group-hover:text-[var(--accent-ink)] transition-colors">
-                {choice.label}
-              </div>
-              {choice.hint && (
-                <div className="mt-2 text-[0.875rem] text-[var(--text-dim)] group-hover:text-[var(--accent-ink)]/70 transition-colors">
-                  {choice.hint}
-                </div>
-              )}
-            </div>
-            <span className="absolute bottom-5 right-5 w-9 h-9 rounded-full border border-[var(--stroke-strong)] group-hover:border-[var(--accent-ink)] flex items-center justify-center opacity-60 group-hover:opacity-100 transition-all">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M7 17L17 7M9 7h8v8" />
-              </svg>
-            </span>
-          </motion.button>
+            delay={0.1 + i * 0.05}
+          />
         ))}
       </div>
     </div>
+  );
+}
+
+function GlassChoice({
+  index,
+  label,
+  hint,
+  onClick,
+  delay,
+}: {
+  index: number;
+  label: string;
+  hint?: string;
+  onClick: () => void;
+  delay: number;
+}) {
+  const ref = useRef<HTMLButtonElement>(null);
+
+  function handleMove(e: React.MouseEvent<HTMLButtonElement>) {
+    const el = ref.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    el.style.setProperty("--shine-x", `${x}%`);
+    el.style.setProperty("--shine-y", `${y}%`);
+  }
+
+  return (
+    <motion.button
+      ref={ref}
+      type="button"
+      onClick={onClick}
+      onMouseMove={handleMove}
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay }}
+      whileHover={{ y: -2 }}
+      whileTap={{ scale: 0.985 }}
+      className="glass glass-shine group relative text-left p-6 lg:p-7 hover:border-[var(--accent)] transition-colors min-h-[130px] flex flex-col justify-between focus:outline-none focus-visible:border-[var(--accent)] rounded-lg"
+    >
+      <span className="font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-faint)]">
+        {String(index + 1).padStart(2, "0")}
+      </span>
+      <div>
+        <div className="text-[1.125rem] lg:text-[1.25rem] font-medium tracking-tight leading-snug text-[var(--text)]">
+          {label}
+        </div>
+        {hint && (
+          <div className="mt-1.5 text-[0.875rem] text-[var(--text-dim)]">
+            {hint}
+          </div>
+        )}
+      </div>
+      <span className="absolute bottom-5 right-5 w-8 h-8 rounded-full glass-subtle flex items-center justify-center opacity-50 group-hover:opacity-100 group-hover:border-[var(--accent)] transition-all">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M7 17L17 7M9 7h8v8" />
+        </svg>
+      </span>
+    </motion.button>
   );
 }
 
@@ -309,7 +382,12 @@ function ContactStep({
   answers: QuizAnswers;
   status: Status;
   errorMsg: string | null;
-  onSubmit: (data: { name: string; email: string; message?: string; company?: string }) => void;
+  onSubmit: (data: {
+    name: string;
+    email: string;
+    message?: string;
+    company?: string;
+  }) => void;
 }) {
   const sending = status === "sending";
 
@@ -331,15 +409,16 @@ function ContactStep({
         <div className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-[var(--accent)] mb-4">
           {String(visibleIndex + 1).padStart(2, "0")} / {String(total).padStart(2, "0")} — Coordonnées
         </div>
-        <h1 className="font-serif text-[clamp(2.5rem,6vw,5rem)] font-normal leading-[1.05] tracking-tight text-[var(--text)]">
-          Comment pouvons-nous vous joindre ?
-        </h1>
-        <p className="mt-6 text-[1rem] text-[var(--text-dim)] max-w-md leading-relaxed">
+        <h2 className="text-display text-[var(--text)]">
+          Comment pouvons-nous{" "}
+          <span className="accent-serif">vous joindre</span> ?
+        </h2>
+        <p className="mt-5 text-[1rem] text-[var(--text-dim)] max-w-md leading-relaxed">
           Réponse sous 24 heures ouvrées.
         </p>
 
-        {/* Mini recap of choices so far */}
-        <div className="mt-12 hidden lg:block space-y-3">
+        {/* Mini recap */}
+        <div className="mt-10 hidden lg:block space-y-2.5 glass p-5 rounded-lg">
           <div className="font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-faint)] mb-2">
             Récapitulatif
           </div>
@@ -352,7 +431,10 @@ function ContactStep({
         </div>
       </div>
 
-      <form onSubmit={handleSubmit} className="col-span-12 lg:col-span-7 space-y-6">
+      <form
+        onSubmit={handleSubmit}
+        className="col-span-12 lg:col-span-7 space-y-6 glass p-6 lg:p-8 rounded-lg"
+      >
         <QuizField id="name" label="Nom complet" required>
           <input
             id="name"
@@ -400,15 +482,15 @@ function ContactStep({
           />
         </QuizField>
 
-        <div className="flex items-center justify-between gap-4 pt-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-2">
           <button
             type="submit"
             disabled={sending}
-            className="inline-flex items-center gap-3 px-7 py-4 rounded-full bg-[var(--accent)] text-[var(--accent-ink)] text-[0.95rem] font-medium hover:bg-[var(--accent-hover)] transition-colors disabled:opacity-60"
+            className="inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-[var(--accent)] text-[var(--accent-ink)] text-[0.9375rem] font-medium hover:bg-[var(--accent-hover)] transition-colors disabled:opacity-60"
           >
             {sending ? "Envoi en cours…" : "Transmettre ma demande"}
             {!sending && (
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M7 17L17 7M9 7h8v8" />
               </svg>
             )}
@@ -430,9 +512,9 @@ function ContactStep({
             background: transparent;
             border: 0;
             border-bottom: 1px solid var(--stroke);
-            padding: 0.75rem 0;
+            padding: 0.625rem 0;
             color: var(--text);
-            font-size: 1.125rem;
+            font-size: 1rem;
             font-family: inherit;
             outline: none;
             transition: border-color 0.2s;
@@ -476,7 +558,7 @@ function QuizField({
 
 function RecapLine({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex items-baseline gap-3 text-[0.875rem]">
+    <div className="flex items-baseline gap-3 text-[0.8125rem]">
       <span className="font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-faint)] w-20 shrink-0">
         {label}
       </span>
@@ -486,45 +568,46 @@ function RecapLine({ label, value }: { label: string; value: string }) {
 }
 
 /* ============================================
-   SUMMARY STEP — after submit
+   SUMMARY STEP
    ============================================ */
 function SummaryStep({ answers }: { answers: QuizAnswers }) {
   return (
-    <div className="text-center max-w-[900px] mx-auto py-8">
+    <div className="text-center max-w-[800px] mx-auto py-8 glass p-10 lg:p-14 rounded-lg">
       <motion.div
         initial={{ scale: 0.5, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: "spring", stiffness: 200, damping: 18, delay: 0.1 }}
-        className="w-20 h-20 mx-auto mb-10 rounded-full bg-[var(--accent)] text-[var(--accent-ink)] flex items-center justify-center"
+        className="w-16 h-16 mx-auto mb-8 rounded-full bg-[var(--accent)] text-[var(--accent-ink)] flex items-center justify-center"
       >
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
           <path d="M20 6L9 17l-5-5" />
         </svg>
       </motion.div>
 
-      <div className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-[var(--accent)] mb-5">
+      <div className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-[var(--accent)] mb-4">
         Demande transmise
       </div>
 
-      <h1 className="font-serif text-[clamp(2.75rem,7vw,5.5rem)] font-normal leading-[1.05] tracking-tight">
-        Nous vous recontactons sous <span className="italic text-[var(--accent)]">24 heures</span>.
-      </h1>
+      <h2 className="text-display text-[var(--text)]">
+        Nous vous recontactons sous{" "}
+        <span className="accent-serif">24 heures</span>.
+      </h2>
 
-      <p className="mt-10 text-[1.0625rem] text-[var(--text-dim)] max-w-xl mx-auto leading-relaxed">
+      <p className="mt-8 text-[1rem] text-[var(--text-dim)] max-w-lg mx-auto leading-relaxed">
         {answers.name ? `Merci ${answers.name.split(" ")[0]}. ` : ""}
-        Votre demande a bien été transmise à notre équipe. Nous étudions votre projet et reviendrons vers vous avec une proposition concrète sous 24 heures ouvrées.
+        Votre demande a bien été transmise à notre équipe. Nous étudions votre projet et reviendrons vers vous sous 24 heures ouvrées.
       </p>
 
-      <div className="mt-12 flex flex-wrap items-center justify-center gap-3">
+      <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
         <Link
           href="/blog"
-          className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-[var(--stroke-strong)] text-[var(--text)] hover:border-[var(--text)] transition-colors text-[0.95rem]"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass text-[var(--text)] hover:border-[var(--accent)] transition-colors text-[0.9375rem]"
         >
           Consulter notre journal
         </Link>
         <Link
           href="/"
-          className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[var(--accent)] text-[var(--accent-ink)] hover:bg-[var(--accent-hover)] transition-colors text-[0.95rem] font-medium"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--accent)] text-[var(--accent-ink)] hover:bg-[var(--accent-hover)] transition-colors text-[0.9375rem] font-medium"
         >
           Retour à l'accueil
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

@@ -63,9 +63,9 @@ export default function RoiCalculator({
       </div>
 
       {/* Result */}
-      <div className="lg:col-span-2 p-8 lg:p-10 bg-[var(--surface-1)] border border-[var(--stroke)] rounded-sm flex flex-col justify-center">
+      <div className="lg:col-span-2 glass p-7 lg:p-8 rounded-lg flex flex-col justify-center">
         <div className="text-eyebrow mb-4">{resultLabel}</div>
-        <div className="font-serif text-[clamp(2.5rem,5vw,4rem)] leading-none tracking-tight text-[var(--accent)]">
+        <div className="text-[clamp(2rem,4vw,3rem)] font-medium leading-none tracking-tight text-[var(--accent)]">
           +{monthlyGain.toLocaleString("fr-CH")}
         </div>
         <div className="font-mono text-[0.75rem] uppercase tracking-wider text-[var(--text-dim)] mt-2">
