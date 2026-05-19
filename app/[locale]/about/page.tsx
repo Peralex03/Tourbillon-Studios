@@ -1,19 +1,23 @@
 import { getTranslations } from "next-intl/server";
 import FeaturedTopo from "@/components/FeaturedTopo";
 import Button from "@/components/Button";
-import { TEAM, VALUES, CITIES } from "@/lib/team";
+import { TEAM_MEMBERS, VALUE_KEYS, CITIES } from "@/lib/team";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  const tMeta = await getTranslations({ locale, namespace: "metadata" });
   const t = await getTranslations({ locale, namespace: "about" });
   return {
-    title: `À propos · Tourbillon Studios`,
-    description: t("heroLine"),
+    title: tMeta("aboutTitle"),
+    description: `${t("heroLineStart")} ${t("heroLineItalic")}.`,
   };
 }
 
 export default async function AboutPage() {
   const t = await getTranslations("about");
+  const tTeam = await getTranslations("team");
+  const tCommon = await getTranslations("common");
+  const tCities = await getTranslations("common.cities");
 
   return (
     <>
@@ -23,8 +27,8 @@ export default async function AboutPage() {
         <div className="relative mx-auto max-w-[1400px]">
           <div className="text-eyebrow mb-6">{t("eyebrow")}</div>
           <h1 className="text-h1 tracking-tight max-w-3xl">
-            Nous concevons des sites web qui{" "}
-            <span className="accent-serif">financent leur abonnement</span>.
+            {t("heroLineStart")}{" "}
+            <span className="accent-serif">{t("heroLineItalic")}</span>.
           </h1>
         </div>
       </section>
@@ -60,19 +64,19 @@ export default async function AboutPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5">
-            {VALUES.map((value, i) => (
+            {VALUE_KEYS.map((key) => (
               <div
-                key={i}
+                key={key}
                 className="glass rounded-lg p-7 lg:p-9 flex flex-col gap-5 min-h-[220px]"
               >
                 <div className="font-mono text-[0.6875rem] tracking-wider text-[var(--accent)]">
-                  {value.eyebrow}
+                  {tTeam(`values.${key}.eyebrow` as "values.speed.eyebrow")}
                 </div>
                 <h3 className="text-[1.25rem] lg:text-[1.5rem] font-medium tracking-tight leading-tight">
-                  {value.title}
+                  {tTeam(`values.${key}.title` as "values.speed.title")}
                 </h3>
                 <p className="text-[var(--text-dim)] text-[0.9375rem] leading-relaxed max-w-md">
-                  {value.description}
+                  {tTeam(`values.${key}.body` as "values.speed.body")}
                 </p>
               </div>
             ))}
@@ -91,17 +95,17 @@ export default async function AboutPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-            {TEAM.map((member, i) => (
-              <article key={i} className="group">
+            {TEAM_MEMBERS.map((member) => (
+              <article key={member.id} className="group">
                 <div className="glass aspect-[4/5] rounded-lg mb-6 flex items-center justify-center text-[clamp(3rem,6vw,5rem)] font-medium text-[var(--text-faint)] group-hover:text-[var(--accent)] transition-colors">
                   {member.initials}
                 </div>
-                <h3 className="text-[1.125rem] font-medium tracking-tight">{member.name}</h3>
+                <h3 className="text-[1.125rem] font-medium tracking-tight">{tTeam(`${member.id}.name` as "alex.name")}</h3>
                 <div className="font-mono text-[0.75rem] uppercase tracking-wider text-[var(--text-faint)] mt-1">
-                  {member.role}
+                  {tTeam(`${member.id}.role` as "alex.role")}
                 </div>
                 <p className="mt-4 text-[var(--text-dim)] text-[0.95rem] leading-relaxed">
-                  {member.bio}
+                  {tTeam(`${member.id}.bio` as "alex.bio")}
                 </p>
               </article>
             ))}
@@ -113,13 +117,13 @@ export default async function AboutPage() {
       <section className="px-6 lg:px-10 py-20 lg:py-28 border-b border-[var(--stroke)]">
         <div className="mx-auto max-w-[1400px]">
           <div className="mb-12 lg:mb-14 max-w-3xl">
-            <div className="text-eyebrow mb-6">Derrière le code</div>
+            <div className="text-eyebrow mb-6">{t("behindCodeEyebrow")}</div>
             <h2 className="text-h2 tracking-tight">
-              Comment nous{" "}
-              <span className="accent-serif">construisons</span>.
+              {t("behindCodeHeadingStart")}{" "}
+              <span className="accent-serif">{t("behindCodeHeadingItalic")}</span>.
             </h2>
             <p className="mt-5 text-[var(--text-dim)] text-[1rem] max-w-xl leading-relaxed">
-              Notre atelier de production · équipement, outils et environnement de travail.
+              {t("behindCodeDescription")}
             </p>
           </div>
 
@@ -136,10 +140,10 @@ export default async function AboutPage() {
                   <PlaceholderArtwork variant={item.variant} />
                   <div className="relative z-10">
                     <div className="font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--accent)] mb-1.5">
-                      {item.label}
+                      {t(`behindCode.${item.variant}Label` as "behindCode.studioLabel")}
                     </div>
                     <h3 className="text-[1rem] lg:text-[1.125rem] font-medium tracking-tight">
-                      {item.title}
+                      {t(`behindCode.${item.variant}Title` as "behindCode.studioTitle")}
                     </h3>
                   </div>
                 </div>
@@ -160,13 +164,13 @@ export default async function AboutPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5">
-            {CITIES.map((city, i) => (
-              <div key={i} className="glass rounded-lg p-7 lg:p-9">
+            {CITIES.map((city) => (
+              <div key={city.id} className="glass rounded-lg p-7 lg:p-9">
                 <div className="font-mono text-[0.6875rem] tracking-wider text-[var(--text-faint)] uppercase">
-                  {city.role}
+                  {tTeam(`cities.${city.id}` as "cities.geneva")}
                 </div>
                 <div className="text-[clamp(1.625rem,3vw,2.125rem)] font-medium tracking-tight leading-none mt-3">
-                  {city.name}
+                  {tCities(city.id as "geneva")}
                 </div>
                 <div className="font-mono text-[0.75rem] text-[var(--text-dim)] mt-5">
                   {city.coords}
@@ -177,7 +181,7 @@ export default async function AboutPage() {
 
           <div className="mt-16 text-center">
             <Button href="/start" size="lg">
-              Démarrer un projet
+              {tCommon("startProject")}
             </Button>
           </div>
         </div>
@@ -191,11 +195,11 @@ export default async function AboutPage() {
    ============================================ */
 
 const BEHIND_CODE = [
-  { label: "Atelier", title: "Studio principal · Genève", variant: "studio" as const, span: "col-span-12 md:col-span-6 lg:col-span-7" },
-  { label: "Stack", title: "Outils et environnement", variant: "stack" as const, span: "col-span-12 md:col-span-6 lg:col-span-5" },
-  { label: "Process", title: "Suivi en direct", variant: "process" as const, span: "col-span-12 md:col-span-6 lg:col-span-4" },
-  { label: "Qualité", title: "Tests et performance", variant: "quality" as const, span: "col-span-12 md:col-span-6 lg:col-span-4" },
-  { label: "Livraison", title: "Déploiement continu", variant: "delivery" as const, span: "col-span-12 lg:col-span-4" },
+  { variant: "studio" as const, span: "col-span-12 md:col-span-6 lg:col-span-7" },
+  { variant: "stack" as const, span: "col-span-12 md:col-span-6 lg:col-span-5" },
+  { variant: "process" as const, span: "col-span-12 md:col-span-6 lg:col-span-4" },
+  { variant: "quality" as const, span: "col-span-12 md:col-span-6 lg:col-span-4" },
+  { variant: "delivery" as const, span: "col-span-12 lg:col-span-4" },
 ];
 
 function PlaceholderArtwork({ variant }: { variant: "studio" | "stack" | "process" | "quality" | "delivery" }) {

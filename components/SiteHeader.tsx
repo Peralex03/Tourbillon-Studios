@@ -108,8 +108,8 @@ export default function SiteHeader() {
             target="_blank"
             rel="noopener noreferrer"
             className="hidden lg:inline-flex items-center gap-2 ml-1 w-9 h-9 rounded-full glass-subtle hover:border-[var(--accent)] text-[var(--text)] hover:text-[var(--accent)] transition-colors items-center justify-center"
-            aria-label="Réserver un appel"
-            title="Réserver un appel"
+            aria-label={t("bookCall")}
+            title={t("bookCall")}
           >
             <PhoneIcon />
           </a>

@@ -6,9 +6,10 @@ import Button from "@/components/Button";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  const tMeta = await getTranslations({ locale, namespace: "metadata" });
   const t = await getTranslations({ locale, namespace: "process" });
   return {
-    title: `Méthode 48h · Tourbillon Studios`,
+    title: tMeta("processTitle"),
     description: t("heroSubtitle"),
   };
 }
@@ -43,7 +44,7 @@ export default async function ProcessPage() {
         <div className="relative mx-auto max-w-[1400px]">
           <div className="text-eyebrow mb-6">{t("eyebrow")}</div>
           <h1 className="text-h1 tracking-tight max-w-3xl">
-            La méthode <span className="accent-serif">48 heures</span>.
+            {t("heroLine1")} <span className="accent-serif">{t("heroLine2Italic")}</span>.
           </h1>
           <p className="mt-6 text-[1rem] lg:text-[1.0625rem] text-[var(--text-dim)] max-w-2xl leading-relaxed">
             {t("heroSubtitle")}
@@ -59,7 +60,7 @@ export default async function ProcessPage() {
       {/* GUARANTEE */}
       <section className="px-6 lg:px-10 py-20 lg:py-28 border-b border-[var(--stroke)]">
         <div className="mx-auto max-w-[1100px] text-center">
-          <div className="text-eyebrow mb-6">Garantie</div>
+          <div className="text-eyebrow mb-6">{t("guaranteeEyebrow")}</div>
           <h2 className="text-h1 tracking-tight">
             {t("guaranteeTitle")}
           </h2>
@@ -72,7 +73,7 @@ export default async function ProcessPage() {
       {/* FAQ */}
       <section className="px-6 lg:px-10 py-24 lg:py-32 border-b border-[var(--stroke)]">
         <div className="mx-auto max-w-[1100px]">
-          <div className="text-eyebrow mb-6">FAQ</div>
+          <div className="text-eyebrow mb-6">{t("faqEyebrow")}</div>
           <h2 className="text-h2 tracking-tight mb-12">
             {t("faqTitle")}
           </h2>
@@ -85,7 +86,7 @@ export default async function ProcessPage() {
         <FeaturedTopo fade />
         <div className="relative mx-auto max-w-[1400px] text-center">
           <h2 className="text-h1 tracking-tight">
-            Prêt à <span className="accent-serif">lancer un projet</span> ?
+            {t("ctaHeadingStart")} <span className="accent-serif">{t("ctaHeadingItalic")}</span> {t("ctaHeadingEnd")}
           </h2>
           <div className="mt-8">
             <Button href="/start">{t("ctaButton")}</Button>

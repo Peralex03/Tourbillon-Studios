@@ -4,15 +4,17 @@ import ContactForm from "./ContactForm";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  const tMeta = await getTranslations({ locale, namespace: "metadata" });
   const t = await getTranslations({ locale, namespace: "contact" });
   return {
-    title: `Contact · Tourbillon Studios`,
+    title: tMeta("contactTitle"),
     description: t("heroSubtitle"),
   };
 }
 
 export default async function ContactPage() {
   const t = await getTranslations("contact");
+  const tCities = await getTranslations("common.cities");
 
   return (
     <>
@@ -22,7 +24,7 @@ export default async function ContactPage() {
         <div className="relative mx-auto max-w-[1400px]">
           <div className="text-eyebrow mb-6">{t("eyebrow")}</div>
           <h1 className="text-h1 tracking-tight max-w-3xl">
-            Discutons de votre <span className="accent-serif">projet</span>.
+            {t("heroLineStart")} <span className="accent-serif">{t("heroLineItalic")}</span>.
           </h1>
           <p className="mt-6 text-[1rem] lg:text-[1.0625rem] text-[var(--text-dim)] max-w-2xl leading-relaxed">
             {t("heroSubtitle")}
@@ -91,9 +93,9 @@ export default async function ContactPage() {
             <div>
               <div className="text-eyebrow mb-3">{t("presence")}</div>
               <ul className="space-y-1 text-[1.125rem] font-medium text-[var(--text)]">
-                <li>Genève</li>
-                <li>Lausanne</li>
-                <li>Zürich</li>
+                <li>{tCities("geneva")}</li>
+                <li>{tCities("lausanne")}</li>
+                <li>{tCities("zurich")}</li>
               </ul>
             </div>
 

@@ -1,23 +1,27 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { PRICING_PLANS, PRICING_FAQ, PRICING_COMPARISON } from "@/lib/pricing";
+import { PRICING_PLANS, PRICING_COMPARISON, PRICING_FAQ_COUNT } from "@/lib/pricing";
 import RoiCalculator from "./RoiCalculator";
 import Accordion from "@/components/Accordion";
 import FeaturedTopo from "@/components/FeaturedTopo";
-import Button from "@/components/Button";
 import PlanRecommender from "./PlanRecommender";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "pricing" });
   return {
-    title: `Tarifs · Tourbillon Studios`,
+    title: `${t("eyebrow")} · Tourbillon Studios`,
     description: t("heroSubtitle"),
   };
 }
 
 export default async function PricingPage() {
   const t = await getTranslations("pricing");
+
+  const faqs = Array.from({ length: PRICING_FAQ_COUNT }, (_, i) => ({
+    q: t(`faq.q${i + 1}` as "faq.q1"),
+    a: t(`faq.a${i + 1}` as "faq.a1"),
+  }));
 
   return (
     <>
@@ -30,8 +34,8 @@ export default async function PricingPage() {
           <div className="text-eyebrow mb-6">{t("eyebrow")}</div>
 
           <h1 className="text-h1 max-w-3xl">
-            Un seul prix par mois.{" "}
-            <span className="accent-serif">Tout inclus.</span>
+            {t("heroLine1")} {t("heroLine2")}{" "}
+            <span className="accent-serif">{t("heroLine3Italic")}</span>
           </h1>
 
           <p className="mt-6 text-[1rem] lg:text-[1.0625rem] text-[var(--text-dim)] max-w-xl leading-relaxed">
@@ -67,7 +71,7 @@ export default async function PricingPage() {
                     {plan.name}
                   </h2>
                   <p className="mt-2 text-[var(--text-dim)] text-[0.9375rem] leading-relaxed">
-                    {plan.tagline}
+                    {t(`plans.${plan.id}.tagline` as "plans.starter.tagline")}
                   </p>
                 </header>
 
@@ -86,19 +90,19 @@ export default async function PricingPage() {
                 </div>
 
                 <ul className="space-y-3 mb-10 flex-1">
-                  {plan.features.map((feat, i) => (
+                  {Array.from({ length: plan.featureCount }, (_, i) => (
                     <li key={i} className="flex items-start gap-3 text-[0.95rem] text-[var(--text)]">
                       <CheckIcon />
-                      <span>{feat}</span>
+                      <span>{t(`plans.${plan.id}.feature${i + 1}` as "plans.starter.feature1")}</span>
                     </li>
                   ))}
-                  {plan.notIncluded?.map((feat, i) => (
+                  {Array.from({ length: plan.notIncludedCount }, (_, i) => (
                     <li
                       key={`n${i}`}
                       className="flex items-start gap-3 text-[0.95rem] text-[var(--text-faint)] line-through"
                     >
                       <DashIcon />
-                      <span>{feat}</span>
+                      <span>{t(`plans.${plan.id}.notIncluded${i + 1}` as "plans.starter.notIncluded1")}</span>
                     </li>
                   ))}
                 </ul>
@@ -112,7 +116,7 @@ export default async function PricingPage() {
                       : "border border-[var(--stroke-strong)] text-[var(--text)] hover:border-[var(--text)]",
                   ].join(" ")}
                 >
-                  {plan.ctaLabel}
+                  {t("ctaButton")}
                   <ArrowIcon />
                 </Link>
               </article>
@@ -146,9 +150,9 @@ export default async function PricingPage() {
           ============================================ */}
       <section className="px-6 lg:px-10 py-20 lg:py-28 border-b border-[var(--stroke)]">
         <div className="mx-auto max-w-[1400px]">
-          <div className="text-eyebrow mb-5">Comparatif</div>
+          <div className="text-eyebrow mb-5">{t("comparisonEyebrow")}</div>
           <h2 className="text-h2 text-[var(--text)] mb-10">
-            Tout ce qui est inclus, formule par formule.
+            {t("comparisonHeading")}
           </h2>
 
           <div className="glass rounded-lg overflow-hidden">
@@ -157,7 +161,7 @@ export default async function PricingPage() {
                 <thead>
                   <tr className="border-b border-[var(--stroke)]">
                     <th className="py-4 px-5 lg:px-6 text-[0.75rem] font-mono uppercase tracking-wider text-[var(--text-dim)] font-medium">
-                      Fonctionnalité
+                      {t("featureColumn")}
                     </th>
                     <th className="py-4 px-5 lg:px-6 text-[0.875rem] text-[var(--text)] font-medium">
                       Starter
@@ -177,7 +181,7 @@ export default async function PricingPage() {
                       className="border-b border-[var(--stroke)] last:border-b-0 hover:bg-[var(--surface-2)]/30 transition-colors"
                     >
                       <td className="py-3.5 px-5 lg:px-6 text-[0.9375rem] text-[var(--text)]">
-                        {row.label}
+                        {t(`comparison.${row.labelKey}` as "comparison.pages")}
                       </td>
                       <FeatureCell value={row.starter} />
                       <FeatureCell value={row.pro} featured />
@@ -226,7 +230,7 @@ export default async function PricingPage() {
             {t("faqTitle")}
           </h2>
 
-          <Accordion items={PRICING_FAQ} initialOpen={0} />
+          <Accordion items={faqs} initialOpen={0} />
         </div>
       </section>
 
@@ -237,8 +241,8 @@ export default async function PricingPage() {
         <FeaturedTopo fade />
         <div className="relative mx-auto max-w-[1400px] text-center">
           <h2 className="text-h1">
-            Lancer un projet dans les{" "}
-            <span className="accent-serif">48 heures</span>.
+            {t("ctaHeadingStart")}{" "}
+            <span className="accent-serif">{t("ctaHeadingItalic")}</span>.
           </h2>
           <div className="mt-8 inline-flex">
             <Link

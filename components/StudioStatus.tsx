@@ -1,19 +1,21 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 /**
  * Live "Studio status" indicator based on Geneva local time.
  * Open: Mon-Fri 09:00 - 18:00 (Europe/Zurich)
- * Otherwise: "Reprise des envois demain" / "Reprise lundi"
  */
 export default function StudioStatus() {
-  const [state, setState] = useState<{ open: boolean; label: string } | null>(null);
+  const t = useTranslations("studioStatus");
+  const [state, setState] = useState<{ open: boolean; key: "openGeneva" | "closedTomorrow" | "closedMonday" } | null>(null);
 
   useEffect(() => {
     function compute() {
       const now = new Date();
-      const fmt = new Intl.DateTimeFormat("fr-CH", {
+      // Always read weekday in en-GB to get a stable, locale-independent value
+      const fmt = new Intl.DateTimeFormat("en-GB", {
         timeZone: "Europe/Zurich",
         weekday: "short",
         hour: "numeric",
@@ -29,20 +31,17 @@ export default function StudioStatus() {
       const minute = parseInt(minutePart, 10);
       const totalMin = hour * 60 + minute;
 
-      const isWeekday =
-        weekdayPart.startsWith("lun") ||
-        weekdayPart.startsWith("mar") ||
-        weekdayPart.startsWith("mer") ||
-        weekdayPart.startsWith("jeu") ||
-        weekdayPart.startsWith("ven");
+      const isWeekday = ["mon", "tue", "wed", "thu", "fri"].includes(weekdayPart);
       const inHours = totalMin >= 9 * 60 && totalMin < 18 * 60;
 
       if (isWeekday && inHours) {
-        setState({ open: true, label: "Studio ouvert · Genève" });
+        setState({ open: true, key: "openGeneva" });
+      } else if (weekdayPart === "fri" || weekdayPart === "sat" || weekdayPart === "sun") {
+        setState({ open: false, key: "closedMonday" });
       } else if (isWeekday) {
-        setState({ open: false, label: "Studio fermé · Reprise demain 09 h" });
+        setState({ open: false, key: "closedTomorrow" });
       } else {
-        setState({ open: false, label: "Studio fermé · Reprise lundi 09 h" });
+        setState({ open: false, key: "closedMonday" });
       }
     }
     compute();
@@ -61,7 +60,7 @@ export default function StudioStatus() {
         ].join(" ")}
         aria-hidden="true"
       />
-      {state.label}
+      {t(state.key)}
     </div>
   );
 }

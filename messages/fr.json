@@ -1,11 +1,27 @@
 {
+  "common": {
+    "startProject": "Démarrer un projet",
+    "backHome": "Retour à l'accueil",
+    "restart": "← Recommencer",
+    "cities": {
+      "geneva": "Genève",
+      "lausanne": "Lausanne",
+      "zurich": "Zürich"
+    }
+  },
+  "metadata": {
+    "aboutTitle": "À propos · Tourbillon Studios",
+    "processTitle": "Méthode 48h · Tourbillon Studios",
+    "contactTitle": "Contact · Tourbillon Studios"
+  },
   "nav": {
     "about": "À propos",
     "process": "Méthode",
     "pricing": "Tarifs",
     "blog": "Journal",
     "contact": "Contact",
-    "cta": "Démarrer un projet"
+    "cta": "Démarrer un projet",
+    "bookCall": "Réserver un appel"
   },
   "theme": {
     "light": "Mode clair",
@@ -26,19 +42,41 @@
     "metric2Label": "Score Lighthouse moyen sur l'ensemble de nos livraisons",
     "metric3Value": "+34 %",
     "metric3Label": "Amélioration moyenne du taux de conversion observée chez nos clients",
-    "featuredEyebrow": "Étude de cas",
-    "featuredCta": "Lire l'étude",
-    "logosEyebrow": "Ils nous ont fait confiance",
-    "testimonialEyebrow": "Témoignage",
-    "testimonialQuote": "Le site a été livré en 36 heures, avec une conversion supérieure à celui que nous avions construit en quatre mois. Le rapport qualité-prix-rapidité est sans équivalent sur le marché suisse.",
-    "testimonialAuthor": "Direction, Your Swiss Concierge",
-    "ctaFinalTitle": "Discutons de votre projet.",
+    "trustEyebrow": "Engagements",
+    "trustBadge1Title": "Hébergement suisse",
+    "trustBadge1Body": "Données et site hébergés en Suisse romande. Conformité sectorielle.",
+    "trustBadge2Title": "Conforme nLPD",
+    "trustBadge2Body": "Protection des données respectant la loi fédérale 2023 et le RGPD européen.",
+    "trustBadge3Title": "Code propriétaire",
+    "trustBadge3Body": "Le code source vous appartient. Aucune dépendance, aucun verrouillage.",
+    "bookingEyebrow": "Rendez-vous",
+    "bookingHeadingStart": "Parlons de votre",
+    "bookingHeadingItalic": "projet",
+    "bookingHeadingEnd": "en 15 minutes.",
+    "bookingDescription": "Réservez un créneau directement sur notre agenda · gratuit, sans engagement. Nous discutons ensemble de vos besoins et de la solution la mieux adaptée.",
+    "bookingBenefit1": "15 minutes par téléphone · ou visioconférence sur demande",
+    "bookingBenefit2": "Réponse claire sur la faisabilité et le délai",
+    "bookingBenefit3": "Devis sous 48 h après l'appel si vous souhaitez avancer",
+    "discoveryCallLabel": "Appel découverte",
+    "discoveryCallDuration": "15 minutes · gratuit",
+    "availabilityLabel": "Disponibilités",
+    "availabilityValue": "Lun · Ven 09h-18h",
+    "timezoneLabel": "Fuseau",
+    "timezoneValue": "Europe/Zurich",
+    "languagesLabel": "Langues",
+    "languagesValue": "FR · DE · IT · EN",
+    "bookSlotButton": "Choisir un créneau",
+    "bookingNote": "Réservation instantanée · géré via Cal.com",
+    "ctaFinalHeadingStart": "Discutons de votre",
+    "ctaFinalHeadingItalic": "projet",
     "ctaFinalBody": "Quelques questions pour cadrer votre projet. Nous vous recontactons sous 24 heures ouvrées.",
-    "ctaFinalButton": "Lancer mon projet"
+    "ctaFinalButton": "Lancer mon projet",
+    "ctaFinalBookCall": "Réserver un appel"
   },
   "about": {
     "eyebrow": "À propos",
-    "heroLine": "Nous concevons des sites web qui financent leur abonnement.",
+    "heroLineStart": "Nous concevons des sites web qui",
+    "heroLineItalic": "financent leur abonnement",
     "manifestoTitle": "Notre raison d'être",
     "manifestoP1": "Le marché du web en Suisse manque de transparence. Des devis à 15 000 CHF pour des sites construits sur des modèles génériques, des délais de plusieurs mois pour des fonctionnalités livrables en quelques jours, des prestations facturées sans visibilité claire sur ce qui est réellement produit.",
     "manifestoP2": "Tourbillon Studios a été fondé pour proposer une alternative. Notre conviction : un site web est un outil commercial, pas une œuvre. Il doit être livré rapidement, convertir les visiteurs en clients, et représenter un investissement justifié.",
@@ -47,13 +85,29 @@
     "valuesTitle": "Quatre principes qui guident chaque projet.",
     "teamEyebrow": "L'équipe",
     "teamTitle": "Une structure resserrée, autonome.",
+    "behindCodeEyebrow": "Derrière le code",
+    "behindCodeHeadingStart": "Comment nous",
+    "behindCodeHeadingItalic": "construisons",
+    "behindCodeDescription": "Notre atelier de production · équipement, outils et environnement de travail.",
+    "behindCode": {
+      "studioLabel": "Atelier",
+      "studioTitle": "Studio principal · Genève",
+      "stackLabel": "Stack",
+      "stackTitle": "Outils et environnement",
+      "processLabel": "Process",
+      "processTitle": "Suivi en direct",
+      "qualityLabel": "Qualité",
+      "qualityTitle": "Tests et performance",
+      "deliveryLabel": "Livraison",
+      "deliveryTitle": "Déploiement continu"
+    },
     "citiesEyebrow": "Implantation",
     "citiesTitle": "Trois villes, un standard unique."
   },
   "process": {
     "eyebrow": "Méthode",
     "heroLine1": "La méthode",
-    "heroLine2Italic": "48 heures.",
+    "heroLine2Italic": "48 heures",
     "heroSubtitle": "Quatre étapes structurées, un délai garanti contractuellement, un mois offert si nous dépassons.",
     "step1Number": "01",
     "step1Title": "Brief · 2 heures",
@@ -67,8 +121,10 @@
     "step4Number": "04",
     "step4Title": "Retouches · 7 jours",
     "step4Description": "Une semaine pour ajuster ce qui doit l'être : textes, couleurs, structure. Toutes les retouches sont incluses dans l'abonnement, sans limite.",
+    "guaranteeEyebrow": "Garantie",
     "guaranteeTitle": "Délai dépassé ? Le premier mois est offert.",
     "guaranteeBody": "Nous respectons ce délai sur 99 % de nos projets Starter et Pro. Lorsque ce n'est pas le cas, l'engagement est tenu : le premier mois est offert, sans conditions.",
+    "faqEyebrow": "FAQ",
     "faqTitle": "Questions fréquentes",
     "faqQ1": "Que se passe-t-il si mes contenus ne sont pas prêts ?",
     "faqA1": "Nous pouvons rédiger les textes pour vous, en option. À défaut, nous utilisons un contenu provisoire que nous remplaçons pendant la période de retouches. Le délai de 48 heures n'est garanti que si les contenus essentiels sont fournis lors du brief.",
@@ -78,7 +134,9 @@
     "faqA3": "L'équipe développe. Vous accédez à l'URL privée et suivez la construction section par section. Pas de slides intermédiaires, pas de wireframes en réunion : du code livré dès la première heure.",
     "faqQ4": "Puis-je changer de direction en cours de route ?",
     "faqA4": "Pendant la semaine de retouches, oui. Pendant les 36 heures de construction, non · c'est la condition pour tenir le délai. Le brief reste le moment décisif.",
-    "ctaTitle": "Prêt à lancer un projet ?",
+    "ctaHeadingStart": "Prêt à",
+    "ctaHeadingItalic": "lancer un projet",
+    "ctaHeadingEnd": "?",
     "ctaButton": "Démarrer maintenant"
   },
   "pricing": {
@@ -101,8 +159,128 @@
     "roiResultLabel": "Gain mensuel estimé",
     "roiResultNote": "Estimation basée sur une amélioration moyenne de +34 % du taux de conversion observée sur l'ensemble de nos projets.",
     "faqTitle": "Questions sur l'abonnement",
-    "ctaTitle": "Lancer un projet dans les 48 heures.",
-    "ctaButton": "Démarrer maintenant"
+    "ctaHeadingStart": "Lancer un projet dans les",
+    "ctaHeadingItalic": "48 heures",
+    "ctaButton": "Démarrer maintenant",
+    "comparisonEyebrow": "Comparatif",
+    "comparisonHeading": "Tout ce qui est inclus, formule par formule.",
+    "featureColumn": "Fonctionnalité",
+    "plans": {
+      "starter": {
+        "tagline": "Établir une présence digitale professionnelle.",
+        "description": "Site vitrine professionnel livré en 48 heures. L'ensemble des prestations est inclus dans l'abonnement mensuel.",
+        "feature1": "Site vitrine jusqu'à 5 pages",
+        "feature2": "Livraison en 48 heures ouvrées",
+        "feature3": "Hébergement Vercel inclus",
+        "feature4": "Domaine .ch inclus",
+        "feature5": "Certificat SSL automatique",
+        "feature6": "Optimisation SEO de base + sitemap",
+        "feature7": "Adaptation mobile native",
+        "feature8": "2 retouches mineures par mois",
+        "feature9": "Support par email sous 24 heures",
+        "notIncluded1": "Journal automatisé",
+        "notIncluded2": "Fonctionnalités e-commerce",
+        "notIncluded3": "Multilingue"
+      },
+      "pro": {
+        "tagline": "La formule la plus choisie par les PME suisses.",
+        "description": "Site vitrine professionnel avec blog, SEO local, multilingue et gestion simplifiée du contenu. L'ensemble des prestations est inclus dans l'abonnement mensuel.",
+        "feature1": "Site vitrine jusqu'à 15 pages + blog",
+        "feature2": "Livraison en 48 heures ouvrées",
+        "feature3": "Hébergement Vercel inclus",
+        "feature4": "Domaine .ch inclus",
+        "feature5": "Certificat SSL automatique",
+        "feature6": "Multilingue FR/DE/IT/EN",
+        "feature7": "Optimisation SEO/GEO avancée",
+        "feature8": "Référencement local Google Business",
+        "feature9": "4 retouches par mois",
+        "feature10": "Support prioritaire sous 12 heures",
+        "notIncluded1": "E-commerce de base"
+      },
+      "custom": {
+        "tagline": "Application web, e-commerce ou besoins spécifiques.",
+        "description": "Toutes les fonctionnalités du plan Pro, plus développement sur mesure, intégrations avancées, base de données managée et support dédié. Devis personnalisé après appel découverte.",
+        "feature1": "Tout du plan Pro · plus",
+        "feature2": "Application web complète",
+        "feature3": "E-commerce avancé avec Stripe",
+        "feature4": "Intégrations API personnalisées",
+        "feature5": "Base de données managée",
+        "feature6": "Développeur dédié assigné",
+        "feature7": "Support 24/7 prioritaire",
+        "feature8": "Retouches illimitées",
+        "feature9": "Délai personnalisé",
+        "feature10": "SLA 99,9% de disponibilité"
+      }
+    },
+    "comparison": {
+      "pages": "Pages incluses",
+      "delivery48h": "Livraison en 48 heures",
+      "vercel": "Hébergement Vercel inclus",
+      "chDomain": "Domaine .ch inclus",
+      "ssl": "Certificat SSL",
+      "mobile": "Optimisation mobile native",
+      "basicSeo": "Référencement SEO de base",
+      "blog": "Journal éditorial automatisé",
+      "multilingual": "Multilingue FR/DE/IT/EN",
+      "localSeo": "Référencement local Suisse + Google Business",
+      "geoSeo": "Optimisation GEO (ChatGPT, Perplexity)",
+      "analytics": "Tableau de bord analytique",
+      "webapp": "Application web sur mesure",
+      "ecommerce": "E-commerce avec Stripe",
+      "apiIntegrations": "Intégrations API personnalisées",
+      "managedDb": "Base de données managée",
+      "revisions": "Retouches",
+      "supportTime": "Délai de support",
+      "uptime": "Garantie de disponibilité",
+      "dedicatedDev": "Développeur dédié assigné"
+    },
+    "faq": {
+      "q1": "Puis-je arrêter mon abonnement ?",
+      "a1": "Oui, sans engagement. Vous pouvez résilier à tout moment avec un préavis de 30 jours.",
+      "q2": "Le code source m'appartient-il ?",
+      "a2": "Absolument. Vous êtes propriétaire de tout le code. Vous pouvez le reprendre, le modifier, le migrer à tout moment.",
+      "q3": "Comment fonctionnent les factures ?",
+      "a3": "Abonnement mensuel automatique. Pas de contrat long terme, pas de frais caché. Vous payez le même montant chaque mois.",
+      "q4": "Que se passe-t-il si vous dépassez les 48 heures ?",
+      "a4": "Nous vous offrons 1 mois d'abonnement gratuit pour chaque jour de retard. Nous tenons nos promesses.",
+      "q5": "Puis-je changer de formule ?",
+      "a5": "Oui, sans pénalité. Vous pouvez monter ou descendre de plan à tout moment, au prorata.",
+      "q6": "Y a-t-il des frais de mise en route ?",
+      "a6": "Non, aucun frais d'installation ni de setup. Le devis inclut tout sauf votre domaine existant le cas échéant."
+    },
+    "recommender": {
+      "eyebrow": "Trouver la formule",
+      "title": "Quelle formule vous correspond ?",
+      "step1Question": "1 · Quel type de projet ?",
+      "step2Question": "2 · Quelle envergure ?",
+      "projectVitrine": "Site vitrine",
+      "projectVitrineHint": "Présenter votre activité",
+      "projectEcommerce": "E-commerce",
+      "projectEcommerceHint": "Vendre en ligne",
+      "projectWebapp": "Application web",
+      "projectWebappHint": "Plateforme sur mesure",
+      "scopeSmall": "Compact",
+      "scopeSmallVitrineHint": "Jusqu'à 5 pages",
+      "scopeSmallEcommerceHint": "Moins de 50 produits",
+      "scopeMedium": "Standard",
+      "scopeMediumVitrineHint": "Jusqu'à 15 pages",
+      "scopeMediumEcommerceHint": "50 à 500 produits",
+      "scopeLarge": "Étendu",
+      "scopeLargeVitrineHint": "Plus de 15 pages",
+      "scopeLargeEcommerceHint": "Plus de 500 produits",
+      "recommendation": "Recommandation",
+      "planPrefix": "Formule",
+      "starterLabel": "Starter · 290 CHF/mois",
+      "proLabel": "Pro · 590 CHF/mois",
+      "customLabel": "Custom · dès 1 490 CHF/mois",
+      "startButton": "Démarrer avec cette formule",
+      "rationaleWebapp": "Une application web sur mesure nécessite des fonctionnalités spécifiques (authentification, intégrations, base de données) que seule la formule Custom couvre.",
+      "rationaleEcommerceSmall": "Une boutique avec un petit catalogue tient confortablement dans la formule Pro, qui inclut e-commerce de base, multilingue et SEO local.",
+      "rationaleEcommerceLarge": "Pour un e-commerce avec un catalogue conséquent, la formule Custom apporte la base de données managée, les intégrations API et le support prioritaire.",
+      "rationaleVitrineSmall": "Pour un site vitrine simple jusqu'à 5 pages, la formule Starter couvre l'essentiel : livraison rapide, hébergement, SEO de base.",
+      "rationaleVitrineMedium": "Pour un site vitrine étoffé avec blog, multilingue et SEO/GEO avancé, la formule Pro est la solution la plus adaptée.",
+      "rationaleVitrineLarge": "Pour un site vitrine avec plus de 15 pages ou des besoins spécifiques, la formule Custom offre la flexibilité nécessaire."
+    }
   },
   "work": {
     "eyebrow": "Réalisations",
@@ -118,7 +296,8 @@
   },
   "contact": {
     "eyebrow": "Contact",
-    "heroLine": "Discutons de votre projet.",
+    "heroLineStart": "Discutons de votre",
+    "heroLineItalic": "projet",
     "heroSubtitle": "Premier échange gratuit, réponse sous 24 heures ouvrées. Si vous avez déjà identifié la formule qui vous convient, n'hésitez pas à le mentionner directement.",
     "name": "Nom complet",
     "namePlaceholder": "Prénom Nom",
@@ -174,5 +353,104 @@
     "readMore": "Lire l'article",
     "backToBlog": "← Retour au journal",
     "minRead": "min de lecture"
+  },
+  "studioStatus": {
+    "openGeneva": "Studio ouvert · Genève",
+    "closedTomorrow": "Studio fermé · Reprise demain 09 h",
+    "closedMonday": "Studio fermé · Reprise lundi 09 h"
+  },
+  "notFound": {
+    "errorCode": "Erreur 404",
+    "headingStart": "Cette page n'existe",
+    "headingItalic": "plus",
+    "description": "Le lien que vous avez suivi est obsolète ou la page a été déplacée. Vous pouvez retourner à l'accueil ou démarrer directement un projet.",
+    "homeButton": "Retour à l'accueil",
+    "startButton": "Démarrer un projet"
+  },
+  "quiz": {
+    "previousQuestion": "Question précédente",
+    "back": "Retour",
+    "discoverStudio": "Découvrir le studio",
+    "keyboardHint": "Astuce · touches 1, 2, 3 ou 4 du clavier",
+    "coordinatesSection": "Coordonnées",
+    "coordinatesDescription": "Comment pouvons-nous vous joindre ?",
+    "responseNote": "Réponse sous 24 heures ouvrées.",
+    "summarySection": "Récapitulatif",
+    "summaryProject": "Projet",
+    "summaryCatalog": "Catalogue",
+    "summaryScope": "Périmètre",
+    "summaryDeadline": "Délai",
+    "summaryPlan": "Formule",
+    "summaryStructure": "Structure",
+    "fullName": "Nom complet",
+    "fullNamePlaceholder": "Prénom Nom",
+    "emailLabel": "Adresse email",
+    "emailPlaceholder": "vous@entreprise.ch",
+    "company": "Entreprise (optionnel)",
+    "companyPlaceholder": "Nom de votre société",
+    "notes": "Précisions complémentaires (optionnel)",
+    "notesPlaceholder": "Contexte, URL existante, contraintes particulières…"
+  },
+  "team": {
+    "alex": {
+      "name": "Alex Pérez",
+      "role": "Fondateur · Direction & Design",
+      "bio": "Six années d'expérience en agence et en environnement SaaS. Spécialisé dans la conception produit et la stratégie de conversion."
+    },
+    "claude": {
+      "name": "Claude",
+      "role": "Moteur éditorial",
+      "bio": "Agent intelligent autonome chargé de la rédaction et de la publication quotidienne du journal éditorial, optimisé pour le SEO et le GEO."
+    },
+    "values": {
+      "speed": {
+        "eyebrow": "01",
+        "title": "Rapidité",
+        "body": "48 heures pour livrer un site professionnel. Le temps constitue votre actif le plus rare. Notre méthode est calibrée pour le préserver."
+      },
+      "precision": {
+        "eyebrow": "02",
+        "title": "Précision suisse",
+        "body": "Travail soigné, conformité nLPD, hébergement en Suisse. Le souci du détail comme standard, non comme exception."
+      },
+      "transparency": {
+        "eyebrow": "03",
+        "title": "Transparence",
+        "body": "Tarifs publics, devis détaillés, absence de coûts cachés. Vous savez ce que vous investissez et ce que vous recevez, dès la première visite."
+      },
+      "performance": {
+        "eyebrow": "04",
+        "title": "Performance",
+        "body": "Lighthouse 95+, conversion mesurée, SEO et GEO intégrés. Un beau site qui ne convertit pas représente un coût, non un actif."
+      }
+    },
+    "cities": {
+      "geneva": "Studio principal",
+      "lausanne": "Production",
+      "zurich": "Antenne alémanique"
+    }
+  },
+  "projects": {
+    "concierge": {
+      "title": "Conciergerie de luxe à Genève",
+      "excerpt": "Site vitrine éditorial pour une conciergerie haut de gamme. Refonte complète avec design éditorial et système de réservation intégré.",
+      "story": "Une conciergerie de luxe basée à Genève souhaitait moderniser son site web pour refléter le positionnement haut de gamme de ses services. Le site existant ne reflétait plus l'identité de la marque et la conversion en demandes de devis restait faible.",
+      "challenge": "Refaire un site éditorial qui mette en valeur la qualité du service, sans tomber dans le cliché du luxe. Intégrer un parcours de réservation discret mais efficace.",
+      "solution": "Design éditorial sobre, photographie soignée, parcours utilisateur épuré. Système de réservation intégré qui filtre les demandes en amont. Site livré en 48 heures, conformité nLPD assurée."
+    },
+    "fashion": {
+      "title": "E-commerce mode contemporaine",
+      "excerpt": "Plateforme e-commerce sur mesure pour une marque de mode féminine. Catalogue, paiements internationaux, gestion multilingue.",
+      "story": "Une marque de mode contemporaine basée à Lausanne lançait sa première collection en ligne. Besoin d'une plateforme robuste, multilingue, capable d'évoluer avec le catalogue.",
+      "challenge": "Construire un e-commerce sur mesure plutôt qu'un Shopify standard. Performance maximale, expérience d'achat fluide, paiements internationaux en plusieurs devises.",
+      "solution": "Stack moderne, paiements Stripe, gestion multilingue FR/DE/IT/EN, intégration avec leur ERP. Livré en quinze jours, formule Custom."
+    },
+    "restaurant": {
+      "title": "Restaurant et événementiel",
+      "excerpt": "Site vitrine immersif pour un restaurant événementiel à Milan. Réservations, programmation, espace presse.",
+      "story": "Un restaurant événementiel milanais souhaitait un site reflétant l'atmosphère unique du lieu. Le site précédent ne supportait ni le multilingue ni les réservations en ligne.",
+      "challenge": "Capturer l'identité visuelle forte du lieu dans un site web, sans tomber dans l'effet de mode. Intégrer un système de réservation simple et un espace presse séparé.",
+      "solution": "Direction artistique éditoriale, photographie professionnelle, multilingue IT/EN/FR. Système de réservation intégré. Espace presse avec téléchargement de kit média. Livré en 48 heures."
+    }
   }
 }

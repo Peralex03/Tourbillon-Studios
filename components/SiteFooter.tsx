@@ -5,6 +5,7 @@ import StudioStatus from "./StudioStatus";
 export default async function SiteFooter() {
   const t = await getTranslations("footer");
   const tNav = await getTranslations("nav");
+  const tCities = await getTranslations("common.cities");
   const year = new Date().getFullYear();
 
   return (
@@ -45,9 +46,9 @@ export default async function SiteFooter() {
                     contact@tourbillonstudios.ch
                   </a>
                 </li>
-                <li className="text-[var(--text-dim)]">Genève</li>
-                <li className="text-[var(--text-dim)]">Lausanne</li>
-                <li className="text-[var(--text-dim)]">Zürich</li>
+                <li className="text-[var(--text-dim)]">{tCities("geneva")}</li>
+                <li className="text-[var(--text-dim)]">{tCities("lausanne")}</li>
+                <li className="text-[var(--text-dim)]">{tCities("zurich")}</li>
               </ul>
             </div>
           </div>

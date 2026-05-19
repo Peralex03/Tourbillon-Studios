@@ -45,22 +45,22 @@ export default async function HomePage({
           ============================================ */}
       <section className="px-6 lg:px-10 py-16 lg:py-20 border-t border-[var(--stroke)]">
         <div className="mx-auto max-w-[1400px]">
-          <div className="text-eyebrow mb-10 text-center">Engagements</div>
+          <div className="text-eyebrow mb-10 text-center">{t("trustEyebrow")}</div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6 max-w-3xl mx-auto">
             <TrustBadge
               icon={<SwissCrossIcon />}
-              title="Hébergement suisse"
-              body="Données et site hébergés en Suisse romande. Conformité sectorielle."
+              title={t("trustBadge1Title")}
+              body={t("trustBadge1Body")}
             />
             <TrustBadge
               icon={<ShieldIcon />}
-              title="Conforme nLPD"
-              body="Protection des données respectant la loi fédérale 2023 et le RGPD européen."
+              title={t("trustBadge2Title")}
+              body={t("trustBadge2Body")}
             />
             <TrustBadge
               icon={<LockIcon />}
-              title="Code propriétaire"
-              body="Le code source vous appartient. Aucune dépendance, aucun verrouillage."
+              title={t("trustBadge3Title")}
+              body={t("trustBadge3Body")}
             />
           </div>
         </div>
@@ -71,27 +71,27 @@ export default async function HomePage({
           ============================================ */}
       <section className="px-6 lg:px-10 py-20 lg:py-28 border-t border-[var(--stroke)]">
         <div className="mx-auto max-w-[1400px]">
-          <div className="text-eyebrow mb-10">Rendez-vous</div>
+          <div className="text-eyebrow mb-10">{t("bookingEyebrow")}</div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div>
               <h2 className="text-h1">
-                Parlons de votre <span className="accent-serif">projet</span> en 15 minutes.
+                {t("bookingHeadingStart")} <span className="accent-serif">{t("bookingHeadingItalic")}</span> {t("bookingHeadingEnd")}
               </h2>
               <p className="mt-6 text-[var(--text-dim)] text-[1.0625rem] leading-relaxed max-w-[44ch]">
-                Réservez un créneau directement sur notre agenda · gratuit, sans engagement. Nous discutons ensemble de vos besoins et de la solution la mieux adaptée.
+                {t("bookingDescription")}
               </p>
               <ul className="mt-8 space-y-3 text-[0.9375rem] text-[var(--text-dim)]">
                 <li className="flex items-start gap-3">
                   <CheckIcon />
-                  <span>15 minutes par téléphone · ou visioconférence sur demande</span>
+                  <span>{t("bookingBenefit1")}</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckIcon />
-                  <span>Réponse claire sur la faisabilité et le délai</span>
+                  <span>{t("bookingBenefit2")}</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckIcon />
-                  <span>Devis sous 48 h après l'appel si vous souhaitez avancer</span>
+                  <span>{t("bookingBenefit3")}</span>
                 </li>
               </ul>
             </div>
@@ -102,23 +102,23 @@ export default async function HomePage({
                   <PhoneIcon size={22} />
                 </div>
                 <div>
-                  <div className="text-eyebrow">Appel découverte</div>
-                  <div className="text-[1.0625rem] font-medium text-[var(--text)] mt-1">15 minutes · gratuit</div>
+                  <div className="text-eyebrow">{t("discoveryCallLabel")}</div>
+                  <div className="text-[1.0625rem] font-medium text-[var(--text)] mt-1">{t("discoveryCallDuration")}</div>
                 </div>
               </div>
 
               <div className="border-t border-[var(--stroke)] pt-6 space-y-3">
                 <div className="flex items-center justify-between text-[0.875rem]">
-                  <span className="text-[var(--text-dim)]">Disponibilités</span>
-                  <span className="text-[var(--text)] font-mono">Lun · Ven 09h-18h</span>
+                  <span className="text-[var(--text-dim)]">{t("availabilityLabel")}</span>
+                  <span className="text-[var(--text)] font-mono">{t("availabilityValue")}</span>
                 </div>
                 <div className="flex items-center justify-between text-[0.875rem]">
-                  <span className="text-[var(--text-dim)]">Fuseau</span>
-                  <span className="text-[var(--text)] font-mono">Europe/Zurich</span>
+                  <span className="text-[var(--text-dim)]">{t("timezoneLabel")}</span>
+                  <span className="text-[var(--text)] font-mono">{t("timezoneValue")}</span>
                 </div>
                 <div className="flex items-center justify-between text-[0.875rem]">
-                  <span className="text-[var(--text-dim)]">Langues</span>
-                  <span className="text-[var(--text)] font-mono">FR · DE · IT · EN</span>
+                  <span className="text-[var(--text-dim)]">{t("languagesLabel")}</span>
+                  <span className="text-[var(--text)] font-mono">{t("languagesValue")}</span>
                 </div>
               </div>
 
@@ -129,11 +129,11 @@ export default async function HomePage({
                 className="mt-2 inline-flex items-center justify-center gap-3 px-7 py-4 rounded-full bg-[var(--accent)] text-[var(--accent-ink)] text-[0.9375rem] font-medium hover:bg-[var(--accent-hover)] transition-colors"
               >
                 <PhoneIcon size={14} />
-                Choisir un créneau
+                {t("bookSlotButton")}
                 <ArrowIcon />
               </a>
               <p className="text-[0.75rem] text-[var(--text-faint)] text-center">
-                Réservation instantanée · géré via Cal.com
+                {t("bookingNote")}
               </p>
             </div>
           </div>
@@ -147,7 +147,7 @@ export default async function HomePage({
         <FeaturedTopo fade />
         <div className="relative mx-auto max-w-[1400px] text-center">
           <h2 className="text-h1">
-            Discutons de votre <span className="accent-serif">projet</span>.
+            {t("ctaFinalHeadingStart")} <span className="accent-serif">{t("ctaFinalHeadingItalic")}</span>.
           </h2>
           <p className="mt-5 text-[var(--text-dim)] text-[1rem] max-w-lg mx-auto leading-relaxed">
             {t("ctaFinalBody")}
@@ -167,7 +167,7 @@ export default async function HomePage({
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full glass text-[var(--text)] hover:border-[var(--accent)] transition-colors text-[0.9375rem] font-medium"
             >
               <PhoneIcon />
-              Réserver un appel
+              {t("ctaFinalBookCall")}
             </a>
           </div>
         </div>
