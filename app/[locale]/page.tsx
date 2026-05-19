@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { getAllProjects } from "@/lib/projects";
 import QuizClient from "./start/QuizClient";
+import FeaturedTopo from "@/components/FeaturedTopo";
 
 export default async function HomePage({
   params,
@@ -15,7 +16,7 @@ export default async function HomePage({
   return (
     <>
       {/* ============================================
-          QUIZ — embedded as the hero
+          QUIZ · embedded as the hero
           ============================================ */}
       <section className="relative">
         <QuizClient locale={locale} mode="embed" />
@@ -70,7 +71,8 @@ export default async function HomePage({
 
             <Link href={`/work/${featured.slug}`} className="group block">
               <div
-                className={`relative aspect-[16/9] w-full overflow-hidden rounded-lg bg-gradient-to-br ${featured.cover}`}
+                className="relative aspect-[16/9] w-full overflow-hidden rounded-lg"
+                style={{ background: featured.cover }}
               >
                 <div className="absolute inset-0 flex items-end p-7 lg:p-10">
                   <div>
@@ -129,7 +131,7 @@ export default async function HomePage({
             <span className="accent-serif text-[var(--text)]">”</span>
           </blockquote>
           <div className="mt-8 text-center text-eyebrow">
-            — {t("testimonialAuthor")}
+            · {t("testimonialAuthor")}
           </div>
         </div>
       </section>
@@ -137,8 +139,9 @@ export default async function HomePage({
       {/* ============================================
           FINAL CTA
           ============================================ */}
-      <section className="px-6 lg:px-10 py-20 lg:py-28 border-t border-[var(--stroke)]">
-        <div className="mx-auto max-w-[1400px] text-center">
+      <section className="relative px-6 lg:px-10 py-20 lg:py-28 border-t border-[var(--stroke)] overflow-hidden">
+        <FeaturedTopo />
+        <div className="relative mx-auto max-w-[1400px] text-center">
           <h2 className="text-h1">
             Discutons de votre{" "}
             <span className="accent-serif">projet</span>.

@@ -48,7 +48,8 @@ export default async function ProjectPage({
           </div>
 
           <div
-            className={`relative aspect-[16/9] w-full overflow-hidden bg-gradient-to-br ${project.cover}`}
+            className="relative aspect-[16/9] w-full overflow-hidden rounded-lg"
+            style={{ background: project.cover }}
           >
             <div className="absolute inset-0 flex items-end p-8 lg:p-12">
               <h2 className="text-[clamp(2rem,5vw,4.5rem)] text-white font-medium tracking-tight">
@@ -67,7 +68,7 @@ export default async function ProjectPage({
             <ul className="space-y-1 text-[var(--text)] text-[1rem]">
               {project.services.map((s) => (
                 <li key={s} className="text-[1.125rem] font-medium">
-                  — {s}
+                  · {s}
                 </li>
               ))}
             </ul>

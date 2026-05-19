@@ -100,6 +100,8 @@
    BASE
    ============================================ */
 html {
+  /* Background lives on html so the topographic canvas (between html and body)
+     is visible. Body stays transparent. */
   background: var(--bg);
   color: var(--text);
   font-feature-settings: "cv11", "ss01";
@@ -125,14 +127,14 @@ html.lenis body {
 }
 
 body {
-  background: var(--bg);
+  background: transparent;
   color: var(--text);
   font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   font-size: var(--text-body);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background 0.4s ease, color 0.4s ease;
+  transition: color 0.4s ease;
 }
 
 /* ============================================
@@ -256,28 +258,10 @@ body {
   border: 1px solid var(--glass-border);
 }
 
-/* Glass with shine that follows cursor (set via JS) */
+/* Glass-shine kept as an alias to .glass — no hover lightening per design choice */
 .glass-shine {
   position: relative;
   overflow: hidden;
-}
-
-.glass-shine::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    600px circle at var(--shine-x, 50%) var(--shine-y, 50%),
-    var(--glass-highlight),
-    transparent 40%
-  );
-  opacity: 0;
-  transition: opacity 0.3s;
-  pointer-events: none;
-}
-
-.glass-shine:hover::before {
-  opacity: 1;
 }
 
 /* ============================================

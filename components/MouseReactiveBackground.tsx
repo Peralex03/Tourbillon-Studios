@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 /**
  * Animated SVG curves reacting to mouse position.
  * Inspired by landonorris.com background curves.
- * Desktop only — disabled below md breakpoint and for reduced-motion users.
+ * Desktop only · disabled below md breakpoint and for reduced-motion users.
  */
 export default function MouseReactiveBackground() {
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -65,7 +65,7 @@ export default function MouseReactiveBackground() {
         ["--my" as string]: "0px",
       }}
     >
-      {/* Layer 1 — soft accent glow following mouse */}
+      {/* Layer 1 · soft accent glow following mouse */}
       <div
         className="absolute top-1/2 left-1/2 w-[60vw] h-[60vw] rounded-full opacity-[0.18] blur-[120px]"
         style={{
@@ -76,7 +76,7 @@ export default function MouseReactiveBackground() {
         }}
       />
 
-      {/* Layer 2 — counter glow */}
+      {/* Layer 2 · counter glow */}
       <div
         className="absolute top-[20%] right-[15%] w-[35vw] h-[35vw] rounded-full opacity-[0.10] blur-[100px]"
         style={{
@@ -85,7 +85,7 @@ export default function MouseReactiveBackground() {
         }}
       />
 
-      {/* Layer 3 — flowing SVG curves */}
+      {/* Layer 3 · flowing SVG curves */}
       <svg
         className="absolute inset-0 w-full h-full"
         viewBox="0 0 1600 900"

@@ -24,11 +24,11 @@ export interface Choice {
 
 export interface Step {
   id: StepId;
-  /** Question shown to the user — big serif heading */
+  /** Question shown to the user · big serif heading */
   question: string;
   /** Optional small subtitle */
   subtitle?: string;
-  /** Mono eyebrow label e.g. "01 / 05" — filled by the runner automatically */
+  /** Mono eyebrow label e.g. "01 / 05" · filled by the runner automatically */
   eyebrow: string;
   choices: Choice[];
   /** Storage key for the answer */
@@ -165,9 +165,9 @@ export const LABELS: Record<string, string> = {
   month: "Dans le mois",
   quarter: "Dans le trimestre",
   flexible: "Flexible",
-  starter: "Starter — 290 CHF/mois",
-  pro: "Pro — 590 CHF/mois",
-  custom: "Custom — dès 1490 CHF/mois",
+  starter: "Starter · 290 CHF/mois",
+  pro: "Pro · 590 CHF/mois",
+  custom: "Custom · dès 1490 CHF/mois",
   explore: "À déterminer",
   solo: "Indépendant",
 };

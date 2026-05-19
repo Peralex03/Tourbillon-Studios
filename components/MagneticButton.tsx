@@ -13,7 +13,7 @@ interface Props {
 }
 
 /**
- * Magnetic hover effect — the element pulls toward the cursor with subtle damping.
+ * Magnetic hover effect · the element pulls toward the cursor with subtle damping.
  */
 export default function MagneticButton({
   children,

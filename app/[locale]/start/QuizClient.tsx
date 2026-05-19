@@ -121,7 +121,7 @@ export default function QuizClient({ locale, mode = "fullscreen" }: Props) {
     }
   }
 
-  // Keyboard nav — only when quiz is in focus (embed: only if user has interacted)
+  // Keyboard nav · only when quiz is in focus (embed: only if user has interacted)
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       // Don't hijack keys when user is typing in inputs
@@ -153,7 +153,7 @@ export default function QuizClient({ locale, mode = "fullscreen" }: Props) {
           : "min-h-[100svh]",
       ].join(" ")}
     >
-      {/* Top bar — progress + back/quit */}
+      {/* Top bar · progress + back/quit */}
       <div className="px-6 lg:px-10 py-4 lg:py-5 flex items-center gap-6">
         {/* Back */}
         <button
@@ -184,7 +184,7 @@ export default function QuizClient({ locale, mode = "fullscreen" }: Props) {
             ))}
         </div>
 
-        {/* Quit — only in fullscreen mode */}
+        {/* Quit · only in fullscreen mode */}
         {!isEmbed ? (
           <Link
             href="/"
@@ -251,7 +251,7 @@ export default function QuizClient({ locale, mode = "fullscreen" }: Props) {
       {/* Bottom hint */}
       {currentStep.id !== "summary" && currentStep.id !== "contact" && (
         <div className="px-6 lg:px-10 pb-6 text-center font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-faint)]">
-          Astuce — utilisez les touches 1, 2, 3 ou 4 du clavier
+          Astuce · utilisez les touches 1, 2, 3 ou 4 du clavier
         </div>
       )}
     </div>
@@ -259,7 +259,7 @@ export default function QuizClient({ locale, mode = "fullscreen" }: Props) {
 }
 
 /* ============================================
-   CHOICE STEP — glass cards with shine
+   CHOICE STEP · glass cards with shine
    ============================================ */
 function ChoiceStep({
   step,
@@ -274,10 +274,10 @@ function ChoiceStep({
 }) {
   return (
     <div className="grid grid-cols-12 gap-6 lg:gap-10 items-start">
-      {/* Eyebrow + Question — left column */}
+      {/* Eyebrow + Question · left column */}
       <div className="col-span-12 lg:col-span-5">
         <div className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-[var(--accent)] mb-4">
-          {String(visibleIndex + 1).padStart(2, "0")} / {String(total).padStart(2, "0")} — {step.eyebrow}
+          {String(visibleIndex + 1).padStart(2, "0")} / {String(total).padStart(2, "0")} · {step.eyebrow}
         </div>
         <h2 className="text-display text-[var(--text)]">
           {step.question}
@@ -289,7 +289,7 @@ function ChoiceStep({
         )}
       </div>
 
-      {/* Choices grid — right column, glass cards */}
+      {/* Choices grid · right column, glass cards */}
       <div className="col-span-12 lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3">
         {step.choices.map((choice, i) => (
           <GlassChoice
@@ -407,7 +407,7 @@ function ContactStep({
     <div className="grid grid-cols-12 gap-6 lg:gap-10 items-start">
       <div className="col-span-12 lg:col-span-5">
         <div className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-[var(--accent)] mb-4">
-          {String(visibleIndex + 1).padStart(2, "0")} / {String(total).padStart(2, "0")} — Coordonnées
+          {String(visibleIndex + 1).padStart(2, "0")} / {String(total).padStart(2, "0")} · Coordonnées
         </div>
         <h2 className="text-display text-[var(--text)]">
           Comment pouvons-nous{" "}
@@ -501,7 +501,7 @@ function ContactStep({
               {errorMsg === "invalid_name" && "Nom invalide"}
               {errorMsg === "server_misconfigured" && "Erreur serveur"}
               {errorMsg === "telegram_failed" && "Erreur de transmission"}
-              {!["invalid_email", "invalid_name", "server_misconfigured", "telegram_failed"].includes(errorMsg) && "Erreur — réessayez"}
+              {!["invalid_email", "invalid_name", "server_misconfigured", "telegram_failed"].includes(errorMsg) && "Erreur · réessayez"}
             </span>
           )}
         </div>
@@ -619,5 +619,5 @@ function SummaryStep({ answers }: { answers: QuizAnswers }) {
   );
 }
 
-// Silence unused import warning — LABELS is exported for external use
+// Silence unused import warning · LABELS is exported for external use
 void LABELS;

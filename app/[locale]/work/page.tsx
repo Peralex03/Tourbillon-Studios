@@ -57,7 +57,8 @@ export default async function WorkPage() {
                   className={`group block ${layout}`}
                 >
                   <div
-                    className={`relative w-full ${ratio} overflow-hidden bg-gradient-to-br ${project.cover}`}
+                    className={`relative w-full ${ratio} overflow-hidden rounded-lg`}
+                    style={{ background: project.cover }}
                   >
                     <div className="absolute inset-0 p-6 lg:p-8 flex flex-col justify-between">
                       <div className="font-mono text-[0.6875rem] uppercase tracking-wider text-white/70">

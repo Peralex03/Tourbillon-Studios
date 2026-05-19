@@ -2,12 +2,14 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { PRICING_PLANS, PRICING_FAQ } from "@/lib/pricing";
 import RoiCalculator from "./RoiCalculator";
+import Accordion from "@/components/Accordion";
+import FeaturedTopo from "@/components/FeaturedTopo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "pricing" });
   return {
-    title: `Tarifs — Tourbillon Studios`,
+    title: `Tarifs · Tourbillon Studios`,
     description: t("heroSubtitle"),
   };
 }
@@ -162,35 +164,16 @@ export default async function PricingPage() {
             {t("faqTitle")}
           </h2>
 
-          <div className="divide-y divide-[var(--stroke)] border-y border-[var(--stroke)]">
-            {PRICING_FAQ.map((item, i) => (
-              <details
-                key={i}
-                className="group py-5 cursor-pointer"
-                {...(i === 0 ? { open: true } : {})}
-              >
-                <summary className="flex items-start justify-between gap-6 list-none">
-                  <span className="text-[1rem] lg:text-[1.0625rem] text-[var(--text)] font-medium tracking-tight">
-                    {item.q}
-                  </span>
-                  <span className="shrink-0 mt-1 w-7 h-7 flex items-center justify-center rounded-full glass-subtle text-[var(--text-dim)] group-open:bg-[var(--accent)] group-open:text-[var(--accent-ink)] group-open:border-[var(--accent)] transition-colors">
-                    <PlusIcon />
-                  </span>
-                </summary>
-                <p className="mt-3 text-[var(--text-dim)] text-[0.9375rem] leading-relaxed max-w-3xl">
-                  {item.a}
-                </p>
-              </details>
-            ))}
-          </div>
+          <Accordion items={PRICING_FAQ} initialOpen={0} />
         </div>
       </section>
 
       {/* ============================================
           CTA
           ============================================ */}
-      <section className="px-6 lg:px-10 py-20 lg:py-28">
-        <div className="mx-auto max-w-[1400px] text-center">
+      <section className="relative px-6 lg:px-10 py-20 lg:py-28 overflow-hidden">
+        <FeaturedTopo />
+        <div className="relative mx-auto max-w-[1400px] text-center">
           <h2 className="text-h1">
             Lancer un projet dans les{" "}
             <span className="accent-serif">48 heures</span>.

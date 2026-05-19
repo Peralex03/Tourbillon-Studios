@@ -47,7 +47,7 @@ export default function ContactForm({ labels }: { labels: Labels }) {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSending(true);
-    // Placeholder — replace with API call when backend exists
+    // Placeholder · replace with API call when backend exists
     await new Promise((r) => setTimeout(r, 800));
     setSubmitted(true);
     setSending(false);

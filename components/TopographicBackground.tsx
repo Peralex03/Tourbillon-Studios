@@ -7,7 +7,7 @@ import { useEffect, useRef } from "react";
  *
  * Renders flowing contour lines (like a topo map) on an HTML canvas.
  * Lines have an organic baseline motion (slow sine waves) and react fluidly
- * to mouse position — pulled towards the cursor like a magnetic field.
+ * to mouse position · pulled towards the cursor like a magnetic field.
  *
  * Performance:
  *  - DPR-aware canvas, fixed line count
@@ -103,7 +103,7 @@ export default function TopographicBackground({
       ctx.lineWidth = 1;
       ctx.strokeStyle = getStrokeColor();
 
-      // Resolution along x — finer => smoother curves but more cost
+      // Resolution along x · finer => smoother curves but more cost
       const segments = 64;
       const stepX = width / segments;
 
@@ -125,12 +125,12 @@ export default function TopographicBackground({
         for (let i = 0; i <= segments; i++) {
           const x = i * stepX;
 
-          // Organic base motion — layered sines
+          // Organic base motion · layered sines
           const wave =
             Math.sin(x * 0.0035 + time * 0.18 + phase) * ampBase +
             Math.sin(x * 0.011 + time * 0.32 + phase * 1.6) * (ampBase * 0.4);
 
-          // Mouse warp — pull lines towards/away from cursor
+          // Mouse warp · pull lines towards/away from cursor
           const mx = ms.x * width;
           const my = ms.y * height;
           const dx = x - mx;

@@ -16,7 +16,7 @@ interface Props {
 }
 
 /**
- * Mask reveal animation — words/chars slide up from below a clipping mask.
+ * Mask reveal animation · words/chars slide up from below a clipping mask.
  * Mimics the akis.studio hero reveal feel.
  */
 export default function RevealText({

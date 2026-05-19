@@ -51,7 +51,7 @@ export const PRICING_PLANS: PricingPlan[] = [
       "Journal éditorial automatisé (SEO + GEO)",
       "Multilingue FR/DE/IT/EN",
       "Référencement local Suisse + Google Business",
-      "Optimisation GEO — citations IA (ChatGPT, Perplexity)",
+      "Optimisation GEO · citations IA (ChatGPT, Perplexity)",
       "Tableau de bord analytique + rapport mensuel",
       "Retouches illimitées",
       "Support prioritaire sous 4 heures ouvrées",
@@ -70,7 +70,7 @@ export const PRICING_PLANS: PricingPlan[] = [
       "Pour les projets qui sortent du cadre standard : applications web, plateformes e-commerce avancées, intégrations sur mesure.",
     features: [
       "Application web sur mesure (authentification, tableaux de bord)",
-      "E-commerce Stripe — solutions de paiement suisses",
+      "E-commerce Stripe · solutions de paiement suisses",
       "Intégrations API sur mesure",
       "Base de données managée",
       "Architecture évolutive",

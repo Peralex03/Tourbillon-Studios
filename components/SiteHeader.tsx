@@ -41,10 +41,10 @@ export default function SiteHeader() {
   return (
     <header
       className={[
-        "fixed top-0 inset-x-0 z-50 transition-all duration-300",
+        "fixed top-0 inset-x-0 z-50 transition-[backdrop-filter,background,border-color] duration-300",
         scrolled
           ? "glass-strong border-b border-[var(--stroke)]"
-          : "bg-transparent border-b border-transparent",
+          : "glass-subtle border-b border-transparent",
       ].join(" ")}
     >
       <nav className="mx-auto max-w-[1400px] px-6 lg:px-10 h-16 lg:h-20 flex items-center gap-4">
@@ -57,7 +57,7 @@ export default function SiteHeader() {
           Tourbillon<span className="text-[var(--accent)]">.</span>
         </Link>
 
-        {/* Desktop nav — center */}
+        {/* Desktop nav · center */}
         <div className="hidden md:flex items-center gap-8 mx-auto text-[0.875rem]">
           {NAV_ITEMS.map((item) => {
             const isActive = pathname === item.href || pathname.startsWith(item.href + "/");
@@ -104,7 +104,7 @@ export default function SiteHeader() {
 
           <ThemeToggle />
 
-          {/* Start CTA — goes to interactive quiz */}
+          {/* Start CTA · goes to interactive quiz */}
           <Link
             href="/start"
             className="hidden sm:inline-flex items-center gap-2 ml-1 px-4 py-2 rounded-full bg-[var(--accent)] text-[var(--accent-ink)] text-[0.875rem] font-medium hover:bg-[var(--accent-hover)] transition-colors"

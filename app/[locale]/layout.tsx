@@ -32,7 +32,7 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Tourbillon Studios — Sites livrés en 48 heures, en abonnement",
+  title: "Tourbillon Studios · Sites livrés en 48 heures, en abonnement",
   description:
     "Studio digital suisse. Conception et développement de sites web livrés en 48 heures, en abonnement mensuel, sans frais d'installation. Genève · Lausanne · Zürich.",
   metadataBase: new URL("https://tourbillonstudios.ch"),

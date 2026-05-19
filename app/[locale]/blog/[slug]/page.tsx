@@ -16,7 +16,7 @@ export async function generateMetadata({
   const post = getPostBySlug(slug);
   if (!post) return {};
   return {
-    title: `${post.title} — Tourbillon Studios`,
+    title: `${post.title} · Tourbillon Studios`,
     description: post.excerpt,
     openGraph: {
       title: post.title,
@@ -129,7 +129,7 @@ export default async function ArticlePage({
 
           <hr className="border-[var(--stroke)] mt-16 mb-12" />
 
-          {/* CTA — connects to interactive quiz */}
+          {/* CTA · connects to interactive quiz */}
           <div className="bg-[var(--surface-1)] border border-[var(--stroke)] rounded-sm p-10 text-center">
             <h3 className="text-[1.75rem] lg:text-[2rem] font-medium tracking-tight text-[var(--text)] mb-3">
               Un projet digital à lancer ?

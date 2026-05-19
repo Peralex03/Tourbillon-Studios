@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import FeaturedTopo from "./FeaturedTopo";
 
 export default async function SiteFooter() {
   const t = await getTranslations("footer");
@@ -7,9 +8,10 @@ export default async function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-[var(--stroke)] bg-[var(--bg)] mt-32">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10 py-16 lg:py-24">
-        {/* Top — giant wordmark */}
+    <footer className="relative border-t border-[var(--stroke)] mt-24 overflow-hidden">
+      <FeaturedTopo opacity={0.22} lineCount={8} />
+      <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10 py-16 lg:py-20">
+        {/* Top · giant wordmark */}
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 mb-12 lg:mb-16">
           <div className="flex-1">
             <Link
@@ -55,7 +57,7 @@ export default async function SiteFooter() {
         {/* Bottom row */}
         <div className="pt-8 border-t border-[var(--stroke)] flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
           <p className="font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-faint)]">
-            © {year} Tourbillon Studios — {t("rights")}
+            © {year} Tourbillon Studios · {t("rights")}
           </p>
           <div className="flex items-center gap-2 text-[0.6875rem] font-mono uppercase tracking-wider text-[var(--text-faint)]">
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-[var(--accent)] animate-pulse" />
