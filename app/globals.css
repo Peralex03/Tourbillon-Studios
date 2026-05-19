@@ -259,30 +259,26 @@ body {
 }
 
 /* Header-specific glass.
-   Forces a dedicated GPU compositing layer via translateZ(0) + isolation.
-   This works around desktop Chromium quirks where backdrop-filter on a fixed
-   element can be silently no-op'd if any other compositing decision flattens
-   the layer tree. */
+   IMPORTANT - ne JAMAIS rajouter ici transform: translateZ(0),
+   -webkit-transform: translateZ(0), will-change: backdrop-filter,
+   ni isolation: isolate. Ces propriétés forcent le header sur sa propre
+   compositing layer et empêchent desktop Chromium d'échantillonner ce qui
+   est derrière, ce qui rend le blur invisible (le filtre s'exécute sur du
+   vide). Le pattern simple ci-dessous - identique à .glass - fonctionne sur
+   mobile et desktop. Valeurs volontairement unifiées (pas de media query)
+   pour garantir un rendu cohérent à toutes les tailles d'écran. */
 .header-glass-top {
   background: color-mix(in srgb, var(--surface-1) 45%, transparent);
-  backdrop-filter: blur(16px) saturate(140%);
-  -webkit-backdrop-filter: blur(16px) saturate(140%);
-  isolation: isolate;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  will-change: backdrop-filter;
+  backdrop-filter: blur(10px) saturate(120%);
+  -webkit-backdrop-filter: blur(10px) saturate(120%);
 }
 
 .header-glass-scrolled {
   background: color-mix(in srgb, var(--surface-2) 70%, transparent);
-  backdrop-filter: blur(22px) saturate(160%);
-  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
   border-bottom: 1px solid var(--stroke);
   box-shadow: 0 4px 24px var(--glass-shadow);
-  isolation: isolate;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  will-change: backdrop-filter;
 }
 
 /* Mobile · much gentler blur (avoid the "too strong" effect) */
@@ -298,14 +294,6 @@ body {
   .glass-subtle {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-  }
-  .header-glass-top {
-    backdrop-filter: blur(10px) saturate(120%);
-    -webkit-backdrop-filter: blur(10px) saturate(120%);
-  }
-  .header-glass-scrolled {
-    backdrop-filter: blur(14px) saturate(140%);
-    -webkit-backdrop-filter: blur(14px) saturate(140%);
   }
 }
 
