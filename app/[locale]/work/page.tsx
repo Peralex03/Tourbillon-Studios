@@ -1,6 +1,5 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import RevealText from "@/components/RevealText";
 import { getAllProjects } from "@/lib/projects";
 
 export const metadata = {
@@ -18,7 +17,7 @@ export default async function WorkPage() {
         <div className="mx-auto max-w-[1400px]">
           <div className="text-eyebrow mb-8">{t("eyebrow")}</div>
           <h1 className="text-h1 tracking-tight max-w-5xl">
-            <RevealText as="span" splitBy="word">{t("heroLine")}</RevealText>
+            <span>{t("heroLine")}</span>
           </h1>
           <p className="mt-10 text-[1.0625rem] lg:text-[1.125rem] text-[var(--text-dim)] max-w-2xl">
             {t("heroSubtitle")}

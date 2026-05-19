@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import RevealText from "@/components/RevealText";
 import { getAllProjects, getProjectBySlug } from "@/lib/projects";
 
 export const metadata = {
@@ -40,7 +39,7 @@ export default async function ProjectPage({
               {project.year} · {project.category}
             </div>
             <h1 className="text-h1 tracking-tight max-w-5xl">
-              <RevealText as="span" splitBy="word">{project.client}</RevealText>
+              <span>{project.client}</span>
             </h1>
             <p className="text-[1.0625rem] lg:text-[1.25rem] text-[var(--text-dim)] max-w-2xl leading-relaxed">
               {project.excerpt}

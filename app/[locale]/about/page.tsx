@@ -55,7 +55,7 @@ export default async function AboutPage() {
           <div className="mb-16 lg:mb-20 max-w-3xl">
             <div className="text-eyebrow mb-6">{t("valuesEyebrow")}</div>
             <h2 className="text-h2 tracking-tight">
-              <RevealText as="span" splitBy="word">{t("valuesTitle")}</RevealText>
+              <span>{t("valuesTitle")}</span>
             </h2>
           </div>
 
@@ -86,7 +86,7 @@ export default async function AboutPage() {
           <div className="mb-16 max-w-3xl">
             <div className="text-eyebrow mb-6">{t("teamEyebrow")}</div>
             <h2 className="text-h2 tracking-tight">
-              <RevealText as="span" splitBy="word">{t("teamTitle")}</RevealText>
+              <span>{t("teamTitle")}</span>
             </h2>
           </div>
 
@@ -115,7 +115,7 @@ export default async function AboutPage() {
           <div className="mb-16 max-w-3xl">
             <div className="text-eyebrow mb-6">{t("citiesEyebrow")}</div>
             <h2 className="text-h2 tracking-tight">
-              <RevealText as="span" splitBy="word">{t("citiesTitle")}</RevealText>
+              <span>{t("citiesTitle")}</span>
             </h2>
           </div>
 
