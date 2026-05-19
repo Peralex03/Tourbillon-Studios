@@ -3,26 +3,21 @@
 import { useEffect, useRef } from "react";
 
 /**
- * Section-scoped topographic accent layer.
- * Absolutely positioned inside its parent (parent must be position: relative).
- * Stronger than the global background · used on header bandeau, footer, CTA sections.
- *
- * Performance:
- *  - Only paints when section is intersecting the viewport
- *  - Auto-disabled on mobile + prefers-reduced-motion
+ * Section-scoped altitude-contour topo accent.
+ * Stronger and tighter than the global background.
+ * Parent must have position: relative.
  */
 export default function FeaturedTopo({
-  lineCount = 10,
-  opacity = 0.32,
+  contourCount = 11,
+  opacity = 0.3,
 }: {
-  lineCount?: number;
+  contourCount?: number;
   opacity?: number;
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rafRef = useRef<number | null>(null);
   const isVisible = useRef(true);
 
-  // Section-local mouse position (0..1 relative to canvas bounds)
   const mouse = useRef({ x: 0.5, y: 0.5 });
   const mouseSmoothed = useRef({ x: 0.5, y: 0.5 });
 
@@ -34,10 +29,8 @@ export default function FeaturedTopo({
 
     const canvas = canvasRef.current;
     if (!canvas) return;
-
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
-
     const parent = canvas.parentElement;
     if (!parent) return;
 
@@ -86,7 +79,17 @@ export default function FeaturedTopo({
     ro.observe(parent);
     window.addEventListener("mousemove", onMove, { passive: true });
 
-    let t0 = performance.now();
+    const t0 = performance.now();
+    const SEGMENTS = 96;
+
+    function ringNoise(theta: number, t: number, seed: number): number {
+      return (
+        Math.sin(theta * 2 + t * 0.22 + seed) * 14 +
+        Math.sin(theta * 3.5 + t * 0.16 + seed * 1.7) * 9 +
+        Math.sin(theta * 5.7 + t * 0.27 + seed * 2.4) * 5 +
+        Math.sin(theta * 8.5 + t * 0.36 + seed * 3.1) * 2.5
+      );
+    }
 
     function tick(now: number) {
       if (!ctx) return;
@@ -104,48 +107,52 @@ export default function FeaturedTopo({
       ctx.clearRect(0, 0, width, height);
       ctx.lineWidth = 1;
       ctx.strokeStyle = getStrokeColor();
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
 
-      const segments = 56;
-      const stepX = width / segments;
-      const mouseAffectRadius = Math.min(width, height) * 0.5;
-      const mouseStrength = 50;
+      const driftX = Math.sin(time * 0.08) * width * 0.06;
+      const driftY = Math.cos(time * 0.09) * height * 0.06;
+      const mouseShiftX = (ms.x - 0.5) * width * 0.22;
+      const mouseShiftY = (ms.y - 0.5) * height * 0.22;
+      const cx = width * 0.5 + driftX + mouseShiftX;
+      const cy = height * 0.5 + driftY + mouseShiftY;
 
-      for (let line = 0; line < lineCount; line++) {
-        const linePos = (line + 0.5) / lineCount;
-        const baseY = linePos * height * 1.15 - height * 0.075;
+      const diag = Math.sqrt(width * width + height * height);
+      const maxR = diag * 0.75;
+      const warpRadius = Math.min(width, height) * 0.65;
 
-        const phase = line * 0.55;
-        const ampBase = 10 + (line % 3) * 5;
+      for (let r = 0; r < contourCount; r++) {
+        const baseR = ((r + 0.5) / contourCount) * maxR;
+        const seed = r * 1.41;
+        const ringCx = cx + Math.sin(seed + time * 0.05) * 10;
+        const ringCy = cy + Math.cos(seed * 1.3 + time * 0.06) * 10;
 
         ctx.beginPath();
 
-        for (let i = 0; i <= segments; i++) {
-          const x = i * stepX;
+        for (let i = 0; i <= SEGMENTS; i++) {
+          const theta = (i / SEGMENTS) * Math.PI * 2;
+          const noise = ringNoise(theta, time, seed);
 
-          const wave =
-            Math.sin(x * 0.004 + time * 0.22 + phase) * ampBase +
-            Math.sin(x * 0.013 + time * 0.38 + phase * 1.7) * (ampBase * 0.45);
-
-          const mx = ms.x * width;
-          const my = ms.y * height;
-          const dx = x - mx;
-          const dy = baseY - my;
+          const px = ringCx + Math.cos(theta) * (baseR + noise);
+          const py = ringCy + Math.sin(theta) * (baseR + noise);
+          const dx = px - ms.x * width;
+          const dy = py - ms.y * height;
           const dist = Math.sqrt(dx * dx + dy * dy);
           let warp = 0;
-          if (dist < mouseAffectRadius) {
-            const k = 1 - dist / mouseAffectRadius;
-            const ke = k * k * k;
-            warp = -dy * ke * 0.5;
-            warp *= 0.6 + 0.4 * Math.cos(dx * 0.004);
-            warp = Math.max(-mouseStrength, Math.min(mouseStrength, warp));
+          if (dist < warpRadius) {
+            const k = 1 - dist / warpRadius;
+            warp = k * k * 24;
           }
 
-          const y = baseY + wave + warp;
+          const radius = baseR + noise + warp;
+          const x = ringCx + Math.cos(theta) * radius;
+          const y = ringCy + Math.sin(theta) * radius;
 
           if (i === 0) ctx.moveTo(x, y);
           else ctx.lineTo(x, y);
         }
 
+        ctx.closePath();
         ctx.stroke();
       }
 
@@ -160,7 +167,7 @@ export default function FeaturedTopo({
       io.disconnect();
       ro.disconnect();
     };
-  }, [lineCount, opacity]);
+  }, [contourCount, opacity]);
 
   return (
     <canvas

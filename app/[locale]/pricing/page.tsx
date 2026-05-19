@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { PRICING_PLANS, PRICING_FAQ } from "@/lib/pricing";
+import { PRICING_PLANS, PRICING_FAQ, PRICING_COMPARISON } from "@/lib/pricing";
 import RoiCalculator from "./RoiCalculator";
 import Accordion from "@/components/Accordion";
 import FeaturedTopo from "@/components/FeaturedTopo";
@@ -130,6 +130,56 @@ export default async function PricingPage() {
       </section>
 
       {/* ============================================
+          COMPARISON TABLE
+          ============================================ */}
+      <section className="px-6 lg:px-10 py-20 lg:py-28 border-b border-[var(--stroke)]">
+        <div className="mx-auto max-w-[1400px]">
+          <div className="text-eyebrow mb-5">Comparatif</div>
+          <h2 className="text-h2 text-[var(--text)] mb-10">
+            Tout ce qui est inclus, formule par formule.
+          </h2>
+
+          <div className="glass rounded-lg overflow-hidden">
+            <div className="overflow-x-auto no-scrollbar">
+              <table className="w-full text-left min-w-[640px]">
+                <thead>
+                  <tr className="border-b border-[var(--stroke)]">
+                    <th className="py-4 px-5 lg:px-6 text-[0.75rem] font-mono uppercase tracking-wider text-[var(--text-dim)] font-medium">
+                      Fonctionnalité
+                    </th>
+                    <th className="py-4 px-5 lg:px-6 text-[0.875rem] text-[var(--text)] font-medium">
+                      Starter
+                    </th>
+                    <th className="py-4 px-5 lg:px-6 text-[0.875rem] text-[var(--accent)] font-medium">
+                      Pro
+                    </th>
+                    <th className="py-4 px-5 lg:px-6 text-[0.875rem] text-[var(--text)] font-medium">
+                      Custom
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {PRICING_COMPARISON.map((row, i) => (
+                    <tr
+                      key={i}
+                      className="border-b border-[var(--stroke)] last:border-b-0 hover:bg-[var(--surface-2)]/30 transition-colors"
+                    >
+                      <td className="py-3.5 px-5 lg:px-6 text-[0.9375rem] text-[var(--text)]">
+                        {row.label}
+                      </td>
+                      <FeatureCell value={row.starter} />
+                      <FeatureCell value={row.pro} featured />
+                      <FeatureCell value={row.custom} />
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================
           ROI CALCULATOR
           ============================================ */}
       <section className="px-6 lg:px-10 py-20 lg:py-28 border-b border-[var(--stroke)]">
@@ -209,11 +259,31 @@ function DashIcon() {
   );
 }
 
-function PlusIcon() {
+function FeatureCell({ value, featured = false }: { value: boolean | string; featured?: boolean }) {
+  const cellClass = [
+    "py-3.5 px-5 lg:px-6 text-[0.9375rem]",
+    featured ? "bg-[var(--accent-soft)]" : "",
+  ].join(" ");
+
+  if (typeof value === "boolean") {
+    return (
+      <td className={cellClass}>
+        {value ? (
+          <svg className="text-[var(--accent)]" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M20 6L9 17l-5-5" />
+          </svg>
+        ) : (
+          <svg className="text-[var(--text-faint)]" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            <path d="M5 12h14" />
+          </svg>
+        )}
+      </td>
+    );
+  }
   return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="transition-transform group-open:rotate-45">
-      <path d="M12 5v14M5 12h14" />
-    </svg>
+    <td className={`${cellClass} text-[var(--text)]`}>
+      {value}
+    </td>
   );
 }
 

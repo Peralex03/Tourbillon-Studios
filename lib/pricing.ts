@@ -84,6 +84,36 @@ export const PRICING_PLANS: PricingPlan[] = [
   },
 ];
 
+export interface FeatureRow {
+  label: string;
+  starter: boolean | string;
+  pro: boolean | string;
+  custom: boolean | string;
+}
+
+export const PRICING_COMPARISON: FeatureRow[] = [
+  { label: "Pages incluses", starter: "5", pro: "15", custom: "Illimité" },
+  { label: "Livraison en 48 heures", starter: true, pro: true, custom: "Sur devis" },
+  { label: "Hébergement Vercel inclus", starter: true, pro: true, custom: true },
+  { label: "Domaine .ch inclus", starter: true, pro: true, custom: true },
+  { label: "Certificat SSL", starter: true, pro: true, custom: true },
+  { label: "Optimisation mobile native", starter: true, pro: true, custom: true },
+  { label: "Référencement SEO de base", starter: true, pro: true, custom: true },
+  { label: "Journal éditorial automatisé", starter: false, pro: true, custom: true },
+  { label: "Multilingue FR/DE/IT/EN", starter: false, pro: true, custom: true },
+  { label: "Référencement local Suisse + Google Business", starter: false, pro: true, custom: true },
+  { label: "Optimisation GEO (ChatGPT, Perplexity)", starter: false, pro: true, custom: true },
+  { label: "Tableau de bord analytique", starter: false, pro: true, custom: true },
+  { label: "Application web sur mesure", starter: false, pro: false, custom: true },
+  { label: "E-commerce avec Stripe", starter: false, pro: false, custom: true },
+  { label: "Intégrations API personnalisées", starter: false, pro: false, custom: true },
+  { label: "Base de données managée", starter: false, pro: false, custom: true },
+  { label: "Retouches", starter: "2 / mois", pro: "Illimitées", custom: "Illimitées" },
+  { label: "Délai de support", starter: "24 h", pro: "4 h", custom: "1 h" },
+  { label: "Garantie de disponibilité", starter: "99 %", pro: "99,5 %", custom: "99,9 %" },
+  { label: "Développeur dédié assigné", starter: false, pro: false, custom: true },
+];
+
 export const PRICING_FAQ = [
   {
     q: "Puis-je résilier à tout moment ?",
