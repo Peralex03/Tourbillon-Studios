@@ -81,9 +81,8 @@ export default async function ProcessPage() {
       </section>
 
       {/* GUARANTEE */}
-      <section className="relative px-6 lg:px-10 py-20 lg:py-28 border-b border-[var(--stroke)] overflow-hidden">
-        <FeaturedTopo />
-        <div className="relative mx-auto max-w-[1100px] text-center">
+      <section className="px-6 lg:px-10 py-20 lg:py-28 border-b border-[var(--stroke)]">
+        <div className="mx-auto max-w-[1100px] text-center">
           <div className="text-eyebrow mb-6">Garantie</div>
           <h2 className="text-h1 tracking-tight">
             {t("guaranteeTitle")}

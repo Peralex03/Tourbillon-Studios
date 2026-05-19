@@ -7,60 +7,60 @@
 
 :root,
 [data-theme="dark"] {
-  /* Surfaces — warm charcoal */
-  --bg: #1A1614;
-  --surface-1: #221E1A;
-  --surface-2: #2B2622;
-  --stroke: #3A332E;
-  --stroke-strong: #4D453E;
+  /* Surfaces · warm brown (saturated enough to read as brown, not grey) */
+  --bg: #2B201A;
+  --surface-1: #3A2D24;
+  --surface-2: #463629;
+  --stroke: #5A4435;
+  --stroke-strong: #735844;
 
-  /* Text — cream warm */
-  --text: #F2EDE4;
-  --text-dim: #A89E91;
-  --text-faint: #6B635A;
+  /* Text · warm cream */
+  --text: #F5EAD8;
+  --text-dim: #B8A892;
+  --text-faint: #837461;
 
-  /* Accent — terracotta */
-  --accent: #D4654A;
-  --accent-hover: #C25A40;
-  --accent-soft: rgba(212, 101, 74, 0.10);
+  /* Accent · terracotta */
+  --accent: #E07856;
+  --accent-hover: #D26A4A;
+  --accent-soft: rgba(224, 120, 86, 0.12);
   --accent-ink: #FFFFFF;
 
-  /* Glass tokens */
-  --glass-bg: rgba(242, 237, 228, 0.04);
-  --glass-border: rgba(242, 237, 228, 0.08);
-  --glass-highlight: rgba(242, 237, 228, 0.06);
-  --glass-shadow: rgba(0, 0, 0, 0.35);
+  /* Glass tokens · semi-opaque so blur reads even on a flat warm surface */
+  --glass-bg: rgba(58, 45, 36, 0.55);
+  --glass-border: rgba(245, 234, 216, 0.10);
+  --glass-highlight: rgba(245, 234, 216, 0.04);
+  --glass-shadow: rgba(0, 0, 0, 0.30);
 
   /* Semantic */
-  --success: #6BBF87;
+  --success: #7AC994;
   --error: #E07856;
-  --noise: 0.018;
+  --noise: 0.014;
 }
 
 [data-theme="light"] {
-  --bg: #F5F0E8;
+  --bg: #EFE4D0;
   --surface-1: #FFFFFF;
-  --surface-2: #EDE6DB;
-  --stroke: #D9D0C2;
-  --stroke-strong: #B8AC9A;
+  --surface-2: #E5D7BD;
+  --stroke: #C9B89C;
+  --stroke-strong: #A89272;
 
-  --text: #1A1614;
-  --text-dim: #5C5147;
-  --text-faint: #8F857A;
+  --text: #2B201A;
+  --text-dim: #6B5743;
+  --text-faint: #9A8870;
 
-  --accent: #C25A40;
-  --accent-hover: #B04E36;
-  --accent-soft: rgba(194, 90, 64, 0.08);
+  --accent: #B85138;
+  --accent-hover: #A6442D;
+  --accent-soft: rgba(184, 81, 56, 0.10);
   --accent-ink: #FFFFFF;
 
-  --glass-bg: rgba(255, 255, 255, 0.55);
-  --glass-border: rgba(26, 22, 20, 0.06);
+  --glass-bg: rgba(255, 252, 245, 0.65);
+  --glass-border: rgba(43, 32, 26, 0.08);
   --glass-highlight: rgba(255, 255, 255, 0.85);
-  --glass-shadow: rgba(26, 22, 20, 0.06);
+  --glass-shadow: rgba(43, 32, 26, 0.06);
 
   --success: #2E8B57;
-  --error: #B04E36;
-  --noise: 0.025;
+  --error: #A6442D;
+  --noise: 0.018;
 }
 
 /* ============================================

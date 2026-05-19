@@ -1,6 +1,5 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import FeaturedTopo from "./FeaturedTopo";
 
 export default async function SiteFooter() {
   const t = await getTranslations("footer");
@@ -8,8 +7,7 @@ export default async function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative border-t border-[var(--stroke)] mt-24 overflow-hidden">
-      <FeaturedTopo opacity={0.22} lineCount={8} />
+    <footer className="relative border-t border-[var(--stroke)] mt-24">
       <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10 py-16 lg:py-20">
         {/* Top · giant wordmark */}
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 mb-12 lg:mb-16">
