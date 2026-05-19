@@ -144,7 +144,7 @@ export default async function HomePage({
           FINAL CTA · with featured topo + dual action
           ============================================ */}
       <section className="relative px-6 lg:px-10 py-20 lg:py-28 border-t border-[var(--stroke)] overflow-hidden">
-        <FeaturedTopo />
+        <FeaturedTopo fade />
         <div className="relative mx-auto max-w-[1400px] text-center">
           <h2 className="text-h1">
             Discutons de votre <span className="accent-serif">projet</span>.

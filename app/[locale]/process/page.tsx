@@ -82,7 +82,7 @@ export default async function ProcessPage() {
 
       {/* CTA */}
       <section className="relative px-6 lg:px-10 py-20 lg:py-28 overflow-hidden">
-        <FeaturedTopo />
+        <FeaturedTopo fade />
         <div className="relative mx-auto max-w-[1400px] text-center">
           <h2 className="text-h1 tracking-tight">
             Prêt à <span className="accent-serif">lancer un projet</span> ?

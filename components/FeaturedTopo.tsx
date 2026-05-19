@@ -19,11 +19,14 @@ export default function FeaturedTopo({
   cellSize = 12,
   /** Approx pixel wavelength between major topographic features */
   wavelength = 280,
+  /** Soft fade-out at top and bottom edges (linear-gradient mask) */
+  fade = false,
 }: {
   opacity?: number;
   levels?: number;
   cellSize?: number;
   wavelength?: number;
+  fade?: boolean;
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rafRef = useRef<number | null>(null);
@@ -263,11 +266,23 @@ export default function FeaturedTopo({
     };
   }, [opacity, levels, cellSize, wavelength]);
 
+  const fadeMask = fade
+    ? "linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%)"
+    : undefined;
+
   return (
     <canvas
       ref={canvasRef}
       aria-hidden="true"
       className="pointer-events-none absolute inset-0 z-0"
+      style={
+        fadeMask
+          ? {
+              maskImage: fadeMask,
+              WebkitMaskImage: fadeMask,
+            }
+          : undefined
+      }
     />
   );
 }

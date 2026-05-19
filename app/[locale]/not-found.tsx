@@ -4,7 +4,7 @@ import Button from "@/components/Button";
 export default function NotFound() {
   return (
     <section className="relative min-h-[calc(100svh-5rem)] flex items-center px-6 lg:px-10 py-20 overflow-hidden">
-      <FeaturedTopo opacity={0.2} />
+      <FeaturedTopo opacity={0.2} fade />
       <div className="relative mx-auto max-w-[800px] text-center">
         <div className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-[var(--accent)] mb-6">
           Erreur 404
