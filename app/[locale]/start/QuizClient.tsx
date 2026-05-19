@@ -199,10 +199,14 @@ export default function QuizClient({ locale, mode = "fullscreen" }: Props) {
           <AnimatePresence mode="wait">
             <motion.div
               key={currentId}
-              initial={{ opacity: 0, filter: "blur(16px)", y: 12 }}
-              animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-              exit={{ opacity: 0, filter: "blur(16px)", y: -12 }}
-              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              initial={{ opacity: 0, filter: "blur(16px)" }}
+              animate={{
+                opacity: 1,
+                filter: "blur(0px)",
+                transitionEnd: { filter: "none" },
+              }}
+              exit={{ opacity: 0, filter: "blur(16px)" }}
+              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             >
               {currentStep.id !== "summary" && currentStep.id !== "contact" && (
                 <ChoiceStep

@@ -34,7 +34,7 @@ export default async function ContactPage() {
       <section className="px-6 lg:px-10 py-20 lg:py-28">
         <div className="mx-auto max-w-[1400px] grid-12 gap-y-16">
           {/* Form */}
-          <div className="col-span-12 lg:col-span-7">
+          <div className="col-span-12 lg:col-span-7 glass rounded-lg p-7 lg:p-9">
             <ContactForm
               labels={{
                 name: t("name"),

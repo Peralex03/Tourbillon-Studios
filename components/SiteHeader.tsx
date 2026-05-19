@@ -138,7 +138,7 @@ export default function SiteHeader() {
 
       {/* Mobile drawer */}
       {open && (
-        <div className="md:hidden border-t border-[var(--stroke)] bg-[var(--bg)]/95 backdrop-blur-xl">
+        <div className="md:hidden border-t border-[var(--stroke)] header-glass-scrolled">
           <div className="px-6 py-6 flex flex-col gap-1">
             {NAV_ITEMS.map((item) => (
               <Link

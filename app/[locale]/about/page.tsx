@@ -59,19 +59,19 @@ export default async function AboutPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[var(--stroke)]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5">
             {VALUES.map((value, i) => (
               <div
                 key={i}
-                className="p-8 lg:p-12 bg-[var(--bg)] flex flex-col gap-6 min-h-[260px]"
+                className="glass rounded-lg p-7 lg:p-9 flex flex-col gap-5 min-h-[220px]"
               >
                 <div className="font-mono text-[0.6875rem] tracking-wider text-[var(--accent)]">
                   {value.eyebrow}
                 </div>
-                <h3 className="text-[1.375rem] lg:text-[1.75rem] font-medium tracking-tight leading-tight">
+                <h3 className="text-[1.25rem] lg:text-[1.5rem] font-medium tracking-tight leading-tight">
                   {value.title}
                 </h3>
-                <p className="text-[var(--text-dim)] text-[1rem] leading-relaxed max-w-md">
+                <p className="text-[var(--text-dim)] text-[0.9375rem] leading-relaxed max-w-md">
                   {value.description}
                 </p>
               </div>
@@ -119,16 +119,16 @@ export default async function AboutPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[var(--stroke)] border border-[var(--stroke)]">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5">
             {CITIES.map((city, i) => (
-              <div key={i} className="p-8 lg:p-12 bg-[var(--bg)]">
+              <div key={i} className="glass rounded-lg p-7 lg:p-9">
                 <div className="font-mono text-[0.6875rem] tracking-wider text-[var(--text-faint)] uppercase">
                   {city.role}
                 </div>
-                <div className="text-[clamp(1.875rem,3.5vw,2.5rem)] font-medium tracking-tight leading-none mt-4">
+                <div className="text-[clamp(1.625rem,3vw,2.125rem)] font-medium tracking-tight leading-none mt-3">
                   {city.name}
                 </div>
-                <div className="font-mono text-[0.75rem] text-[var(--text-dim)] mt-6">
+                <div className="font-mono text-[0.75rem] text-[var(--text-dim)] mt-5">
                   {city.coords}
                 </div>
               </div>

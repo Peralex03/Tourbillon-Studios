@@ -88,6 +88,7 @@ function Row({
                 opacity: { duration: 0.3, delay: 0.05 },
                 filter: { duration: 0.4, delay: 0.05 },
               },
+              transitionEnd: { filter: "none" },
             }}
             exit={{
               height: 0,
