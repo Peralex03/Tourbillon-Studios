@@ -23,7 +23,7 @@ export default async function PricingPage() {
           HERO
           ============================================ */}
       <section className="relative px-6 lg:px-10 pt-32 lg:pt-36 pb-16 border-b border-[var(--stroke)] overflow-hidden">
-        <FeaturedTopo opacity={0.18} contourCount={10} />
+        <FeaturedTopo opacity={0.18} />
         <div className="relative mx-auto max-w-[1400px]">
           <div className="text-eyebrow mb-6">{t("eyebrow")}</div>
 

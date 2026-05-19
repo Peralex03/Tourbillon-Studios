@@ -18,7 +18,7 @@ export default async function HomePage({
           QUIZ · embedded as the hero with topo
           ============================================ */}
       <section className="relative overflow-hidden">
-        <FeaturedTopo opacity={0.16} contourCount={12} />
+        <FeaturedTopo opacity={0.16} />
         <div className="relative z-10">
           <QuizClient locale={locale} mode="embed" />
         </div>

@@ -21,7 +21,7 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
     <>
       {/* HERO */}
       <section className="relative px-6 lg:px-10 pt-32 lg:pt-36 pb-16 border-b border-[var(--stroke)] overflow-hidden">
-        <FeaturedTopo opacity={0.18} contourCount={10} />
+        <FeaturedTopo opacity={0.18} />
         <div className="relative mx-auto max-w-[1400px]">
           <div className="text-eyebrow mb-6">{t("label")}</div>
           <h1 className="text-h1 tracking-tight max-w-3xl">
