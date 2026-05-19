@@ -31,6 +31,10 @@
   --glass-highlight: rgba(245, 234, 216, 0.04);
   --glass-shadow: rgba(0, 0, 0, 0.30);
 
+  /* Header glass tokens · rgba direct (color-mix() cassait Lightning CSS) */
+  --header-bg-top: rgba(58, 45, 36, 0.45);
+  --header-bg-scrolled: rgba(70, 54, 41, 0.7);
+
   /* Semantic */
   --success: #7AC994;
   --error: #E07856;
@@ -57,6 +61,9 @@
   --glass-border: rgba(43, 32, 26, 0.08);
   --glass-highlight: rgba(255, 255, 255, 0.85);
   --glass-shadow: rgba(43, 32, 26, 0.06);
+
+  --header-bg-top: rgba(255, 255, 255, 0.45);
+  --header-bg-scrolled: rgba(229, 215, 189, 0.75);
 
   --success: #2E8B57;
   --error: #A6442D;
@@ -234,7 +241,6 @@ body {
 .glass {
   background: var(--glass-bg);
   backdrop-filter: blur(20px) saturate(140%);
-  -webkit-backdrop-filter: blur(20px) saturate(140%);
   border: 1px solid var(--glass-border);
   box-shadow:
     inset 0 1px 0 var(--glass-highlight),
@@ -244,7 +250,6 @@ body {
 .glass-strong {
   background: var(--glass-bg);
   backdrop-filter: blur(36px) saturate(160%);
-  -webkit-backdrop-filter: blur(36px) saturate(160%);
   border: 1px solid var(--glass-border);
   box-shadow:
     inset 0 1px 0 var(--glass-highlight),
@@ -254,7 +259,6 @@ body {
 .glass-subtle {
   background: var(--glass-bg);
   backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
   border: 1px solid var(--glass-border);
 }
 
@@ -268,15 +272,13 @@ body {
    mobile et desktop. Valeurs volontairement unifiées (pas de media query)
    pour garantir un rendu cohérent à toutes les tailles d'écran. */
 .header-glass-top {
-  background: color-mix(in srgb, var(--surface-1) 45%, transparent);
+  background: var(--header-bg-top);
   backdrop-filter: blur(10px) saturate(120%);
-  -webkit-backdrop-filter: blur(10px) saturate(120%);
 }
 
 .header-glass-scrolled {
-  background: color-mix(in srgb, var(--surface-2) 70%, transparent);
+  background: var(--header-bg-scrolled);
   backdrop-filter: blur(14px) saturate(140%);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
   border-bottom: 1px solid var(--stroke);
   box-shadow: 0 4px 24px var(--glass-shadow);
 }
@@ -285,15 +287,12 @@ body {
 @media (max-width: 767px) {
   .glass {
     backdrop-filter: blur(10px) saturate(120%);
-    -webkit-backdrop-filter: blur(10px) saturate(120%);
   }
   .glass-strong {
     backdrop-filter: blur(16px) saturate(130%);
-    -webkit-backdrop-filter: blur(16px) saturate(130%);
   }
   .glass-subtle {
     backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
   }
 }
 

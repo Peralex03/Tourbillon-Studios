@@ -2,7 +2,6 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import QuizClient from "./start/QuizClient";
 import FeaturedTopo from "@/components/FeaturedTopo";
-import { TESTIMONIALS } from "@/lib/testimonials";
 
 export default async function HomePage({
   params,
@@ -68,36 +67,75 @@ export default async function HomePage({
       </section>
 
       {/* ============================================
-          TESTIMONIALS · 3 glass cards
+          PHONE BOOKING · Cal.com 15min
           ============================================ */}
       <section className="px-6 lg:px-10 py-20 lg:py-28 border-t border-[var(--stroke)]">
         <div className="mx-auto max-w-[1400px]">
-          <div className="text-eyebrow mb-10">{t("testimonialEyebrow")}</div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
-            {TESTIMONIALS.map((tst, i) => (
-              <article
-                key={i}
-                className="glass rounded-lg p-7 lg:p-8 flex flex-col gap-6 min-h-[260px]"
-              >
-                <QuoteIcon />
-                <p className="flex-1 text-[0.9375rem] lg:text-[1rem] text-[var(--text)] leading-relaxed">
-                  {tst.quote}
-                </p>
-                <div className="flex items-center gap-3 pt-5 border-t border-[var(--stroke)]">
-                  <div className="w-9 h-9 rounded-full glass-subtle flex items-center justify-center font-mono text-[0.6875rem] tracking-wider text-[var(--accent)]">
-                    {tst.initials}
-                  </div>
-                  <div>
-                    <div className="text-[0.8125rem] font-medium text-[var(--text)]">
-                      {tst.role}
-                    </div>
-                    <div className="text-[0.75rem] text-[var(--text-faint)]">
-                      {tst.company}
-                    </div>
-                  </div>
+          <div className="text-eyebrow mb-10">Rendez-vous</div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div>
+              <h2 className="text-h1">
+                Parlons de votre <span className="accent-serif">projet</span> en 15 minutes.
+              </h2>
+              <p className="mt-6 text-[var(--text-dim)] text-[1.0625rem] leading-relaxed max-w-[44ch]">
+                Réservez un créneau directement sur notre agenda · gratuit, sans engagement. Nous discutons ensemble de vos besoins et de la solution la mieux adaptée.
+              </p>
+              <ul className="mt-8 space-y-3 text-[0.9375rem] text-[var(--text-dim)]">
+                <li className="flex items-start gap-3">
+                  <CheckIcon />
+                  <span>15 minutes par téléphone · ou visioconférence sur demande</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckIcon />
+                  <span>Réponse claire sur la faisabilité et le délai</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckIcon />
+                  <span>Devis sous 48 h après l'appel si vous souhaitez avancer</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="glass rounded-lg p-8 lg:p-10 flex flex-col gap-7">
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-full bg-[var(--accent)] text-[var(--accent-ink)] flex items-center justify-center shrink-0">
+                  <PhoneIcon size={22} />
                 </div>
-              </article>
-            ))}
+                <div>
+                  <div className="text-eyebrow">Appel découverte</div>
+                  <div className="text-[1.0625rem] font-medium text-[var(--text)] mt-1">15 minutes · gratuit</div>
+                </div>
+              </div>
+
+              <div className="border-t border-[var(--stroke)] pt-6 space-y-3">
+                <div className="flex items-center justify-between text-[0.875rem]">
+                  <span className="text-[var(--text-dim)]">Disponibilités</span>
+                  <span className="text-[var(--text)] font-mono">Lun · Ven 09h-18h</span>
+                </div>
+                <div className="flex items-center justify-between text-[0.875rem]">
+                  <span className="text-[var(--text-dim)]">Fuseau</span>
+                  <span className="text-[var(--text)] font-mono">Europe/Zurich</span>
+                </div>
+                <div className="flex items-center justify-between text-[0.875rem]">
+                  <span className="text-[var(--text-dim)]">Langues</span>
+                  <span className="text-[var(--text)] font-mono">FR · DE · IT · EN</span>
+                </div>
+              </div>
+
+              <a
+                href="https://cal.com/tourbillon-studios/15min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 inline-flex items-center justify-center gap-3 px-7 py-4 rounded-full bg-[var(--accent)] text-[var(--accent-ink)] text-[0.9375rem] font-medium hover:bg-[var(--accent-hover)] transition-colors"
+              >
+                <PhoneIcon size={14} />
+                Choisir un créneau
+                <ArrowIcon />
+              </a>
+              <p className="text-[0.75rem] text-[var(--text-faint)] text-center">
+                Réservation instantanée · géré via Cal.com
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -180,10 +218,18 @@ function ArrowIcon() {
   );
 }
 
-function PhoneIcon() {
+function PhoneIcon({ size = 14 }: { size?: number }) {
   return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+    </svg>
+  );
+}
+
+function CheckIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[var(--accent)] mt-[3px] shrink-0">
+      <path d="M5 12l5 5L20 7" />
     </svg>
   );
 }
@@ -215,11 +261,3 @@ function LockIcon() {
   );
 }
 
-function QuoteIcon() {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" className="text-[var(--accent)]" aria-hidden="true">
-      <path d="M7 7h4v6H5v-3a3 3 0 0 1 2-2.83V7zm10 0h4v6h-6v-3a3 3 0 0 1 2-2.83V7z" opacity="0.5" />
-      <path d="M3 11a3 3 0 0 1 3-3V5a6 6 0 0 0-6 6v5h6v-5H3zm10 0a3 3 0 0 1 3-3V5a6 6 0 0 0-6 6v5h6v-5h-3z" />
-    </svg>
-  );
-}
