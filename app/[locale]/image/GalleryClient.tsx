@@ -15,13 +15,40 @@ export default function GalleryClient() {
   const [filter, setFilter] = useState<Filter>("all");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  const items = useMemo(
-    () =>
-      filter === "all"
-        ? GALLERY_ITEMS
-        : GALLERY_ITEMS.filter((i) => i.category === filter),
-    [filter]
-  );
+  // When "all", order items grouped by category (same order as the filter pills)
+  // so the flat array used for lightbox navigation matches the visual grouping.
+  const items = useMemo(() => {
+    if (filter !== "all") return GALLERY_ITEMS.filter((i) => i.category === filter);
+    const order = GALLERY_CATEGORIES.filter((c) => c.id !== "all").map((c) => c.id);
+    return order.flatMap((cat) =>
+      GALLERY_ITEMS.filter((i) => i.category === cat)
+    );
+  }, [filter]);
+
+  // Section boundaries for the "all" view: [{ category, label, startIndex, items }]
+  const sections = useMemo(() => {
+    if (filter !== "all") return null;
+    const out: {
+      id: GalleryCategory;
+      label: string;
+      start: number;
+      items: GalleryItem[];
+    }[] = [];
+    let idx = 0;
+    for (const cat of GALLERY_CATEGORIES) {
+      if (cat.id === "all") continue;
+      const catItems = items.filter((i) => i.category === cat.id);
+      if (catItems.length === 0) continue;
+      out.push({
+        id: cat.id as GalleryCategory,
+        label: cat.label,
+        start: idx,
+        items: catItems,
+      });
+      idx += catItems.length;
+    }
+    return out;
+  }, [filter, items]);
 
   const openItem = lightboxIndex !== null ? items[lightboxIndex] : null;
 
@@ -103,24 +130,52 @@ export default function GalleryClient() {
           </div>
         </div>
 
-        {/* Masonry columns · handles mixed photo/video aspect ratios */}
-        <div className="[column-fill:_balance] columns-1 sm:columns-2 lg:columns-3 gap-4 lg:gap-5">
-          <AnimatePresence mode="popLayout">
-            {items.map((item, index) => (
-              <motion.div
-                key={item.id}
-                layout
-                initial={{ opacity: 0, scale: 0.97 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.97 }}
-                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                className="mb-4 lg:mb-5 break-inside-avoid"
-              >
-                <Tile item={item} onOpen={() => setLightboxIndex(index)} />
-              </motion.div>
+        {/* "Tout" · compartimenté par catégorie */}
+        {sections ? (
+          <div className="space-y-14 lg:space-y-20">
+            {sections.map((sec) => (
+              <div key={sec.id}>
+                <div className="flex items-baseline gap-3 mb-6">
+                  <h2 className="text-h3 tracking-tight text-[var(--text)]">
+                    {sec.label}
+                  </h2>
+                  <span className="font-mono text-[0.6875rem] text-[var(--text-faint)]">
+                    {String(sec.items.length).padStart(2, "0")}
+                  </span>
+                  <div className="flex-1 h-px bg-[var(--stroke)]" />
+                </div>
+                <Masonry>
+                  {sec.items.map((item, i) => (
+                    <div key={item.id} className="mb-4 lg:mb-5 break-inside-avoid">
+                      <Tile
+                        item={item}
+                        onOpen={() => setLightboxIndex(sec.start + i)}
+                      />
+                    </div>
+                  ))}
+                </Masonry>
+              </div>
             ))}
-          </AnimatePresence>
-        </div>
+          </div>
+        ) : (
+          <Masonry>
+            <AnimatePresence mode="popLayout">
+              {items.map((item, index) => (
+                <motion.div
+                  key={item.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.97 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.97 }}
+                  transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                  className="mb-4 lg:mb-5 break-inside-avoid"
+                >
+                  <Tile item={item} onOpen={() => setLightboxIndex(index)} />
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </Masonry>
+        )}
 
         {items.length === 0 && (
           <p className="text-center text-[var(--text-dim)] py-20">
@@ -208,6 +263,17 @@ export default function GalleryClient() {
         )}
       </AnimatePresence>
     </section>
+  );
+}
+
+/* ============================================
+   MASONRY · responsive CSS columns wrapper
+   ============================================ */
+function Masonry({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="[column-fill:_balance] columns-1 sm:columns-2 lg:columns-3 gap-4 lg:gap-5">
+      {children}
+    </div>
   );
 }
 
