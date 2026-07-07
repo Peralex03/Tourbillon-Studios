@@ -21,8 +21,8 @@ export default function ImagePage() {
             <span className="accent-serif">réalisations</span>.
           </h1>
           <p className="mt-6 text-[1rem] lg:text-[1.0625rem] text-[var(--text-dim)] max-w-2xl leading-relaxed">
-            Sites web, boutiques en ligne, identités visuelles et productions
-            photo. Cliquez sur une vignette pour l'agrandir.
+            Photographie et vidéo · horlogerie, corporate, lifestyle et
+            automobile. Survolez une vidéo pour l'aperçu, cliquez pour l'agrandir.
           </p>
         </div>
       </section>

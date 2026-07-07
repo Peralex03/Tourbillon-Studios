@@ -1,126 +1,193 @@
 /**
- * Portfolio gallery data.
+ * Portfolio gallery · photos ET vidéos, même page /image.
  *
- * Pour ajouter du vrai contenu :
- * 1. Déposer les fichiers dans public/portfolio/ (ex. public/portfolio/ysc-home.jpg)
- * 2. Renseigner `src: "/portfolio/ysc-home.jpg"` sur l'item
- * 3. Retirer le champ `gradient` (fallback tant qu'il n'y a pas d'image)
+ * AJOUTER UNE PHOTO :
+ *   1. Déposer le fichier dans public/portfolio/ (ex. public/portfolio/mon-projet.jpg)
+ *   2. Ajouter une entrée { type: "photo", src: "/portfolio/mon-projet.jpg", aspect: "3/4" | "4/3" | "1/1" | "16/9" ... }
+ *
+ * AJOUTER UNE VIDÉO :
+ *   1. Déposer video.mp4 + poster.jpg dans public/portfolio/
+ *   2. Ajouter { type: "video", src: "/portfolio/video.mp4", poster: "/portfolio/poster.jpg", aspect: "9/16" }
  */
 
-export type GalleryCategory = "web" | "ecommerce" | "branding" | "photo";
+export type GalleryCategory =
+  | "horlogerie"
+  | "corporate"
+  | "lifestyle"
+  | "automobile";
+
+export type MediaType = "photo" | "video";
 
 export interface GalleryItem {
   id: string;
+  type: MediaType;
   title: string;
   client: string;
   category: GalleryCategory;
   year: string;
-  /** Chemin public vers l'image (prioritaire sur gradient) */
-  src?: string;
-  /** Fallback CSS gradient tant que l'image réelle n'est pas fournie */
-  gradient?: string;
-  /** Ratio d'aspect de la tuile dans la grille */
-  aspect: "wide" | "tall" | "square";
+  /** Chemin du média (image pour photo, .mp4 pour vidéo) */
+  src: string;
+  /** Poster obligatoire pour les vidéos (image affichée avant lecture) */
+  poster?: string;
+  /** Ratio d'aspect css (ex. "9/16", "3/4", "16/9", "1/1") */
+  aspect: string;
   description?: string;
 }
 
-export const GALLERY_CATEGORIES: { id: GalleryCategory | "all"; label: string }[] = [
+export const GALLERY_CATEGORIES: {
+  id: GalleryCategory | "all";
+  label: string;
+}[] = [
   { id: "all", label: "Tout" },
-  { id: "web", label: "Sites web" },
-  { id: "ecommerce", label: "E-commerce" },
-  { id: "branding", label: "Branding" },
-  { id: "photo", label: "Photographie" },
+  { id: "horlogerie", label: "Horlogerie" },
+  { id: "corporate", label: "Corporate" },
+  { id: "lifestyle", label: "Lifestyle" },
+  { id: "automobile", label: "Automobile" },
 ];
 
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
-    id: "ysc-home",
-    title: "Page d'accueil",
-    client: "Your Swiss Concierge",
-    category: "web",
+    id: "gmt-master",
+    type: "video",
+    title: "Rolex GMT-Master",
+    client: "Horlogerie de luxe",
+    category: "horlogerie",
     year: "2025",
-    gradient: "linear-gradient(135deg, #1A1614 0%, #2B2622 45%, #1F3A2E 100%)",
-    aspect: "wide",
-    description: "Refonte éditoriale complète avec système de réservation intégré.",
+    src: "/portfolio/gmt-master.mp4",
+    poster: "/portfolio/gmt-master.jpg",
+    aspect: "9/16",
+    description: "Film macro d'une GMT-Master vintage · direction et montage.",
   },
   {
-    id: "ysc-services",
-    title: "Pages services",
-    client: "Your Swiss Concierge",
-    category: "web",
+    id: "swisstreasures-saumon",
+    type: "video",
+    title: "Patek Philippe · cadran saumon",
+    client: "SwissTreasures",
+    category: "horlogerie",
     year: "2025",
-    gradient: "linear-gradient(160deg, #24312A 0%, #1A1614 60%, #2B2622 100%)",
-    aspect: "tall",
-    description: "Architecture de contenu orientée conversion.",
+    src: "/portfolio/swisstreasures-saumon.mp4",
+    poster: "/portfolio/swisstreasures-saumon.jpg",
+    aspect: "9/16",
+    description: "Mise en valeur d'une pièce rare pour un négociant genevois.",
   },
   {
-    id: "aspaklaria-shop",
-    title: "Boutique en ligne",
-    client: "Aspaklaria Collection",
-    category: "ecommerce",
+    id: "pp-skeleton",
+    type: "video",
+    title: "Montre squelette or rose",
+    client: "Horlogerie de luxe",
+    category: "horlogerie",
+    year: "2025",
+    src: "/portfolio/pp-skeleton.mp4",
+    poster: "/portfolio/pp-skeleton.jpg",
+    aspect: "9/16",
+    description: "Détail mécanique et matière · éclairage studio.",
+  },
+  {
+    id: "swisstreasures",
+    type: "video",
+    title: "Présentation collection",
+    client: "SwissTreasures",
+    category: "horlogerie",
+    year: "2025",
+    src: "/portfolio/swisstreasures.mp4",
+    poster: "/portfolio/swisstreasures.jpg",
+    aspect: "9/16",
+    description: "Format vertical pour la présentation de pièces d'exception.",
+  },
+  {
+    id: "migros",
+    type: "video",
+    title: "Banque Migros",
+    client: "Banque Migros",
+    category: "corporate",
+    year: "2025",
+    src: "/portfolio/migros.mp4",
+    poster: "/portfolio/migros.jpg",
+    aspect: "9/16",
+    description: "Contenu corporate · interview et captation d'ambiance.",
+  },
+  {
+    id: "century-finance",
+    type: "video",
+    title: "Century Finance",
+    client: "Century Finance",
+    category: "corporate",
+    year: "2025",
+    src: "/portfolio/century-finance.mp4",
+    poster: "/portfolio/century-finance.jpg",
+    aspect: "9/16",
+    description: "Série de contenus experts pour un conseiller financier.",
+  },
+  {
+    id: "century-360",
+    type: "video",
+    title: "Century Finance · format court",
+    client: "Century Finance",
+    category: "corporate",
+    year: "2025",
+    src: "/portfolio/century-360.mp4",
+    poster: "/portfolio/century-360.jpg",
+    aspect: "9/16",
+    description: "Format social vertical sous-titré pour les réseaux.",
+  },
+  {
+    id: "lattaque",
+    type: "video",
+    title: "Armée suisse",
+    client: "Institutionnel",
+    category: "corporate",
     year: "2024",
-    gradient: "linear-gradient(135deg, #2B1518 0%, #1A1614 50%, #3A2E14 100%)",
-    aspect: "square",
-    description: "E-commerce headless multilingue avec paiements internationaux.",
+    src: "/portfolio/lattaque.mp4",
+    poster: "/portfolio/lattaque.jpg",
+    aspect: "9/16",
+    description: "Témoignage institutionnel · captation et montage.",
   },
   {
-    id: "aspaklaria-product",
-    title: "Fiches produit",
-    client: "Aspaklaria Collection",
-    category: "ecommerce",
-    year: "2024",
-    gradient: "linear-gradient(200deg, #3A2E14 0%, #2B1518 55%, #1A1614 100%)",
-    aspect: "tall",
-    description: "Transitions cinématiques entre produits, grille asymétrique.",
-  },
-  {
-    id: "latenight-hero",
-    title: "Hero immersif",
-    client: "Late Night Milan",
-    category: "web",
+    id: "beef",
+    type: "video",
+    title: "Art culinaire",
+    client: "Gastronomie",
+    category: "lifestyle",
     year: "2025",
-    gradient: "linear-gradient(135deg, #1F1530 0%, #1A1614 50%, #3A2914 100%)",
-    aspect: "wide",
-    description: "Atmosphère nocturne, intégration réservation TheFork.",
+    src: "/portfolio/beef.mp4",
+    poster: "/portfolio/beef.jpg",
+    aspect: "9/16",
+    description: "Dressage en cuisine · plan macro et étalonnage chaleureux.",
   },
   {
-    id: "latenight-brand",
-    title: "Identité visuelle",
-    client: "Late Night Milan",
-    category: "branding",
+    id: "8oak",
+    type: "video",
+    title: "8 Oak",
+    client: "Restaurant & événementiel",
+    category: "lifestyle",
     year: "2025",
-    gradient: "linear-gradient(120deg, #2A1530 0%, #1F1530 40%, #1A1614 100%)",
-    aspect: "square",
-    description: "Direction artistique complète · logo, palette, typographie.",
+    src: "/portfolio/8oak.mp4",
+    poster: "/portfolio/8oak.jpg",
+    aspect: "9/16",
+    description: "Ambiance nocturne d'un restaurant événementiel.",
   },
   {
-    id: "shooting-corporate",
-    title: "Shooting corporate",
-    client: "Client confidentiel",
-    category: "photo",
-    year: "2025",
-    gradient: "linear-gradient(150deg, #2B2622 0%, #463629 50%, #2B201A 100%)",
-    aspect: "tall",
-    description: "Portraits d'équipe et photos d'ambiance pour site vitrine.",
-  },
-  {
-    id: "shooting-immobilier",
-    title: "Reportage immobilier",
-    client: "Agence lémanique",
-    category: "photo",
+    id: "concours-elegance",
+    type: "video",
+    title: "Concours d'élégance",
+    client: "Automobile de collection",
+    category: "automobile",
     year: "2024",
-    gradient: "linear-gradient(135deg, #1E2A32 0%, #1A1614 55%, #2B2622 100%)",
-    aspect: "wide",
-    description: "Visites 3D Matterport et prises de vue drone certifiées.",
+    src: "/portfolio/concours-elegance.mp4",
+    poster: "/portfolio/concours-elegance.jpg",
+    aspect: "9/16",
+    description: "Reportage sur un rassemblement de voitures de collection.",
   },
   {
-    id: "brand-maison",
-    title: "Charte graphique",
-    client: "Maison Helvetia",
-    category: "branding",
+    id: "v2",
+    type: "video",
+    title: "Automobile de collection",
+    client: "Automobile de collection",
+    category: "automobile",
     year: "2024",
-    gradient: "linear-gradient(160deg, #322415 0%, #2B201A 50%, #46362A 100%)",
-    aspect: "square",
-    description: "Système de marque complet livré en une semaine.",
+    src: "/portfolio/v2.mp4",
+    poster: "/portfolio/v2.jpg",
+    aspect: "9/16",
+    description: "Détails et matières d'une voiture d'exception.",
   },
 ];

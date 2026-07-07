@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   GALLERY_ITEMS,
@@ -10,12 +10,6 @@ import {
 } from "@/lib/gallery";
 
 type Filter = GalleryCategory | "all";
-
-const ASPECT_CLASS: Record<GalleryItem["aspect"], string> = {
-  wide: "col-span-12 sm:col-span-8 aspect-[16/10]",
-  tall: "col-span-12 sm:col-span-4 aspect-[3/4]",
-  square: "col-span-12 sm:col-span-4 aspect-square",
-};
 
 export default function GalleryClient() {
   const [filter, setFilter] = useState<Filter>("all");
@@ -32,16 +26,18 @@ export default function GalleryClient() {
   const openItem = lightboxIndex !== null ? items[lightboxIndex] : null;
 
   const close = useCallback(() => setLightboxIndex(null), []);
-  const prev = useCallback(() => {
-    setLightboxIndex((i) =>
-      i === null ? null : (i - 1 + items.length) % items.length
-    );
-  }, [items.length]);
-  const next = useCallback(() => {
-    setLightboxIndex((i) => (i === null ? null : (i + 1) % items.length));
-  }, [items.length]);
+  const prev = useCallback(
+    () =>
+      setLightboxIndex((i) =>
+        i === null ? null : (i - 1 + items.length) % items.length
+      ),
+    [items.length]
+  );
+  const next = useCallback(
+    () => setLightboxIndex((i) => (i === null ? null : (i + 1) % items.length)),
+    [items.length]
+  );
 
-  // Keyboard navigation in lightbox
   useEffect(() => {
     if (lightboxIndex === null) return;
     function onKey(e: KeyboardEvent) {
@@ -53,7 +49,6 @@ export default function GalleryClient() {
     return () => window.removeEventListener("keydown", onKey);
   }, [lightboxIndex, close, prev, next]);
 
-  // Lock body scroll while lightbox is open
   useEffect(() => {
     if (lightboxIndex !== null) {
       document.body.style.overflow = "hidden";
@@ -66,8 +61,8 @@ export default function GalleryClient() {
   return (
     <section className="px-6 lg:px-10 py-12 lg:py-16">
       <div className="mx-auto max-w-[1400px]">
-        {/* Filter pills · sticky under header for friendly navigation */}
-        <div className="sticky top-16 lg:top-20 z-30 -mx-2 px-2 py-3 mb-8">
+        {/* Filter pills · sticky */}
+        <div className="sticky top-16 lg:top-20 z-30 py-3 mb-8">
           <div className="glass rounded-full inline-flex flex-wrap items-center gap-1 p-1.5">
             {GALLERY_CATEGORIES.map((cat) => {
               const active = filter === cat.id;
@@ -75,6 +70,7 @@ export default function GalleryClient() {
                 cat.id === "all"
                   ? GALLERY_ITEMS.length
                   : GALLERY_ITEMS.filter((i) => i.category === cat.id).length;
+              if (count === 0 && cat.id !== "all") return null;
               return (
                 <button
                   key={cat.id}
@@ -107,58 +103,24 @@ export default function GalleryClient() {
           </div>
         </div>
 
-        {/* Bento grid */}
-        <motion.div layout className="grid grid-cols-12 gap-4 lg:gap-5">
+        {/* Masonry columns · handles mixed photo/video aspect ratios */}
+        <div className="[column-fill:_balance] columns-1 sm:columns-2 lg:columns-3 gap-4 lg:gap-5">
           <AnimatePresence mode="popLayout">
             {items.map((item, index) => (
-              <motion.button
+              <motion.div
                 key={item.id}
                 layout
-                type="button"
-                onClick={() => setLightboxIndex(index)}
-                initial={{ opacity: 0, scale: 0.96 }}
+                initial={{ opacity: 0, scale: 0.97 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.96 }}
+                exit={{ opacity: 0, scale: 0.97 }}
                 transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                className={[
-                  "group relative overflow-hidden rounded-lg text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]",
-                  ASPECT_CLASS[item.aspect],
-                ].join(" ")}
-                style={
-                  item.src
-                    ? undefined
-                    : { background: item.gradient }
-                }
-                aria-label={`${item.title} · ${item.client}`}
+                className="mb-4 lg:mb-5 break-inside-avoid"
               >
-                {item.src && (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={item.src}
-                    alt={`${item.title} · ${item.client}`}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                    loading="lazy"
-                  />
-                )}
-
-                {/* Caption overlay */}
-                <div className="absolute inset-x-0 bottom-0 p-5 lg:p-6 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="font-mono text-[0.6875rem] uppercase tracking-wider text-white/70 mb-1">
-                    {item.client} · {item.year}
-                  </div>
-                  <div className="text-[1rem] font-medium text-white tracking-tight">
-                    {item.title}
-                  </div>
-                </div>
-
-                {/* Corner zoom hint */}
-                <span className="absolute top-4 right-4 w-8 h-8 rounded-full glass-subtle flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity text-white">
-                  <ZoomIcon />
-                </span>
-              </motion.button>
+                <Tile item={item} onOpen={() => setLightboxIndex(index)} />
+              </motion.div>
             ))}
           </AnimatePresence>
-        </motion.div>
+        </div>
 
         {items.length === 0 && (
           <p className="text-center text-[var(--text-dim)] py-20">
@@ -176,38 +138,37 @@ export default function GalleryClient() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-[80] flex items-center justify-center p-4 lg:p-10"
+            className="fixed inset-0 z-[80] flex items-center justify-center p-4 lg:p-8"
             onClick={close}
           >
-            {/* Backdrop */}
-            <div className="absolute inset-0 bg-black/70 backdrop-blur-md" />
+            <div className="absolute inset-0 bg-black/75 backdrop-blur-md" />
 
-            {/* Content */}
             <motion.div
               key={openItem.id}
-              initial={{ opacity: 0, scale: 0.97, filter: "blur(8px)" }}
-              animate={{
-                opacity: 1,
-                scale: 1,
-                filter: "blur(0px)",
-                transitionEnd: { filter: "none" },
-              }}
-              exit={{ opacity: 0, scale: 0.97, filter: "blur(8px)" }}
+              initial={{ opacity: 0, scale: 0.97 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.97 }}
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="relative w-full max-w-[1100px] max-h-[85vh] flex flex-col"
+              className="relative w-full max-w-[520px] flex flex-col"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Visual */}
-              <div
-                className="relative w-full flex-1 min-h-[50vh] rounded-lg overflow-hidden"
-                style={openItem.src ? undefined : { background: openItem.gradient }}
-              >
-                {openItem.src && (
+              <div className="relative w-full rounded-lg overflow-hidden bg-black">
+                {openItem.type === "video" ? (
+                  <video
+                    key={openItem.src}
+                    src={openItem.src}
+                    poster={openItem.poster}
+                    controls
+                    autoPlay
+                    playsInline
+                    className="w-full h-auto max-h-[72vh] object-contain"
+                  />
+                ) : (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
                     src={openItem.src}
                     alt={`${openItem.title} · ${openItem.client}`}
-                    className="absolute inset-0 w-full h-full object-contain"
+                    className="w-full h-auto max-h-[72vh] object-contain"
                   />
                 )}
               </div>
@@ -229,12 +190,12 @@ export default function GalleryClient() {
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
                   <span className="font-mono text-[0.6875rem] text-[var(--text-faint)] tabular-nums mr-1">
-                    {(lightboxIndex ?? 0) + 1} / {items.length}
+                    {(lightboxIndex ?? 0) + 1}/{items.length}
                   </span>
-                  <NavButton onClick={prev} label="Précédente">
+                  <NavButton onClick={prev} label="Précédent">
                     <ArrowLeftIcon />
                   </NavButton>
-                  <NavButton onClick={next} label="Suivante">
+                  <NavButton onClick={next} label="Suivant">
                     <ArrowRightIcon />
                   </NavButton>
                   <NavButton onClick={close} label="Fermer">
@@ -247,6 +208,84 @@ export default function GalleryClient() {
         )}
       </AnimatePresence>
     </section>
+  );
+}
+
+/* ============================================
+   TILE · photo or video with hover autoplay
+   ============================================ */
+function Tile({ item, onOpen }: { item: GalleryItem; onOpen: () => void }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [loaded, setLoaded] = useState(false);
+
+  function onEnter() {
+    const v = videoRef.current;
+    if (v) {
+      v.currentTime = 0;
+      v.play().catch(() => {});
+    }
+  }
+  function onLeave() {
+    const v = videoRef.current;
+    if (v) {
+      v.pause();
+    }
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={onOpen}
+      onMouseEnter={onEnter}
+      onMouseLeave={onLeave}
+      className="group relative w-full overflow-hidden rounded-lg text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] bg-[var(--surface-2)]"
+      style={{ aspectRatio: item.aspect.replace("/", " / ") }}
+      aria-label={`${item.title} · ${item.client}`}
+    >
+      {/* Poster / image */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={item.type === "video" ? item.poster : item.src}
+        alt={`${item.title} · ${item.client}`}
+        loading="lazy"
+        onLoad={() => setLoaded(true)}
+        className={[
+          "absolute inset-0 w-full h-full object-cover transition-opacity duration-500",
+          loaded ? "opacity-100" : "opacity-0",
+        ].join(" ")}
+      />
+
+      {/* Hover-preview video (muted loop) */}
+      {item.type === "video" && (
+        <video
+          ref={videoRef}
+          src={item.src}
+          muted
+          loop
+          playsInline
+          preload="none"
+          className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        />
+      )}
+
+      {/* Play badge for videos */}
+      {item.type === "video" && (
+        <span className="absolute top-3 left-3 z-10 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full glass-subtle text-white text-[0.625rem] font-mono uppercase tracking-wider">
+          <PlayIcon />
+          Vidéo
+        </span>
+      )}
+
+      {/* Caption on hover */}
+      <div className="absolute inset-x-0 bottom-0 z-10 p-4 lg:p-5 bg-gradient-to-t from-black/70 via-black/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="font-mono text-[0.625rem] uppercase tracking-wider text-white/70 mb-0.5">
+          {item.client} · {item.year}
+        </div>
+        <div className="text-[0.9375rem] font-medium text-white tracking-tight">
+          {item.title}
+        </div>
+      </div>
+    </button>
   );
 }
 
@@ -271,11 +310,10 @@ function NavButton({
   );
 }
 
-function ZoomIcon() {
+function PlayIcon() {
   return (
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="11" cy="11" r="7" />
-      <path d="M21 21l-4.35-4.35M11 8v6M8 11h6" />
+    <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M8 5v14l11-7z" />
     </svg>
   );
 }
