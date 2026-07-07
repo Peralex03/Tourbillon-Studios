@@ -297,7 +297,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     year: "2024",
     src: "/portfolio/lattaque.mp4",
     poster: "/portfolio/lattaque.jpg",
-    aspect: "9/16",
+    aspect: "16/9",
     description: "Témoignage institutionnel · captation et montage.",
   },
 
@@ -311,7 +311,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     year: "2025",
     src: "/portfolio/beef.mp4",
     poster: "/portfolio/beef.jpg",
-    aspect: "9/16",
+    aspect: "4/5",
     description: "Dressage en cuisine · plan macro et étalonnage chaleureux.",
   },
   {
