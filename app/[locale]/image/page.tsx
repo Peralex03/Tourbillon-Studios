@@ -4,8 +4,8 @@ import GalleryClient from "./GalleryClient";
 export const metadata = {
   title: "Portfolio · Tourbillon Studios",
   description:
-    "Sélection de réalisations · sites web, e-commerce, branding et photographie.",
-  robots: { index: false, follow: false }, // caché tant que le contenu réel n'est pas en place
+    "Sélection de réalisations photo et vidéo · horlogerie, automobile, corporate, architecture et lifestyle en Suisse.",
+  robots: { index: true, follow: true },
 };
 
 export default function ImagePage() {
