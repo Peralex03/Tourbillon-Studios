@@ -7,7 +7,8 @@
       "geneva": "Geneva",
       "lausanne": "Lausanne",
       "zurich": "Zurich"
-    }
+    },
+    "whatsappPrefill": "Hello, I'd like to discuss a project."
   },
   "metadata": {
     "aboutTitle": "About · Tourbillon Studios",
@@ -23,7 +24,7 @@
     "blog": "Journal",
     "contact": "Contact",
     "cta": "Start a project",
-    "bookCall": "Book a call"
+    "bookCall": "Message on WhatsApp"
   },
   "theme": {
     "light": "Light mode",
@@ -51,29 +52,29 @@
     "trustBadge2Body": "Data protection in line with the 2023 Swiss federal law and the European GDPR.",
     "trustBadge3Title": "All-inclusive",
     "trustBadge3Body": "Hosting, maintenance and updates included in the subscription. No hidden fees.",
-    "bookingEyebrow": "Appointment",
+    "bookingEyebrow": "WhatsApp",
     "bookingHeadingStart": "Let's talk about your",
     "bookingHeadingItalic": "project",
-    "bookingHeadingEnd": "in 15 minutes.",
-    "bookingDescription": "Book a slot directly on our calendar · free, no obligation. We discuss your needs and the best-suited solution.",
-    "bookingBenefit1": "15 minutes by phone · or video call on request",
+    "bookingHeadingEnd": "on WhatsApp.",
+    "bookingDescription": "Message us directly on WhatsApp · free and with no strings attached. We'll discuss your needs and the best-suited solution together.",
+    "bookingBenefit1": "Fast, direct reply · call or video on request",
     "bookingBenefit2": "Clear answer on feasibility and timeline",
-    "bookingBenefit3": "Quote within 48 h after the call if you wish to proceed",
-    "discoveryCallLabel": "Discovery call",
-    "discoveryCallDuration": "15 minutes · free",
+    "bookingBenefit3": "Quote within 48 h after our chat, if you'd like to move forward",
+    "discoveryCallLabel": "First chat",
+    "discoveryCallDuration": "Free · no obligation",
     "availabilityLabel": "Availability",
     "availabilityValue": "Mon · Fri 09:00–18:00",
     "timezoneLabel": "Timezone",
     "timezoneValue": "Europe/Zurich",
     "languagesLabel": "Languages",
     "languagesValue": "EN · FR · DE · IT",
-    "bookSlotButton": "Pick a slot",
-    "bookingNote": "Instant booking · managed via Cal.com",
+    "bookSlotButton": "Message on WhatsApp",
+    "bookingNote": "Fast reply · straight to WhatsApp",
     "ctaFinalHeadingStart": "Let's talk about your",
     "ctaFinalHeadingItalic": "project",
     "ctaFinalBody": "A few questions to frame your project. We'll get back to you within 24 working hours.",
     "ctaFinalButton": "Start my project",
-    "ctaFinalBookCall": "Book a call"
+    "ctaFinalBookCall": "Message on WhatsApp"
   },
   "about": {
     "eyebrow": "About",

@@ -7,7 +7,8 @@
       "geneva": "Genève",
       "lausanne": "Lausanne",
       "zurich": "Zürich"
-    }
+    },
+    "whatsappPrefill": "Bonjour, je souhaite discuter d'un projet."
   },
   "metadata": {
     "aboutTitle": "À propos · Tourbillon Studios",
@@ -23,7 +24,7 @@
     "blog": "Journal",
     "contact": "Contact",
     "cta": "Démarrer un projet",
-    "bookCall": "Réserver un appel"
+    "bookCall": "Écrire sur WhatsApp"
   },
   "theme": {
     "light": "Mode clair",
@@ -51,29 +52,29 @@
     "trustBadge2Body": "Protection des données respectant la loi fédérale 2023 et le RGPD européen.",
     "trustBadge3Title": "Tout compris",
     "trustBadge3Body": "Hébergement, maintenance et mises à jour inclus dans l'abonnement. Aucun frais caché.",
-    "bookingEyebrow": "Rendez-vous",
+    "bookingEyebrow": "WhatsApp",
     "bookingHeadingStart": "Parlons de votre",
     "bookingHeadingItalic": "projet",
-    "bookingHeadingEnd": "en 15 minutes.",
-    "bookingDescription": "Réservez un créneau directement sur notre agenda · gratuit, sans engagement. Nous discutons ensemble de vos besoins et de la solution la mieux adaptée.",
-    "bookingBenefit1": "15 minutes par téléphone · ou visioconférence sur demande",
+    "bookingHeadingEnd": "sur WhatsApp.",
+    "bookingDescription": "Écrivez-nous directement sur WhatsApp · gratuit et sans engagement. Nous discutons ensemble de vos besoins et de la solution la mieux adaptée.",
+    "bookingBenefit1": "Réponse rapide, en direct · appel ou visio sur demande",
     "bookingBenefit2": "Réponse claire sur la faisabilité et le délai",
-    "bookingBenefit3": "Devis sous 48 h après l'appel si vous souhaitez avancer",
-    "discoveryCallLabel": "Appel découverte",
-    "discoveryCallDuration": "15 minutes · gratuit",
+    "bookingBenefit3": "Devis sous 48 h après notre échange si vous souhaitez avancer",
+    "discoveryCallLabel": "Premier échange",
+    "discoveryCallDuration": "Gratuit · sans engagement",
     "availabilityLabel": "Disponibilités",
     "availabilityValue": "Lun · Ven 09h-18h",
     "timezoneLabel": "Fuseau",
     "timezoneValue": "Europe/Zurich",
     "languagesLabel": "Langues",
     "languagesValue": "FR · DE · IT · EN",
-    "bookSlotButton": "Choisir un créneau",
-    "bookingNote": "Réservation instantanée · géré via Cal.com",
+    "bookSlotButton": "Écrire sur WhatsApp",
+    "bookingNote": "Réponse rapide · directement sur WhatsApp",
     "ctaFinalHeadingStart": "Discutons de votre",
     "ctaFinalHeadingItalic": "projet",
     "ctaFinalBody": "Quelques questions pour cadrer votre projet. Nous vous recontactons sous 24 heures ouvrées.",
     "ctaFinalButton": "Lancer mon projet",
-    "ctaFinalBookCall": "Réserver un appel"
+    "ctaFinalBookCall": "Écrire sur WhatsApp"
   },
   "about": {
     "eyebrow": "À propos",

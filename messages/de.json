@@ -7,7 +7,8 @@
       "geneva": "Genf",
       "lausanne": "Lausanne",
       "zurich": "Zürich"
-    }
+    },
+    "whatsappPrefill": "Guten Tag, ich möchte ein Projekt besprechen."
   },
   "metadata": {
     "aboutTitle": "Über uns · Tourbillon Studios",
@@ -23,7 +24,7 @@
     "blog": "Journal",
     "contact": "Kontakt",
     "cta": "Projekt starten",
-    "bookCall": "Anruf buchen"
+    "bookCall": "WhatsApp schreiben"
   },
   "theme": {
     "light": "Helles Design",
@@ -51,29 +52,29 @@
     "trustBadge2Body": "Datenschutz nach dem Bundesgesetz 2023 und der europäischen DSGVO.",
     "trustBadge3Title": "Alles inklusive",
     "trustBadge3Body": "Hosting, Wartung und Updates im Abo enthalten. Keine versteckten Kosten.",
-    "bookingEyebrow": "Termin",
+    "bookingEyebrow": "WhatsApp",
     "bookingHeadingStart": "Sprechen wir über Ihr",
     "bookingHeadingItalic": "Projekt",
-    "bookingHeadingEnd": "in 15 Minuten.",
-    "bookingDescription": "Buchen Sie direkt einen Termin in unserem Kalender · kostenlos, unverbindlich. Wir besprechen Ihre Bedürfnisse und die passende Lösung.",
-    "bookingBenefit1": "15 Minuten telefonisch · oder per Videokonferenz auf Wunsch",
+    "bookingHeadingEnd": "auf WhatsApp.",
+    "bookingDescription": "Schreiben Sie uns direkt auf WhatsApp · kostenlos und unverbindlich. Wir besprechen Ihre Bedürfnisse und die passende Lösung.",
+    "bookingBenefit1": "Schnelle Antwort, direkt · Anruf oder Video auf Wunsch",
     "bookingBenefit2": "Klare Antwort zur Machbarkeit und Frist",
-    "bookingBenefit3": "Angebot innerhalb von 48 h nach dem Gespräch, falls Sie weitermachen möchten",
-    "discoveryCallLabel": "Erstgespräch",
-    "discoveryCallDuration": "15 Minuten · kostenlos",
+    "bookingBenefit3": "Angebot innerhalb von 48 h nach unserem Austausch, falls Sie weitermachen möchten",
+    "discoveryCallLabel": "Erster Austausch",
+    "discoveryCallDuration": "Kostenlos · unverbindlich",
     "availabilityLabel": "Verfügbarkeit",
     "availabilityValue": "Mo · Fr 09–18 Uhr",
     "timezoneLabel": "Zeitzone",
     "timezoneValue": "Europe/Zurich",
     "languagesLabel": "Sprachen",
     "languagesValue": "DE · FR · IT · EN",
-    "bookSlotButton": "Termin wählen",
-    "bookingNote": "Sofortbuchung · verwaltet über Cal.com",
+    "bookSlotButton": "WhatsApp schreiben",
+    "bookingNote": "Schnelle Antwort · direkt auf WhatsApp",
     "ctaFinalHeadingStart": "Sprechen wir über Ihr",
     "ctaFinalHeadingItalic": "Projekt",
     "ctaFinalBody": "Ein paar Fragen, um Ihr Projekt zu erfassen. Wir melden uns innerhalb von 24 Arbeitsstunden zurück.",
     "ctaFinalButton": "Mein Projekt starten",
-    "ctaFinalBookCall": "Anruf buchen"
+    "ctaFinalBookCall": "WhatsApp schreiben"
   },
   "about": {
     "eyebrow": "Über uns",
