@@ -90,6 +90,33 @@ export default async function ArticlePage({
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline: post.title,
+            description: post.excerpt,
+            datePublished: post.date,
+            inLanguage: locale,
+            url: `https://tourbillonstudios.ch/${locale}/blog/${post.slug}`,
+            author: {
+              "@type": "Organization",
+              name: "Tourbillon Studios",
+              url: "https://tourbillonstudios.ch",
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "Tourbillon Studios",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://tourbillonstudios.ch/icon.png",
+              },
+            },
+          }),
+        }}
+      />
       <article className="pt-32 lg:pt-40 pb-20 px-6 lg:px-10">
         <div className="mx-auto max-w-[760px]">
           {/* Back link */}

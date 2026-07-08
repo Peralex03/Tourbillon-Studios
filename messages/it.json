@@ -12,7 +12,10 @@
   },
   "metadata": {
     "aboutTitle": "Chi siamo · Tourbillon Studios",
-    "contactTitle": "Contatto · Tourbillon Studios"
+    "contactTitle": "Contatto · Tourbillon Studios",
+    "siteTitle": "Tourbillon Studios · Siti web professionali in abbonamento",
+    "siteTitleShort": "Tourbillon Studios · Siti web professionali",
+    "siteDescription": "Studio digitale svizzero. Progettazione e sviluppo di siti web professionali in abbonamento mensile, senza costi di installazione. Ginevra · Losanna · Zurigo."
   },
   "nav": {
     "about": "Chi siamo",
@@ -91,8 +94,8 @@
   },
   "pricing": {
     "eyebrow": "Tariffe",
-    "heroLine1": "Un solo prezzo",
-    "heroLine2": "al mese.",
+    "heroLine1": "Tariffe",
+    "heroLine2": "semplici.",
     "heroLine3Italic": "Tutto incluso.",
     "heroSubtitle": "Nessun costo di installazione. Disdetta senza vincoli. Hosting e manutenzione inclusi.",
     "popular": "Il più scelto",

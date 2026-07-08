@@ -12,7 +12,10 @@
   },
   "metadata": {
     "aboutTitle": "À propos · Tourbillon Studios",
-    "contactTitle": "Contact · Tourbillon Studios"
+    "contactTitle": "Contact · Tourbillon Studios",
+    "siteTitle": "Tourbillon Studios · Sites web professionnels, en abonnement",
+    "siteTitleShort": "Tourbillon Studios · Sites web professionnels",
+    "siteDescription": "Studio digital suisse. Conception et développement de sites web professionnels, en abonnement mensuel, sans frais d'installation. Genève · Lausanne · Zürich."
   },
   "nav": {
     "about": "À propos",
@@ -91,8 +94,8 @@
   },
   "pricing": {
     "eyebrow": "Tarifs",
-    "heroLine1": "Un seul prix",
-    "heroLine2": "par mois.",
+    "heroLine1": "Des tarifs",
+    "heroLine2": "simples.",
     "heroLine3Italic": "Tout inclus.",
     "heroSubtitle": "Aucun frais d'installation. Résiliation sans engagement. Hébergement et maintenance inclus.",
     "popular": "Le plus choisi",

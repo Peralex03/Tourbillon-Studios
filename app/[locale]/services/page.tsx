@@ -42,6 +42,7 @@ export default async function ServicesPage() {
       <section className="px-6 lg:px-10 py-20 lg:py-28 border-b border-[var(--stroke)]">
         <div className="mx-auto max-w-[1400px] grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
           <Pole
+            icon={<BrowserIcon />}
             label={t("web.label")}
             title={t("web.title")}
             body={t("web.body")}
@@ -52,6 +53,7 @@ export default async function ServicesPage() {
             ctaSecondaryHref="/start"
           />
           <Pole
+            icon={<CameraIcon />}
             label={t("image.label")}
             title={t("image.title")}
             body={t("image.body")}
@@ -91,6 +93,7 @@ export default async function ServicesPage() {
 }
 
 function Pole({
+  icon,
   label,
   title,
   body,
@@ -100,6 +103,7 @@ function Pole({
   ctaSecondaryLabel,
   ctaSecondaryHref,
 }: {
+  icon: React.ReactNode;
   label: string;
   title: string;
   body: string;
@@ -111,8 +115,13 @@ function Pole({
 }) {
   return (
     <article className="glass glass-shine flex flex-col p-7 lg:p-10 rounded-lg">
-      <div className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-[var(--accent)] mb-5">
-        {label}
+      <div className="flex items-center gap-3 mb-5">
+        <span className="w-11 h-11 rounded-full bg-[var(--accent)]/12 text-[var(--accent)] flex items-center justify-center shrink-0">
+          {icon}
+        </span>
+        <div className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-[var(--accent)]">
+          {label}
+        </div>
       </div>
       <h2 className="text-h2 text-[var(--text)]">{title}</h2>
       <p className="mt-4 text-[var(--text-dim)] text-[0.9375rem] lg:text-[1rem] leading-relaxed">
@@ -163,6 +172,25 @@ function ArrowIcon() {
       strokeLinejoin="round"
     >
       <path d="M7 17L17 7M9 7h8v8" />
+    </svg>
+  );
+}
+
+function BrowserIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3" y="4" width="18" height="16" rx="2" />
+      <path d="M3 9h18" />
+      <path d="M9 14l-2 2 2 2M15 14l2 2-2 2" />
+    </svg>
+  );
+}
+
+function CameraIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+      <circle cx="12" cy="13" r="4" />
     </svg>
   );
 }

@@ -56,6 +56,9 @@ export default async function PricingPage() {
               href="#site"
               className="glass glass-shine group rounded-lg p-7 lg:p-9 flex flex-col hover:border-[var(--accent)] transition-colors"
             >
+              <span className="w-11 h-11 mb-5 rounded-full bg-[var(--accent)]/12 text-[var(--accent)] flex items-center justify-center">
+                <BrowserIcon />
+              </span>
               <h2 className="text-h3 text-[var(--text)]">{t("chooseSiteTitle")}</h2>
               <p className="mt-3 text-[var(--text-dim)] text-[0.9375rem] leading-relaxed flex-1">
                 {t("chooseSiteDesc")}
@@ -69,6 +72,9 @@ export default async function PricingPage() {
               href="#photo"
               className="glass glass-shine group rounded-lg p-7 lg:p-9 flex flex-col hover:border-[var(--accent)] transition-colors"
             >
+              <span className="w-11 h-11 mb-5 rounded-full bg-[var(--accent)]/12 text-[var(--accent)] flex items-center justify-center">
+                <CameraIcon />
+              </span>
               <h2 className="text-h3 text-[var(--text)]">{t("choosePhotoTitle")}</h2>
               <p className="mt-3 text-[var(--text-dim)] text-[0.9375rem] leading-relaxed flex-1">
                 {t("choosePhotoDesc")}
@@ -311,6 +317,25 @@ export default async function PricingPage() {
         </div>
       </section>
     </>
+  );
+}
+
+function BrowserIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3" y="4" width="18" height="16" rx="2" />
+      <path d="M3 9h18" />
+      <path d="M9 14l-2 2 2 2M15 14l2 2-2 2" />
+    </svg>
+  );
+}
+
+function CameraIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+      <circle cx="12" cy="13" r="4" />
+    </svg>
   );
 }
 

@@ -12,7 +12,10 @@
   },
   "metadata": {
     "aboutTitle": "Über uns · Tourbillon Studios",
-    "contactTitle": "Kontakt · Tourbillon Studios"
+    "contactTitle": "Kontakt · Tourbillon Studios",
+    "siteTitle": "Tourbillon Studios · Professionelle Websites im Abonnement",
+    "siteTitleShort": "Tourbillon Studios · Professionelle Websites",
+    "siteDescription": "Schweizer Digital-Studio. Konzeption und Entwicklung professioneller Websites im Monatsabo, ohne Einrichtungsgebühren. Genf · Lausanne · Zürich."
   },
   "nav": {
     "about": "Über uns",
@@ -91,8 +94,8 @@
   },
   "pricing": {
     "eyebrow": "Preise",
-    "heroLine1": "Ein einziger Preis",
-    "heroLine2": "pro Monat.",
+    "heroLine1": "Einfache",
+    "heroLine2": "Preise.",
     "heroLine3Italic": "Alles inklusive.",
     "heroSubtitle": "Keine Einrichtungsgebühren. Kündigung ohne Bindung. Hosting und Wartung inbegriffen.",
     "popular": "Am häufigsten gewählt",
