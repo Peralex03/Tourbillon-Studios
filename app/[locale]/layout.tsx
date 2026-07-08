@@ -31,11 +31,26 @@ const instrumentSerif = Instrument_Serif({
   display: "swap",
 });
 
+const SITE_DESCRIPTION =
+  "Studio digital suisse. Conception et développement de sites web livrés en 48 heures, en abonnement mensuel, sans frais d'installation. Genève · Lausanne · Zürich.";
+
 export const metadata: Metadata = {
   title: "Tourbillon Studios · Sites livrés en 48 heures, en abonnement",
-  description:
-    "Studio digital suisse. Conception et développement de sites web livrés en 48 heures, en abonnement mensuel, sans frais d'installation. Genève · Lausanne · Zürich.",
+  description: SITE_DESCRIPTION,
   metadataBase: new URL("https://tourbillonstudios.ch"),
+  openGraph: {
+    type: "website",
+    siteName: "Tourbillon Studios",
+    locale: "fr_CH",
+    url: "https://tourbillonstudios.ch",
+    title: "Tourbillon Studios · Sites livrés en 48 heures, en abonnement",
+    description: SITE_DESCRIPTION,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tourbillon Studios · Sites livrés en 48 heures",
+    description: SITE_DESCRIPTION,
+  },
 };
 
 export default async function LocaleLayout({
