@@ -56,9 +56,17 @@ export default async function SiteFooter() {
 
         {/* Bottom row */}
         <div className="pt-8 border-t border-[var(--stroke)] flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
-          <p className="font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-faint)]">
-            © {year} Tourbillon Studios · {t("rights")}
-          </p>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <p className="font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-faint)]">
+              © {year} Tourbillon Studios · {t("rights")}
+            </p>
+            <Link
+              href="/privacy"
+              className="font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-faint)] hover:text-[var(--accent)] transition-colors"
+            >
+              Confidentialité
+            </Link>
+          </div>
           <StudioStatus />
         </div>
       </div>
