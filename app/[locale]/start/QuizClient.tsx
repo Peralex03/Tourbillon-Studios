@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { whatsappUrl } from "@/lib/whatsapp";
 import {
   STEPS,
   STEP_BY_ID,
@@ -29,7 +30,7 @@ export default function QuizClient({ locale, mode = "fullscreen" }: Props) {
   const isEmbed = mode === "embed";
   const t = useTranslations("quiz");
 
-  const [currentId, setCurrentId] = useState<StepId>("project");
+  const [currentId, setCurrentId] = useState<StepId>("domain");
   const [history, setHistory] = useState<StepId[]>([]);
   const [answers, setAnswers] = useState<QuizAnswers>({});
   const [status, setStatus] = useState<Status>("idle");
@@ -76,6 +77,15 @@ export default function QuizClient({ locale, mode = "fullscreen" }: Props) {
   }, [history]);
 
   function pickChoice(choiceId: string, next?: StepId) {
+    // Image track: redirect straight to WhatsApp instead of the web quiz.
+    if (currentStep.id === "domain" && choiceId === "image") {
+      window.open(
+        whatsappUrl(t("imagePrefill")),
+        "_blank",
+        "noopener,noreferrer"
+      );
+      return;
+    }
     if (!currentStep.storeAs) return;
     const label = t(`tree.${currentStep.id}.choices.${choiceId}.label`);
     setAnswers((a) => ({ ...a, [currentStep.storeAs]: label }));

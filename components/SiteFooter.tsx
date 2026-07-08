@@ -32,7 +32,6 @@ export default async function SiteFooter() {
               <ul className="space-y-3 text-[0.95rem]">
                 <li><Link href="/about" className="text-[var(--text)] hover:text-[var(--accent)] transition-colors">{tNav("about")}</Link></li>
                 <li><Link href="/services" className="text-[var(--text)] hover:text-[var(--accent)] transition-colors">{tNav("services")}</Link></li>
-                <li><Link href="/process" className="text-[var(--text)] hover:text-[var(--accent)] transition-colors">{tNav("process")}</Link></li>
                 <li><Link href="/pricing" className="text-[var(--text)] hover:text-[var(--accent)] transition-colors">{tNav("pricing")}</Link></li>
                 <li><Link href="/blog" className="text-[var(--text)] hover:text-[var(--accent)] transition-colors">{tNav("blog")}</Link></li>
                 <li><Link href="/contact" className="text-[var(--text)] hover:text-[var(--accent)] transition-colors">{tNav("contact")}</Link></li>

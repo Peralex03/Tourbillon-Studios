@@ -12,12 +12,10 @@
   },
   "metadata": {
     "aboutTitle": "About · Tourbillon Studios",
-    "processTitle": "48h Method · Tourbillon Studios",
     "contactTitle": "Contact · Tourbillon Studios"
   },
   "nav": {
     "about": "About",
-    "process": "Method",
     "pricing": "Pricing",
     "portfolio": "Portfolio",
     "services": "Services",
@@ -33,14 +31,14 @@
   "home": {
     "heroLine1": "Professional",
     "heroLine2": "websites",
-    "heroLine3Italic": "delivered in",
-    "heroLine3End": "48 hours.",
+    "heroLine3Italic": "delivered",
+    "heroLine3End": "turnkey.",
     "heroSubtitle": "Swiss digital studio. Design, development and hosting in a monthly subscription. No setup fees, no commitment.",
     "ctaPrimary": "Discover our plans",
     "ctaSecondary": "See the method",
     "metricsEyebrow": "Measured performance",
-    "metric1Value": "48 h",
-    "metric1Label": "Average delivery time, from brief to publication",
+    "metric1Value": "0 CHF",
+    "metric1Label": "Setup fees · you only pay the monthly subscription",
     "metric2Value": "95+",
     "metric2Label": "Average Lighthouse score across all our deliveries",
     "metric3Value": "+34 %",
@@ -59,7 +57,7 @@
     "bookingDescription": "Message us directly on WhatsApp · free and with no strings attached. We'll discuss your needs and the best-suited solution together.",
     "bookingBenefit1": "Fast, direct reply · call or video on request",
     "bookingBenefit2": "Clear answer on feasibility and timeline",
-    "bookingBenefit3": "Quote within 48 h after our chat, if you'd like to move forward",
+    "bookingBenefit3": "A clear quote after our chat, if you'd like to move forward",
     "discoveryCallLabel": "First chat",
     "discoveryCallDuration": "Free · no obligation",
     "availabilityLabel": "Availability",
@@ -83,64 +81,13 @@
     "manifestoTitle": "Our reason for being",
     "manifestoP1": "The web market in Switzerland lacks transparency. Quotes at CHF 15,000 for sites built on generic templates, months of waiting for features deliverable in days, services billed without clear visibility on what is actually produced.",
     "manifestoP2": "Tourbillon Studios was founded to offer an alternative. Our conviction: a website is a commercial tool, not a work of art. It must be delivered quickly, convert visitors into clients, and represent a justified investment.",
-    "manifestoP3": "Our commitment: 48 hours between quote signing and going live. A single monthly price, no setup fees, no fixed term. If we miss the deadline, your first month is free.",
+    "manifestoP3": "Our commitment: a professional website designed and put online quickly, with no friction. A single monthly price, no setup fees, no fixed-term commitment.",
     "valuesEyebrow": "Our commitments",
     "valuesTitle": "Four principles that guide every project.",
     "teamEyebrow": "The team",
     "teamTitle": "A lean, autonomous structure.",
-    "behindCodeEyebrow": "Behind the code",
-    "behindCodeHeadingStart": "How we",
-    "behindCodeHeadingItalic": "build",
-    "behindCodeDescription": "Our production workshop · equipment, tools and working environment.",
-    "behindCode": {
-      "studioLabel": "Workshop",
-      "studioTitle": "Main studio · Geneva",
-      "stackLabel": "Stack",
-      "stackTitle": "Tools and environment",
-      "processLabel": "Process",
-      "processTitle": "Live tracking",
-      "qualityLabel": "Quality",
-      "qualityTitle": "Tests and performance",
-      "deliveryLabel": "Delivery",
-      "deliveryTitle": "Continuous deployment"
-    },
     "citiesEyebrow": "Locations",
     "citiesTitle": "Three cities, one single standard."
-  },
-  "process": {
-    "eyebrow": "Method",
-    "heroLine1": "The",
-    "heroLine2Italic": "48-hour method",
-    "heroSubtitle": "Four structured steps, a contractually guaranteed deadline, one month free if we overrun.",
-    "step1Number": "01",
-    "step1Title": "Brief · 2 hours",
-    "step1Description": "Scoping video call. We define your goals, your audience, the available content and existing visual identity. You leave with a written summary and a precise plan.",
-    "step2Number": "02",
-    "step2Title": "Build · 24 to 36 hours",
-    "step2Description": "Architecture, design and integration. You follow progress live on a private URL. No intermediate meetings: we build, you watch.",
-    "step3Number": "03",
-    "step3Title": "Live preview · H+36",
-    "step3Description": "You receive the final URL. You test on your devices, browsers, with your content. Approval or list of tweaks to make.",
-    "step4Number": "04",
-    "step4Title": "Tweaks · 7 days",
-    "step4Description": "One week to refine what needs refining: copy, colors, structure. All tweaks are included in the subscription, with no limit.",
-    "guaranteeEyebrow": "Guarantee",
-    "guaranteeTitle": "Missed deadline? The first month is free.",
-    "guaranteeBody": "We meet this deadline on 99 % of our Starter and Pro projects. When we don't, the commitment stands: the first month is free, with no conditions.",
-    "faqEyebrow": "FAQ",
-    "faqTitle": "Frequent questions",
-    "faqQ1": "What happens if my content isn't ready?",
-    "faqA1": "We can draft the copy for you, optionally. Failing that, we use placeholder content that we replace during the tweaks period. The 48-hour guarantee only applies if essential content is provided at the brief.",
-    "faqQ2": "What about Custom projects?",
-    "faqA2": "Custom projects (web app, advanced e-commerce) naturally go beyond the 48-hour scope. We communicate a tailored timeline after the brief, typically one to four weeks.",
-    "faqQ3": "What happens during the 36 hours of build?",
-    "faqA3": "The team builds. You access the private URL and follow construction section by section. No intermediate slides, no wireframes in meetings: code shipped from the first hour.",
-    "faqQ4": "Can I change direction mid-way?",
-    "faqA4": "During the tweaks week, yes. During the 36-hour build, no · that's the condition to hit the deadline. The brief remains the decisive moment.",
-    "ctaHeadingStart": "Ready to",
-    "ctaHeadingItalic": "start a project",
-    "ctaHeadingEnd": "?",
-    "ctaButton": "Start now"
   },
   "pricing": {
     "eyebrow": "Pricing",
@@ -154,16 +101,9 @@
     "everyPlanIncludes": "Included in every plan",
     "ownershipTitle": "Everything handled, end to end.",
     "ownershipBody": "Swiss hosting, .ch domain, SSL certificate, updates and edits: it's all included in your monthly subscription. You have nothing to manage, we take care of everything.",
-    "roiTitle": "Estimate the return on investment",
-    "roiBody": "A quick simulation to visualise what a site converting at +34 % can generate for your business.",
-    "roiVisitorsLabel": "Current monthly visitors",
-    "roiAvgValueLabel": "Average client value (CHF)",
-    "roiCurrentRateLabel": "Current conversion rate (%)",
-    "roiResultLabel": "Estimated monthly gain",
-    "roiResultNote": "Estimate based on an average +34 % improvement in conversion rate observed across our projects.",
     "faqTitle": "Subscription questions",
-    "ctaHeadingStart": "Start a project in",
-    "ctaHeadingItalic": "48 hours",
+    "ctaHeadingStart": "Launch your",
+    "ctaHeadingItalic": "project",
     "ctaButton": "Start now",
     "comparisonEyebrow": "Comparison",
     "comparisonHeading": "Everything that's included, plan by plan.",
@@ -171,9 +111,9 @@
     "plans": {
       "starter": {
         "tagline": "Establish a professional digital presence.",
-        "description": "Professional showcase website delivered in 48 hours. All services are included in the monthly subscription.",
+        "description": "A turnkey professional showcase site. All services are included in the monthly subscription.",
         "feature1": "Showcase site up to 5 pages",
-        "feature2": "Delivery in 48 working hours",
+        "feature2": "Turnkey go-live",
         "feature3": "Vercel hosting included",
         "feature4": ".ch domain included",
         "feature5": "Automatic SSL certificate",
@@ -189,7 +129,7 @@
         "tagline": "The plan most chosen by Swiss SMEs.",
         "description": "Professional showcase website with blog, local SEO, multilingual and simplified content management. All services included in the monthly subscription.",
         "feature1": "Showcase site up to 15 pages + blog",
-        "feature2": "Delivery in 48 working hours",
+        "feature2": "Turnkey go-live",
         "feature3": "Vercel hosting included",
         "feature4": ".ch domain included",
         "feature5": "Automatic SSL certificate",
@@ -217,7 +157,7 @@
     },
     "comparison": {
       "pages": "Pages included",
-      "delivery48h": "Delivery in 48 hours",
+      "delivery48h": "Turnkey delivery",
       "vercel": "Vercel hosting included",
       "chDomain": ".ch domain included",
       "ssl": "SSL certificate",
@@ -244,8 +184,8 @@
       "a2": "Everything: design, development, Swiss hosting, .ch domain, SSL certificate, maintenance and unlimited edits. No hidden fees, no setup costs.",
       "q3": "How does billing work?",
       "a3": "Automatic monthly subscription. No long-term contract, no hidden fees. You pay the same amount every month.",
-      "q4": "What if you miss the 48 hours?",
-      "a4": "We offer you 1 free month of subscription per day of delay. We keep our promises.",
+      "q4": "How long does it take to go live?",
+      "a4": "It depends on scope. A showcase site is ready within a few days, a Custom project according to its complexity. We give you a precise timeline after the brief.",
       "q5": "Can I change plan?",
       "a5": "Yes, no penalty. You can upgrade or downgrade at any time, prorated.",
       "q6": "Are there setup fees?",
@@ -283,7 +223,27 @@
       "rationaleVitrineSmall": "For a simple showcase site up to 5 pages, the Starter plan covers the essentials: fast delivery, hosting, basic SEO.",
       "rationaleVitrineMedium": "For a fuller showcase site with blog, multilingual and advanced SEO/GEO, the Pro plan is the most suitable solution.",
       "rationaleVitrineLarge": "For a showcase site with more than 15 pages or specific needs, the Custom plan offers the required flexibility."
-    }
+    },
+    "priceFrom": "From",
+    "chooserEyebrow": "Two crafts",
+    "chooseSiteTitle": "Website",
+    "chooseSiteDesc": "Design, development and hosting, on a monthly subscription.",
+    "chooseSiteCta": "See the plans",
+    "choosePhotoTitle": "Photo · video",
+    "choosePhotoDesc": "Shoots, films and brand content, quoted per project.",
+    "choosePhotoCta": "Request a quote",
+    "siteEyebrow": "Website · subscription",
+    "photoEyebrow": "Photo · video · on quote",
+    "photoTitle": "A tailored quote for your visuals",
+    "photoBody": "Every photo or video project is unique. Tell us what you need and we'll put together a clear, fitting quote.",
+    "photoItems": [
+      "Product and corporate photo shoots",
+      "Brand films and social media videos",
+      "Event coverage",
+      "3D visualisation and architecture"
+    ],
+    "photoCta": "Request a quote",
+    "photoPortfolio": "See the portfolio"
   },
   "work": {
     "eyebrow": "Work",
@@ -325,7 +285,7 @@
     },
     "deadline": "Desired timeline",
     "deadlineOptions": {
-      "asap": "As soon as possible (48 hours)",
+      "asap": "As soon as possible",
       "month": "Within the month",
       "quarter": "Within the quarter",
       "flexible": "Flexible"
@@ -343,7 +303,7 @@
     "availability": "Availability"
   },
   "footer": {
-    "tagline": "Swiss digital studio. Professional sites delivered in 48 hours, on a monthly subscription.",
+    "tagline": "Swiss digital studio. Turnkey professional websites, on a monthly subscription.",
     "explore": "Explore",
     "contact": "Contact",
     "rights": "All rights reserved.",
@@ -411,6 +371,20 @@
     "successBlog": "Read our journal",
     "successHome": "Back to home",
     "tree": {
+      "domain": {
+        "eyebrow": "What you need",
+        "question": "What are you looking for?",
+        "choices": {
+          "web": {
+            "label": "A website",
+            "hint": "Showcase, e-commerce or application."
+          },
+          "image": {
+            "label": "Photo / video",
+            "hint": "Shoots, films, brand content."
+          }
+        }
+      },
       "project": {
         "eyebrow": "Project",
         "question": "What type of project would you like to launch?",
@@ -480,7 +454,7 @@
         "question": "When would you like to go live?",
         "choices": {
           "48h": {
-            "label": "Within 48 hours",
+            "label": "As soon as possible",
             "hint": "Express turnaround, standard method."
           },
           "month": {
@@ -535,7 +509,8 @@
           }
         }
       }
-    }
+    },
+    "imagePrefill": "Hello, I'd like a quote for photo / video."
   },
   "team": {
     "alex": {
@@ -543,16 +518,11 @@
       "role": "Founder · Direction & Design",
       "bio": "Six years of experience in agency and SaaS environments. Specialised in product design and conversion strategy."
     },
-    "claude": {
-      "name": "Claude",
-      "role": "Editorial engine",
-      "bio": "Autonomous intelligent agent in charge of the daily writing and publication of the editorial journal, optimised for SEO and GEO."
-    },
     "values": {
       "speed": {
         "eyebrow": "01",
         "title": "Speed",
-        "body": "48 hours to deliver a professional site. Time is your rarest asset. Our method is calibrated to preserve it."
+        "body": "Deliver fast, without ever sacrificing quality. Time is your rarest asset: our method is calibrated to protect it."
       },
       "precision": {
         "eyebrow": "02",
@@ -582,7 +552,7 @@
       "excerpt": "Editorial showcase site for a high-end concierge service. Complete redesign with editorial design and integrated booking system.",
       "story": "A luxury concierge based in Geneva wanted to modernise their website to reflect the high-end positioning of their services.",
       "challenge": "Rebuild an editorial site that highlights the quality of service, without falling into luxury cliché.",
-      "solution": "Sober editorial design, careful photography, lean user journey. Integrated booking system. Site delivered in 48 hours."
+      "solution": "Sober editorial design, careful photography, lean user journey. Integrated booking system. Site delivered turnkey."
     },
     "fashion": {
       "title": "Contemporary fashion e-commerce",
@@ -596,7 +566,7 @@
       "excerpt": "Immersive showcase site for an event restaurant in Milan.",
       "story": "An event restaurant in Milan wanted a site reflecting the unique atmosphere of the venue.",
       "challenge": "Capture the strong visual identity of the venue in a website.",
-      "solution": "Editorial art direction, professional photography, multilingual IT/EN/FR. Integrated booking system. Delivered in 48 hours."
+      "solution": "Editorial art direction, professional photography, multilingual IT/EN/FR. Integrated booking system. Delivered turnkey."
     }
   },
   "gallery": {
@@ -876,7 +846,7 @@
     "subtitle": "We design your online presence end to end: the website that converts, and the imagery that brings it to life.",
     "web": {
       "label": "Web · subscription",
-      "title": "Websites delivered in 48 hours",
+      "title": "Turnkey professional websites",
       "body": "Design, development and hosting of a professional website on a monthly subscription, with no setup fees. Built to turn your visitors into customers.",
       "items": [
         "Showcase sites and e-commerce",
@@ -886,7 +856,7 @@
         "Redesign of an existing site"
       ],
       "cta": "See the plans",
-      "ctaSecondary": "Our 48-hour method"
+      "ctaSecondary": "Start a project"
     },
     "image": {
       "label": "Image · per project",

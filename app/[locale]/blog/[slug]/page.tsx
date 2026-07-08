@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import {
-  getAllPosts,
   getPostBySlug,
   getRelatedPosts,
   formatDate,
@@ -10,10 +9,6 @@ import {
 import { Link } from "@/i18n/navigation";
 import BlogCard from "@/components/BlogCard";
 import Button from "@/components/Button";
-
-export async function generateStaticParams() {
-  return getAllPosts().map((post) => ({ slug: post.slug }));
-}
 
 export async function generateMetadata({
   params,

@@ -6,6 +6,7 @@
  */
 
 export type StepId =
+  | "domain"
   | "project"
   | "speed"
   | "scale_ecommerce"
@@ -31,6 +32,14 @@ export interface Step {
 }
 
 export const STEPS: Step[] = [
+  {
+    id: "domain",
+    storeAs: "track",
+    choices: [
+      { id: "web", next: "project" },
+      { id: "image" }, // special: redirects to WhatsApp, handled in QuizClient
+    ],
+  },
   {
     id: "project",
     storeAs: "projectType",
@@ -114,6 +123,7 @@ export const STEP_BY_ID: Record<StepId, Step> = Object.fromEntries(
 export const VISIBLE_STEPS_COUNT = STEPS.filter((s) => s.id !== "summary").length;
 
 export interface QuizAnswers {
+  track?: string;
   projectType?: string;
   scale?: string;
   complexity?: string;

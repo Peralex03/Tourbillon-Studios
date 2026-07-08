@@ -5,7 +5,6 @@
 
 export const TEAM_MEMBERS = [
   { id: "alex", initials: "AP" },
-  { id: "claude", initials: "TB" },
 ] as const;
 
 export const VALUE_KEYS = ["speed", "precision", "transparency", "performance"] as const;

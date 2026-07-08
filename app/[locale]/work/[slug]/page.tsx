@@ -1,15 +1,11 @@
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { getAllProjects, getProjectBySlug } from "@/lib/projects";
+import { getProjectBySlug } from "@/lib/projects";
 
 export const metadata = {
   robots: { index: false, follow: false },
 };
-
-export async function generateStaticParams() {
-  return getAllProjects().map((p) => ({ slug: p.slug }));
-}
 
 export default async function ProjectPage({
   params,

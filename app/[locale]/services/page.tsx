@@ -49,7 +49,7 @@ export default async function ServicesPage() {
             ctaLabel={t("web.cta")}
             ctaHref="/pricing"
             ctaSecondaryLabel={t("web.ctaSecondary")}
-            ctaSecondaryHref="/process"
+            ctaSecondaryHref="/start"
           />
           <Pole
             label={t("image.label")}

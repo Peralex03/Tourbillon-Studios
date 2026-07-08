@@ -1,7 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { PRICING_PLANS, PRICING_COMPARISON, PRICING_FAQ_COUNT } from "@/lib/pricing";
-import RoiCalculator from "./RoiCalculator";
 import Accordion from "@/components/Accordion";
 import FeaturedTopo from "@/components/FeaturedTopo";
 import PlanRecommender from "./PlanRecommender";
@@ -22,6 +21,8 @@ export default async function PricingPage() {
     q: t(`faq.q${i + 1}` as "faq.q1"),
     a: t(`faq.a${i + 1}` as "faq.a1"),
   }));
+
+  const photoItems = t.raw("photoItems") as string[];
 
   return (
     <>
@@ -45,10 +46,48 @@ export default async function PricingPage() {
       </section>
 
       {/* ============================================
-          PLANS GRID
+          CHOOSER · site web vs photo (top, so visitors don't get lost)
           ============================================ */}
-      <section className="px-6 lg:px-10 py-20 lg:py-28 border-b border-[var(--stroke)]">
+      <section className="px-6 lg:px-10 py-14 lg:py-20 border-b border-[var(--stroke)]">
         <div className="mx-auto max-w-[1400px]">
+          <div className="text-eyebrow mb-8">{t("chooserEyebrow")}</div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
+            <a
+              href="#site"
+              className="glass glass-shine group rounded-lg p-7 lg:p-9 flex flex-col hover:border-[var(--accent)] transition-colors"
+            >
+              <h2 className="text-h3 text-[var(--text)]">{t("chooseSiteTitle")}</h2>
+              <p className="mt-3 text-[var(--text-dim)] text-[0.9375rem] leading-relaxed flex-1">
+                {t("chooseSiteDesc")}
+              </p>
+              <span className="mt-6 inline-flex items-center gap-2 text-[0.9375rem] font-medium text-[var(--accent)]">
+                {t("chooseSiteCta")}
+                <ArrowIcon />
+              </span>
+            </a>
+            <a
+              href="#photo"
+              className="glass glass-shine group rounded-lg p-7 lg:p-9 flex flex-col hover:border-[var(--accent)] transition-colors"
+            >
+              <h2 className="text-h3 text-[var(--text)]">{t("choosePhotoTitle")}</h2>
+              <p className="mt-3 text-[var(--text-dim)] text-[0.9375rem] leading-relaxed flex-1">
+                {t("choosePhotoDesc")}
+              </p>
+              <span className="mt-6 inline-flex items-center gap-2 text-[0.9375rem] font-medium text-[var(--accent)]">
+                {t("choosePhotoCta")}
+                <ArrowIcon />
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================
+          PLANS GRID · site web
+          ============================================ */}
+      <section id="site" className="scroll-mt-24 px-6 lg:px-10 py-20 lg:py-28 border-b border-[var(--stroke)]">
+        <div className="mx-auto max-w-[1400px]">
+          <div className="text-eyebrow mb-10">{t("siteEyebrow")}</div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
             {PRICING_PLANS.map((plan) => (
               <article
@@ -76,6 +115,9 @@ export default async function PricingPage() {
                 </header>
 
                 <div className="mb-7 pb-7 border-b border-[var(--stroke)]">
+                  <div className="font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-faint)] mb-1.5">
+                    {t("priceFrom")}
+                  </div>
                   <div className="flex items-baseline gap-2">
                     <span className="text-[clamp(2.5rem,5vw,3.5rem)] font-medium tracking-tight leading-none text-[var(--text)]">
                       {plan.monthlyPrice}
@@ -196,27 +238,40 @@ export default async function PricingPage() {
       </section>
 
       {/* ============================================
-          ROI CALCULATOR
+          PHOTO · devis sur mesure
           ============================================ */}
-      <section className="px-6 lg:px-10 py-20 lg:py-28 border-b border-[var(--stroke)]">
-        <div className="mx-auto max-w-[1100px]">
-          <div className="text-eyebrow mb-5">ROI</div>
-          <h2 className="text-h2 text-[var(--text)]">
-            {t("roiTitle")}
-          </h2>
-          <p className="mt-5 text-[var(--text-dim)] text-[1rem] max-w-xl leading-relaxed">
-            {t("roiBody")}
-          </p>
-
-          <div className="mt-10">
-            <RoiCalculator
-              visitorsLabel={t("roiVisitorsLabel")}
-              avgValueLabel={t("roiAvgValueLabel")}
-              currentRateLabel={t("roiCurrentRateLabel")}
-              resultLabel={t("roiResultLabel")}
-              resultNote={t("roiResultNote")}
-            />
+      <section id="photo" className="scroll-mt-24 px-6 lg:px-10 py-20 lg:py-28 border-b border-[var(--stroke)]">
+        <div className="mx-auto max-w-[1400px] grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+          <div>
+            <div className="text-eyebrow mb-6">{t("photoEyebrow")}</div>
+            <h2 className="text-h2 text-[var(--text)]">{t("photoTitle")}</h2>
+            <p className="mt-5 text-[var(--text-dim)] text-[1rem] max-w-xl leading-relaxed">
+              {t("photoBody")}
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[var(--accent)] text-[var(--accent-ink)] text-[0.9375rem] font-medium hover:bg-[var(--accent-hover)] transition-colors"
+              >
+                {t("photoCta")}
+                <ArrowIcon />
+              </Link>
+              <Link
+                href="/image"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-[var(--stroke-strong)] text-[var(--text)] text-[0.9375rem] hover:border-[var(--text)] transition-colors"
+              >
+                {t("photoPortfolio")}
+              </Link>
+            </div>
           </div>
+          <ul className="glass rounded-lg p-7 lg:p-9 space-y-4">
+            {photoItems.map((item, i) => (
+              <li key={i} className="flex items-start gap-3 text-[0.95rem] text-[var(--text)]">
+                <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[var(--accent)] shrink-0" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
