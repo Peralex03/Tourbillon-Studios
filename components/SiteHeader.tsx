@@ -8,6 +8,7 @@ import ThemeToggle from "./ThemeToggle";
 
 const NAV_ITEMS = [
   { key: "about", href: "/about" },
+  { key: "services", href: "/services" },
   { key: "process", href: "/process" },
   { key: "pricing", href: "/pricing" },
   { key: "portfolio", href: "/image" },

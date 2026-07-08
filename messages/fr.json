@@ -19,6 +19,7 @@
     "process": "Méthode",
     "pricing": "Tarifs",
     "portfolio": "Portfolio",
+    "services": "Services",
     "blog": "Journal",
     "contact": "Contact",
     "cta": "Démarrer un projet",
@@ -864,5 +865,45 @@
         ]
       }
     ]
+  },
+  "services": {
+    "metaTitle": "Services · Tourbillon Studios",
+    "metaDescription": "Deux savoir-faire complémentaires : création de sites web en abonnement et production photo et vidéo de marque. Genève · Lausanne · Zürich.",
+    "eyebrow": "Services",
+    "headingStart": "Deux savoir-faire,",
+    "headingItalic": "un seul studio",
+    "subtitle": "Nous concevons votre présence en ligne de bout en bout : le site qui convertit, et les images qui lui donnent vie.",
+    "web": {
+      "label": "Web · en abonnement",
+      "title": "Sites web livrés en 48 heures",
+      "body": "Conception, développement et hébergement d'un site professionnel, en abonnement mensuel et sans frais d'installation. Pensé pour transformer vos visiteurs en clients.",
+      "items": [
+        "Sites vitrines et e-commerce",
+        "Applications web sur mesure",
+        "Hébergement suisse, maintenance et retouches incluses",
+        "Référencement local et multilingue FR/DE/IT/EN",
+        "Refonte de site existant"
+      ],
+      "cta": "Voir les formules",
+      "ctaSecondary": "Notre méthode 48 h"
+    },
+    "image": {
+      "label": "Image · sur projet",
+      "title": "Photo et vidéo de marque",
+      "body": "Production de contenus visuels haut de gamme pour valoriser vos produits, vos espaces et votre marque. Chaque projet est cadré et devisé sur mesure.",
+      "items": [
+        "Shooting photo produit et corporate",
+        "Films de marque et vidéos pour les réseaux sociaux",
+        "Reportage événementiel",
+        "Visualisation 3D et architecture",
+        "Direction éditoriale et artistique"
+      ],
+      "cta": "Voir le portfolio",
+      "ctaSecondary": "Demander un devis"
+    },
+    "ctaHeadingStart": "Un projet",
+    "ctaHeadingItalic": "web ou image",
+    "ctaBody": "Parlons-en. Nous vous répondons sous 24 heures ouvrées.",
+    "ctaButton": "Discuter de votre projet"
   }
 }

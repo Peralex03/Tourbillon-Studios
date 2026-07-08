@@ -19,6 +19,7 @@
     "process": "Method",
     "pricing": "Pricing",
     "portfolio": "Portfolio",
+    "services": "Services",
     "blog": "Journal",
     "contact": "Contact",
     "cta": "Start a project",
@@ -864,5 +865,45 @@
         ]
       }
     ]
+  },
+  "services": {
+    "metaTitle": "Services · Tourbillon Studios",
+    "metaDescription": "Two complementary crafts: subscription websites and premium brand photo and video production. Geneva · Lausanne · Zürich.",
+    "eyebrow": "Services",
+    "headingStart": "Two crafts,",
+    "headingItalic": "one studio",
+    "subtitle": "We design your online presence end to end: the website that converts, and the imagery that brings it to life.",
+    "web": {
+      "label": "Web · subscription",
+      "title": "Websites delivered in 48 hours",
+      "body": "Design, development and hosting of a professional website on a monthly subscription, with no setup fees. Built to turn your visitors into customers.",
+      "items": [
+        "Showcase sites and e-commerce",
+        "Custom web applications",
+        "Swiss hosting, maintenance and edits included",
+        "Local SEO and multilingual FR/DE/IT/EN",
+        "Redesign of an existing site"
+      ],
+      "cta": "See the plans",
+      "ctaSecondary": "Our 48-hour method"
+    },
+    "image": {
+      "label": "Image · per project",
+      "title": "Brand photo and video",
+      "body": "Production of premium visual content to showcase your products, your spaces and your brand. Every project is scoped and quoted individually.",
+      "items": [
+        "Product and corporate photo shoots",
+        "Brand films and social media videos",
+        "Event coverage",
+        "3D visualisation and architecture",
+        "Editorial and art direction"
+      ],
+      "cta": "See the portfolio",
+      "ctaSecondary": "Request a quote"
+    },
+    "ctaHeadingStart": "A web or",
+    "ctaHeadingItalic": "image project",
+    "ctaBody": "Let's talk. We reply within 24 business hours.",
+    "ctaButton": "Discuss your project"
   }
 }
