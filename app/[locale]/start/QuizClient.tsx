@@ -2,12 +2,12 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import {
   STEPS,
   STEP_BY_ID,
   VISIBLE_STEPS_COUNT,
-  LABELS,
   type StepId,
   type QuizAnswers,
 } from "@/lib/quiz";
@@ -27,6 +27,7 @@ interface Props {
 
 export default function QuizClient({ locale, mode = "fullscreen" }: Props) {
   const isEmbed = mode === "embed";
+  const t = useTranslations("quiz");
 
   const [currentId, setCurrentId] = useState<StepId>("project");
   const [history, setHistory] = useState<StepId[]>([]);
@@ -74,10 +75,10 @@ export default function QuizClient({ locale, mode = "fullscreen" }: Props) {
     setErrorMsg(null);
   }, [history]);
 
-  function pickChoice(choiceId: string, label: string, next?: StepId) {
+  function pickChoice(choiceId: string, next?: StepId) {
     if (!currentStep.storeAs) return;
+    const label = t(`tree.${currentStep.id}.choices.${choiceId}.label`);
     setAnswers((a) => ({ ...a, [currentStep.storeAs]: label }));
-    void choiceId;
     if (next) goNext(next);
   }
 
@@ -136,7 +137,7 @@ export default function QuizClient({ locale, mode = "fullscreen" }: Props) {
       const idx = parseInt(e.key, 10);
       if (idx >= 1 && idx <= currentStep.choices.length) {
         const c = currentStep.choices[idx - 1];
-        pickChoice(c.id, c.label, c.next);
+        pickChoice(c.id, c.next);
       }
     }
     window.addEventListener("keydown", onKey);
@@ -160,12 +161,12 @@ export default function QuizClient({ locale, mode = "fullscreen" }: Props) {
           onClick={goBack}
           disabled={history.length === 0}
           className="font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-dim)] hover:text-[var(--text)] disabled:opacity-30 transition-colors flex items-center gap-2"
-          aria-label="Question précédente"
+          aria-label={t("previousQuestion")}
         >
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
             <path d="M19 12H5M12 19l-7-7 7-7" />
           </svg>
-          <span className="hidden sm:inline">Retour</span>
+          <span className="hidden sm:inline">{t("back")}</span>
         </button>
 
         {/* Quit · only in fullscreen mode */}
@@ -173,9 +174,9 @@ export default function QuizClient({ locale, mode = "fullscreen" }: Props) {
           <Link
             href="/"
             className="font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-dim)] hover:text-[var(--text)] transition-colors flex items-center gap-2"
-            aria-label="Quitter"
+            aria-label={t("quit")}
           >
-            <span className="hidden sm:inline">Quitter</span>
+            <span className="hidden sm:inline">{t("quit")}</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
               <path d="M5 5l14 14M19 5L5 19" />
             </svg>
@@ -185,7 +186,7 @@ export default function QuizClient({ locale, mode = "fullscreen" }: Props) {
             href="#below-quiz"
             className="font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-dim)] hover:text-[var(--text)] transition-colors flex items-center gap-2"
           >
-            <span className="hidden sm:inline">Découvrir le studio</span>
+            <span className="hidden sm:inline">{t("discoverStudio")}</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
               <path d="M12 5v14M5 12l7 7 7-7" />
             </svg>
@@ -260,7 +261,7 @@ export default function QuizClient({ locale, mode = "fullscreen" }: Props) {
           </div>
           {currentStep.id !== "contact" && (
             <div className="text-center font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-faint)] hidden sm:block">
-              Astuce · touches 1, 2, 3 ou 4 du clavier
+              {t("keyboardHint")}
             </div>
           )}
         </div>
@@ -281,37 +282,42 @@ function ChoiceStep({
   step: (typeof STEPS)[number];
   visibleIndex: number;
   total: number;
-  onPick: (id: string, label: string, next?: StepId) => void;
+  onPick: (id: string, next?: StepId) => void;
 }) {
+  const t = useTranslations("quiz");
+  const base = `tree.${step.id}`;
   return (
     <div className="grid grid-cols-12 gap-6 lg:gap-10 items-start">
       {/* Eyebrow + Question · left column */}
       <div className="col-span-12 lg:col-span-5">
         <div className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-[var(--accent)] mb-4">
-          {String(visibleIndex + 1).padStart(2, "0")} / {String(total).padStart(2, "0")} · {step.eyebrow}
+          {String(visibleIndex + 1).padStart(2, "0")} / {String(total).padStart(2, "0")} · {t(`${base}.eyebrow`)}
         </div>
         <h2 className="text-display text-[var(--text)]">
-          {step.question}
+          {t(`${base}.question`)}
         </h2>
-        {step.subtitle && (
+        {step.hasSubtitle && (
           <p className="mt-5 text-[1rem] text-[var(--text-dim)] max-w-md leading-relaxed">
-            {step.subtitle}
+            {t(`${base}.subtitle`)}
           </p>
         )}
       </div>
 
       {/* Choices grid · right column, glass cards */}
       <div className="col-span-12 lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3">
-        {step.choices.map((choice, i) => (
-          <GlassChoice
-            key={choice.id}
-            index={i}
-            label={choice.label}
-            hint={choice.hint}
-            onClick={() => onPick(choice.id, choice.label, choice.next)}
-            delay={0.1 + i * 0.05}
-          />
-        ))}
+        {step.choices.map((choice, i) => {
+          const hintKey = `${base}.choices.${choice.id}.hint`;
+          return (
+            <GlassChoice
+              key={choice.id}
+              index={i}
+              label={t(`${base}.choices.${choice.id}.label`)}
+              hint={t.has(hintKey) ? t(hintKey) : undefined}
+              onClick={() => onPick(choice.id, choice.next)}
+              delay={0.1 + i * 0.05}
+            />
+          );
+        })}
       </div>
     </div>
   );
@@ -402,6 +408,7 @@ function ContactStep({
   }) => void;
   onBack: () => void;
 }) {
+  const t = useTranslations("quiz");
   const sending = status === "sending";
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -420,27 +427,28 @@ function ContactStep({
     <div className="grid grid-cols-12 gap-6 lg:gap-10 items-start">
       <div className="col-span-12 lg:col-span-5">
         <div className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-[var(--accent)] mb-4">
-          {String(visibleIndex + 1).padStart(2, "0")} / {String(total).padStart(2, "0")} · Coordonnées
+          {String(visibleIndex + 1).padStart(2, "0")} / {String(total).padStart(2, "0")} · {t("coordinatesSection")}
         </div>
         <h2 className="text-display text-[var(--text)]">
-          Comment pouvons-nous{" "}
-          <span className="accent-serif">vous joindre</span> ?
+          {t.rich("contactHeading", {
+            i: (chunks) => <span className="accent-serif">{chunks}</span>,
+          })}
         </h2>
         <p className="mt-5 text-[1rem] text-[var(--text-dim)] max-w-md leading-relaxed">
-          Réponse sous 24 heures ouvrées.
+          {t("responseNote")}
         </p>
 
         {/* Mini recap */}
         <div className="mt-10 hidden lg:block space-y-2.5 glass p-5 rounded-lg">
           <div className="font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-faint)] mb-2">
-            Récapitulatif
+            {t("summarySection")}
           </div>
-          {answers.projectType && <RecapLine label="Projet" value={answers.projectType} />}
-          {answers.scale && <RecapLine label="Catalogue" value={answers.scale} />}
-          {answers.complexity && <RecapLine label="Périmètre" value={answers.complexity} />}
-          {answers.speed && <RecapLine label="Délai" value={answers.speed} />}
-          {answers.plan && <RecapLine label="Formule" value={answers.plan} />}
-          {answers.size && <RecapLine label="Structure" value={answers.size} />}
+          {answers.projectType && <RecapLine label={t("summaryProject")} value={answers.projectType} />}
+          {answers.scale && <RecapLine label={t("summaryCatalog")} value={answers.scale} />}
+          {answers.complexity && <RecapLine label={t("summaryScope")} value={answers.complexity} />}
+          {answers.speed && <RecapLine label={t("summaryDeadline")} value={answers.speed} />}
+          {answers.plan && <RecapLine label={t("summaryPlan")} value={answers.plan} />}
+          {answers.size && <RecapLine label={t("summaryStructure")} value={answers.size} />}
         </div>
       </div>
 
@@ -448,49 +456,49 @@ function ContactStep({
         onSubmit={handleSubmit}
         className="col-span-12 lg:col-span-7 space-y-6 glass p-6 lg:p-8 rounded-lg"
       >
-        <QuizField id="name" label="Nom complet" required>
+        <QuizField id="name" label={t("fullName")} required>
           <input
             id="name"
             name="name"
             type="text"
             required
             autoComplete="name"
-            placeholder="Prénom Nom"
+            placeholder={t("fullNamePlaceholder")}
             className="quiz-input"
             defaultValue={answers.name}
           />
         </QuizField>
 
-        <QuizField id="email" label="Adresse email" required>
+        <QuizField id="email" label={t("emailLabel")} required>
           <input
             id="email"
             name="email"
             type="email"
             required
             autoComplete="email"
-            placeholder="vous@entreprise.ch"
+            placeholder={t("emailPlaceholder")}
             className="quiz-input"
             defaultValue={answers.email}
           />
         </QuizField>
 
-        <QuizField id="company" label="Entreprise (optionnel)">
+        <QuizField id="company" label={t("company")}>
           <input
             id="company"
             name="company"
             type="text"
             autoComplete="organization"
-            placeholder="Nom de votre société"
+            placeholder={t("companyPlaceholder")}
             className="quiz-input"
           />
         </QuizField>
 
-        <QuizField id="message" label="Précisions complémentaires (optionnel)">
+        <QuizField id="message" label={t("notes")}>
           <textarea
             id="message"
             name="message"
             rows={3}
-            placeholder="Contexte, URL existante, contraintes particulières…"
+            placeholder={t("notesPlaceholder")}
             className="quiz-input resize-none"
           />
         </QuizField>
@@ -506,14 +514,14 @@ function ContactStep({
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M19 12H5M12 19l-7-7 7-7" />
               </svg>
-              Retour
+              {t("back")}
             </button>
             <button
               type="submit"
               disabled={sending}
               className="inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-[var(--accent)] text-[var(--accent-ink)] text-[0.9375rem] font-medium hover:bg-[var(--accent-hover)] transition-colors disabled:opacity-60"
             >
-              {sending ? "Envoi en cours…" : "Transmettre ma demande"}
+              {sending ? t("submitting") : t("submit")}
               {!sending && (
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M7 17L17 7M9 7h8v8" />
@@ -523,11 +531,11 @@ function ContactStep({
           </div>
           {errorMsg && (
             <span className="font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--error)]">
-              {errorMsg === "invalid_email" && "Email invalide"}
-              {errorMsg === "invalid_name" && "Nom invalide"}
-              {errorMsg === "server_misconfigured" && "Erreur serveur"}
-              {errorMsg === "telegram_failed" && "Erreur de transmission"}
-              {!["invalid_email", "invalid_name", "server_misconfigured", "telegram_failed"].includes(errorMsg) && "Erreur · réessayez"}
+              {errorMsg === "invalid_email" && t("errorEmail")}
+              {errorMsg === "invalid_name" && t("errorName")}
+              {errorMsg === "server_misconfigured" && t("errorServer")}
+              {errorMsg === "telegram_failed" && t("errorTelegram")}
+              {!["invalid_email", "invalid_name", "server_misconfigured", "telegram_failed"].includes(errorMsg) && t("errorGeneric")}
             </span>
           )}
         </div>
@@ -597,6 +605,7 @@ function RecapLine({ label, value }: { label: string; value: string }) {
    SUMMARY STEP
    ============================================ */
 function SummaryStep({ answers }: { answers: QuizAnswers }) {
+  const t = useTranslations("quiz");
   return (
     <div className="text-center max-w-[800px] mx-auto py-8 glass p-10 lg:p-14 rounded-lg">
       <motion.div
@@ -611,17 +620,17 @@ function SummaryStep({ answers }: { answers: QuizAnswers }) {
       </motion.div>
 
       <div className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-[var(--accent)] mb-4">
-        Demande transmise
+        {t("successBadge")}
       </div>
 
       <h2 className="text-display text-[var(--text)]">
-        Nous vous recontactons sous{" "}
-        <span className="accent-serif">24 heures</span>.
+        {t("successHeadingStart")}{" "}
+        <span className="accent-serif">{t("successHeadingItalic")}</span>.
       </h2>
 
       <p className="mt-8 text-[1rem] text-[var(--text-dim)] max-w-lg mx-auto leading-relaxed">
-        {answers.name ? `Merci ${answers.name.split(" ")[0]}. ` : ""}
-        Votre demande a bien été transmise à notre équipe. Nous étudions votre projet et reviendrons vers vous sous 24 heures ouvrées.
+        {answers.name ? t("successThanks", { firstName: answers.name.split(" ")[0] }) : ""}
+        {t("successBody")}
       </p>
 
       <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
@@ -629,13 +638,13 @@ function SummaryStep({ answers }: { answers: QuizAnswers }) {
           href="/blog"
           className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass text-[var(--text)] hover:border-[var(--accent)] transition-colors text-[0.9375rem]"
         >
-          Consulter notre journal
+          {t("successBlog")}
         </Link>
         <Link
           href="/"
           className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--accent)] text-[var(--accent-ink)] hover:bg-[var(--accent-hover)] transition-colors text-[0.9375rem] font-medium"
         >
-          Retour à l'accueil
+          {t("successHome")}
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M7 17L17 7M9 7h8v8" />
           </svg>
@@ -644,6 +653,3 @@ function SummaryStep({ answers }: { answers: QuizAnswers }) {
     </div>
   );
 }
-
-// Silence unused import warning · LABELS is exported for external use
-void LABELS;

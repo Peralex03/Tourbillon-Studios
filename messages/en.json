@@ -345,7 +345,8 @@
     "explore": "Explore",
     "contact": "Contact",
     "rights": "All rights reserved.",
-    "status": "We're accepting projects this month"
+    "status": "We're accepting projects this month",
+    "privacy": "Privacy"
   },
   "blog": {
     "label": "Journal",
@@ -390,7 +391,149 @@
     "company": "Company (optional)",
     "companyPlaceholder": "Your company name",
     "notes": "Additional details (optional)",
-    "notesPlaceholder": "Context, existing URL, particular constraints…"
+    "notesPlaceholder": "Context, existing URL, particular constraints…",
+    "quit": "Quit",
+    "contactHeading": "How can we <i>reach you</i>?",
+    "submit": "Submit my request",
+    "submitting": "Sending…",
+    "errorEmail": "Invalid email",
+    "errorName": "Invalid name",
+    "errorServer": "Server error",
+    "errorTelegram": "Transmission error",
+    "errorGeneric": "Error · please try again",
+    "successBadge": "Request submitted",
+    "successHeadingStart": "We will get back to you within",
+    "successHeadingItalic": "24 hours",
+    "successThanks": "Thank you {firstName}. ",
+    "successBody": "Your request has been successfully sent to our team. We are reviewing your project and will get back to you within 24 business hours.",
+    "successBlog": "Read our journal",
+    "successHome": "Back to home",
+    "tree": {
+      "project": {
+        "eyebrow": "Project",
+        "question": "What type of project would you like to launch?",
+        "subtitle": "One selection only. You can add details in the next step.",
+        "choices": {
+          "vitrine": {
+            "label": "Showcase website",
+            "hint": "Present your business."
+          },
+          "ecommerce": {
+            "label": "E-commerce",
+            "hint": "Sell online."
+          },
+          "webapp": {
+            "label": "Web application",
+            "hint": "Bespoke platform."
+          },
+          "refonte": {
+            "label": "Redesign",
+            "hint": "Modernise an existing site."
+          }
+        }
+      },
+      "scale_ecommerce": {
+        "eyebrow": "Catalogue",
+        "question": "What is the size of your catalogue?",
+        "choices": {
+          "small": {
+            "label": "Fewer than 50 products"
+          },
+          "medium": {
+            "label": "50 to 500 products"
+          },
+          "large": {
+            "label": "500 to 5,000 products"
+          },
+          "xl": {
+            "label": "More than 5,000 products"
+          }
+        }
+      },
+      "scale_webapp": {
+        "eyebrow": "Scope",
+        "question": "What level of functional complexity?",
+        "subtitle": "An estimate is enough, we will refine it together.",
+        "choices": {
+          "auth": {
+            "label": "User accounts",
+            "hint": "Authentication, profiles."
+          },
+          "dashboard": {
+            "label": "Dashboards",
+            "hint": "Data visualisation."
+          },
+          "multi": {
+            "label": "Multi-user",
+            "hint": "Teams, roles, permissions."
+          },
+          "integrations": {
+            "label": "API integrations",
+            "hint": "Stripe, CRM, automations."
+          }
+        }
+      },
+      "speed": {
+        "eyebrow": "Timeframe",
+        "question": "When would you like to go live?",
+        "choices": {
+          "48h": {
+            "label": "Within 48 hours",
+            "hint": "Express turnaround, standard method."
+          },
+          "month": {
+            "label": "Within the month"
+          },
+          "quarter": {
+            "label": "Within the quarter"
+          },
+          "flexible": {
+            "label": "Flexible timeframe"
+          }
+        }
+      },
+      "plan": {
+        "eyebrow": "Plan",
+        "question": "What level of investment are you considering?",
+        "subtitle": "All plans are monthly, with no long-term commitment.",
+        "choices": {
+          "starter": {
+            "label": "Starter",
+            "hint": "290 CHF per month"
+          },
+          "pro": {
+            "label": "Pro",
+            "hint": "590 CHF per month"
+          },
+          "custom": {
+            "label": "Custom",
+            "hint": "From 1,490 CHF per month"
+          },
+          "explore": {
+            "label": "To be determined together",
+            "hint": "Not decided yet."
+          }
+        }
+      },
+      "size": {
+        "eyebrow": "Organisation",
+        "question": "What is the size of your company?",
+        "choices": {
+          "solo": {
+            "label": "Freelancer"
+          },
+          "small": {
+            "label": "2 to 10 employees"
+          },
+          "medium": {
+            "label": "10 to 100 employees"
+          },
+          "large": {
+            "label": "More than 100 employees"
+          }
+        }
+      }
+    }
   },
   "team": {
     "alex": {
@@ -453,5 +596,273 @@
       "challenge": "Capture the strong visual identity of the venue in a website.",
       "solution": "Editorial art direction, professional photography, multilingual IT/EN/FR. Integrated booking system. Delivered in 48 hours."
     }
+  },
+  "gallery": {
+    "videoBadge": "Video",
+    "empty": "No items in this category at the moment.",
+    "prev": "Previous",
+    "next": "Next",
+    "close": "Close",
+    "categories": {
+      "all": "All",
+      "horlogerie": "Watchmaking",
+      "automobile": "Automotive",
+      "corporate": "Corporate",
+      "architecture": "Architecture",
+      "lifestyle": "Lifestyle"
+    },
+    "items": {
+      "ysc-ferrari-360-chateau": {
+        "title": "Ferrari 360 · château",
+        "description": "Prestige automotive shoot at a private Geneva estate."
+      },
+      "gmt-master": {
+        "title": "Rolex GMT-Master",
+        "description": "Macro film of a vintage GMT-Master · direction and editing."
+      },
+      "seaoak-facade": {
+        "title": "Façade",
+        "description": "Architectural photography of an office building."
+      },
+      "swisstreasures-saumon": {
+        "title": "Patek Philippe · salmon dial",
+        "description": "Showcasing a rare piece for a Geneva dealer."
+      },
+      "ysc-ferrari-488-allee": {
+        "title": "Behind the wheel",
+        "description": "Cabin detail · Manettino and carbon steering wheel."
+      },
+      "ysc-ferrari-360-profil": {
+        "title": "Ferrari 360 · profile"
+      },
+      "ysc-ferrari-levier": {
+        "title": "Gear lever",
+        "description": "Cabin detail · manual gearbox gate."
+      },
+      "ysc-ferrari-ecusson": {
+        "title": "Badge"
+      },
+      "ysc-ferrari-portrait": {
+        "title": "The owner",
+        "description": "Environmental portrait with the car."
+      },
+      "ysc-ferrari-488-arriere": {
+        "title": "Ferrari 488 · signature"
+      },
+      "concours-elegance": {
+        "title": "Concours d'élégance",
+        "description": "Coverage of a classic car gathering."
+      },
+      "v2": {
+        "title": "Collector automobile",
+        "description": "Details and materials of an exceptional car."
+      },
+      "pp-skeleton": {
+        "title": "Rose gold skeleton watch",
+        "description": "Mechanical and material detail · studio lighting."
+      },
+      "swisstreasures": {
+        "title": "Collection presentation",
+        "description": "Vertical format for presenting exceptional pieces."
+      },
+      "seaoak-viz-horlogerie": {
+        "title": "Watchmaking workshop",
+        "description": "3D visualisation · layout of a watchmaking workshop."
+      },
+      "seaoak-viz-bureau": {
+        "title": "Executive office",
+        "description": "3D visualisation · space planning project."
+      },
+      "seaoak-viz-medical": {
+        "title": "Medical workshop",
+        "description": "3D visualisation · medical equipment workshop in operation."
+      },
+      "seaoak-open-space": {
+        "title": "Open space",
+        "description": "Workspace bathed in natural light."
+      },
+      "seaoak-bureaux-lumiere": {
+        "title": "Offices"
+      },
+      "seaoak-espace-detente": {
+        "title": "Relaxation area"
+      },
+      "seaoak-perspective": {
+        "title": "Perspective"
+      },
+      "migros": {
+        "title": "Banque Migros",
+        "description": "Thank-you video · filming, interviews and editing."
+      },
+      "century-finance": {
+        "title": "Century Finance",
+        "description": "Series of expert content for a financial adviser."
+      },
+      "century-360": {
+        "title": "Century Finance · short format",
+        "description": "Vertical, subtitled social format for social media."
+      },
+      "lattaque": {
+        "title": "Swiss Army",
+        "description": "Institutional testimonial · filming and editing."
+      },
+      "beef": {
+        "title": "Culinary art",
+        "description": "Plating in the kitchen · macro shot and warm colour grading."
+      },
+      "8oak": {
+        "title": "8 Oak",
+        "description": "Night-time atmosphere of an events restaurant."
+      },
+      "swissescape-editorial": {
+        "title": "Swiss Escape Tour",
+        "description": "Supercar tour in the Swiss Alps · editorial direction."
+      },
+      "swissescape-lineup": {
+        "title": "Line-up",
+        "description": "Ferrari, Lamborghini and Porsche against the alpine panorama."
+      },
+      "swissescape-groupe": {
+        "title": "The participants"
+      },
+      "swissescape-candid": {
+        "title": "Candid moment"
+      },
+      "swissescape-portrait": {
+        "title": "Alpine portrait"
+      },
+      "ewa-vernissage-1": {
+        "title": "Private view",
+        "description": "Event coverage in black and white."
+      },
+      "ewa-vernissage-3": {
+        "title": "Guests"
+      },
+      "ewa-vernissage-2": {
+        "title": "Exhibition evening"
+      },
+      "ewa-vernissage-4": {
+        "title": "Portrait"
+      }
+    }
+  },
+  "portfolio": {
+    "metaTitle": "Portfolio · Tourbillon Studios",
+    "metaDescription": "A selection of photo and video work · watchmaking, automotive, corporate, architecture and lifestyle in Switzerland.",
+    "eyebrow": "Portfolio",
+    "headingStart": "A selection of our",
+    "headingItalic": "work",
+    "subtitle": "Photography and video · watchmaking, corporate, lifestyle and automotive. Hover over a video for a preview, click to enlarge."
+  },
+  "privacy": {
+    "metaTitle": "Privacy policy · Tourbillon Studios",
+    "metaDescription": "How Tourbillon Studios collects, uses and protects your personal data. Compliant with the Swiss revised FADP and the European GDPR.",
+    "eyebrow": "Privacy",
+    "headingStart": "Privacy",
+    "headingItalic": "policy",
+    "intro": "Protecting your data is a priority. This page explains how we collect, use and protect it.",
+    "lastUpdate": "Last updated",
+    "lastUpdateValue": "July 2026",
+    "contactTitle": "A question about your data?",
+    "contactBody": "Write to us and we will reply as soon as possible.",
+    "sections": [
+      {
+        "title": "1. Data controller",
+        "body": [
+          "The controller of the personal data collected via this site is Tourbillon Studios, a digital studio established in Switzerland (Geneva · Lausanne · Zürich).",
+          "For any question relating to the protection of your data, you can contact us at contact@tourbillonstudios.ch."
+        ]
+      },
+      {
+        "title": "2. Data we collect",
+        "body": [
+          "We collect only the data you voluntarily provide to us, as well as technical data strictly necessary for the operation of the site:",
+          {
+            "list": [
+              "Contact data: name, email address, company and message, when you fill in the contact form or the project questionnaire.",
+              "Project information: type of project, plan considered, desired timeframe and any details you choose to share.",
+              "Technical data: IP address, browser type, pages visited, for security and anonymised audience measurement purposes."
+            ]
+          },
+          "We do not collect any sensitive data within the meaning of the law and do not carry out any automated profiling that produces legal effects concerning you."
+        ]
+      },
+      {
+        "title": "3. Purposes of processing",
+        "body": [
+          "Your data is processed for the following purposes:",
+          {
+            "list": [
+              "Responding to your requests and preparing a quote.",
+              "Managing the commercial and contractual relationship.",
+              "Improving our site and services through audience analysis.",
+              "Complying with our legal obligations."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "4. Legal basis",
+        "body": [
+          "The processing of your data is based on your consent (contact form and questionnaire), on the performance of pre-contractual and contractual measures, as well as on our legitimate interest in ensuring the security and improvement of the site.",
+          "This processing is carried out in accordance with the Swiss revised FADP (Federal Act on Data Protection, in force since 1 September 2023) and, where applicable, with the European Union's General Data Protection Regulation (GDPR)."
+        ]
+      },
+      {
+        "title": "5. Recipients and processors",
+        "body": [
+          "Your data may be transmitted to technical providers acting on our behalf, strictly within the scope of the purposes described above:",
+          {
+            "list": [
+              "Vercel Inc. · site hosting.",
+              "Telegram · internal and secure transmission of requests received via the form.",
+              "Cal.com · online appointment booking, where applicable."
+            ]
+          },
+          "These providers do not use your data for any purpose other than those for which we engage them. Some of them may process data outside Switzerland or the European Union; in that case, we ensure that appropriate safeguards are in place."
+        ]
+      },
+      {
+        "title": "6. Retention period",
+        "body": [
+          "We retain your data only for as long as necessary for the purposes pursued: for the duration of the processing of your request, then for the duration of our commercial relationship, and finally in compliance with the statutory retention periods. Once these periods have elapsed, your data is deleted or anonymised."
+        ]
+      },
+      {
+        "title": "7. Your rights",
+        "body": [
+          "In accordance with the applicable legislation, you have the following rights over your personal data at any time:",
+          {
+            "list": [
+              "Right of access and information.",
+              "Right to rectification of inaccurate data.",
+              "Right to erasure of your data.",
+              "Right to object to the processing or to request its restriction.",
+              "Right to the portability of your data."
+            ]
+          },
+          "To exercise these rights, write to us at contact@tourbillonstudios.ch. We reply as soon as possible. You may also refer the matter to the Federal Data Protection and Information Commissioner (FDPIC) in Switzerland."
+        ]
+      },
+      {
+        "title": "8. Cookies and audience measurement",
+        "body": [
+          "The site uses a minimal number of technical cookies necessary for its proper operation (light/dark theme preference, language). No personal data is sold or shared for advertising purposes.",
+          "You can configure your browser to refuse cookies. This does not affect the essential functionalities of the site."
+        ]
+      },
+      {
+        "title": "9. Security",
+        "body": [
+          "We implement appropriate technical and organisational measures to protect your data against any unauthorised access, loss or alteration: encrypted connection (HTTPS), secure hosting and restricted access to data."
+        ]
+      },
+      {
+        "title": "10. Changes",
+        "body": [
+          "This privacy policy may be updated to reflect changes in our practices or in legislation. The date of the last update appears at the top of this page."
+        ]
+      }
+    ]
   }
 }

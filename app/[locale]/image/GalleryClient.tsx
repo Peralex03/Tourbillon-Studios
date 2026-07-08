@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 import {
   GALLERY_ITEMS,
   GALLERY_CATEGORIES,
@@ -12,6 +13,7 @@ import {
 type Filter = GalleryCategory | "all";
 
 export default function GalleryClient() {
+  const t = useTranslations("gallery");
   const [filter, setFilter] = useState<Filter>("all");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
@@ -19,7 +21,7 @@ export default function GalleryClient() {
   // so the flat array used for lightbox navigation matches the visual grouping.
   const items = useMemo(() => {
     if (filter !== "all") return GALLERY_ITEMS.filter((i) => i.category === filter);
-    const order = GALLERY_CATEGORIES.filter((c) => c.id !== "all").map((c) => c.id);
+    const order = GALLERY_CATEGORIES.filter((c) => c !== "all");
     return order.flatMap((cat) =>
       GALLERY_ITEMS.filter((i) => i.category === cat)
     );
@@ -36,19 +38,19 @@ export default function GalleryClient() {
     }[] = [];
     let idx = 0;
     for (const cat of GALLERY_CATEGORIES) {
-      if (cat.id === "all") continue;
-      const catItems = items.filter((i) => i.category === cat.id);
+      if (cat === "all") continue;
+      const catItems = items.filter((i) => i.category === cat);
       if (catItems.length === 0) continue;
       out.push({
-        id: cat.id as GalleryCategory,
-        label: cat.label,
+        id: cat as GalleryCategory,
+        label: t(`categories.${cat}`),
         start: idx,
         items: catItems,
       });
       idx += catItems.length;
     }
     return out;
-  }, [filter, items]);
+  }, [filter, items, t]);
 
   const openItem = lightboxIndex !== null ? items[lightboxIndex] : null;
 
@@ -92,18 +94,18 @@ export default function GalleryClient() {
         <div className="sticky top-16 lg:top-20 z-30 py-3 mb-8">
           <div className="glass rounded-full inline-flex flex-wrap items-center gap-1 p-1.5">
             {GALLERY_CATEGORIES.map((cat) => {
-              const active = filter === cat.id;
+              const active = filter === cat;
               const count =
-                cat.id === "all"
+                cat === "all"
                   ? GALLERY_ITEMS.length
-                  : GALLERY_ITEMS.filter((i) => i.category === cat.id).length;
-              if (count === 0 && cat.id !== "all") return null;
+                  : GALLERY_ITEMS.filter((i) => i.category === cat).length;
+              if (count === 0 && cat !== "all") return null;
               return (
                 <button
-                  key={cat.id}
+                  key={cat}
                   type="button"
                   onClick={() => {
-                    setFilter(cat.id as Filter);
+                    setFilter(cat as Filter);
                     setLightboxIndex(null);
                   }}
                   className={[
@@ -113,7 +115,7 @@ export default function GalleryClient() {
                       : "text-[var(--text-dim)] hover:text-[var(--text)]",
                   ].join(" ")}
                 >
-                  {cat.label}
+                  {t(`categories.${cat}`)}
                   <span
                     className={[
                       "font-mono text-[0.6875rem]",
@@ -179,7 +181,7 @@ export default function GalleryClient() {
 
         {items.length === 0 && (
           <p className="text-center text-[var(--text-dim)] py-20">
-            Aucun élément dans cette catégorie pour le moment.
+            {t("empty")}
           </p>
         )}
       </div>
@@ -222,7 +224,7 @@ export default function GalleryClient() {
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
                     src={openItem.src}
-                    alt={`${openItem.title} · ${openItem.client}`}
+                    alt={`${t(`items.${openItem.id}.title`)} · ${openItem.client}`}
                     className="w-full h-auto max-h-[72vh] object-contain"
                   />
                 )}
@@ -235,11 +237,11 @@ export default function GalleryClient() {
                     {openItem.client} · {openItem.year}
                   </div>
                   <div className="text-[1rem] font-medium tracking-tight text-[var(--text)] truncate">
-                    {openItem.title}
+                    {t(`items.${openItem.id}.title`)}
                   </div>
-                  {openItem.description && (
+                  {t.has(`items.${openItem.id}.description`) && (
                     <p className="mt-1 text-[0.8125rem] text-[var(--text-dim)] leading-relaxed line-clamp-2">
-                      {openItem.description}
+                      {t(`items.${openItem.id}.description`)}
                     </p>
                   )}
                 </div>
@@ -247,13 +249,13 @@ export default function GalleryClient() {
                   <span className="font-mono text-[0.6875rem] text-[var(--text-faint)] tabular-nums mr-1">
                     {(lightboxIndex ?? 0) + 1}/{items.length}
                   </span>
-                  <NavButton onClick={prev} label="Précédent">
+                  <NavButton onClick={prev} label={t("prev")}>
                     <ArrowLeftIcon />
                   </NavButton>
-                  <NavButton onClick={next} label="Suivant">
+                  <NavButton onClick={next} label={t("next")}>
                     <ArrowRightIcon />
                   </NavButton>
-                  <NavButton onClick={close} label="Fermer">
+                  <NavButton onClick={close} label={t("close")}>
                     <CloseIcon />
                   </NavButton>
                 </div>
@@ -281,6 +283,8 @@ function Masonry({ children }: { children: React.ReactNode }) {
    TILE · photo or video with hover autoplay
    ============================================ */
 function Tile({ item, onOpen }: { item: GalleryItem; onOpen: () => void }) {
+  const t = useTranslations("gallery");
+  const title = t(`items.${item.id}.title`);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [loaded, setLoaded] = useState(false);
 
@@ -306,13 +310,13 @@ function Tile({ item, onOpen }: { item: GalleryItem; onOpen: () => void }) {
       onMouseLeave={onLeave}
       className="group relative w-full overflow-hidden rounded-lg text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] bg-[var(--surface-2)]"
       style={{ aspectRatio: item.aspect.replace("/", " / ") }}
-      aria-label={`${item.title} · ${item.client}`}
+      aria-label={`${title} · ${item.client}`}
     >
       {/* Poster / image */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={item.type === "video" ? item.poster : item.src}
-        alt={`${item.title} · ${item.client}`}
+        alt={`${title} · ${item.client}`}
         loading="lazy"
         onLoad={() => setLoaded(true)}
         className={[
@@ -338,7 +342,7 @@ function Tile({ item, onOpen }: { item: GalleryItem; onOpen: () => void }) {
       {item.type === "video" && (
         <span className="absolute top-3 left-3 z-10 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full glass-subtle text-white text-[0.625rem] font-mono uppercase tracking-wider">
           <PlayIcon />
-          Vidéo
+          {t("videoBadge")}
         </span>
       )}
 
@@ -348,7 +352,7 @@ function Tile({ item, onOpen }: { item: GalleryItem; onOpen: () => void }) {
           {item.client} · {item.year}
         </div>
         <div className="text-[0.9375rem] font-medium text-white tracking-tight">
-          {item.title}
+          {title}
         </div>
       </div>
     </button>

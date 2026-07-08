@@ -345,7 +345,8 @@
     "explore": "Erkunden",
     "contact": "Kontakt",
     "rights": "Alle Rechte vorbehalten.",
-    "status": "Wir nehmen diesen Monat noch Projekte an"
+    "status": "Wir nehmen diesen Monat noch Projekte an",
+    "privacy": "Datenschutz"
   },
   "blog": {
     "label": "Journal",
@@ -390,7 +391,149 @@
     "company": "Unternehmen (optional)",
     "companyPlaceholder": "Name Ihres Unternehmens",
     "notes": "Zusätzliche Angaben (optional)",
-    "notesPlaceholder": "Kontext, bestehende URL, besondere Anforderungen…"
+    "notesPlaceholder": "Kontext, bestehende URL, besondere Anforderungen…",
+    "quit": "Verlassen",
+    "contactHeading": "Wie können wir <i>Sie erreichen</i>?",
+    "submit": "Anfrage übermitteln",
+    "submitting": "Wird gesendet…",
+    "errorEmail": "Ungültige E-Mail",
+    "errorName": "Ungültiger Name",
+    "errorServer": "Serverfehler",
+    "errorTelegram": "Übermittlungsfehler",
+    "errorGeneric": "Fehler · bitte erneut versuchen",
+    "successBadge": "Anfrage übermittelt",
+    "successHeadingStart": "Wir melden uns bei Ihnen innerhalb von",
+    "successHeadingItalic": "24 Stunden",
+    "successThanks": "Danke {firstName}. ",
+    "successBody": "Ihre Anfrage wurde erfolgreich an unser Team übermittelt. Wir prüfen Ihr Projekt und melden uns innerhalb von 24 Arbeitsstunden bei Ihnen.",
+    "successBlog": "Unser Journal ansehen",
+    "successHome": "Zurück zur Startseite",
+    "tree": {
+      "project": {
+        "eyebrow": "Projekt",
+        "question": "Welche Art von Projekt möchten Sie starten?",
+        "subtitle": "Nur eine Auswahl. Sie können dies im nächsten Schritt präzisieren.",
+        "choices": {
+          "vitrine": {
+            "label": "Präsentationswebsite",
+            "hint": "Ihre Tätigkeit präsentieren."
+          },
+          "ecommerce": {
+            "label": "E-Commerce",
+            "hint": "Online verkaufen."
+          },
+          "webapp": {
+            "label": "Webanwendung",
+            "hint": "Massgeschneiderte Plattform."
+          },
+          "refonte": {
+            "label": "Neugestaltung",
+            "hint": "Eine bestehende Website modernisieren."
+          }
+        }
+      },
+      "scale_ecommerce": {
+        "eyebrow": "Katalog",
+        "question": "Wie gross ist Ihr Katalog?",
+        "choices": {
+          "small": {
+            "label": "Weniger als 50 Produkte"
+          },
+          "medium": {
+            "label": "50 bis 500 Produkte"
+          },
+          "large": {
+            "label": "500 bis 5 000 Produkte"
+          },
+          "xl": {
+            "label": "Mehr als 5 000 Produkte"
+          }
+        }
+      },
+      "scale_webapp": {
+        "eyebrow": "Umfang",
+        "question": "Welchen Grad an funktionaler Komplexität?",
+        "subtitle": "Eine Schätzung genügt, wir verfeinern das gemeinsam.",
+        "choices": {
+          "auth": {
+            "label": "Benutzerkonten",
+            "hint": "Authentifizierung, Profile."
+          },
+          "dashboard": {
+            "label": "Dashboards",
+            "hint": "Datenvisualisierung."
+          },
+          "multi": {
+            "label": "Mehrbenutzer",
+            "hint": "Teams, Rollen, Berechtigungen."
+          },
+          "integrations": {
+            "label": "API-Integrationen",
+            "hint": "Stripe, CRM, Automatisierungen."
+          }
+        }
+      },
+      "speed": {
+        "eyebrow": "Frist",
+        "question": "Bis wann möchten Sie online gehen?",
+        "choices": {
+          "48h": {
+            "label": "Innerhalb von 48 Stunden",
+            "hint": "Express-Frist, Standardmethode."
+          },
+          "month": {
+            "label": "Innerhalb eines Monats"
+          },
+          "quarter": {
+            "label": "Innerhalb des Quartals"
+          },
+          "flexible": {
+            "label": "Flexible Frist"
+          }
+        }
+      },
+      "plan": {
+        "eyebrow": "Paket",
+        "question": "Welchen Investitionsumfang planen Sie?",
+        "subtitle": "Alle Pakete sind monatlich und ohne Mindestlaufzeit.",
+        "choices": {
+          "starter": {
+            "label": "Starter",
+            "hint": "290 CHF pro Monat"
+          },
+          "pro": {
+            "label": "Pro",
+            "hint": "590 CHF pro Monat"
+          },
+          "custom": {
+            "label": "Custom",
+            "hint": "Ab 1 490 CHF pro Monat"
+          },
+          "explore": {
+            "label": "Gemeinsam zu bestimmen",
+            "hint": "Noch nicht entschieden."
+          }
+        }
+      },
+      "size": {
+        "eyebrow": "Struktur",
+        "question": "Wie gross ist Ihr Unternehmen?",
+        "choices": {
+          "solo": {
+            "label": "Selbstständig"
+          },
+          "small": {
+            "label": "2 bis 10 Mitarbeitende"
+          },
+          "medium": {
+            "label": "10 bis 100 Mitarbeitende"
+          },
+          "large": {
+            "label": "Mehr als 100 Mitarbeitende"
+          }
+        }
+      }
+    }
   },
   "team": {
     "alex": {
@@ -453,5 +596,273 @@
       "challenge": "Die starke visuelle Identität des Ortes in einer Website einfangen.",
       "solution": "Redaktionelle Art Direction, professionelle Fotografie, Mehrsprachigkeit IT/EN/FR. Integriertes Reservierungssystem. Geliefert in 48 Stunden."
     }
+  },
+  "gallery": {
+    "videoBadge": "Video",
+    "empty": "Momentan keine Elemente in dieser Kategorie.",
+    "prev": "Zurück",
+    "next": "Weiter",
+    "close": "Schliessen",
+    "categories": {
+      "all": "Alle",
+      "horlogerie": "Uhren",
+      "automobile": "Automobil",
+      "corporate": "Corporate",
+      "architecture": "Architektur",
+      "lifestyle": "Lifestyle"
+    },
+    "items": {
+      "ysc-ferrari-360-chateau": {
+        "title": "Ferrari 360 · Schloss",
+        "description": "Prestige-Automobil-Shooting auf einem privaten Anwesen bei Genf."
+      },
+      "gmt-master": {
+        "title": "Rolex GMT-Master",
+        "description": "Makrofilm einer Vintage-GMT-Master · Regie und Schnitt."
+      },
+      "seaoak-facade": {
+        "title": "Fassade",
+        "description": "Architekturfotografie eines Bürogebäudes."
+      },
+      "swisstreasures-saumon": {
+        "title": "Patek Philippe · lachsfarbenes Zifferblatt",
+        "description": "Inszenierung eines seltenen Stücks für einen Genfer Händler."
+      },
+      "ysc-ferrari-488-allee": {
+        "title": "Am Steuer",
+        "description": "Detail des Innenraums · Manettino und Karbonlenkrad."
+      },
+      "ysc-ferrari-360-profil": {
+        "title": "Ferrari 360 · Profil"
+      },
+      "ysc-ferrari-levier": {
+        "title": "Schalthebel",
+        "description": "Detail des Innenraums · Kulisse des manuellen Getriebes."
+      },
+      "ysc-ferrari-ecusson": {
+        "title": "Emblem"
+      },
+      "ysc-ferrari-portrait": {
+        "title": "Der Besitzer",
+        "description": "Umgebungsporträt mit dem Fahrzeug."
+      },
+      "ysc-ferrari-488-arriere": {
+        "title": "Ferrari 488 · Signatur"
+      },
+      "concours-elegance": {
+        "title": "Concours d'Élégance",
+        "description": "Reportage über ein Treffen von Sammlerfahrzeugen."
+      },
+      "v2": {
+        "title": "Sammlerautomobil",
+        "description": "Details und Materialien eines aussergewöhnlichen Fahrzeugs."
+      },
+      "pp-skeleton": {
+        "title": "Skelettuhr aus Roségold",
+        "description": "Mechanik- und Materialdetail · Studiobeleuchtung."
+      },
+      "swisstreasures": {
+        "title": "Kollektionspräsentation",
+        "description": "Vertikales Format für die Präsentation aussergewöhnlicher Stücke."
+      },
+      "seaoak-viz-horlogerie": {
+        "title": "Uhrmacheratelier",
+        "description": "3D-Visualisierung · Einrichtung eines Uhrmacherateliers."
+      },
+      "seaoak-viz-bureau": {
+        "title": "Direktionsbüro",
+        "description": "3D-Visualisierung · Projekt zur Raumgestaltung."
+      },
+      "seaoak-viz-medical": {
+        "title": "Medizinisches Atelier",
+        "description": "3D-Visualisierung · Atelier für Medizingeräte im Betrieb."
+      },
+      "seaoak-open-space": {
+        "title": "Open Space",
+        "description": "Arbeitsraum durchflutet von natürlichem Licht."
+      },
+      "seaoak-bureaux-lumiere": {
+        "title": "Büros"
+      },
+      "seaoak-espace-detente": {
+        "title": "Erholungsbereich"
+      },
+      "seaoak-perspective": {
+        "title": "Perspektive"
+      },
+      "migros": {
+        "title": "Banque Migros",
+        "description": "Dankesvideo · Aufnahme, Interviews und Schnitt."
+      },
+      "century-finance": {
+        "title": "Century Finance",
+        "description": "Serie von Experteninhalten für einen Finanzberater."
+      },
+      "century-360": {
+        "title": "Century Finance · Kurzformat",
+        "description": "Vertikales Social-Format mit Untertiteln für die sozialen Netzwerke."
+      },
+      "lattaque": {
+        "title": "Schweizer Armee",
+        "description": "Institutionelles Testimonial · Aufnahme und Schnitt."
+      },
+      "beef": {
+        "title": "Kochkunst",
+        "description": "Anrichten in der Küche · Makroaufnahme und warmes Colorgrading."
+      },
+      "8oak": {
+        "title": "8 Oak",
+        "description": "Nächtliche Atmosphäre eines Eventrestaurants."
+      },
+      "swissescape-editorial": {
+        "title": "Swiss Escape Tour",
+        "description": "Supercar-Tour durch die Schweizer Alpen · redaktionelle Leitung."
+      },
+      "swissescape-lineup": {
+        "title": "Aufstellung",
+        "description": "Ferrari, Lamborghini und Porsche vor dem Alpenpanorama."
+      },
+      "swissescape-groupe": {
+        "title": "Die Teilnehmenden"
+      },
+      "swissescape-candid": {
+        "title": "Unbemerkter Moment"
+      },
+      "swissescape-portrait": {
+        "title": "Alpenporträt"
+      },
+      "ewa-vernissage-1": {
+        "title": "Vernissage",
+        "description": "Eventberichterstattung in Schwarz-Weiss."
+      },
+      "ewa-vernissage-3": {
+        "title": "Gäste"
+      },
+      "ewa-vernissage-2": {
+        "title": "Ausstellungsabend"
+      },
+      "ewa-vernissage-4": {
+        "title": "Porträt"
+      }
+    }
+  },
+  "portfolio": {
+    "metaTitle": "Portfolio · Tourbillon Studios",
+    "metaDescription": "Auswahl an Foto- und Videoarbeiten · Uhren, Automobil, Corporate, Architektur und Lifestyle in der Schweiz.",
+    "eyebrow": "Portfolio",
+    "headingStart": "Eine Auswahl unserer",
+    "headingItalic": "Arbeiten",
+    "subtitle": "Fotografie und Video · Uhren, Corporate, Lifestyle und Automobil. Fahren Sie über ein Video für die Vorschau, klicken Sie für die Vergrösserung."
+  },
+  "privacy": {
+    "metaTitle": "Datenschutzerklärung · Tourbillon Studios",
+    "metaDescription": "Wie Tourbillon Studios Ihre personenbezogenen Daten erhebt, nutzt und schützt. Konform mit dem Schweizer revDSG und der europäischen DSGVO.",
+    "eyebrow": "Datenschutz",
+    "headingStart": "Datenschutz-",
+    "headingItalic": "erklärung",
+    "intro": "Der Schutz Ihrer Daten hat für uns Priorität. Diese Seite erläutert, wie wir sie erheben, nutzen und schützen.",
+    "lastUpdate": "Letzte Aktualisierung",
+    "lastUpdateValue": "Juli 2026",
+    "contactTitle": "Eine Frage zu Ihren Daten?",
+    "contactBody": "Schreiben Sie uns, wir antworten Ihnen so rasch wie möglich.",
+    "sections": [
+      {
+        "title": "1. Verantwortlicher für die Bearbeitung",
+        "body": [
+          "Verantwortlich für die Bearbeitung der über diese Website erhobenen personenbezogenen Daten ist Tourbillon Studios, ein in der Schweiz ansässiges Digitalstudio (Genf · Lausanne · Zürich).",
+          "Für alle Fragen zum Schutz Ihrer Daten können Sie uns unter der Adresse contact@tourbillonstudios.ch kontaktieren."
+        ]
+      },
+      {
+        "title": "2. Daten, die wir erheben",
+        "body": [
+          "Wir erheben ausschliesslich die Daten, die Sie uns freiwillig übermitteln, sowie technische Daten, die für den Betrieb der Website strikt notwendig sind:",
+          {
+            "list": [
+              "Kontaktdaten: Name, E-Mail-Adresse, Unternehmen und Nachricht, wenn Sie das Kontaktformular oder den Projektfragebogen ausfüllen.",
+              "Informationen zu Ihrem Projekt: Projektart, geplantes Paket, gewünschte Frist und Angaben, die Sie zu teilen wählen.",
+              "Technische Daten: IP-Adresse, Browsertyp, aufgerufene Seiten, zu Sicherheitszwecken und zur anonymisierten Reichweitenmessung."
+            ]
+          },
+          "Wir erheben keine sensiblen Daten im Sinne des Gesetzes und nehmen keine automatisierte Profilbildung vor, die rechtliche Wirkungen Ihnen gegenüber entfaltet."
+        ]
+      },
+      {
+        "title": "3. Zwecke der Bearbeitung",
+        "body": [
+          "Ihre Daten werden zu den folgenden Zwecken bearbeitet:",
+          {
+            "list": [
+              "Beantwortung Ihrer Anfragen und Erstellung eines Angebots.",
+              "Sicherstellung der Betreuung der Geschäfts- und Vertragsbeziehung.",
+              "Verbesserung unserer Website und unserer Dienstleistungen durch eine Reichweitenanalyse.",
+              "Erfüllung unserer gesetzlichen Pflichten."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "4. Rechtsgrundlage",
+        "body": [
+          "Die Bearbeitung Ihrer Daten beruht auf Ihrer Einwilligung (Kontaktformular und Fragebogen), auf der Durchführung vorvertraglicher und vertraglicher Massnahmen sowie auf unserem berechtigten Interesse an der Gewährleistung der Sicherheit und der Verbesserung der Website.",
+          "Diese Bearbeitung erfolgt in Übereinstimmung mit dem Schweizer Bundesgesetz über den Datenschutz (revDSG, in Kraft seit dem 1. September 2023) und, sofern zutreffend, mit der Datenschutz-Grundverordnung (DSGVO) der Europäischen Union."
+        ]
+      },
+      {
+        "title": "5. Empfänger und Auftragsbearbeiter",
+        "body": [
+          "Ihre Daten können an technische Dienstleister weitergegeben werden, die in unserem Auftrag handeln, ausschliesslich im Rahmen der oben beschriebenen Zwecke:",
+          {
+            "list": [
+              "Vercel Inc. · Hosting der Website.",
+              "Telegram · interne und sichere Übermittlung der über das Formular eingegangenen Anfragen.",
+              "Cal.com · Online-Terminvereinbarung, sofern zutreffend."
+            ]
+          },
+          "Diese Dienstleister nutzen Ihre Daten zu keinen anderen Zwecken als denjenigen, für die wir sie beauftragen. Einige von ihnen bearbeiten Daten möglicherweise ausserhalb der Schweiz oder der Europäischen Union; in diesem Fall sorgen wir dafür, dass angemessene Garantien vorhanden sind."
+        ]
+      },
+      {
+        "title": "6. Aufbewahrungsdauer",
+        "body": [
+          "Wir bewahren Ihre Daten nur so lange auf, wie es für die verfolgten Zwecke erforderlich ist: für die Dauer der Bearbeitung Ihrer Anfrage, danach für die Dauer unserer Geschäftsbeziehung und schliesslich unter Einhaltung der gesetzlichen Aufbewahrungsfristen. Nach Ablauf dieser Fristen werden Ihre Daten gelöscht oder anonymisiert."
+        ]
+      },
+      {
+        "title": "7. Ihre Rechte",
+        "body": [
+          "In Übereinstimmung mit der geltenden Gesetzgebung stehen Ihnen jederzeit die folgenden Rechte in Bezug auf Ihre personenbezogenen Daten zu:",
+          {
+            "list": [
+              "Recht auf Auskunft und Information.",
+              "Recht auf Berichtigung unrichtiger Daten.",
+              "Recht auf Löschung Ihrer Daten.",
+              "Recht, der Bearbeitung zu widersprechen oder deren Einschränkung zu verlangen.",
+              "Recht auf Übertragbarkeit Ihrer Daten."
+            ]
+          },
+          "Um diese Rechte auszuüben, schreiben Sie uns an contact@tourbillonstudios.ch. Wir antworten so rasch wie möglich. Sie können sich zudem an den Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) in der Schweiz wenden."
+        ]
+      },
+      {
+        "title": "8. Cookies und Reichweitenmessung",
+        "body": [
+          "Die Website verwendet eine minimale Anzahl technischer Cookies, die für ihr einwandfreies Funktionieren notwendig sind (Präferenz für helles/dunkles Design, Sprache). Es werden keine personenbezogenen Daten zu Werbezwecken verkauft oder geteilt.",
+          "Sie können Ihren Browser so einstellen, dass er Cookies ablehnt. Dies beeinträchtigt die wesentlichen Funktionen der Website nicht."
+        ]
+      },
+      {
+        "title": "9. Sicherheit",
+        "body": [
+          "Wir setzen angemessene technische und organisatorische Massnahmen um, um Ihre Daten vor unbefugtem Zugriff, Verlust oder Veränderung zu schützen: verschlüsselte Verbindung (HTTPS), sicheres Hosting und eingeschränkter Zugriff auf die Daten."
+        ]
+      },
+      {
+        "title": "10. Änderungen",
+        "body": [
+          "Diese Datenschutzerklärung kann aktualisiert werden, um der Entwicklung unserer Praktiken oder der Gesetzgebung Rechnung zu tragen. Das Datum der letzten Aktualisierung ist oben auf dieser Seite angegeben."
+        ]
+      }
+    ]
   }
 }

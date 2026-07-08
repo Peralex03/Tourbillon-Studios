@@ -64,7 +64,7 @@ export default async function SiteFooter() {
               href="/privacy"
               className="font-mono text-[0.6875rem] uppercase tracking-wider text-[var(--text-faint)] hover:text-[var(--accent)] transition-colors"
             >
-              Confidentialité
+              {t("privacy")}
             </Link>
           </div>
           <StudioStatus />
