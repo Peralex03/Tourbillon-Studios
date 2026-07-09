@@ -67,6 +67,20 @@ export async function POST(req: Request) {
 
   const text = lines.join("\n");
 
+  // Miroir vers l'app Tourbillon Leads (best-effort : ne bloque jamais le lead)
+  const ingestUrl = process.env.LEADS_INGEST_URL;
+  const ingestSecret = process.env.LEADS_INGEST_SECRET;
+  if (ingestUrl && ingestSecret) {
+    fetch(ingestUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-ingest-secret": ingestSecret,
+      },
+      body: JSON.stringify({ answers, locale, source }),
+    }).catch((err) => console.error("Leads-app mirror failed", err));
+  }
+
   try {
     const tgRes = await fetch(
       `https://api.telegram.org/bot${botToken}/sendMessage`,
