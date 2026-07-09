@@ -36,9 +36,12 @@ export async function POST(req: Request) {
 
   const botToken = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;
+  const ingestConfigured =
+    !!process.env.LEADS_INGEST_URL && !!process.env.LEADS_INGEST_SECRET;
 
-  if (!botToken || !chatId) {
-    console.error("Missing TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID");
+  // Au moins un canal doit exister ; sinon le lead serait perdu.
+  if ((!botToken || !chatId) && !ingestConfigured) {
+    console.error("No lead channel configured (Telegram + leads app missing)");
     return NextResponse.json({ error: "server_misconfigured" }, { status: 500 });
   }
 
@@ -67,43 +70,53 @@ export async function POST(req: Request) {
 
   const text = lines.join("\n");
 
-  // Miroir vers l'app Tourbillon Leads (best-effort : ne bloque jamais le lead)
-  const ingestUrl = process.env.LEADS_INGEST_URL;
-  const ingestSecret = process.env.LEADS_INGEST_SECRET;
-  if (ingestUrl && ingestSecret) {
-    fetch(ingestUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-ingest-secret": ingestSecret,
-      },
-      body: JSON.stringify({ answers, locale, source }),
-    }).catch((err) => console.error("Leads-app mirror failed", err));
-  }
-
-  try {
-    const tgRes = await fetch(
-      `https://api.telegram.org/bot${botToken}/sendMessage`,
-      {
+  // Canal 1 · app Tourbillon Leads (base de données de référence)
+  let mirrored = false;
+  if (ingestConfigured) {
+    try {
+      const res = await fetch(process.env.LEADS_INGEST_URL as string, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          chat_id: chatId,
-          text,
-          disable_web_page_preview: true,
-        }),
-      }
-    );
-
-    if (!tgRes.ok) {
-      const errBody = await tgRes.text();
-      console.error("Telegram send failed", tgRes.status, errBody);
-      return NextResponse.json({ error: "telegram_failed" }, { status: 502 });
+        headers: {
+          "Content-Type": "application/json",
+          "x-ingest-secret": process.env.LEADS_INGEST_SECRET as string,
+        },
+        body: JSON.stringify({ answers, locale, source }),
+      });
+      mirrored = res.ok;
+      if (!res.ok) console.error("Leads-app mirror failed", res.status);
+    } catch (err) {
+      console.error("Leads-app mirror error", err);
     }
-
-    return NextResponse.json({ ok: true });
-  } catch (err) {
-    console.error("Telegram fetch error", err);
-    return NextResponse.json({ error: "network_error" }, { status: 502 });
   }
+
+  // Canal 2 · Telegram (notification immédiate)
+  let telegramOk = false;
+  if (botToken && chatId) {
+    try {
+      const tgRes = await fetch(
+        `https://api.telegram.org/bot${botToken}/sendMessage`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text,
+            disable_web_page_preview: true,
+          }),
+        }
+      );
+      telegramOk = tgRes.ok;
+      if (!tgRes.ok) {
+        console.error("Telegram send failed", tgRes.status, await tgRes.text());
+      }
+    } catch (err) {
+      console.error("Telegram fetch error", err);
+    }
+  }
+
+  // Succès si le lead a atteint AU MOINS un canal.
+  if (mirrored || telegramOk) {
+    return NextResponse.json({ ok: true });
+  }
+  return NextResponse.json({ error: "telegram_failed" }, { status: 502 });
 }
